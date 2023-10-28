@@ -74,4 +74,12 @@ class DriverController extends Controller
         Auth::guard('driv')->logout();
         return redirect('/'); // Redirect to the home page or another appropriate location
     }
+    public function username()
+    {
+        return 'driver_email';
+    }
+    public function getAuthPassword()
+{
+    return $this->driver_password;
+}
 }
