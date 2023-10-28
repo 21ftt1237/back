@@ -26,7 +26,7 @@ class DrivAuthDriver extends Guard
     {
         $passwordKey = $this->getPasswordKey($credentials);
 
-        $plain = $credentials[$passwordKey];
+        $plain = $credentials['driver_password'];
 
         return $this->hasher->check($plain, $user->getAuthPassword());
     }
