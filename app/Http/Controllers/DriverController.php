@@ -56,7 +56,7 @@ class DriverController extends Controller
      */
     public function login(Request $request)
     {
-       $credentials = $request->only('driver_email', 'driver_password');
+       $credentials = $request->only('driver_email', 'password');
 
 if (Auth::guard('driv')->attempt($credentials)) {
     return redirect('/driverdash'); // Redirect to the driver's dashboard
