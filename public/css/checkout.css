@@ -1,0 +1,249 @@
+.confirmation{
+	box-sizing: border-box;
+
+
+}
+
+#order{
+	box-sizing: border-box;
+
+}
+
+.final{
+	box-sizing: border-box;
+}
+
+.confirmation img{
+	width: 100px;
+	height: 80px;
+}
+
+#order img{
+	width: 100px;
+	height: 80px;
+}
+
+
+.payment-method .cash img{
+	height: 40px;
+	width: 60px;
+}
+.confirmation .top{
+	display: flex;
+	justify-content: space-between;
+}
+
+
+#order .top{
+	display: flex;
+	justify-content: space-between;
+}
+
+.confirmation .top .item-name{
+	width: 100px; /* Adjust the width as needed */
+	height: 80px; /* Adjust the height as needed */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+/*      text-align: center; /* Horizontally center text */*/
+
+}
+
+#order .top .item-name{
+	width: 100px; /* Adjust the width as needed */
+	height: 80px; /* Adjust the height as needed */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+/*      text-align: center; /* Horizontally center text */*/
+
+}
+
+
+#order .top .item-price{
+	width: 100px; /* Adjust the width as needed */
+	height: 80px; /* Adjust the height as needed */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.confirmation .top .item-price{
+	width: 100px; /* Adjust the width as needed */
+	height: 80px; /* Adjust the height as needed */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+#order .top .item-quantity{
+	width: 100px; /* Adjust the width as needed */
+	height: 80px; /* Adjust the height as needed */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.confirmation .top .item-quantity{
+	width: 100px; /* Adjust the width as needed */
+	height: 80px; /* Adjust the height as needed */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.confirmation .item-details{
+	display: flex;
+	justify-content: space-between;
+}
+
+
+#order .item-details{
+	display: flex;
+	justify-content: space-between;
+}
+
+#cancelButton {
+  width: 50px;
+  height: 50px;
+  background-image: url('img/cancel.png');
+  cursor: pointer;
+}
+
+.checkout-panel.step-1 {
+  height: 1600px; /* Set the height you want for step 1 */
+}
+
+.checkout-panel.step-2 {
+  height: 900px; /* Set the height you want for step 2 */
+}
+
+.checkout-panel.step-3 {
+  height: 1000px; /* Set the height you want for step 3 */
+}
+
+.checkout-panel.step-4 {
+  height: 766px; /* Set the height you want for step 4 */
+}
+
+.delivery-method img{
+	height: 45px;
+	width: 45px;
+}
+
+.payment-method .method{
+   
+   
+
+}
+
+.checkout-panel{
+	margin: auto;
+}
+
+.calendar input {
+  flex: 1;
+  font-size: 16px;
+  height: 50px;
+  width: 450px;
+  padding-right: 40px;
+  padding-left: 16px;
+  color: rgba(46, 46, 46, .8);
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 4px;
+  outline: none;
+  margin-right: 10px; /* Add spacing between input fields */
+}
+
+.calendar label,
+.calendar input {
+  margin-bottom: 15px;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.calendar label{
+	color: #b4b4b4;
+}
+
+
+.final {
+   display: flex;
+  justify-content: space-between;
+}
+
+.finish,
+.finalpayment {
+  display: block;
+  justify-content: space-between;
+  
+}
+
+.finish{
+	width: 40%; 
+}
+
+.finalpayment{
+	width: 60%; 
+
+}
+
+.finaldetail{
+	height: 250px;
+	
+}
+.finaldetail #finalTotal #fee #coupon{
+	margin-left: 15px;
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+
+.rightside{
+	border: 1px solid #ccc; /* Adjust the border properties as needed */
+  padding: 20px; /* Add padding for better visual appearance */
+  height: 450px;
+}
+
+#paypal-button-container
+{
+	margin-top: 150px;
+}
+
+
+	#proceed
+{
+	margin-top: 210px;
+}
+ .proceed-button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+/*      border: 2px solid black; /* Border color */*/
+      color: black; /* Text color */
+      background-color: yellow; /* Background color */
+      border-radius: 5px; /* Border radius */
+      transition: background-color 0.3s, color 0.3s; /* Transition effect */
+      width: 270px;
+    }
+
+    /* Hover effect */
+    .proceed-button:hover {
+      background-color: yellowgreen;
+      color: black;
+    }
+
+    #map {
+            height: 400px;
+            width: 780px;
+        }
+
+    #homepage{
+    	margin-top: 150px;
+    	margin-left: 610px;
+    }
