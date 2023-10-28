@@ -54,18 +54,17 @@ class DriverController extends Controller
     /**
      * Handle driver login.
      */
-    public function login(Request $request)
-    {
-       $credentials = $request->only('driver_email', 'password');
+   public function login(Request $request)
+{
+    $credentials = $request->only('driver_email', 'driver_password');
 
-if (Auth::guard('driv')->attempt($credentials)) {
-    return redirect('/driverdash'); // Redirect to the driver's dashboard
-}
-
-
-        // Authentication failed, redirect back with errors
-        return redirect()->back()->withErrors(['error' => 'Invalid credentials']);
+    if (Auth::guard('driv')->attempt($credentials)) {
+        return redirect('/driverdash'); // Redirect to the driver's dashboard
     }
+
+    // Authentication failed, redirect back with errors
+    return redirect()->back()->withErrors(['error' => 'Invalid credentials']);
+}
 
     /**
      * Log the driver out.
