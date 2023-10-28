@@ -36,4 +36,8 @@ class Driver extends Model implements AuthenticatableContract
     {
         return 'driver_email';
     }
+    public function getAuthPassword()
+{
+    return $this->driver_password;
+}
 }
