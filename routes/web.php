@@ -29,3 +29,13 @@ Route::get('driver-login', function () {
 Route::get('driverRegis', function () {
     return view('driverRegis');
 })->name('driverRegis');
+
+Route::get('/register', [DriverController::class, 'showRegistrationForm'])->name('driver.register');
+    Route::post('/register', [DriverController::class, 'register']);
+
+    // Driver Login Routes
+    Route::get('/login', [DriverController::class, 'showLoginForm'])->name('driver.login');
+    Route::post('/login', [DriverController::class, 'login']);
+
+    // Driver Logout Route
+    Route::post('/logout', [DriverController::class, 'logout'])->name('driver.logout');
