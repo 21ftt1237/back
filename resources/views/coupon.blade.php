@@ -166,32 +166,7 @@
 </style>
 </head>
 <body>
-<header>
-  
 
-
-        <div class="navbar">
-
-           <div class="logo" ><a href="#">COUPON</a></div>
-
-            <div class="search">
-                <input type="text" placeholder="search products" id="input">
-                <ion-icon class="s" name="search"></ion-icon>
-            </div>
-
-       
-
-
-
-            <a href="{{ route('dashboard') }}" class="nav-link">HOME</a>
-            <a href="#" class="nav-link">ABOUT US</a>
-            <a href="profiletest.html" class="nav-link">MY ACCOUNT</a>
-            <a href="Help/help.html" class="nav-link-last">HELP</a>
-              <button class="btn-sign-up">SIGN UP</button>
-        </div>
-    </div>
-
-  </header>
 <div class="container">
   <div class="top-section">
   <h1>Loyalty Point Balance:{{ $loyaltyPoints }}</h1>
