@@ -61,6 +61,8 @@ class DriverController extends Controller
         'driver_email' => 'required|email',
         'driver_password' => 'required|min:6',
     ];
+
+    $request->validate($rules);
     
     $credentials = $request->only('driver_email', 'driver_password');
 
