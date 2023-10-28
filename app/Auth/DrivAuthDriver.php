@@ -30,7 +30,13 @@ class DrivAuthDriver extends Guard
 
         return $this->hasher->check($plain, $user->getAuthPassword());
     }
-     
+
+    protected function getPasswordKey(array $credentials)
+    {
+        return (Auth::getDefaultDriver() == 'driv') ? 'driver_password' : 'password';
+    }
+
+
     public function attempt(array $credentials = [], $remember = false, $login = true)
     {
         // Retrieve the driver based on the provided email
