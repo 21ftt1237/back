@@ -39,7 +39,11 @@ return [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
-        ],
+    ],
+        'driv' => [
+            'driver' => 'session',
+            'provider' => 'drivers',
+      ],
     ],
 
     /*
@@ -65,10 +69,12 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'drivers' => [ // Add a 'drivers' provider configuration here
+        'driver' => 'eloquent',
+        'model' => App\Models\Driver::class,
+        'table' => 'drivers',
+        'username' => 'driver_email',
+    ],
     ],
 
     /*
