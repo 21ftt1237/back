@@ -48,7 +48,7 @@
     
     text-align: center;
 }
-  button {
+  .butt {
             background-color: white; /* Green background color */
             color: black; /* White text color */
             padding: 10px 20px; /* Padding around text */
@@ -244,7 +244,7 @@ h3 {
         <form method="post" action="{{ route('redeemCoupon') }}">
             @csrf
             <input type="hidden" name="coupon_amount" value="200">
-            <button type="submit">Redeem $2 off</button> 
+            <button class="butt" type="submit">Redeem $2 off</button> 
         </form>
     </div>
 
@@ -255,7 +255,7 @@ h3 {
       <form method="post" action="{{ route('redeemCoupon') }}">
             @csrf
             <input type="hidden" name="coupon_amount" value="300">
-            <button type="submit">Redeem $3 off</button> 
+            <button class="butt" type="submit">Redeem $3 off</button> 
         </form>
     </div>
 
@@ -266,7 +266,7 @@ h3 {
       <form method="post" action="{{ route('redeemCoupon') }}">
             @csrf
             <input type="hidden" name="coupon_amount" value="500">
-            <button type="submit">Redeem $5 off</button>
+            <button class="butt" type="submit">Redeem $5 off</button>
         </form>
     </div>
 
