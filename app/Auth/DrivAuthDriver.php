@@ -21,6 +21,16 @@ class DrivAuthDriver extends Guard
      * @param  bool   $login
      * @return bool
      */
+
+     public function validateCredentials(UserContract $user, array $credentials)
+    {
+        $passwordKey = $this->getPasswordKey($credentials);
+
+        $plain = $credentials[$passwordKey];
+
+        return $this->hasher->check($plain, $user->getAuthPassword());
+    }
+     
     public function attempt(array $credentials = [], $remember = false, $login = true)
     {
         // Retrieve the driver based on the provided email
