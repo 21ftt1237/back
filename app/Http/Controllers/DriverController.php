@@ -56,6 +56,12 @@ class DriverController extends Controller
      */
    public function login(Request $request)
 {
+
+    $rules = [
+        'driver_email' => 'required|email',
+        'driver_password' => 'required|min:6',
+    ];
+    
     $credentials = $request->only('driver_email', 'driver_password');
 
     if (Auth::guard('driv')->attempt($credentials)) {
