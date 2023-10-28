@@ -11,6 +11,68 @@
   padding: 0;
   box-sizing: border-box;
 }*/
+ 
+.container {
+  width: 1200px;
+  height: 600px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 5px 5px 15px rgba(0.5, 0.5, 0.5, 0.5);
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+.top-section {
+  flex: 1;
+/*  border: 1px solid #000;*/
+  padding: 10px;
+  margin: 15px;
+  height: 40%;
+}
+.bottom-section {
+  height: 60%;
+  margin: 15px;
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.box {
+  width: 30%;
+  height: 100%;
+ border: 1px solid #ccc;
+ background-color: #D3D3D3;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    
+    text-align: center;
+}
+  button {
+            background-color: white; /* Green background color */
+            color: black; /* White text color */
+            padding: 10px 20px; /* Padding around text */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Cursor on hover */
+            font-size: 16px; /* Font size */
+            margin-top: 25px;
+        }
+        /* Style the button on hover */
+        button:hover {
+            background-color: yellow; /* Slightly darker green on hover */
+        }
+h3 {
+    font-size: 45px;
+  }
+  h2 {
+    font-size: 30px;
+    color: #808080;
+  }
+   h4 {
+    font-size: 18px;
+    
+  }
 
 
   /*FOOTER*/
