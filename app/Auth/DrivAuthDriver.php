@@ -1,3 +1,5 @@
+
+    
 namespace App\Auth;
 
 use Illuminate\Auth\Guard;
