@@ -1,7 +1,7 @@
 @php
     $pageName = 'Nimanja';
     $storehere = 'true';
-    $storenumber = '4';
+    $storenumber = '5';
 @endphp
 
 @include('layouts.header')
@@ -1096,7 +1096,13 @@ height: 1600px
 
 <body>
 
+ <div class="logo" id="storeName" data-value="5"><a href="#">Nimanja</a></div>
 
+
+         <div class="shopping">
+                <img src="image/shoppingCart.png">
+                <span class="quantity">0</span>
+            </div>
 
    <div class="main-section">
 
