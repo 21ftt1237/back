@@ -1115,13 +1115,13 @@ height: 1600px
 <body>
 
   
-
+<header>
 
       
 
            <div class="logo" id="storeName" data-value="1"></div>
 
-      
+</header>      
 
 
 
