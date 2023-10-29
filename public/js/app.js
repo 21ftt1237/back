@@ -28,7 +28,7 @@ let products = [
         name: 'RAZER STRIDER MOUSEPAD',
         image: 'razerstrider.png',
         price: 49,
-        desc: 'Razer Strider Hybrid Mouse Mat with a Soft Base & Smooth Glide: Firm Gliding Surface - Anti-Slip Base - Rollable & Portable - Anti-Fraying Stitched Edges - Water-Resistant - XXLarge'
+        desc: 'Razer Strider Hybrid Mouse Mat with a Soft Base & Smooth Glide: Firm Gliding Surface - Anti-Slip Base - Rollable & Portable - Anti-Fraying Stitched Edges - Water-Resistant - XLarge'
     },
     {
         id: 3,
