@@ -1117,9 +1117,11 @@ height: 1600px
   
 <header>
 
-      
+       <div class="navbar">
 
            <div class="logo" id="storeName" data-value="1"></div>
+
+        </div>   
 
 </header>      
 
