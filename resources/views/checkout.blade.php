@@ -10,7 +10,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <script src="https://www.paypal.com/sdk/js?client-id=AbfSKtq4IG8wjTV4J_w-GZw8Ld5ReBn5ZYxeE3SeC_PlRHbXgf1SyDMh5pW8nEfWzu1i7UMk0T-u9qXV"></script>
 
   <style type="text/css">
@@ -845,11 +845,8 @@ paypal.Buttons({
 var button = document.getElementById("nextBtn");
     button.disabled = false;
 
-        // Retrieve cart items from local storage
-const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-
-// The URL to which you want to send the POST request
-const apiUrl = 'http://165.22.63.170/save-cart-items'; // Replace with the actual URL
+      // Retrieve the CSRF token value from a meta tag in your HTML
+const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
 // Prepare the data to send
 const data = {
@@ -861,6 +858,7 @@ fetch(apiUrl, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
+    'X-CSRF-TOKEN': csrfToken, // Include the CSRF token in the request headers
   },
   body: JSON.stringify(data),
 })
@@ -877,6 +875,7 @@ fetch(apiUrl, {
   .catch(error => {
     console.error('Error:', error);
   });
+
         
   isPayPalTransactionComplete = true;
       // Trigger the next step of your checkout process here
