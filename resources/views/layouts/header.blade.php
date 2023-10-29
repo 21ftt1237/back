@@ -63,9 +63,12 @@
     <header>
         <div class="landing-page">
             <div class="navbar">
-               <div class="logo"><a href="#">{{ $pageName }}</a></div>
-                @if(isset($sectionContent1))
-                {!! $ShoppingCart!!}
+               <div class="logo" id="storeName" data-value="{{ $storenumber }}"><a href="#">{{ $pageName }}</a></div>
+                @if(isset($carts))
+                 <div class="shopping">
+                <img src="image/shoppingCart.png">
+                <span class="quantity">0</span>
+                </div>
                 @endif
                 <div class="wishlist">
                     <a href="{{ route('BruZoneWishlist') }}">
