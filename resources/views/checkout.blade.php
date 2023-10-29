@@ -906,19 +906,22 @@ var button = document.getElementById("nextBtn");
 updateTotalPriceAndDeliveryFee();
 
 
-    $.ajax({
-    type: "POST",
-    url: "/calculate-loyalty-points", // Replace with your actual endpoint
+   $.ajax({
+    url: '/calculate-loyalty-points',
+    method: 'POST',
     data: {
-      loyaltyPoints: loyaltyPoints
+        totalPrice: 100 // Replace with your actual total price
     },
     success: function(response) {
-      console.log(response.message); // Output success message from your Laravel controller
+        // Handle the response from the server, e.g., show a success message
+        console.log(response.message);
     },
-    error: function() {
-      console.error('An error occurred.');
+    error: function(xhr, status, error) {
+        // Handle errors, if any
+        console.error(error);
     }
-  });
+});
+
     
 
 </script>
