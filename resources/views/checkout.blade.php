@@ -892,7 +892,7 @@ var button = document.getElementById("nextBtn");
   const deliveryFee = parseFloat(localStorage.getItem('delivery')) || 0;
 
   // Calculate the final total by adding the total amount and the delivery fee
-  const finalTotal = totalAmount + deliveryFee;
+  const finalTotal = totalAmount + deliveryFee - {{ $redeemCoupon }};
 
   
   document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalTotal.toFixed(2)}`;
@@ -904,6 +904,8 @@ var button = document.getElementById("nextBtn");
 
 // Call the function to update the total price and delivery fee
 updateTotalPriceAndDeliveryFee();
+
+    
 
 </script>
 
