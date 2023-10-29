@@ -1096,7 +1096,7 @@ height: 1600px
 
 <body>
 
- <div class="logo" id="storeName" data-value="5"><a href="#">Nimanja</a></div>
+ <div class="logo" id="store" data-value="5"><a href="#">Nimanja</a></div>
 
 
          <div class="shopping">
