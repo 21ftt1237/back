@@ -905,6 +905,20 @@ var button = document.getElementById("nextBtn");
 // Call the function to update the total price and delivery fee
 updateTotalPriceAndDeliveryFee();
 
+
+    $.ajax({
+    type: "POST",
+    url: "/calculate-loyalty-points", // Replace with your actual endpoint
+    data: {
+      loyaltyPoints: loyaltyPoints
+    },
+    success: function(response) {
+      console.log(response.message); // Output success message from your Laravel controller
+    },
+    error: function() {
+      console.error('An error occurred.');
+    }
+  });
     
 
 </script>
