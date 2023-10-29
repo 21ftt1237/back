@@ -46,10 +46,7 @@
   vertical-align: top;
 }
 
- blockquote .footer{
-    display: block;
-    font-size: 80%;
-  }    
+ 
     
 /* Footer left */
 
