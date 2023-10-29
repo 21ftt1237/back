@@ -24,24 +24,6 @@
             height: 1570px;
         }
 
-
-         .section1 {
-  width: 1080px;
-/*  width: 100%;*/
-
-/*  width: 80%;*/
-  height: 720px;
-  overflow: hidden;
-  float: left;
-
-  justify-content: center;
-  align-items: center;
-  margin-top: 50px;
-  margin-left: 45px;
-  border-style: solid;
-  border-color: black;
-}
-        
         .section2, .container, .items {
             margin: 10px;
             margin-left: 45px;
