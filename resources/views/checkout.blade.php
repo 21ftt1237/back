@@ -844,6 +844,40 @@ paypal.Buttons({
       alert('Transaction completed by ' + details.payer.name.given_name);
 var button = document.getElementById("nextBtn");
     button.disabled = false;
+
+        // Retrieve cart items from local storage
+const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+// The URL to which you want to send the POST request
+const apiUrl = 'http://165.22.63.170/save-cart-items'; // Replace with the actual URL
+
+// Prepare the data to send
+const data = {
+  cartItems: storedCartItems,
+};
+
+// Create the Fetch POST request
+fetch(apiUrl, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(data),
+})
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Failed to send data to the server');
+    }
+  })
+  .then(responseData => {
+    console.log('Server response:', responseData);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+        
   isPayPalTransactionComplete = true;
       // Trigger the next step of your checkout process here
       // For example, you can call a function to proceed to the next step.
@@ -907,38 +941,7 @@ updateTotalPriceAndDeliveryFee();
 
 
 
-// Retrieve cart items from local storage
-const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-// The URL to which you want to send the POST request
-const apiUrl = 'http://165.22.63.170/save-cart-items'; // Replace with the actual URL
-
-// Prepare the data to send
-const data = {
-  cartItems: storedCartItems,
-};
-
-// Create the Fetch POST request
-fetch(apiUrl, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(data),
-})
-  .then(response => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error('Failed to send data to the server');
-    }
-  })
-  .then(responseData => {
-    console.log('Server response:', responseData);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
 
     
 
