@@ -1,5 +1,6 @@
 @php
     $pageName = 'Nimanja';
+    $storehere = 'true';
 @endphp
 @include('layouts.header')
 
