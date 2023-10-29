@@ -159,27 +159,31 @@ public function calculateLoyaltyPoints(Request $request) {
     // Get the total price from the request
     $totalPrice = $request->input('totalPrice');
 
+    // Debug to check the value of $totalPrice
+    dd($totalPrice);
+
     // Calculate loyalty points using a hypothetical function
     $loyaltyPoints = $this->calculateLoyaltyPointsForPrice($totalPrice);
 
     // Find the user (you may need to adjust this part to retrieve the user based on your authentication system)
     $user = Auth::user();
 
+    // Debug to check the user object
+    dd($user);
+
     if ($user) {
         // Add the calculated loyalty points to the user's coupon points
         $user->coupon_point += $loyaltyPoints;
-        $user->save();
-
-        return response()->json(['message' => 'Loyalty points added successfully']);
+        
+        // Debug to check if the save operation is successful
+        if ($user->save()) {
+            return response()->json(['message' => 'Loyalty points added successfully']);
+        } else {
+            return response()->json(['message' => 'Error saving user'], 500);
+        }
     }
 
     return response()->json(['message' => 'User not found'], 404);
-}
-
-private function calculateLoyaltyPointsForPrice($totalPrice) {
-    // Implement your loyalty points calculation logic here
-    // For example, you can use a formula based on the total price
-    return $totalPrice * 0.1; // This is just a simple example; adjust as needed.
 }
 
 }
