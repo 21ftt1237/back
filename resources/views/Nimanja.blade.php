@@ -1113,6 +1113,37 @@ height: 1600px
 
 
 <body>
+ <header>
+  
+
+
+        <div class="navbar">
+
+           <div class="logo" id="storeName" data-value="1"><a href="#">NETCOM (KIULAP)</a></div>
+
+          
+
+         <div class="shopping">
+                <img src="image/shoppingCart.png">
+                <span class="quantity">0</span>
+            </div>
+
+        <div class="wishlist">
+            <a href="{{ route('BruZoneWishlist') }}">
+                <img src="image/wishlist.png">
+                <span class="wishlist-quantity">0</span>
+            </a>
+        </div>
+
+            <a href="{{ route('dashboard') }}" class="nav-link">HOME</a>
+            <a href="#" class="nav-link">ABOUT US</a>
+            <a href="profiletest.html" class="nav-link">MY ACCOUNT</a>
+            <a href="Help/help.html" class="nav-link-last">HELP</a>
+              <button class="btn-sign-up">SIGN UP</button>
+        </div>
+    </div>
+
+  </header>
 
   
        
