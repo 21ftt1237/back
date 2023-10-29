@@ -105,21 +105,5 @@
             </div>
         </div>
     </header>
-    <div class="containerPage">
-
-        <div class="list">
-          
-        </div>
-    </div>
-                <div class="card">
-        <h1>Your Shopping Cart</h1>
-        <ul class="listCard">
-        </ul>
-        <div class="checkOut">
-            <a id="checkoutLink" href="{{ route('checkout') }}">
-            <div class="total">BND 0</div></a>
-            <div class="closeShopping">Close</div>
-        </div>
-    </div>
 </body>
 </html>
