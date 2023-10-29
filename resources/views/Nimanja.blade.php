@@ -1113,12 +1113,11 @@ height: 1600px
 
 
 <body>
- <header>
+ 
   
 
 
-        <div class="navbar">
-
+      
            <div class="logo" id="storeName" data-value="1"><a href="#">NETCOM (KIULAP)</a></div>
 
           
@@ -1141,9 +1140,9 @@ height: 1600px
             <a href="Help/help.html" class="nav-link-last">HELP</a>
               <button class="btn-sign-up">SIGN UP</button>
         </div>
-    </div>
+  
 
-  </header>
+
 
   
        
