@@ -1144,5 +1144,16 @@ height: 1600px
         </div>
       </div>
     </footer>
+    <script>
+         // footer
+ window.addEventListener("scroll", function () {
+  var footer = document.querySelector(".footer-distributed");
+  if (window.pageYOffset > 100) {
+    footer.style.bottom = "10"; /* Show the footer */
+  } else {
+    footer.style.bottom = "-100px"; /* Hide the footer */
+  }
+});
+    </script>
 </body>
 </html>
