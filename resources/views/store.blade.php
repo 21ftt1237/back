@@ -6,26 +6,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sample HTML Page</title>
+    <title>Product List</title>
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
-    <p>This is a sample HTML page.</p>
+    <h1>Product List</h1>
 
-    <h2>About Me</h2>
-    <p>Hello, I'm John Doe. I enjoy creating web pages.</p>
+    <div class="product-list">
+        @php
+            $count = 0;
+        @endphp
 
-    <h2>My Interests</h2>
-    <ul>
-        <li>Web Development</li>
-        <li>Programming</li>
-        <li>Design</li>
-    </ul>
+        @foreach ($products as $product)
+            @if ($count % 4 == 0)
+                <div class="product-row">
+            @endif
 
-    <h2>Contact Information</h2>
-    <p>Email: john.doe@example.com</p>
+            <div class="product">
+                <img src="{{ $product->image_link }}" alt="{{ $product->name }}">
+                <h2>{{ $product->name }}</h2>
+                <p>Store ID: {{ $product->store_id }}</p>
+                <p>Price: ${{ $product->price }}</p>
+            </div>
+
+            @if ($count % 4 == 3)
+                </div>
+            @endif
+
+            @php
+                $count++;
+            @endphp
+        @endforeach
+
+        {{-- Close any open row --}}
+        @if ($count % 4 !== 0)
+            </div>
+        @endif
+    </div>
 
 </body>
 </html>
-
 @include('layouts.footer')
