@@ -17,12 +17,19 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
-
 Route::get('netcom', function () {
     return view('netcom');
 })->name('netcom');
+
+//Route::get('uLogin', function () {
+  //  return view('login.uLogin');
+//})->name('uLogin');
+
+//Route::get('sign_up', function () {
+ //   return view('login.sign_up');
+//})->name('sign_up');
 
 Route::get('order', function () {
     return view('My order.order');
@@ -44,6 +51,10 @@ Route::get('avenue', function () {
     return view('avenue');
 })->name('avenue');
 
+Route::get('des', function () {
+    return view('des');
+})->name('des');
+
 Route::get('Nimanja', function () {
     return view('Nimanja');
 })->name('Nimanja');
@@ -51,10 +62,6 @@ Route::get('Nimanja', function () {
 Route::get('digital', function () {
     return view('digital');
 })->name('digital');
-
-Route::get('store', function () {
-    return view('store');
-})->name('store');
 
 Route::get('BruZoneWishlist', function () {
     return view('Wishlist.BruZoneWishlist'); 
@@ -72,9 +79,25 @@ Route::get('storePlatform-SO', function () {
     return view('storePlatform-SO'); 
 })->name('storePlatform-SO');
 
+Route::get('AdminOrderHistory', function () {
+    return view('AdminOrderHistory'); 
+})->name('AdminOrderHistory');
+
+Route::get('ChatboxAdmin', function () {
+    return view('ChatboxAdmin'); 
+})->name('ChatboxAdmin');
+
+Route::get('BruZoneChatbox', function () {
+    return view('Chatbox.BruZoneChatbox'); 
+})->name('BruZoneChatbox');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('chat', function () {
+    return view('chat');
+})->name('chat');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
