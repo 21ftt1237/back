@@ -1132,11 +1132,7 @@ height: 1600px
                 <span class="quantity">0</span>
             </div>
 
-        <div class="wishlist">
-            <a href="{{ route('BruZoneWishlist') }}">
-                <img src="image/wishlist.png">
-                <span class="wishlist-quantity">0</span>
-            </a>
+       
         </div>
         </div>
    
