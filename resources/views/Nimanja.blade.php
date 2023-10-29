@@ -3,7 +3,7 @@
     $storehere = 'true';
     $storenumber = '4';
 @endphp
-@include('layouts.header')
+
 
 <!DOCTYPE html>
 <html>
