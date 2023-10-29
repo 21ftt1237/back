@@ -169,11 +169,11 @@
         <h3>Bru<span>zone</span></h3>
 
         <p class="footer-links">
-          <a href="dashboard.html" class="link">HOME</a>
+          <a href="{{ route('dashboard') }}" class="link">HOME</a>
 
           <a href="#" class="link">ABOUT US</a>
 
-          <a href="profiletest.html" class="link">MY ACCOUNT</a>
+          <a href="{{ route('profilev') }}" class="link">MY ACCOUNT</a>
 
           <a href="" class="link">HELP</a>
 
