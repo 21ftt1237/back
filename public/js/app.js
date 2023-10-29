@@ -501,27 +501,69 @@ function toggleFavorite(key) {
 function addToWishlist(key) {   
     if(dataValue==1){
         const selectedItem = products[key];
-    }else if(dataValue==2){
-        const selectedItem = digitalProducts[key];
-    }else if(dataValue==3){
-        const selectedItem = gameCentralProducts[key];
-    }else if(dataValue==4){
-        const selectedItem = avenueProducts[key];
-    }else if(dataValue==5){
-        const selectedItem = deliProducts[key];
-    }else if(dataValue==6){
-        const selectedItem = guardianProducts[key];
-    }else if(dataValue==7){
-        const selectedItem = nimanjaProducts[key];
-    }
-    
-    // const selectedItem = products[key];
-    const wishlistItems = JSON.parse(localStorage.getItem('wishlistItems')) || [];
+         const wishlistItems = JSON.parse(localStorage.getItem('wishlistItems')) || [];
 
     if (!wishlistItems.some(item => item.id === selectedItem.id)) {
         wishlistItems.push(selectedItem);
         localStorage.setItem('wishlistItems', JSON.stringify(wishlistItems));
     }
+    }else if(dataValue==2){
+        const selectedItem = digitalProducts[key];
+         const wishlistItems = JSON.parse(localStorage.getItem('wishlistItems')) || [];
+
+    if (!wishlistItems.some(item => item.id === selectedItem.id)) {
+        wishlistItems.push(selectedItem);
+        localStorage.setItem('wishlistItems', JSON.stringify(wishlistItems));
+    }
+    }else if(dataValue==3){
+        const selectedItem = gameCentralProducts[key];
+         const wishlistItems = JSON.parse(localStorage.getItem('wishlistItems')) || [];
+
+    if (!wishlistItems.some(item => item.id === selectedItem.id)) {
+        wishlistItems.push(selectedItem);
+        localStorage.setItem('wishlistItems', JSON.stringify(wishlistItems));
+    }
+    }else if(dataValue==4){
+        const selectedItem = avenueProducts[key];
+         const wishlistItems = JSON.parse(localStorage.getItem('wishlistItems')) || [];
+
+    if (!wishlistItems.some(item => item.id === selectedItem.id)) {
+        wishlistItems.push(selectedItem);
+        localStorage.setItem('wishlistItems', JSON.stringify(wishlistItems));
+    }
+    }else if(dataValue==5){
+        const selectedItem = deliProducts[key];
+         const wishlistItems = JSON.parse(localStorage.getItem('wishlistItems')) || [];
+
+    if (!wishlistItems.some(item => item.id === selectedItem.id)) {
+        wishlistItems.push(selectedItem);
+        localStorage.setItem('wishlistItems', JSON.stringify(wishlistItems));
+    }
+    }else if(dataValue==6){
+        const selectedItem = guardianProducts[key];
+         const wishlistItems = JSON.parse(localStorage.getItem('wishlistItems')) || [];
+
+    if (!wishlistItems.some(item => item.id === selectedItem.id)) {
+        wishlistItems.push(selectedItem);
+        localStorage.setItem('wishlistItems', JSON.stringify(wishlistItems));
+    }
+    }else if(dataValue==7){
+        const selectedItem = nimanjaProducts[key];
+         const wishlistItems = JSON.parse(localStorage.getItem('wishlistItems')) || [];
+
+    if (!wishlistItems.some(item => item.id === selectedItem.id)) {
+        wishlistItems.push(selectedItem);
+        localStorage.setItem('wishlistItems', JSON.stringify(wishlistItems));
+    }
+    }
+    
+    // const selectedItem = products[key];
+    // const wishlistItems = JSON.parse(localStorage.getItem('wishlistItems')) || [];
+
+    // if (!wishlistItems.some(item => item.id === selectedItem.id)) {
+    //     wishlistItems.push(selectedItem);
+    //     localStorage.setItem('wishlistItems', JSON.stringify(wishlistItems));
+    // }
 }
 
 // Function to remove an item from the wishlist
