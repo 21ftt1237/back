@@ -557,36 +557,7 @@ $('.next-btn').on('click', function(e) {
 
 $('#proceedBtn').on('click', function() {
 
-    // Retrieve the CSRF token value from a meta tag in your HTML
-const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-// Prepare the data to send
-const data = {
-  cartItems: storedCartItems,
-};
-
-// Create the Fetch POST request
-fetch(apiUrl, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'X-CSRF-TOKEN': csrfToken, // Include the CSRF token in the request headers
-  },
-  body: JSON.stringify(data),
-})
-  .then(response => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error('Failed to send data to the server');
-    }
-  })
-  .then(responseData => {
-    console.log('Server response:', responseData);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
 
     
     localStorage.removeItem('cartItems');
@@ -877,9 +848,39 @@ paypal.Buttons({
 var button = document.getElementById("nextBtn");
     button.disabled = false;
 
-      
+    // Retrieve the CSRF token value from a meta tag in your HTML
+const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+// Prepare the data to send
+const data = {
+  cartItems: storedCartItems,
+};
+
+// Create the Fetch POST request
+fetch(apiUrl, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'X-CSRF-TOKEN': csrfToken, // Include the CSRF token in the request headers
+  },
+  body: JSON.stringify(data),
+})
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Failed to send data to the server');
+    }
+  })
+  .then(responseData => {
+    console.log('Server response:', responseData);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });      
         
   isPayPalTransactionComplete = true;
+        
       // Trigger the next step of your checkout process here
       // For example, you can call a function to proceed to the next step.
       // proceedToNextStep();
