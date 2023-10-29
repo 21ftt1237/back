@@ -1,3 +1,8 @@
+@php
+    $pageName = 'Nimanja';
+@endphp
+@include('layouts.header')
+
 <!DOCTYPE html>
 <html>
 <head>
