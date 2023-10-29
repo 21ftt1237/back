@@ -1,3 +1,11 @@
+@php
+$ShoppingCart = '
+    <div class="shopping">
+        <img src="image/shoppingCart.png">
+        <span class="quantity">0</span>
+    </div>';
+@endphp
+
 <!DOCTYPE html>
 <html>
 <head>
