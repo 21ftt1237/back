@@ -5,7 +5,7 @@ $ShoppingCart = '
         <span class="quantity">0</span>
     </div>';
 
-$pageName = 'Bruzone';
+$pageName = 'Nimanja';
 
 @endphp
 
