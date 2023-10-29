@@ -9,6 +9,7 @@ class CartController extends Controller
 {
     public function saveCartItems(Request $request)
     {
+        \Log::info($request->all());
         // Validate the incoming request data
         $request->validate([
             'cartItems' => 'required|array',
