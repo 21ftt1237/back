@@ -498,8 +498,24 @@ function toggleFavorite(key) {
 }
 
 // Function to add an item to the wishlist
-function addToWishlist(key) {    
-    const selectedItem = products[key];
+function addToWishlist(key) {   
+    if(dataValue==1){
+        const selectedItem = products[key];
+    }else if(dataValue==2){
+        const selectedItem = digitalProducts[key];
+    }else if(dataValue==3){
+        const selectedItem = gameCentralProducts[key];
+    }else if(dataValue==4){
+        const selectedItem = avenueProducts[key];
+    }else if(dataValue==5){
+        const selectedItem = deliProducts[key];
+    }else if(dataValue==6){
+        const selectedItem = guardianProducts[key];
+    }else if(dataValue==7){
+        const selectedItem = nimanjaProducts[key];
+    }
+    
+    // const selectedItem = products[key];
     const wishlistItems = JSON.parse(localStorage.getItem('wishlistItems')) || [];
 
     if (!wishlistItems.some(item => item.id === selectedItem.id)) {
@@ -510,7 +526,21 @@ function addToWishlist(key) {
 
 // Function to remove an item from the wishlist
 function removeItemFromWishlist(key) {
-    const selectedItem = products[key];
+    if(dataValue==1){
+        const selectedItem = products[key];
+    }else if(dataValue==2){
+        const selectedItem = digitalProducts[key];
+    }else if(dataValue==3){
+        const selectedItem = gameCentralProducts[key];
+    }else if(dataValue==4){
+        const selectedItem = avenueProducts[key];
+    }else if(dataValue==5){
+        const selectedItem = deliProducts[key];
+    }else if(dataValue==6){
+        const selectedItem = guardianProducts[key];
+    }else if(dataValue==7){
+        const selectedItem = nimanjaProducts[key];
+    }
     const wishlistItems = JSON.parse(localStorage.getItem('wishlistItems')) || [];
     const updatedWishlist = wishlistItems.filter(item => item.id !== selectedItem.id);
     localStorage.setItem('wishlistItems', JSON.stringify(updatedWishlist));
