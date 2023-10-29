@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -96,5 +98,7 @@ Route::post('/redeem-coupon', [ProfileController::class, 'redeemCoupon'])->name(
 Route::post('profilev', [ProfileController::class, 'profupdate'])->name('updateProfile');
 
 Route::get('coupon', [ProfileController::class, 'showLoyal'])->name('coupon');
+
+Route::get('/products', [ProductController::class, 'index']);
 
 require __DIR__.'/auth.php';
