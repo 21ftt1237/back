@@ -155,7 +155,26 @@ public function profupdate(Request $request)
     // Handle the case when the user is not authenticated
     return redirect('/login');
 }
+public function calculateLoyaltyPoints(Request $request) {
+    // Get the total price from the request
+    $totalPrice = $request->input('totalPrice');
 
+    // Calculate loyalty points (assuming you have a JavaScript function to call here)
+    $loyaltyPoints = calculateLoyaltyPoints($totalPrice);
+
+    // Find the user (you may need to adjust this part to retrieve the user based on your authentication system)
+    $user = Auth::user();
+
+    if ($user) {
+        // Add the calculated loyalty points to the user's coupon points
+        $user->coupon_point += $loyaltyPoints;
+        $user->save();
+
+        return response()->json(['message' => 'Loyalty points added successfully']);
+    }
+
+    return response()->json(['message' => 'User not found'], 404);
+}
 }
     
 
