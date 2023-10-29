@@ -159,8 +159,8 @@ public function calculateLoyaltyPoints(Request $request) {
     // Get the total price from the request
     $totalPrice = $request->input('totalPrice');
 
-    // Calculate loyalty points (assuming you have a JavaScript function to call here)
-    $loyaltyPoints = calculateLoyaltyPoints($totalPrice);
+    // Calculate loyalty points using a hypothetical function
+    $loyaltyPoints = $this->calculateLoyaltyPointsForPrice($totalPrice);
 
     // Find the user (you may need to adjust this part to retrieve the user based on your authentication system)
     $user = Auth::user();
@@ -175,6 +175,13 @@ public function calculateLoyaltyPoints(Request $request) {
 
     return response()->json(['message' => 'User not found'], 404);
 }
+
+private function calculateLoyaltyPointsForPrice($totalPrice) {
+    // Implement your loyalty points calculation logic here
+    // For example, you can use a formula based on the total price
+    return $totalPrice * 0.1; // This is just a simple example; adjust as needed.
+}
+
 }
     
 
