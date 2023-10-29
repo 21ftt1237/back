@@ -4,7 +4,7 @@ $carts = true;
 $storenumber = 3;
 $storehere = true;
 @endphp
-
+@include('layouts.header')
 
 <!DOCTYPE html>
 <html>
