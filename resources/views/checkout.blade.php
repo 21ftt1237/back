@@ -421,7 +421,7 @@ input[type='password']:focus {
         <div class="rightside">
       <h4><div id="finalTotal"></div>  </h4>
      <div id="fee"><h4>Delivery Fee: BND 5</div>  
-     <div id="coupon"><h4>Coupon: {{ auth()->user()->redeem_coupon}}</div>  
+     <div id="coupon"><h4>Coupon: ${{ auth()->user()->redeem_coupon}} off</div>  
 
     <div id="pay"><h4>Final Total: </div>  
     <div id="paypal-button-container"></div>
