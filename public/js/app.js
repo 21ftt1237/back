@@ -6,7 +6,7 @@ let body = document.querySelector('body');
 let total = document.querySelector('.total');
 let quantity = document.querySelector('.quantity');
 var store = document.getElementById("storeName");
-var dataValue = storeName.getAttribute("data-value");
+var dataValue = store.getAttribute("data-value");
 
 openShopping.addEventListener('click', ()=>{
     body.classList.add('active');
