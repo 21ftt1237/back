@@ -910,32 +910,38 @@ updateTotalPriceAndDeliveryFee();
 // Retrieve cart items from local storage
 const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-// Define the URL of your Laravel endpoint
-const apiUrl = 'http://165.22.63.170/save-cart-items';
+// The URL to which you want to send the POST request
+const apiUrl = 'http://165.22.63.170/save-cart-items'; // Replace with the actual URL
 
-// Create a POST request to send cart items
+// The data you want to send in the POST request
+const data = {
+  cartItems: [ /* your cart items data here */ ]
+};
+
+// Create the Fetch POST request
 fetch(apiUrl, {
-  method: 'POST',
+  method: 'POST', // Specify the HTTP method as POST
   headers: {
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/json', // Set the content type to JSON
+    // You may need to include additional headers here if required
   },
-  body: JSON.stringify({ cartItems }),
+  body: JSON.stringify(data) // Convert your data to a JSON string
 })
-  .then((response) => {
+  .then(response => {
     if (response.ok) {
-      // Request was successful
-      return response.json();
+      // The request was successful, you can process the response if needed
+      return response.json(); // Parse the response as JSON
     } else {
-      // Handle error
-      throw new Error('Failed to send cart items to the server.');
+      // Handle the error
+      throw new Error('Failed to send data to the server');
     }
   })
-  .then((data) => {
-    // Handle the response from the server, if needed
+  .then(data => {
+    // Process the response data here
     console.log(data);
   })
-  .catch((error) => {
-    // Handle any errors
+  .catch(error => {
+    // Handle any errors that occurred during the fetch
     console.error(error);
   });
 
