@@ -906,21 +906,27 @@ var button = document.getElementById("nextBtn");
 updateTotalPriceAndDeliveryFee();
 
 
-   $.ajax({
-    url: '/calculate-loyalty-points',
-    method: 'POST',
-    data: {
-        totalPrice: 100 // Replace with your actual total price
-    },
-    success: function(response) {
-        // Handle the response from the server, e.g., show a success message
-        console.log(response.message);
-    },
-    error: function(xhr, status, error) {
-        // Handle errors, if any
-        console.error(error);
+  $.ajax({
+  url: '/fetch-total-price', // Replace with the actual URL to your server endpoint
+  method: 'GET', // Use the appropriate HTTP method (GET or POST)
+  dataType: 'json', // Specify the expected data type
+  success: function(response) {
+    // Handle the response from the server
+    if (response.success) {
+      const totalPrice = response.totalPrice; // Assuming the server sends the total price in the response
+      // Now you can use totalPrice for your calculations or display it on your page
+      console.log('Total Price:', totalPrice);
+    } else {
+      // Handle the case where the request was successful but the response indicates an error
+      console.error('Error:', response.message);
     }
+  },
+  error: function(xhr, status, error) {
+    // Handle errors, if any
+    console.error('AJAX Error:', error);
+  }
 });
+
 
     
 
