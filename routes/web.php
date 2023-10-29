@@ -99,6 +99,6 @@ Route::post('profilev', [ProfileController::class, 'profupdate'])->name('updateP
 
 Route::get('coupon', [ProfileController::class, 'showLoyal'])->name('coupon');
 
-Route::get('/products', [ProductController::class, 'index']);
+Route::get('store', [ProductController::class, 'index']);
 
 require __DIR__.'/auth.php';
