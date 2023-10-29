@@ -1458,49 +1458,7 @@ function addReview(review) {
 
 
   </section>
-  <footer class="footer-distributed">
 
-      <div class="footer-left">
-
-        <h3>Bru<span>zone</span></h3>
-
-        <p class="footer-links">
-          <a href="{{ route('profilev') }}" class="link">HOME</a>
-          
-          <a href="#" class="link">ABOUT US</a>
-        
-          <a href="profiletest.html" class="link">MY ACCOUNT</a>
-          
-          <a href="Help/help.html" class="link">HELP</a>
-          
-        </p>
-
-        <p class="footer-company-name">Bruzone © 2023</p>
-      </div>
-
-
-      <div class="footer-right">
-
-        <p class="footer-company-about">
-          <span></span>
-          Life is short, so why not buy more.
-        </p>
-
-        <div class="footer-icons">
-
-          <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-          <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
-          <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
-          <a href="#"><ion-icon name="mail"></ion-icon></a>
-          <a href="#"><i class="fab fa-paypal fa-2x"></i></a>
-
-
-
-        </div>
-
-      </div>
-
-    </footer>
   <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
   <script src="./ecommerce.js"></script>
 <script>
@@ -1532,3 +1490,4 @@ if (storeId !== parseVal) {
 </body>
 
 </html>
+@include('layouts.footer')
