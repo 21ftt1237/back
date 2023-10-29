@@ -1,10 +1,9 @@
 @php
-
-
 $pageName = 'Nimanja';
-
+$carts = true;
+$storenumber = 3;
 @endphp
-
+@include('layouts.header')
 
 <!DOCTYPE html>
 <html>
@@ -1115,24 +1114,10 @@ height: 1600px
 <body>
 
   
- 
-
-
-        <div class="navbar">
-
-           <div class="logo" id="storeName" data-value="3"><a href="#">NETCOM (KIULAP)</a></div>
-
-              <div class="shopping">
-                <img src="image/shoppingCart.png">
-                <span class="quantity">0</span>
-            </div>
-            
-        </div>
        
 
        
-        </div>
-
+      
    <div class="main-section">
 
 <div class="container">
