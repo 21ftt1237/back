@@ -145,13 +145,6 @@
   <section>
     <div class="section">
       <div class="section1">
-        <div class="img-slider">
-          <img src="image/razerstrider.png" alt="" class="img">
-          <img src="image/g203.png" alt="" class="img">
-          <img src="image/anker.png" alt="" class="img">
-          <img src="image/razerkraken.png" alt="" class="img">
-          <img src="image/corsairstand.png" alt="" class="img">
-        </div>
         <div class="section2">
             <div class="container">
                 <div class="containerPage">
