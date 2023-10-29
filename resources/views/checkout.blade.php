@@ -911,7 +911,7 @@ updateTotalPriceAndDeliveryFee();
 const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
 // Define the URL of your Laravel endpoint
-const apiUrl = 'https://your-laravel-api.com/save-cart-items';
+const apiUrl = 'http://165.22.63.170/save-cart-items';
 
 // Create a POST request to send cart items
 fetch(apiUrl, {
