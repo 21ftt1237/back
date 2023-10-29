@@ -892,7 +892,7 @@ var button = document.getElementById("nextBtn");
   const deliveryFee = parseFloat(localStorage.getItem('delivery')) || 0;
 
   // Calculate the final total by adding the total amount and the delivery fee
-  const finalTotal = totalAmount + deliveryFee - {{ $redeemCoupon }};
+  const finalTotal = totalAmount + deliveryFee - {{ auth()->user()->redeem_coupon }};
 
   
   document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalTotal.toFixed(2)}`;
