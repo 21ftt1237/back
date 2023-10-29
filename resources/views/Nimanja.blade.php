@@ -1145,7 +1145,7 @@ height: 1600px
             <a href="Help/help.html" class="nav-link-last">HELP</a>
               <button class="btn-sign-up">SIGN UP</button>
         </div>
-    </div>
+   
 
   
 
