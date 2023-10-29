@@ -1,3 +1,12 @@
+@php
+    $pageName = 'Nimanja';
+    $storehere = 'true';
+    $storenumber = '5';
+    $carts = 'true';
+@endphp
+
+@include('layouts.header')
+
 <!DOCTYPE html>
 <html>
 <head>
