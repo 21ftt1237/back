@@ -154,7 +154,7 @@ let avenueProducts = [
     {
         id: 1,
         name: 'STAR VIXEN WOMEN',
-        image: 'vixen.jpg',
+        image: 'vixen.png',
         price: 35,
         desc: 'Star Vixen Womens Petite Short Sleeve Classic Tiefront RayonSpandex Knit Top'
     },
