@@ -58,7 +58,6 @@
   }</style>
 </head>
 <body>
-      <script src="{{ asset('js/app.js') }}">
     </script>
     <header>
         <div class="landing-page">
