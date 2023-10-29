@@ -1,5 +1,6 @@
 @php
     $pageName = 'store';
+    $store = 'netcom';
 @endphp
 @include('layouts.header')
 <!DOCTYPE html>
