@@ -156,11 +156,13 @@ public function profupdate(Request $request)
     return redirect('/login');
 }
 public function calculateLoyaltyPoints(Request $request) {
+    // Validate the request data
+    $request->validate([
+        'totalPrice' => 'required|numeric',
+    ]);
+
     // Get the total price from the request
     $totalPrice = $request->input('totalPrice');
-
-    // Debug to check the value of $totalPrice
-    dd($totalPrice);
 
     // Calculate loyalty points using a hypothetical function
     $loyaltyPoints = $this->calculateLoyaltyPointsForPrice($totalPrice);
@@ -168,22 +170,22 @@ public function calculateLoyaltyPoints(Request $request) {
     // Find the user (you may need to adjust this part to retrieve the user based on your authentication system)
     $user = Auth::user();
 
-    // Debug to check the user object
-    dd($user);
-
-    if ($user) {
-        // Add the calculated loyalty points to the user's coupon points
-        $user->coupon_point += $loyaltyPoints;
-        
-        // Debug to check if the save operation is successful
-        if ($user->save()) {
-            return response()->json(['message' => 'Loyalty points added successfully']);
-        } else {
-            return response()->json(['message' => 'Error saving user'], 500);
-        }
+    if (!$user) {
+        return response()->json(['message' => 'User not found'], 404);
     }
 
-    return response()->json(['message' => 'User not found'], 404);
+    // Use a database transaction to ensure data consistency
+    DB::transaction(function () use ($user, $loyaltyPoints) {
+        // Add the calculated loyalty points to the user's coupon points
+        $user->coupon_points += $loyaltyPoints;
+
+        // Save the user
+        $user->save();
+
+        return response()->json(['message' => 'Loyalty points added successfully']);
+    });
+
+    return response()->json(['message' => 'Error adding loyalty points'], 500);
 }
 
 }
