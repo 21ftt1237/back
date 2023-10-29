@@ -124,6 +124,7 @@ Route::get('coupon', [ProfileController::class, 'showLoyal'])->name('coupon');
 
 Route::get('store', [ProductController::class, 'index']);
 
-Route::post('/calculate-loyalty-points', [ProfileController::class, 'calculateLoyaltyPoints'])->name('calculateLoyaltyPoints');
+
+Route::post('/save-cart-items', 'CartController@saveCartItems');
 
 require __DIR__.'/auth.php';
