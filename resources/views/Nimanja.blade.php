@@ -1126,7 +1126,7 @@ height: 1600px
                 <input type="text" placeholder="search products" id="input">
                 <ion-icon class="s" name="search"></ion-icon>
             </div>
-
+        </div>
        
 
        
