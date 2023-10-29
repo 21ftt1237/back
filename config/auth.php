@@ -74,7 +74,11 @@ return [
         'model' => App\Models\Driver::class,
         'table' => 'drivers',
         'username' => 'driver_email',
-    ],
+    ],   
+         'cart_items' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\cart_items::class,
+        ],
     ],
 
     /*
