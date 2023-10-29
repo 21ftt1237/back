@@ -1113,28 +1113,7 @@ height: 1600px
 
 
 <body>
-      <header>
-  
-
-
-        <div class="navbar">
-
-           <div class="logo" id="storeName" data-value="7"><a href="#">NIMANJA (KIULAP)</a></div>
-
-          
-         <div class="shopping">
-                <img src="image/shoppingCart.png">
-                <span class="quantity">0</span>
-            </div>
-
-     
-
-
-         
-    </div>
-
-  </header>
-
+    
 
    <div class="main-section">
 
