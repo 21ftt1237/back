@@ -5,7 +5,6 @@
     $carts = 'true';
 @endphp
 
-@include('layouts.header')
 
 <!DOCTYPE html>
 <html>
