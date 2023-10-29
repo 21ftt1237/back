@@ -1127,19 +1127,10 @@ height: 1600px
                 <ion-icon class="s" name="search"></ion-icon>
             </div>
 
-         <div class="shopping">
-                <img src="image/shoppingCart.png">
-                <span class="quantity">0</span>
-            </div>
+       
 
        
         </div>
-        </div>
-   
-
-  
-
-
 
    <div class="main-section">
 
