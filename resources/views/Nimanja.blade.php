@@ -6,6 +6,8 @@ $ShoppingCart = '
     </div>';
 @endphp
 
+@include('layouts.header')
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -1113,42 +1115,7 @@ height: 1600px
 
 
 <body>
-      <header>
-  
 
-
-        <div class="navbar">
-
-           <div class="logo" id="storeName" data-value="7"><a href="#">NIMANJA (KIULAP)</a></div>
-
-            <div class="search">
-                <input type="text" placeholder="search products" id="input">
-                <ion-icon class="s" name="search"></ion-icon>
-            </div>
-
-         <div class="shopping">
-                <img src="image/shoppingCart.png">
-                <span class="quantity">0</span>
-            </div>
-
-          <div class="wishlist">
-           <a href="{{ route('BruZoneWishlist') }}">
-                <img src="image/wishlist.png">
-                <span class="wishlist-quantity">0</span>
-            </a>
-        </div>
-
-
-
-            <a href="{{ route('dashboard') }}" class="nav-link">HOME</a>
-            <a href="#" class="nav-link">ABOUT US</a>
-            <a href="profiletest.html" class="nav-link">MY ACCOUNT</a>
-            <a href="Help/help.html" class="nav-link-last">HELP</a>
-              <button class="btn-sign-up">SIGN UP</button>
-        </div>
-    </div>
-
-  </header>
 
 
    <div class="main-section">
