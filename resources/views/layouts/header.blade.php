@@ -92,7 +92,20 @@
                     </div>
                 </div>
 
-                 <div class="containerPage">
+                 
+
+                @if($loggedIn)
+                    <form method="post" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="btn-sign-up">Logout</button>
+                    </form>
+                @else
+                    <button class="btn-sign-up"><a href="{{ route('login') }}" style="color: black;">Login</a></button>
+                @endif
+            </div>
+        </div>
+    </header>
+    <div class="containerPage">
 
         <div class="list">
           
@@ -108,18 +121,5 @@
             <div class="closeShopping">Close</div>
         </div>
     </div>
-
-                @if($loggedIn)
-                    <form method="post" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit" class="btn-sign-up">Logout</button>
-                    </form>
-                @else
-                    <button class="btn-sign-up"><a href="{{ route('login') }}" style="color: black;">Login</a></button>
-                @endif
-            </div>
-        </div>
-    </header>
-    
 </body>
 </html>
