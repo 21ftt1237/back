@@ -853,6 +853,8 @@ const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute
 
 // Prepare the data to send
 const data = {cartItems};
+
+console.log('Data to be sent:', data);
         
 const apiUrl = 'http://165.22.63.170/save-cart-items';
 
