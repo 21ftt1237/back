@@ -47,7 +47,24 @@ header {
 }
 
 
-
+header .wishlist img{
+    width: 40px;
+  }
+  header .wishlist{
+    position: relative;
+  }
+  header .wishlist span{
+    background: red;
+    border-radius: 50%;
+    color: #fff;
+    position: absolute;
+    top: -5px;
+    left: 80%;
+    padding: 3px 10px;
+  }
+    
+    
+  
 
 
    /*NAVBAR*/
