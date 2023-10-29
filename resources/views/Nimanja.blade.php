@@ -1122,10 +1122,11 @@ height: 1600px
 
            <div class="logo" id="storeName" data-value="3"><a href="#">NETCOM (KIULAP)</a></div>
 
-            <div class="search">
-                <input type="text" placeholder="search products" id="input">
-                <ion-icon class="s" name="search"></ion-icon>
+              <div class="shopping">
+                <img src="image/shoppingCart.png">
+                <span class="quantity">0</span>
             </div>
+            
         </div>
        
 
