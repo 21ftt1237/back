@@ -92,6 +92,12 @@
                     </div>
                 </div>
 
+                 <div class="containerPage">
+
+        <div class="list">
+          
+        </div>
+    </div>
                 <div class="card">
         <h1>Your Shopping Cart</h1>
         <ul class="listCard">
