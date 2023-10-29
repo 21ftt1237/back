@@ -913,19 +913,19 @@ const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 // The URL to which you want to send the POST request
 const apiUrl = 'http://165.22.63.170/save-cart-items'; // Replace with the actual URL
 
-// The data you want to send in the POST request
+// Prepare the data to send
 const data = {
-  cartItems: [ /* your cart items data here */ ]
+  cartItems: cartItems, // Replace with your actual cart items
 };
 
 // Create the Fetch POST request
 fetch(apiUrl, {
   method: 'POST', // Specify the HTTP method as POST
   headers: {
-    'Content-Type': 'application/json', // Set the content type to JSON
-    // You may need to include additional headers here if required
+    'Content-Type': 'application/json',
+    // Add any necessary headers, e.g., authentication tokens, if required
   },
-  body: JSON.stringify(data) // Convert your data to a JSON string
+  body: JSON.stringify(data),
 })
   .then(response => {
     if (response.ok) {
@@ -936,15 +936,14 @@ fetch(apiUrl, {
       throw new Error('Failed to send data to the server');
     }
   })
-  .then(data => {
+  .then(responseData => {
     // Process the response data here
-    console.log(data);
+    console.log(responseData);
   })
   .catch(error => {
     // Handle any errors that occurred during the fetch
     console.error(error);
   });
-
 
     
 
