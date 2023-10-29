@@ -906,26 +906,38 @@ var button = document.getElementById("nextBtn");
 updateTotalPriceAndDeliveryFee();
 
 
-  $.ajax({
-  url: '/fetch-total-price', // Replace with the actual URL to your server endpoint
-  method: 'GET', // Use the appropriate HTTP method (GET or POST)
-  dataType: 'json', // Specify the expected data type
-  success: function(response) {
-    // Handle the response from the server
-    if (response.success) {
-      const totalPrice = response.totalPrice; // Assuming the server sends the total price in the response
-      // Now you can use totalPrice for your calculations or display it on your page
-      console.log('Total Price:', totalPrice);
-    } else {
-      // Handle the case where the request was successful but the response indicates an error
-      console.error('Error:', response.message);
-    }
+
+// Retrieve cart items from local storage
+const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+// Define the URL of your Laravel endpoint
+const apiUrl = 'https://your-laravel-api.com/save-cart-items';
+
+// Create a POST request to send cart items
+fetch(apiUrl, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
   },
-  error: function(xhr, status, error) {
-    // Handle errors, if any
-    console.error('AJAX Error:', error);
-  }
-});
+  body: JSON.stringify({ cartItems }),
+})
+  .then((response) => {
+    if (response.ok) {
+      // Request was successful
+      return response.json();
+    } else {
+      // Handle error
+      throw new Error('Failed to send cart items to the server.');
+    }
+  })
+  .then((data) => {
+    // Handle the response from the server, if needed
+    console.log(data);
+  })
+  .catch((error) => {
+    // Handle any errors
+    console.error(error);
+  });
 
 
     
