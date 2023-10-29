@@ -63,7 +63,7 @@
     <header>
         <div class="landing-page">
             <div class="navbar">
-               <div class="logo" id="storeName" data-value="{{ $storenumber }}"><a href="#">{{ $pageName }}</a></div>
+               <div class="logo" id="storeName" data-value=" @if(isset($storehere)) {{ $storenumber}} @endif"><a href="#">{{ $pageName }}</a></div>
                 @if(isset($carts))
                  <div class="shopping">
                 <img src="image/shoppingCart.png">
