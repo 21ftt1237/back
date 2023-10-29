@@ -852,9 +852,10 @@ var button = document.getElementById("nextBtn");
 const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
 // Prepare the data to send
-const data = {
-  cartItems: storedCartItems,
-};
+const data = {cartItems};
+        
+const apiUrl = 'http://165.22.63.170/save-cart-items';
+
 
 // Create the Fetch POST request
 fetch(apiUrl, {
