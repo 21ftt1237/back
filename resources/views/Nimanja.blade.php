@@ -1,7 +1,7 @@
 @php
     $pageName = 'Nimanja';
     $storehere = 'true';
-    $storenumber '4';
+    $storenumber = '4';
 @endphp
 @include('layouts.header')
 
