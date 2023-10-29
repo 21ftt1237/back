@@ -1115,8 +1115,7 @@ height: 1600px
 <body>
 
   
- <header>
-  
+ 
 
 
         <div class="navbar">
@@ -1148,7 +1147,7 @@ height: 1600px
         </div>
     </div>
 
-  </header>
+  
 
 
 
