@@ -50,6 +50,10 @@ Route::get('digital', function () {
     return view('digital');
 })->name('digital');
 
+Route::get('store', function () {
+    return view('store');
+})->name('store');
+
 Route::get('BruZoneWishlist', function () {
     return view('Wishlist.BruZoneWishlist'); 
 })->name('BruZoneWishlist');
