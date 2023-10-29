@@ -908,41 +908,36 @@ updateTotalPriceAndDeliveryFee();
 
 
 // Retrieve cart items from local storage
-const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
 // The URL to which you want to send the POST request
 const apiUrl = 'http://165.22.63.170/save-cart-items'; // Replace with the actual URL
 
 // Prepare the data to send
 const data = {
-  cartItems: cartItems, // Replace with your actual cart items
+  cartItems: storedCartItems,
 };
 
 // Create the Fetch POST request
 fetch(apiUrl, {
-  method: 'POST', // Specify the HTTP method as POST
+  method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    // Add any necessary headers, e.g., authentication tokens, if required
   },
   body: JSON.stringify(data),
 })
   .then(response => {
     if (response.ok) {
-      // The request was successful, you can process the response if needed
-      return response.json(); // Parse the response as JSON
+      return response.json();
     } else {
-      // Handle the error
       throw new Error('Failed to send data to the server');
     }
   })
   .then(responseData => {
-    // Process the response data here
-    console.log(responseData);
+    console.log('Server response:', responseData);
   })
   .catch(error => {
-    // Handle any errors that occurred during the fetch
-    console.error(error);
+    console.error('Error:', error);
   });
 
     
