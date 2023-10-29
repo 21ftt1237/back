@@ -4,6 +4,9 @@ $ShoppingCart = '
         <img src="image/shoppingCart.png">
         <span class="quantity">0</span>
     </div>';
+
+$pageName = 'Bruzone';
+
 @endphp
 
 @include('layouts.header')
