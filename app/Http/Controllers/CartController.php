@@ -57,16 +57,22 @@ class CartController extends Controller
     }
 
     public function getCartItems()
-{
-    $user = Auth::user();
-    $cartItems = $user->cartItems; // Assuming you have a relationship set up in the User model
+    {
+        // Assuming you have a relationship set up in the User model to get the user's cart items
+        $user = Auth::user();
+        $cartItems = $user->cartItems;
 
-    // Calculate the total quantity and total price
-    $totalQuantity = $cartItems->sum('quantity');
-    $totalPrice = $cartItems->sum(function ($item) {
-        return $item->price * $item->quantity;
-    });
+        // You can also calculate the total quantity and total price here
+        $totalQuantity = $cartItems->sum('quantity');
+        $totalPrice = $cartItems->sum(function ($cartItem) {
+            return $cartItem->quantity * $cartItem->price;
+        });
 
-    return view('order', compact('cartItems', 'totalQuantity', 'totalPrice'));
-}
+        // Pass the cart items and totals to the view
+        return view('order', [
+            'cartItems' => $cartItems,
+            'totalQuantity' => $totalQuantity,
+            'totalPrice' => $totalPrice,
+        ]);
+    }
 }
