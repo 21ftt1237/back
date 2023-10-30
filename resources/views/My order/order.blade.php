@@ -208,8 +208,9 @@
             </div>
         </div>
         <div class="details-container">
-            <div>ACER ASPIRE3 A315-510P-C46E N100 - SILVER</div>
-            <div>Tuesday, August 8</div>
+             <p>Total Quantity: {{ $totalQuantity }}</p>
+             <p>Total Price: ${{ $totalPrice }}</p>
+             <p>Purchased at:</p> {{ $cartItem->created_at->format('Y-m-d H:i:s') }}<br>
             <button class="details-box" id="detailbox1"><a href="#">Details</a></button>
             <div class="price"></div>
                      
