@@ -848,16 +848,17 @@ paypal.Buttons({
 var button = document.getElementById("nextBtn");
     button.disabled = false;
 
-    // Retrieve the CSRF token value from a meta tag in your HTML
+// Retrieve the CSRF token value from a meta tag in your HTML
 const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
+console.log('CSRF Token:', csrfToken); // Debugging
+
 // Prepare the data to send
-const data = {cartItems};
+const data = { cartItems };
 
-console.log('Data to be sent:', data);
-        
+console.log('Data to be sent:', data); // Debugging
+
 const apiUrl = 'http://165.22.63.170/save-cart-items';
-
 
 // Create the Fetch POST request
 fetch(apiUrl, {
@@ -876,11 +877,12 @@ fetch(apiUrl, {
     }
   })
   .then(responseData => {
-    console.log('Server response:', responseData);
+    console.log('Server response:', responseData); // Debugging
   })
   .catch(error => {
     console.error('Error:', error);
-  });      
+  });
+
         
   isPayPalTransactionComplete = true;
         
