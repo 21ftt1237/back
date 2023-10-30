@@ -24,6 +24,16 @@ Route::get('netcom', function () {
     return view('netcom');
 })->name('netcom');
 
+Route::get('AdminOrderHistory', function () {
+    return view('AdminOrderHistory');
+})->name('AdminOrderHistory');
+
+
+Route::get('netcom', function () {
+    return view('netcom');
+})->name('netcom');
+
+
 //Route::get('uLogin', function () {
   //  return view('login.uLogin');
 //})->name('uLogin');
