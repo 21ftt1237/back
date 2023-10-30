@@ -195,10 +195,7 @@
        <!-- <div class="line"></div> -->
 
     <div class="container">
-        <div class="searchInputWrapper">
-            <input class="searchInput" type="text" placeholder='Search your orders'>
-            <i class="searchInputIcon fa fa-search"></i>
-        </div>
+       
     </div>
 
     <div class="go-back-button" id="goBackButton">
