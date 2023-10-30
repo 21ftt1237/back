@@ -225,6 +225,20 @@ h3 {
   color: yellow;
   text-decoration: none;
 }
+
+    .alert {
+    padding: 15px;
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    border-radius: 4px;
+    text-align: center;
+    margin-bottom: 20px; /* Add some spacing between messages */
+}
+
+/* Style for the message text */
+.alert p {
+    margin: 0; /* Remove default margin */
+}
 </style>
 </head>
 <body>
