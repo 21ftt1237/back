@@ -210,11 +210,19 @@
       <div class="details-container">
     <p>Total Quantity: {{ $totalQuantity }}</p>
     <p>Total Price: ${{ $totalPrice }}</p>
-   @foreach ($cartItems as $cartItem)
-        @if ($cartItem->created_at->eq($cartItemWithSameCreatedAt->created_at))
+ @php
+        $previousTimestamp = null;
+    @endphp
+
+    @foreach ($cartItems as $cartItem)
+        @if ($previousTimestamp !== $cartItem->created_at)
             <p>Purchased at: {{ $cartItem->created_at->format('Y-m-d H:i:s') }}</p>
-            <!-- Display other cart item details -->
+            @php
+                $previousTimestamp = $cartItem->created_at;
+            @endphp
         @endif
+        <!-- Display other cart item details -->
+    @endforeach
     @endforeach
     <button class="details-box" id="detailbox1"><a href="#">Details</a></button>
     <div class="price"></div>
