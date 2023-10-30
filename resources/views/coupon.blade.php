@@ -233,6 +233,12 @@ h3 {
   <div class="top-section">
   <h1>Loyalty Point Balance:{{ $loyaltyPoints }}</h1>
   <h1>Active Coupon:  ${{ $redeemCoupon }}</h1>
+   @if(session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+   @endif
+
    
 
   </div>       
