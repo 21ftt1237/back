@@ -206,7 +206,7 @@
         <div class="details-container">
             <div>ACER ASPIRE3 A315-510P-C46E N100 - SILVER</div>
             <div>Tuesday, August 8</div>
-            <button><a href="#">Details</a></button>
+            <button class="details-box" id="detailbox1"><a href="#">Details</a></button>
             <div class="price"></div>
         </div>
     </div>
