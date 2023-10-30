@@ -211,8 +211,17 @@
                      
                        </div>
                      </div>
-                   
-              
+             <ul>      
+             @foreach($cartItems as $cartItem)
+            <li>
+                <strong>Product Name:</strong> {{ $cartItem->name }}<br>
+                <strong>Price:</strong> ${{ $cartItem->price }}<br>
+                <strong>Quantity:</strong> {{ $cartItem->quantity }}<br>
+                <strong>Created At:</strong> {{ $cartItem->created_at->format('Y-m-d H:i:s') }}<br>
+                <hr>
+            </li>
+        @endforeach
+    </ul> 
          
  
     
