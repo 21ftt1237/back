@@ -32,7 +32,7 @@
     <div class="reg">
         <h1>Already Got An Account?</h1>
         <div class="imagine">
-            <img src="image/Carta.png" style="width: 250px" onclick="haha()">
+            <img src="image/carta.png" style="width: 250px" onclick="haha()">
             <a href="{{ route('BruzoneLogin') }}" class="sign_in">Sign In</a>
         </div>
     </div>
