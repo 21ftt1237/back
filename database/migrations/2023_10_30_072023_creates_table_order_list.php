@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('stores', function (Blueprint $table) {
-             $table->id();
-            $table->string('name');
+     Schema::create('orders_list', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('orders_id');
+            $table->string('status');
+            $table->foreign('orders_id')->references('id')->on('orders');
             $table->timestamps();
-        });
+            });
     }
 
     /**
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-  
+        //
     }
 };

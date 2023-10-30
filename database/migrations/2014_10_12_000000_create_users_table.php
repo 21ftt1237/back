@@ -19,6 +19,13 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->decimal('loyaltypoints');
+            $table->decimal('redeemcoupon');
+            $table->string('mobile_number');
+            $table->string('address');
+            $table->string('postcode');
+            $table->string('country');
+            $table->string('district');
         });
     }
 
@@ -27,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+
     }
 };
