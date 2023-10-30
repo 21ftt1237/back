@@ -200,13 +200,13 @@
     <div class="data">
         <div class="eclipse-container">
             <div class="eclipse">
-                <img src="https://scontent.fbwn2-1.fna.fbcdn.net/v/t39.30808-6/326250746_3465374533787443_7101925948332707034_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=MfI3TU690BoAX81Vmwr&_nc_ht=scontent.fbwn2-1.fna&oh=00_AfDTpS54MEqRWlaL42ou4d2Pss5xPF5Qjd2zaydP_4-91w&oe=64F0B4CA" alt="Image">
+                <img src="image/bruZone_logo.png">
             </div>
         </div>
         <div class="details-container">
             <div>ACER ASPIRE3 A315-510P-C46E N100 - SILVER</div>
             <div>Tuesday, August 8</div>
-            <div class="details-box" id="detailbox1">Details</div>
+            <button><a href="#">Details</a></button>
             <div class="price"></div>
         </div>
     </div>
