@@ -210,7 +210,10 @@
       <div class="details-container">
     <p>Total Quantity: {{ $totalQuantity }}</p>
     <p>Total Price: ${{ $totalPrice }}</p>
-    <p>Purchased at: {{ $cartItems->created_at->format('Y-m-d H:i:s') }}</p><br>
+    @foreach ($cartItems as $cartItem)
+        <p>Purchased at: {{ $cartItem->created_at->format('Y-m-d H:i:s') }}</p>
+        <!-- Display other cart item details -->
+    @endforeach
     <button class="details-box" id="detailbox1"><a href="#">Details</a></button>
     <div class="price"></div>
     </div>
