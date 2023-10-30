@@ -20,6 +20,11 @@ use App\Http\Controllers\CartController;
 Route::get('/', function () {
     return view('dashboard');
 });
+
+Route::get('BruzoneLogin', function () {
+    return view('BruzoneLogin');
+})->name('BruzoneLogin');
+
 Route::get('netcom', function () {
     return view('netcom');
 })->name('netcom');
