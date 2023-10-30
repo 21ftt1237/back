@@ -191,12 +191,13 @@
 
    
 </head>
-<body>
+ <body class="font-sans antialiased">
+        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
     
      <div class="container">
 
     </div>
-     <x-app-layout>
+    
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
@@ -213,14 +214,15 @@
             <div>Tuesday, August 8</div>
             <button class="details-box" id="detailbox1"><a href="#">Details</a></button>
             <div class="price"></div>
-        </div>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
- </x-app-layout>
+                     
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+              </div>
+            </div>          
+          </div>
+ 
     
 </body>
 </html>
