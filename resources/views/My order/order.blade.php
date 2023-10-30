@@ -187,7 +187,7 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        img {
+        .haha {
         height: 200px;
         width: 200px;
         }
@@ -219,7 +219,7 @@
     <ul>
         @foreach($cartItems as $cartItem)
             <li> 
-                <img src="image/{{ $cartItem->image }}"><br>
+                <img src="image/{{ $cartItem->image }}" class"haha"><br>
                 <strong>Product Name:</strong> {{ $cartItem->name }}<br>
                 <strong>Price:</strong> ${{ $cartItem->price }}<br>
                 <strong>Quantity:</strong> {{ $cartItem->quantity }}<br>
