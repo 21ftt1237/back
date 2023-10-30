@@ -858,7 +858,7 @@ const data = { cartItems };
 
 console.log('Data to be sent:', data); // Debugging
 
-const apiUrl = 'http://165.22.63.170/save-cart-items';
+const apiUrl = 'https://bruzone.tech/save-cart-items';
 
 // Create the Fetch POST request
 fetch(apiUrl, {
