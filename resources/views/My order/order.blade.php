@@ -207,14 +207,13 @@
                 <img src="image/BruZone_Logo.png">
             </div>
         </div>
-        <div class="details-container">
-             <p>Total Quantity: {{ $totalQuantity }}</p>
-             <p>Total Price: ${{ $totalPrice }}</p>
-             <p>Purchased at:</p> {{ $cartItems->created_at->format('Y-m-d H:i:s') }}<br>
-            <button class="details-box" id="detailbox1"><a href="#">Details</a></button>
-            <div class="price"></div>
-                     
-                       </div>
+      <div class="details-container">
+    <p>Total Quantity: {{ $totalQuantity }}</p>
+    <p>Total Price: ${{ $totalPrice }}</p>
+    <p>Purchased at: {{ $cartItems->created_at->format('Y-m-d H:i:s') }}</p><br>
+    <button class="details-box" id="detailbox1"><a href="#">Details</a></button>
+    <div class="price"></div>
+    </div>
                      </div>
 
          
