@@ -113,22 +113,6 @@ header {
     font-weight: 600;
 }
 
-.btn-sign-up {
-    color: black;
-    font-size: 12px;
-    font-weight: bolder;
-    width: 4%;
-    padding: 5px;
-    background-color: #F6E71D;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    margin-right: 20px;
-}
-
-.btn-sign-up:hover {
-    background-color: #555;
-}
 
 
 
@@ -857,22 +841,6 @@ header{
     font-weight: 600;
 }
 
-.btn-sign-up {
-    color: black;
-    font-size: 12px;
-    font-weight: bolder;
-    width: 4%;
-    padding: 5px;
-    background-color: #F6E71D;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    margin-right: 20px;
-}
-
-.btn-sign-up:hover {
-    background-color: #555;
-}
 
 
 
