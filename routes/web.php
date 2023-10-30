@@ -139,6 +139,6 @@ Route::get('store', [ProductController::class, 'index']);
 
 Route::post('/save-cart-items', [CartController::class, 'saveCartItems']);
 
-Route::get('/cart', [CartController::class, 'getCartItems']);
+Route::get('/order', [CartController::class, 'getCartItems']);
 
 require __DIR__.'/auth.php';
