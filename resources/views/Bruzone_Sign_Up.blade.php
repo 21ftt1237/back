@@ -14,6 +14,7 @@
             <h1 id="titla">Create A New Account</h1>
             <form method="post" action="{{ route('register') }}"> <!-- Use the named route for registration -->
                 @csrf <!-- Add a CSRF token for security -->
+                <input type="text" name="name" placeholder="Name" id="name">
                 <input type="email" name="email" placeholder="Email Address" id="email">
                 <input type="password" name="password" placeholder="Password" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                 <input type="password" name="password_confirmation" placeholder="Reenter Password" id="confirmpass" onblur="validate()">
