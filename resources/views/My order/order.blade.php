@@ -214,7 +214,8 @@
             <h1>Your Cart</h1>
     <ul>
         @foreach($cartItems as $cartItem)
-            <li>
+            <li> 
+                <img src="image/{{ $cartItem->image }}"><br>
                 <strong>Product Name:</strong> {{ $cartItem->name }}<br>
                 <strong>Price:</strong> ${{ $cartItem->price }}<br>
                 <strong>Quantity:</strong> {{ $cartItem->quantity }}<br>
