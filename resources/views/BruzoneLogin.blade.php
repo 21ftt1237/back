@@ -17,7 +17,7 @@
                     <input type="email" name="email" id="email" required>
                     <input type="password" name="password" id="password" required/>
                     <input type="submit" value="Login" id="sub">
-                    <a href="#">Forgot Your Password?</a>
+                    <a href="{{ route('password.request') }}">Forgot Your Password?</a>
                     <br><br>
                     <h1>OR</h1>
                     <br>
