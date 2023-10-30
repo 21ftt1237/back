@@ -208,21 +208,20 @@
             </div>
         </div>
       <div class="details-container">
-    <p>Total Quantity: {{ $totalQuantity }}</p>
-    <p>Total Price: ${{ $totalPrice }}</p>
- @php
-        $previousTimestamp = null;
-    @endphp
-
-    @foreach ($cartItems as $cartItem)
-        @if ($previousTimestamp !== $cartItem->created_at)
-            <p>Purchased at: {{ $cartItem->created_at->format('Y-m-d H:i:s') }}</p>
-            @php
-                $previousTimestamp = $cartItem->created_at;
-            @endphp
-    <button class="details-box" id="detailbox1"><a href="#">Details</a></button>
-    <div class="price"></div>
-    </div>
+            <h1> your orders</h1>
+    <ul>
+        @foreach($cartItems as $cartItem)
+            <li> 
+                <img src="image/{{ $cartItem->image }}" class="haha"><br>
+                <strong>Product Name:</strong> {{ $cartItem->name }}<br>
+                <strong>Price:</strong> ${{ $cartItem->price }}<br>
+                <strong>Quantity:</strong> {{ $cartItem->quantity }}<br>
+                <strong>Created At:</strong> {{ $cartItem->created_at->format('Y-m-d H:i:s') }}<br>
+                <hr>
+            </li>
+        @endforeach
+    </ul>
+</body>
                      </div>
 
          
