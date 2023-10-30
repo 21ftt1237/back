@@ -43,14 +43,6 @@ Route::get('netcom', function () {
 })->name('netcom');
 
 
-//Route::get('uLogin', function () {
-  //  return view('login.uLogin');
-//})->name('uLogin');
-
-//Route::get('sign_up', function () {
- //   return view('login.sign_up');
-//})->name('sign_up');
-
 Route::get('order', function () {
     return view('My order.order');
 })->name('order');
