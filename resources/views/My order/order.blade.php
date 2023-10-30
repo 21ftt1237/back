@@ -1,3 +1,9 @@
+@php
+    $pageName = 'My Orders';
+    $carts = 'true';
+@endphp
+@include('layouts.header')
+
 <!DOCTYPE html>
 <html>
 <head>
