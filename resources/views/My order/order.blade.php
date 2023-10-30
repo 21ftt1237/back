@@ -223,7 +223,6 @@
         @endif
         <!-- Display other cart item details -->
     @endforeach
-    @endforeach
     <button class="details-box" id="detailbox1"><a href="#">Details</a></button>
     <div class="price"></div>
     </div>
