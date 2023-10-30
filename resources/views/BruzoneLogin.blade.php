@@ -13,7 +13,7 @@
             <div class="aa">
                 <h1 id="titla">Login To Your Account</h1>
                 <form action="{{ route('login') }}" method="post"> 
-                    @csrf <!-- Add a CSRF token for security -->
+                    @csrf 
                     <input type="email" name="email" id="email" required>
                     <input type="password" name="password" id="password" required/>
                     <input type="submit" value="Login" id="sub">
