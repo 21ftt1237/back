@@ -1,3 +1,9 @@
+@php
+    $pageName = 'Wishlist';
+    $carts = 'true';
+@endphp
+@include('layouts.header')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -443,39 +449,7 @@ header .shopping img{
 </style>
 </head>
 <body>
-         <header>
-  
-
-
-        <div class="navbar">
-
-           <div class="logo" id="storeName" data-value="2"><a href="#">WISHLIST</a></div>
-
-            <div class="search">
-                <input type="text" placeholder="search products" id="input">
-                <ion-icon class="s" name="search"></ion-icon>
-            </div>
-
-               <div class="shopping">
-          <img src="../image/shoppingCart.png">
-          <span class="quantity">0</span>
-      </div>
-        <div class="wishlist">
-            <a href="Bruzone Wishlist.html">
-                <img src="../image/wishlist.png">
-                <span class="quantity">0</span>
-            </a>
-        </div>
-
-            <a href="dashboard.html" class="nav-link">HOME</a>
-            <a href="#" class="nav-link">ABOUT US</a>
-            <a href="profiletest.html" class="nav-link">MY ACCOUNT</a>
-            <a href="Help/help.html" class="nav-link-last">HELP</a>
-              <button class="btn-sign-up">SIGN UP</button>
-        </div>
-    </div>
-
-  </header>
+         
    
   <div class="main-container">
     <div class="wishlist-title">
