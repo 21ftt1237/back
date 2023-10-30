@@ -12,8 +12,8 @@
         </div>
         <div class="aa">
             <h1 id="titla">Create A New Account</h1>
-            <form method="post" action="{{ route('register') }}"> <!-- Use the named route for registration -->
-                @csrf <!-- Add a CSRF token for security -->
+            <form method="post" action="{{ route('register') }}"> 
+                @csrf 
                 <input type="text" name="name" placeholder="Name" id="name">
                 <input type="email" name="email" placeholder="Email Address" id="email">
                 <input type="password" name="password" placeholder="Password" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
@@ -28,15 +28,12 @@
             <p id="number" class="invalid">A <b>number</b></p>
             <p id="length" class="invalid">Minimum <b>8 characters</b></p>
         </div>
-        <div class="back">
-            <img src="image/back.png" style="width: 50px"><p>Back To Homepage</p>
-        </div>
     </div>
     <div class="reg">
         <h1>Already Got An Account?</h1>
         <div class="imagine">
             <img src="image/Carta.png" style="width: 250px" onclick="haha()">
-            <a href="{{ route('login') }}" class="sign_in">Sign In</a>
+            <a href="{{ route('BruzoneLogin') }}" class="sign_in">Sign In</a>
         </div>
     </div>
 </div>
