@@ -220,9 +220,6 @@
             @php
                 $previousTimestamp = $cartItem->created_at;
             @endphp
-        @endif
-        <!-- Display other cart item details -->
-    @endforeach
     <button class="details-box" id="detailbox1"><a href="#">Details</a></button>
     <div class="price"></div>
     </div>
