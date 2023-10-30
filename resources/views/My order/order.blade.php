@@ -211,8 +211,9 @@
                      
                        </div>
                      </div>
-             <ul>      
-             @foreach($cartItems as $cartItem)
+            <h1>Your Cart</h1>
+    <ul>
+        @foreach($cartItems as $cartItem)
             <li>
                 <strong>Product Name:</strong> {{ $cartItem->name }}<br>
                 <strong>Price:</strong> ${{ $cartItem->price }}<br>
@@ -221,7 +222,10 @@
                 <hr>
             </li>
         @endforeach
-    </ul> 
+    </ul>
+    <p>Total Quantity: {{ $totalQuantity }}</p>
+    <p>Total Price: ${{ $totalPrice }}</p>
+</body>
          
  
     
