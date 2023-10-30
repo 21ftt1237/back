@@ -69,7 +69,7 @@ class CartController extends Controller
         });
 
         // Pass the cart items and totals to the view
-        return view('order', [
+        return view('My order.order', [
             'cartItems' => $cartItems,
             'totalQuantity' => $totalQuantity,
             'totalPrice' => $totalPrice,
