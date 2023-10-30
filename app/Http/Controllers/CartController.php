@@ -67,6 +67,6 @@ class CartController extends Controller
         return $item->price * $item->quantity;
     });
 
-    return view('order.order', compact('cartItems', 'totalQuantity', 'totalPrice'));
+    return view('My order.order', compact('cartItems', 'totalQuantity', 'totalPrice'));
 }
 }
