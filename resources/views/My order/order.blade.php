@@ -201,7 +201,6 @@
     
 
       <div class="details-container">
-            <h1> your orders</h1>
     <ul>
         @foreach($cartItems as $cartItem)
             <li> 
