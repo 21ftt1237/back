@@ -55,4 +55,18 @@ class CartController extends Controller
         // You can return the selected items as a JSON response if needed
         return response()->json(['cartItems' => $selectedItems], 200);
     }
+
+    public function getCartItems()
+{
+    $user = Auth::user();
+    $cartItems = $user->cartItems; // Assuming you have a relationship set up in the User model
+
+    // Calculate the total quantity and total price
+    $totalQuantity = $cartItems->sum('quantity');
+    $totalPrice = $cartItems->sum(function ($item) {
+        return $item->price * $item->quantity;
+    });
+
+    return view('cart', compact('cartItems', 'totalQuantity', 'totalPrice'));
+}
 }
