@@ -187,6 +187,10 @@
             left: 50%;
             transform: translateX(-50%);
         }
+        img {
+        height: 100px;
+        width: 100px;
+        }
 </style>
 
    
