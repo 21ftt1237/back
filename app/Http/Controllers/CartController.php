@@ -7,31 +7,37 @@ use App\CartItem; // Replace with your actual CartItem model
 
 class CartController extends Controller
 {
-    public function saveCartItems(Request $request)
-    {
-        \Log::info($request->all());
-        // Validate the incoming request data
-        $request->validate([
-            'cartItems' => 'required|array',
-            'cartItems.*.name' => 'required|string',
-            'cartItems.*.price' => 'required|numeric',
-            'cartItems.*.quantity' => 'required|integer|min:1',
-            // Add other validation rules as needed
-        ]);
+   public function saveCartItems(Request $request)
+{
+    \Log::info($request->all());
 
-        $cartItemsData = $request->input('cartItems');
+    // Validate the incoming request data
+    $request->validate([
+        'cartItems' => 'required|array',
+        'cartItems.*.name' => 'required|string',
+        'cartItems.*.price' => 'required|numeric',
+        'cartItems.*.quantity' => 'required|integer|min:1',
+        // Add other validation rules as needed
+    ]);
 
-        // Iterate through the cart items and save them to the database
-        foreach ($cartItemsData as $itemData) {
-            CartItem::create([
-                'name' => $itemData['name'],
-                'price' => $itemData['price'],
-                'quantity' => $itemData['quantity'],
-                // Add other fields as needed
-            ]);
-        }
+    $cartItemsData = $request->input('cartItems');
 
-        // You can return a response if needed
-        return response()->json(['message' => 'Cart items saved successfully'], 200);
+    // Initialize an array to store the selected fields
+    $selectedItems = [];
+
+    // Iterate through the cart items and select the desired fields
+    foreach ($cartItemsData as $itemData) {
+        $selectedItems[] = [
+            'name' => $itemData['name'],
+            'image' => $itemData['image'], // Add 'image' field
+            'price' => $itemData['price'],
+            'desc' => $itemData['desc'], // Add 'desc' field
+            'quantity' => $itemData['quantity'],
+        ];
     }
+
+    // You can return the selected items as a JSON response if needed
+    return response()->json(['cartItems' => $selectedItems], 200);
+}
+
 }
