@@ -97,7 +97,7 @@
                         <button type="submit" class="btn-sign-up">Logout</button>
                     </form>
                 @else
-                    <button class="btn-sign-up"><a href="{{ route('login') }}" style="color: black;">Login</a></button>
+                    <button class="btn-sign-up"><a href="{{ route('register') }}" style="color: black;">Login</a></button>
                 @endif
             </div>
         </div>
