@@ -17,11 +17,11 @@
                     <input type="email" name="email" id="email" required>
                     <input type="password" name="password" id="password" required/>
                     <input type="submit" value="Login" id="sub">
-                    <a href="forgot_pass.html">Forgot Your Password?</a>
+                    <a href="#">Forgot Your Password?</a>
                     <br><br>
                     <h1>OR</h1>
                     <br>
-                    <button>Continue as Guest</button>
+                    <button> <a href="{{ route('dashboard') }}">Continue As Guest</a></button>
                 </form>
             </div>
             <div class="back">
