@@ -215,22 +215,7 @@
                      
                        </div>
                      </div>
-            <h1>Your Cart</h1>
-    <ul>
-        @foreach($cartItems as $cartItem)
-            <li> 
-                <img src="image/{{ $cartItem->image }}" class="haha"><br>
-                <strong>Product Name:</strong> {{ $cartItem->name }}<br>
-                <strong>Price:</strong> ${{ $cartItem->price }}<br>
-                <strong>Quantity:</strong> {{ $cartItem->quantity }}<br>
-                <strong>Created At:</strong> {{ $cartItem->created_at->format('Y-m-d H:i:s') }}<br>
-                <hr>
-            </li>
-        @endforeach
-    </ul>
-    <p>Total Quantity: {{ $totalQuantity }}</p>
-    <p>Total Price: ${{ $totalPrice }}</p>
-</body>
+
          
  
     
