@@ -756,7 +756,7 @@ header{
         <i class="ion-location"></i>
       </label>
 
-      <a href="{{ route('searchFilter') }}"> <input type="search" placeholder="What are you looking for?"> </a>
+      <input type="search" placeholder="What are you looking for?" onclick="click()">
 
       <a href="{{ route('searchFilter') }}">
       <button type="submit" value="Search">SEARCH</button>
@@ -991,7 +991,9 @@ header{
     footer.style.bottom = "-100px"; /* Hide the footer */
   }
 });
-
+      function click(){
+      window.location.href = `{{ route('searchFilter') }}`;
+      }
 
 
   </script>
