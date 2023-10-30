@@ -79,7 +79,7 @@
                 </div>
                 
                 <a href="{{ route('dashboard') }}" class="nav-link">HOME</a>
-                <!-- <a href="{{ route('order') }}" class="nav-link">MY ORDERS</a>-->
+                <a href="{{ route('order') }}" class="nav-link">MY ORDERS</a>
                 <a href="{{ route('profilev') }}" class="nav-link">MY ACCOUNT</a>
                  <div class="dropdown">
                     <span class="nav-link-last dropbtn">HELP</span>
