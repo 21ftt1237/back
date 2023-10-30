@@ -31,7 +31,7 @@
             <h1>So Why Not Sign Up Here!</h1>
             <div class="imagine">
                 <img src="image/location.png" style="width: 300px; transform: rotate(20deg);"  onclick="haha()">
-                <a href="#" class="sign_up">Sign Up</a>
+                <a href="Bruzone_Sign_Up" class="sign_up">Sign Up</a>
             </div>
         </div>
     </div>
