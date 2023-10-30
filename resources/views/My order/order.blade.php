@@ -187,7 +187,7 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        .haha {
+        .haha img {
         height: 200px;
         width: 200px;
         }
