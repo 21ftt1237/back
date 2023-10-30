@@ -192,7 +192,7 @@
     </style>
 </head>
 <body>
-    <div class="my-orders">My Orders</div>
+   
     <!-- <div class="line"></div> -->
 
     <div class="container">
