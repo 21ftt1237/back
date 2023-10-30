@@ -19,13 +19,13 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->decimal('coupon_point');->nullable();
-            $table->decimal('redeem_coupon');->nullable();
-            $table->string('mobile_number');->nullable();
-            $table->string('address');->nullable();
-            $table->string('postcode');->nullable();
-            $table->string('country');->nullable();
-            $table->string('district');->nullable();
+            $table->decimal('coupon_point')->nullable();
+            $table->decimal('redeem_coupon')->nullable();
+            $table->string('mobile_number')->nullable();
+            $table->string('address')->nullable();
+            $table->string('postcode')->nullable();
+            $table->string('country')->nullable();
+            $table->string('district')->nullable();
         });
     }
 
