@@ -24,9 +24,6 @@
                     <button> <a href="{{ route('dashboard') }}">Continue As Guest</a></button>
                 </form>
             </div>
-            <div class="back">
-                <img src="image/back.png" style="width: 50px"><p>Back To Homepage</p>
-            </div>
         </div>
         <div class="reg">
             <h1>New Here?</h1>
