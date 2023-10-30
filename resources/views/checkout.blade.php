@@ -946,11 +946,31 @@ fetch(apiUrl, {
 // Call the function to update the total price and delivery fee
 updateTotalPriceAndDeliveryFee();
 
+ $(document).ready(function () {
+        $('#update-loyalty-points-form').submit(function (e) {
+            e.preventDefault();
 
+            const loyaltyPoints = $('#loyalty-points-input').val(); // Get the loyalty points value from the input field
 
-
-
-    
+            $.ajax({
+                type: 'POST',
+                url: '/update-loyalty-points',
+                data: {
+                    _token: '{{ csrf_token() }}', // Include the CSRF token
+                    loyaltyPoints: loyaltyPoints
+                },
+                success: function (response) {
+                    // Handle success, e.g., display a success message to the user
+                    alert(response.message);
+                },
+                error: function (error) {
+                    // Handle error, e.g., show an error message
+                    alert('Error updating coupon points');
+                }
+            });
+        });
+    });
+   
 
 </script>
 
