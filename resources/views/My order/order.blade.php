@@ -200,13 +200,6 @@
     </div>
     
 
-                    
-    <div class="data">
-        <div class="eclipse-container">
-            <div class="eclipse">
-                <img src="image/BruZone_Logo.png">
-            </div>
-        </div>
       <div class="details-container">
             <h1> your orders</h1>
     <ul>
