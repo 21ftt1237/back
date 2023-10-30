@@ -192,15 +192,7 @@
    
 </head>
 <body>
-       <!-- <div class="line"></div> -->
-
-    <div class="container">
-       
-    </div>
-
-    <div class="go-back-button" id="goBackButton">
-    Go Back
-</div>
+    
     
     <div class="data">
         <div class="eclipse-container">
