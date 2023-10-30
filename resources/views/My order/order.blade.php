@@ -200,7 +200,7 @@
     <div class="data">
         <div class="eclipse-container">
             <div class="eclipse">
-                <img src="image/bruZone_logo.png">
+                <img src="image/BruZone_Logo.png">
             </div>
         </div>
         <div class="details-container">
