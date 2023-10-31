@@ -34,6 +34,11 @@ class ProductController extends Controller
     return view('avenue', compact('products'));
 }
 
+           public function indexGuardian()
+{
+    $products = Product::all();
+    return view('Guardian', compact('products'));
+}
 public function addToWishlist(Request $request, Product $product) {
     $user = $request->user();
     $user->wishlist()->attach($product->id);
