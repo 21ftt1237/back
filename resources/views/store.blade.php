@@ -34,8 +34,8 @@
         }
 
         .info {
-        height: 150px
-            width:250px
+        height: 150px;
+            width:250px;
         }
 
         .section2 .container {
