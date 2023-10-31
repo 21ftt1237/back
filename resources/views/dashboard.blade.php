@@ -248,7 +248,7 @@ main > div > a:hover {
 
 .swiper-slide--five {
   background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
-    url("image/nimanja.png")
+    url("image/.png")
       no-repeat 50% 50% / cover;
 }
 
@@ -808,9 +808,9 @@ header{
       <div class="swiper-slide swiper-slide--five">
 
         <div>
-          <h2>Nimanja</h2>
+          <h2>Simanja</h2>
           <p>
-            Nimanja is Brunei's largest online pet store featuring over 3,000 products and 47 international brands. We provide local pet lovers with convenience, better prices and a variety of quality pet products on an electronic platform.
+            Simanja is Brunei's largest online pet store featuring over 3,000 products and 47 international brands. We provide local pet lovers with convenience, better prices and a variety of quality pet products on an electronic platform.
           </p>
           <a href="{{ route('Nimanja') }}" target="_blank">explore</a>
         </div>
@@ -865,8 +865,8 @@ header{
     </div>
     <div class="item" style="background-image: url(image/nimanjalogo.png);" data-url="{{ route('Nimanja') }}">
       <div class="item-desc">
-        <h3>Nimanja</h3>
-        <p>Nimanja is Brunei's largest online pet store featuring over 3,000 products and 47 international brands. We provide local pet lovers with convenience, better prices and a variety of quality pet products on an electronic platform.</p>
+        <h3>Simanja</h3>
+        <p>Simanja is Brunei's largest online pet store featuring over 3,000 products and 47 international brands. We provide local pet lovers with convenience, better prices and a variety of quality pet products on an electronic platform.</p>
               <a href="{{ route('Nimanja') }}">
         <button class="item-button">view</button>
         </a>
