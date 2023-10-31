@@ -829,8 +829,8 @@ header{
 
     <div class="item active" style="background-image: url(image/netcom.jpg);" data-url="{{ route('netcom') }}">
       <div class="item-desc">
-        <h3>Netcom</h3>
-        <p>Netcom is one of the largest computer retail shop in Brunei, offering after sales service and repairs, professional resources and expertise in technology solutions, with five retail outlets and one online outlet at strategic locations nationwide</p>
+        <h3>Comnet</h3>
+        <p>Comnet is one of the largest computer retail shop in Brunei, offering after sales service and repairs, professional resources and expertise in technology solutions, with five retail outlets and one online outlet at strategic locations nationwide</p>
         <a href="{{ route('netcom') }}">
         <button class="item-button">view</button>
         </a>
