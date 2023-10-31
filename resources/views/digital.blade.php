@@ -1,5 +1,5 @@
 @php
-    $pageName = 'Digital World';
+    $pageName = 'Digital Universe';
     $storehere = 'true';
     $storenumber = '2';
     $carts = 'true';
