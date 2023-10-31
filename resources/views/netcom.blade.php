@@ -1463,10 +1463,10 @@ function addReview(review) {
                                 <div class="info">{{ $product->description }}</div>
                                 <div class="actions">
                                     <button onclick="addToCard(${key})">Add To Cart</button>
-                                    <form action="{{ route('wishlist.add', ['product' => $product->id]) }}" method="POST">
+                                    <form action="{{ route('wishlist.add', ['product' => $product]) }}" method="POST">
                                     @csrf
-                                    <button type="submit"><span class="heart-icon">❤</span></button>
-                                    </form>                                 
+                                    <button type="submit" class="heart-icon">❤</button>
+                                    </form>  
                                 </div>
                             </div>
                         @endif
