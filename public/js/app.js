@@ -338,10 +338,10 @@ function initApp(){
         let newDiv = document.createElement('div');
         newDiv.classList.add('item');
         newDiv.innerHTML = `
-            <img src="image/${value.image}">
-            <div class="title">${value.name}</div>
-            <div class="price">${"BND " + value.price.toLocaleString()}</div>
-            <div class="desc">${value.desc.toLocaleString()}</div>
+            <img src="image/${{ $product->image_link }}.image}">
+            <div class="title">${{ $product->name }}value.name}</div>
+            <div class="price">${"BND " + {{ $product->price }}.price.toLocaleString()}</div>
+            <div class="desc">${{ $product->description }}.desc.toLocaleString()}</div>
             <div class="actions">
                 <button onclick="addToCard(${key})">Add To Cart</button>
                 <div class="heart-icon" data-key="${key}" onclick="toggleFavorite(${key})">
