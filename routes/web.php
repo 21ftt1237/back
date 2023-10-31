@@ -156,6 +156,8 @@ Route::post('/save-cart-items', [CartController::class, 'saveCartItems']);
 
 Route::get('/order', [CartController::class, 'getCartItems'])->name('order');
 
+Route::post('/cart/add/{product}', [ProductController::class, 'addToCart'])->name('cart.add');
+
 Route::post('/wishlist/add/{product}', [ProductController::class, 'addToWishlist'])->name('wishlist.add');
 
 Route::get('/Wishlist.BruZoneWishlist', [ProductController::class, 'showWishlist'])->name('wishlist');
