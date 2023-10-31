@@ -481,19 +481,6 @@ header .shopping img{
     <div class="wishlist-line-blw2btn"></div>
 
 
-<div class="container">
-    <h1>Wishlist</h1>
-    <ul>
-        @foreach($wishlistProducts as $product)
-            <li>
-                {{ $product->name }} <!-- Assuming the product has a 'name' attribute -->
-                <!-- Add other product details you want to display -->
-                <a href="{{ route('removeFromWishlist', $product->id) }}">Remove from Wishlist</a>
-            </li>
-        @endforeach
-    </ul>
-</div>
-
 
 
   <button id="scrollToTopButton" class="up-button">
