@@ -786,9 +786,9 @@ header{
       <div class="swiper-slide swiper-slide--three">
 
         <div>
-          <h2>Guardian</h2>
+          <h2>Defender</h2>
           <p>
-            Guardian has been around in Brunei for three decades providing high-quality products at affordable prices and became the leading health, beauty and personal care retailer. The company's 31 years of experience in the Brunei market is a testament to the company's ability to adapt to local needs.
+            Defender has been around in Brunei for three decades providing high-quality products at affordable prices and became the leading health, beauty and personal care retailer. The company's 31 years of experience in the Brunei market is a testament to the company's ability to adapt to local needs.
           </p>
           <a href="{{ route('Guardian') }}" target="_blank">explore</a>
         </div>
@@ -856,8 +856,8 @@ header{
     </div>
     <div class="item" style="background-image: url(image/guardianlogo.jpg);" data-url="{{ route('Guardian') }}">
       <div class="item-desc">
-        <h3>Guardian</h3>
-        <p>Guardian has been around in Brunei for three decades providing high-quality products at affordable prices and became the leading health, beauty and personal care retailer. The company's 31 years of experience in the Brunei market is a testament to the company's ability to adapt to local needs.</p>
+        <h3>Defender</h3>
+        <p>Defender has been around in Brunei for three decades providing high-quality products at affordable prices and became the leading health, beauty and personal care retailer. The company's 31 years of experience in the Brunei market is a testament to the company's ability to adapt to local needs.</p>
              <a href="{{ route('Guardian') }}">
         <button class="item-button">view</button>
         </a>
