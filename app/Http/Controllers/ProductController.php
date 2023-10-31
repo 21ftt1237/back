@@ -64,6 +64,17 @@ public function removeFromWishlist(Request $request, Product $product) {
     return redirect()->back()->with('success', 'Product removed from wishlist.');
 }
 
+public function indexBruzoneWishlist()
+{
+    // Get the currently authenticated user
+    $user = auth()->user();
+
+    // Retrieve the wishlist products for the user
+    $wishlistProducts = $user->wishlist;
+
+    return view('BruzoneWishlist', compact('wishlistProducts'));
+}
+
 
     
 }
