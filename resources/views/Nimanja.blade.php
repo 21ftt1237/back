@@ -1,5 +1,5 @@
 @php
-    $pageName = 'Simanja';
+    $pageName = 'Bruzone (Simanja)';
     $storehere = 'true';
     $storenumber = '7';
     $carts = 'true';
