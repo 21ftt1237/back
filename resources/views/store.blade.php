@@ -95,7 +95,7 @@
 }
         }
 
-        .section2 .container .items .img img {
+/*         .section2 .container .items .img img {
             width: 200px;
             height: 200px;
             margin: 0;
@@ -107,7 +107,23 @@
         .section2 .container .items .img {
             overflow: hidden;
             margin: 0;
-        }
+        } */
+
+        .section2 .container .items .img img {
+    width: 200px;
+    height: 200px;
+    margin: 0;
+    padding: 0;
+    border-radius: 12px;
+    transition-duration: 0.8s;
+    transform: scale(1.2); /* Add this line to scale images by default */
+}
+
+.section2 .container .items .img {
+    overflow: hidden;
+    margin: 0;
+}
+
 
         .section2 .container .items:hover .img img {
             transform: scale(1.2);
