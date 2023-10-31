@@ -158,7 +158,7 @@ Route::get('/order', [CartController::class, 'getCartItems'])->name('order');
 
 Route::post('/wishlist/add/{product}', [ProductController::class, 'addToWishlist'])->name('wishlist.add');
 
-Route::get('/wishlist', [ProductController::class, 'showWishlist'])->name('wishlist');
+Route::get('/Wishlist.BruZoneWishlist', [ProductController::class, 'showWishlist'])->name('wishlist');
 
 Route::get('/email', 'EmailController@index');
 Route::post('/email/send', 'EmailController@sendEmail')->name('send.email');
