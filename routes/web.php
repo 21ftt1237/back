@@ -55,6 +55,10 @@ Route::get('Guardian', function () {
     return view('Guardian');
 })->name('Guardian');
 
+Route::get('store2', function () {
+    return view('store2');
+})->name('store2');
+
 Route::get('searchFilter', function () {
     return view('searchFilter');
 })->name('searchFilter');
