@@ -755,9 +755,10 @@ header{
       <label for="from">
         <i class="ion-location"></i>
       </label>
-        
-      <input type="text" placeholder="What are you looking for?" onclick="click()">
 
+        <a href="{{ route('searchFilter') }}">
+      <input type="text" placeholder="What are you looking for?" onclick="click()">
+        </a>
       <a href="{{ route('searchFilter') }}">
       <button type="submit" value="Search">SEARCH</button>
       </a>
