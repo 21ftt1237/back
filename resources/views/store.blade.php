@@ -33,11 +33,7 @@
             width: 1080px;
         }
 
-        .info {
-        height: 150px;
-            width:250px;
-        }
-
+        
         .section2 .container {
 /*             display: flex; */
             width: 100%;
@@ -201,6 +197,10 @@
     width: 100%;
     padding: 10px;
 }
+
+        .info{
+            height: 250px;
+        }
     </style>
 </head>
 <body>
