@@ -45,6 +45,12 @@ class ProductController extends Controller
     $products = Product::all();
     return view('Guardian', compact('products'));
 }
+
+public function addToCart(Request $request, Product $product) {
+    $user = $request->user();
+    $user->cart()->attach($product->id);
+    return redirect()->back()->with('success', 'Product added to Cart.');
+}
 public function addToWishlist(Request $request, Product $product) {
     $user = $request->user();
     $user->wishlist()->attach($product->id);
