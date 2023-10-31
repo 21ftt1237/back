@@ -478,7 +478,14 @@ header .shopping img{
 
     <div class="wishlist-line-blw2btn"></div>
 
-
+@foreach($wishlist as $product)
+    <div class="product-item">
+        <h2>{{ $product->name }}</h2>
+        <p>{{ $product->description }}</p>
+        <p>Price: ${{ $product->price }}</p>
+        <!-- Add buttons to manage the wishlist, like removing items -->
+    </div>
+@endforeach
 
 
   <button id="scrollToTopButton" class="up-button">
