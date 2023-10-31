@@ -626,6 +626,10 @@ box-shadow:0px 2px 7px 1px grey;
 
 }
 
+    .info{
+            height: 200px;
+        }
+
 .heart-icon {
   padding-left: 20px;
     font-size: 20px;
@@ -1123,9 +1127,7 @@ height: 1600px
 }
 
 
-.info{
-            height: 200px;
-        }
+
 
 
 
