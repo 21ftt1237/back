@@ -759,7 +759,8 @@ header{
       </label>
 
         <a href="{{ route('searchFilter') }}" id="goToSearch">
-      <input type="text" placeholder="What are you looking for?" onclick="click()">
+<!--       <input type="text" placeholder="What are you looking for?" onclick="click()"> -->
+            What are you looking for?
         </a>
       <a href="{{ route('searchFilter') }}">
       <button type="submit" value="Search">SEARCH</button>
