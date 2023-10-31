@@ -160,7 +160,7 @@ Route::post('/cart/add/{product}', [ProductController::class, 'addToCart'])->nam
 
 Route::post('/wishlist/add/{product}', [ProductController::class, 'addToWishlist'])->name('wishlist.add');
 
-Route::get('/wishlist', [ProductController::class, 'indexBruzoneWishlist'])->name('wishlist');
+Route::get('/wishlist', [WishlistController::class, 'showWishlist'])->name('wishlist');
 
 Route::get('/email', 'EmailController@index');
 Route::post('/email/send', 'EmailController@sendEmail')->name('send.email');
