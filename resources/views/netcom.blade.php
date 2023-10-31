@@ -1505,6 +1505,18 @@ function addReview(review) {
   <script src="./ecommerce.js"></script>
 
 <script>
+
+    let openShopping = document.querySelector('.shopping');
+let closeShopping = document.querySelector('.closeShopping');
+
+    openShopping.addEventListener('click', ()=>{
+    body.classList.add('active');
+})
+closeShopping.addEventListener('click', ()=>{
+    body.classList.remove('active');
+})
+
+    
    function confirmAction() {
   var confirmation = confirm("You have changed Stores, confirm to clear cart items?");
   if (confirmation) {
