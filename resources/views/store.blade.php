@@ -199,7 +199,7 @@
 }
 
         .info{
-            height: 250px;
+            height: 200px;
         }
     </style>
 </head>
