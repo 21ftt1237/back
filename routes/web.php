@@ -138,7 +138,7 @@ Route::post('profilev', [ProfileController::class, 'profupdate'])->name('updateP
 
 Route::get('coupon', [ProfileController::class, 'showLoyal'])->name('coupon');
 
-Route::get('store', [ProductController::class, 'index']);
+Route::get('store2', [ProductController::class, 'index']);
 
 
 Route::post('/save-cart-items', [CartController::class, 'saveCartItems']);
