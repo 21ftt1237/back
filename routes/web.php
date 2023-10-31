@@ -79,9 +79,6 @@ Route::get('digital', function () {
     return view('digital');
 })->name('digital');
 
-Route::get('BruZoneWishlist', function () {
-    return view('Wishlist.BruZoneWishlist'); 
-})->name('BruZoneWishlist');
 
 Route::get('BruzoneFAQ', function () {
     return view('Help.BruzoneFAQ'); 
