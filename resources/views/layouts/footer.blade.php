@@ -159,6 +159,79 @@
   text-decoration: none;
 }
 
+
+/*PHONE SIZE*/    
+@media (min-width: 480px){
+        .footer-distributed{
+
+  margin-top: auto;
+  font: bold 9px sans-serif;
+  padding: 10px 10px;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+  width: 50%;
+}
+
+
+.footer-distributed h3{
+  font: normal 24px sans-serif;
+
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+  margin-top: 10px;
+}
+
+
+.footer-distributed .footer-company-name{
+  font-size: 9px;
+  margin-top: 20px;
+}
+
+
+.footer-distributed .footer-links a:before {
+   font-size: 10px;
+}
+
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+  width: 35%;
+}
+
+.footer-distributed .footer-company-about{
+  line-height: 5px;
+  font-size: 9px;
+}
+
+.footer-distributed .footer-company-about span{
+  font-size: 9px;
+  margin-bottom: 20px;
+}
+
+.footer-icons{
+  margin-left: 20px;
+}
+
+.footer-distributed .footer-icons{
+  margin-top: 20px;
+}
+
+.footer-distributed .footer-icons a{
+  width: 15px;
+  height: 15px;
+  font-size: 11px;
+  line-height: 3px;
+}
+
+} 
+
 </style>
 
 <body>
