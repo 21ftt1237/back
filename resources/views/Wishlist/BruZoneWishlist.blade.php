@@ -480,24 +480,14 @@ header .shopping img{
 
     <div>
     <h1>Wishlist</h1>
-    @if ($wishlist->count() > 0)
-        <ul>
-            @foreach ($wishlist as $product)
-                <li>
-                    {{ $product->name }}
-                    <!-- Add any other product details you want to display -->
-                </li>
-            @endforeach
-        </ul>
-    @else
-      <div class="wishlist-items" id="wishlist-items"></div>
-    </div>
-
-    <img src="https://i.pinimg.com/originals/f6/e4/64/f6e464230662e7fa4c6a4afb92631aed.png" alt="Wishlist Image" class="wishlist-image">
-
-    <button class="explore-button"> <a href="../dashboard.html">Explore</a></button>   
-    @endif
-      <!-- Add a container for wishlist items -->
+    @if(isset($wishlist))
+    @foreach($wishlist as $product)
+        {{ $product->name }}
+        <!-- Add any other product details you want to display -->
+    @endforeach
+@else
+    <p>Your wishlist is empty.</p>
+@endif
    
    </div>
 
