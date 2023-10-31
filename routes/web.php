@@ -148,6 +148,8 @@ Route::get('digital', [ProductController::class, 'indexDigital'])->name('digital
 
 Route::get('avenue', [ProductController::class, 'indexAvenue'])->name('avenue');
 
+Route::get('Nimanja', [ProductController::class, 'indexNimanja'])->name('Nimanja');
+
 Route::get('Guardian', [ProductController::class, 'indexGuardian'])->name('Guardian');
 
 Route::post('/save-cart-items', [CartController::class, 'saveCartItems']);
