@@ -1,5 +1,5 @@
 @php
-    $pageName = 'Netcom (Kiulap)';
+    $pageName = 'Comnet';
     $storehere = 'true';
     $storenumber = '1';
     $carts = 'true';
