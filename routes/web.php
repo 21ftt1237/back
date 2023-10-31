@@ -142,6 +142,7 @@ Route::get('store2', [ProductController::class, 'yes']);
 
 Route::get('netcom', [ProductController::class, 'index'])->name('netcom');
 
+Route::get('gamecentral', [ProductController::class, 'indexGameCentral'])->name('gamecentral');
 
 Route::post('/save-cart-items', [CartController::class, 'saveCartItems']);
 
