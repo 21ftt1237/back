@@ -14,10 +14,10 @@ class ProductController extends Controller
     return view('netcom', compact('products'));
 }
 
-     public function yes()
-{
-    $products = Product::all();
-    return view('store2', compact('products'));
+    public function addToWishlist(Request $request, $productId) {
+    $user = $request->user(); // Get the current user
+    $user->wishlist()->attach($productId);
+    return redirect()->back()->with('success', 'Product added to wishlist.');
 }
     
 }
