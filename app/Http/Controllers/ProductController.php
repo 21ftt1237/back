@@ -59,7 +59,7 @@ public function removeFromWishlist(Request $request, Product $product) {
 
 public function showWishlist(Request $request) {
     $user = Auth::user();
-    $wishlist = $user->wishlistProducts; 
+    $wishlist = $user->wishlist; 
 
     return view('Wishlist.BruZoneWishlist', compact('wishlist'));
 }
