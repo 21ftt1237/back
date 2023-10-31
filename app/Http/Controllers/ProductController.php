@@ -34,6 +34,12 @@ class ProductController extends Controller
     return view('avenue', compact('products'));
 }
 
+               public function indexNimanja()
+{
+    $products = Product::all();
+    return view('Nimanja', compact('products'));
+}
+
            public function indexGuardian()
 {
     $products = Product::all();
