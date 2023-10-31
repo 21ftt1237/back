@@ -74,7 +74,7 @@ public function show()
         ->where('wishlist.user_id', $user_id)
         ->get();
 
-    return view('wishlist.show', ['wishlist' => $wishlist]);
+    return view('Wishlist.BruZoneWishlist', ['wishlist' => $wishlist]);
 }
     
 }
