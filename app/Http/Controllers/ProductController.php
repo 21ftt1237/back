@@ -14,10 +14,16 @@ class ProductController extends Controller
     return view('netcom', compact('products'));
 }
 
-    public function addToWishlist(Request $request, $productId) {
-    $user = $request->user(); // Get the current user
-    $user->wishlist()->attach($productId);
+public function addToWishlist(Request $request, Product $product) {
+    $user = $request->user();
+    $user->wishlist()->attach($product->id);
     return redirect()->back()->with('success', 'Product added to wishlist.');
+}
+
+public function removeFromWishlist(Request $request, Product $product) {
+    $user = $request->user();
+    $user->wishlist()->detach($product->id);
+    return redirect()->back()->with('success', 'Product removed from wishlist.');
 }
     
 }
