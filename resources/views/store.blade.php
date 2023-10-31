@@ -216,6 +216,7 @@
                                 <div class="price">$ {{ $product->price }}</div>
                                 <div class="info">{{ $product->description }}</div>
                                 <div class="actions">
+                                    <button onclick="addToCard(${key})">Add To Cart</button>
                                     <span class="heart-icon">❤</span>
                                     <!-- Other actions/icons can go here -->
                                 </div>
