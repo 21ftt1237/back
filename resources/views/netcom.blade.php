@@ -1472,7 +1472,7 @@ function addReview(review) {
                                     </form>  
                                 </div>
                             </div>
-                        
+                        @endif
                         @endforeach
                     </div>
                 </div>
@@ -1496,7 +1496,7 @@ function addReview(review) {
                     <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
                 </div>`;
                                 </li>
-                        @endif
+                        
                         @endforeach
                    
         </ul>
