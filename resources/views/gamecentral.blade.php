@@ -1,5 +1,5 @@
 @php
-    $pageName = 'Game Central';
+    $pageName = 'Bruzone (Game Central)';
     $storehere = 'true';
     $storenumber = '3';
     $carts = 'true';
