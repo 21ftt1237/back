@@ -797,9 +797,9 @@ header{
       <div class="swiper-slide swiper-slide--four">
 
         <div>
-          <h2>88th Avenue</h2>
+          <h2>Route 66th</h2>
           <p>
-            YOUR ONE-STOP T-SHIRT SHOP, we have a rare kind, vintage kind, band and even graphic tees, we have all designs you need. Find us at 88th Avenue in kiarong.
+            YOUR ONE-STOP T-SHIRT SHOP, we have a rare kind, vintage kind, band and even graphic tees, we have all designs you need. Find us at Route 66th in kiarong.
           </p>
           <a href="{{ route('avenue') }}" target="_blank">explore</a>
         </div>
@@ -847,8 +847,8 @@ header{
     </div>
     <div class="item" style="background-image: url(image/88avenue.jpg);" data-url="{{ route('avenue') }}">
       <div class="item-desc">
-        <h3>88th Avenue</h3>
-        <p>YOUR ONE-STOP T-SHIRT SHOP, we have a rare kind, vintage kind, band and even graphic tees, we have all designs you need. Find us at 88th Avenue in kiarong.</p>
+        <h3>Route 66th</h3>
+        <p>YOUR ONE-STOP T-SHIRT SHOP, we have a rare kind, vintage kind, band and even graphic tees, we have all designs you need. Find us at Route 66th in kiarong.</p>
               <a href="{{ route('avenue') }}">
         <button class="item-button">view</button>
         </a>
