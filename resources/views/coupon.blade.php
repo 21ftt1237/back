@@ -1,5 +1,5 @@
 @php
-    $pageName = 'Coupon';
+    $pageName = 'Bruzone (Coupon)';
 @endphp
 @include('layouts.header')
 <!DOCTYPE html>
