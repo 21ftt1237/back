@@ -1472,7 +1472,7 @@ function addReview(review) {
                                     </form>  
                                 </div>
                             </div>
-                        @endif
+                        
                         @endforeach
                     </div>
                 </div>
