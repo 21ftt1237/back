@@ -1446,7 +1446,27 @@ function addReview(review) {
             <div class="info">Lorem ipsum dolor sit.</div>
           </div> -->
           
-          <div class="containerPage">
+           <div class="containerPage">
+                    <div class="list">           
+                        @foreach ($products as $product)
+                         @if ($product->store_id == 1)
+                            <div class="items">
+                                <div class="img">
+                                    <img src="image/{{ $product->image_link }}" alt="{{ $product->name }}">
+                                </div>
+                                <div class="name">{{ $product->name }}</div>
+                                <div class="price">$ {{ $product->price }}</div>
+                                <div class="info">{{ $product->description }}</div>
+                                <div class="actions">
+                                    <button onclick="addToCard(${key})">Add To Cart</button>
+                                    <span class="heart-icon">❤</span>
+                                    <!-- Other actions/icons can go here -->
+                                </div>
+                            </div>
+                        @endif
+                        @endforeach
+                    </div>
+                </div>
 
         <div class="list">
           
