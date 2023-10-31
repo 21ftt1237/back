@@ -140,7 +140,7 @@ Route::get('coupon', [ProfileController::class, 'showLoyal'])->name('coupon');
 
 Route::get('store2', [ProductController::class, 'index']);
 
-Route::get('netcom', [ProductController::class, 'index']);
+Route::get('netcom', [ProductController::class, 'index'])->('netcom');
 
 
 Route::post('/save-cart-items', [CartController::class, 'saveCartItems']);
