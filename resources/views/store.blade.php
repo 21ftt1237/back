@@ -44,8 +44,8 @@
 
         .section2 .container .items {
             margin: 10px;
-            width: 300px;
-            height: 450px;
+            width: 400px;
+            height: 600px;
             background-color: white;
             border: 2.5px solid black;
             border-radius: 12px;
