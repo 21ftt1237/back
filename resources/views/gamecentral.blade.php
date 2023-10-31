@@ -520,6 +520,9 @@ box-shadow:0px 2px 7px 1px grey;
 
 
 
+.info{
+            height: 200px;
+        }
 
 
 
@@ -1450,7 +1453,29 @@ function addReview(review) {
             <div class="info">Lorem ipsum dolor sit.</div>
           </div> -->
           
-          <div class="containerPage">
+              <div class="containerPage">
+                    <div class="list">           
+                        @foreach ($products as $product)
+                         @if ($product->store_id == 2)
+                            <div class="item">
+                                <div class="img">
+                                    <img src="image/{{ $product->image_link }}" alt="{{ $product->name }}">
+                                </div>
+                                <div class="name">{{ $product->name }}</div>
+                                <div class="price">$ {{ $product->price }}</div>
+                                <div class="info">{{ $product->description }}</div>
+                                <div class="actions">
+                                    <button onclick="addToCard(${key})">Add To Cart</button>
+                                    <form action="{{ route('wishlist.add', ['product' => $product]) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="heart-icon">❤</button>
+                                    </form>  
+                                </div>
+                            </div>
+                        @endif
+                        @endforeach
+                    </div>
+                </div>
 
         <div class="list">
           
@@ -1486,6 +1511,16 @@ function addReview(review) {
 
 
 <script>
+     let openShopping = document.querySelector('.shopping');
+let closeShopping = document.querySelector('.closeShopping');
+
+    openShopping.addEventListener('click', ()=>{
+    document.body.classList.add("active");
+})
+closeShopping.addEventListener('click', ()=>{
+    document.body.classList.remove("active");
+})
+    
   function confirmAction() {
   var confirmation = confirm("You have changed Stores, confirm to clear cart items?");
   if (confirmation) {
