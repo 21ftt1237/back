@@ -874,8 +874,8 @@ header{
     </div>
     <div class="item" style="background-image: url(image/digital.jpg);" data-url="{{ route('digital') }}">
       <div class="item-desc">
-        <h3>Digital World</h3>
-        <p>Digital world is mainly a phone shop. As their reputation arises, their shop grows as now one of the biggest company in Brunei. Alternatively, other than phones that they sell, they also have laptops, watches, gaming accessories and even other electronic devices and accessories.</p>
+        <h3>Digital universe</h3>
+        <p>Digital universe is mainly a phone shop. As their reputation arises, their shop grows as now one of the biggest company in Brunei. Alternatively, other than phones that they sell, they also have laptops, watches, gaming accessories and even other electronic devices and accessories.</p>
               <a href="{{ route('digital') }}">
         <button class="item-button">view</button>
         </a>
