@@ -144,6 +144,8 @@ Route::get('netcom', [ProductController::class, 'index'])->name('netcom');
 
 Route::get('gamecentral', [ProductController::class, 'indexGameCentral'])->name('gamecentral');
 
+Route::get('digital', [ProductController::class, 'indexDigital'])->name('digital');
+
 Route::post('/save-cart-items', [CartController::class, 'saveCartItems']);
 
 Route::get('/order', [CartController::class, 'getCartItems'])->name('order');
