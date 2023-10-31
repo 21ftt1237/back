@@ -2,9 +2,7 @@
     $pageName = 'Wishlist';
     $carts = 'true';
 @endphp
-@php
-    dd($wishlistProducts);
-@endphp
+
 @include('layouts.header')
 
 <!DOCTYPE html>
