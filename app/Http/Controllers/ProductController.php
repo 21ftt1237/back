@@ -66,7 +66,10 @@ public function removeFromWishlist(Request $request, Product $product) {
 
 public function show()
 {
-    // Retrieve the wishlist for the currently authenticated user (assuming you have user authentication)
+    if (!auth()->check()) {
+        return redirect()->route('login'); // Redirect unauthenticated users to the login page
+    }
+
     $user_id = auth()->id();
     $wishlist = DB::table('wishlist')
         ->join('products', 'wishlist.product_id', '=', 'products.id')
