@@ -54,7 +54,7 @@ class User extends Authenticatable
     return $this->belongsToMany(Product::class, 'wishlist')->withTimestamps();
 }
 
-    public function wishlist(): BelongsToMany
+    public function cart(): BelongsToMany
 {
     return $this->belongsToMany(Product::class, 'cart')->withTimestamps();
 }
