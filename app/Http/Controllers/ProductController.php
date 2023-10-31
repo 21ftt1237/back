@@ -43,7 +43,7 @@ public function removeFromWishlist(Request $request, Product $product) {
         $user = Auth::user();
         $wishlist = $user->wishlistProducts; // Assuming you've defined a relationship in the User model
 
-        return view('My Wish.BruZoneWishlist', ['wishlist' => $wishlist]);
+        return view('Wishlist.BruZoneWishlist', ['wishlist' => $wishlist]);
     }
     
 }
