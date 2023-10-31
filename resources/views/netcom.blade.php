@@ -1123,7 +1123,9 @@ height: 1600px
 }
 
 
-
+.info{
+            height: 200px;
+        }
 
 
 
