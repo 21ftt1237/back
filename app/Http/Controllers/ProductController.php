@@ -64,20 +64,6 @@ public function removeFromWishlist(Request $request, Product $product) {
     return redirect()->back()->with('success', 'Product removed from wishlist.');
 }
 
-public function show()
-{
-    if (!auth()->check()) {
-        return redirect()->route('login'); // Redirect unauthenticated users to the login page
-    }
 
-    $user_id = auth()->id();
-    $wishlist = DB::table('wishlist')
-        ->join('products', 'wishlist.product_id', '=', 'products.id')
-        ->select('products.name', 'wishlist.created_at', 'wishlist.updated_at')
-        ->where('wishlist.user_id', $user_id)
-        ->get();
-
-    return view('Wishlist.BruZoneWishlist', ['wishlist' => $wishlist]);
-}
     
 }
