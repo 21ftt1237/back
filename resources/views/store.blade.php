@@ -168,7 +168,7 @@
                         @foreach ($products as $product)
                             <div class="items">
                                 <div class="img">
-                                    <img src="{{ $product->image_link }}" alt="{{ $product->name }}">
+                                    <img src="image/{{ $product->image_link }}" alt="{{ $product->name }}">
                                 </div>
                                 <div class="name">{{ $product->name }}</div>
                                 <div class="price">$ {{ $product->price }}</div>
