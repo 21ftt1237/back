@@ -212,6 +212,7 @@
             <div class="container">
                 <div class="containerPage">
                     <div class="list">
+                        @if ($product->store_id == 1)
                         @foreach ($products as $product)
                             <div class="items">
                                 <div class="img">
@@ -226,6 +227,7 @@
                                     <!-- Other actions/icons can go here -->
                                 </div>
                             </div>
+                        @endif
                         @endforeach
                     </div>
                 </div>
