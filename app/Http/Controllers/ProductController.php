@@ -13,5 +13,11 @@ class ProductController extends Controller
     $products = Product::all();
     return view('netcom', compact('products'));
 }
+
+     public function yes()
+{
+    $products = Product::all();
+    return view('store2', compact('products'));
+}
     
 }
