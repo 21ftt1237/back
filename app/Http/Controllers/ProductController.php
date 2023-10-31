@@ -13,6 +13,12 @@ class ProductController extends Controller
     $products = Product::all();
     return view('netcom', compact('products'));
 }
+    
+  public function indexGameCentral()
+{
+    $products = Product::all();
+    return view('gamecentral', compact('products'));
+}
 
 public function addToWishlist(Request $request, Product $product) {
     $user = $request->user();
