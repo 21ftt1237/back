@@ -1,5 +1,5 @@
 @php
-    $pageName = 'Comnet';
+    $pageName = 'Bruzone (Comnet)';
     $storehere = 'true';
     $storenumber = '1';
     $carts = 'true';
