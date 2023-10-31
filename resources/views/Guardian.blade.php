@@ -1431,7 +1431,7 @@ function addReview(review) {
          <div class="containerPage">
                     <div class="list">           
                         @foreach ($products as $product)
-                         @if ($product->store_id == 1)
+                         @if ($product->store_id == 5)
                             <div class="item">
                                 <div class="img">
                                     <img src="image/{{ $product->image_link }}" alt="{{ $product->name }}">
