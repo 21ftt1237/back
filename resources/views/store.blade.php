@@ -33,6 +33,11 @@
             width: 1080px;
         }
 
+        .info {
+        height: 150px
+            width:250px
+        }
+
         .section2 .container {
 /*             display: flex; */
             width: 100%;
