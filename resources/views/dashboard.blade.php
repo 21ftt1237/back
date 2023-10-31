@@ -305,7 +305,9 @@ input[type="search"] {
 }
 
 
-
+#goToSearch{
+    width: 750px;
+}
 
 /*POPULAR SECTION*/
 /* -------- title style ------- */
@@ -756,7 +758,7 @@ header{
         <i class="ion-location"></i>
       </label>
 
-        <a href="{{ route('searchFilter') }}">
+        <a href="{{ route('searchFilter') }}" style:"width: 750px">
       <input type="text" placeholder="What are you looking for?" onclick="click()">
         </a>
       <a href="{{ route('searchFilter') }}">
