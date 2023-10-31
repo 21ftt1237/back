@@ -27,6 +27,12 @@ class ProductController extends Controller
     return view('digital', compact('products'));
 }
 
+           public function indexAvenue()
+{
+    $products = Product::all();
+    return view('avenue', compact('products'));
+}
+
 public function addToWishlist(Request $request, Product $product) {
     $user = $request->user();
     $user->wishlist()->attach($product->id);
