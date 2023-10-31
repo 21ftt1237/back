@@ -75,7 +75,7 @@ ublic function showWishlist()
     $user = Auth::user();
     $wishlist = $user->wishlist;
 
-    return view('wishlist', compact('wishlist'));
+    return view('Wishlist.BruZoneWishlist', compact('wishlist'));
 }
     
 }
