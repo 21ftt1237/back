@@ -768,8 +768,8 @@ header{
     <div class="swiper-wrapper">
       <div class="swiper-slide swiper-slide--one">
         <div>
-          <h2>Netcom</h2>
-          <p>Netcom is one of the largest computer retail shop in Brunei, offering after sales service and repairs, professional resources and expertise in technology solutions, with five retail outlets and one online outlet at strategic locations nationwide</p>
+          <h2>Comnet</h2>
+          <p>Comnet is one of the largest computer retail shop in Brunei, offering after sales service and repairs, professional resources and expertise in technology solutions, with five retail outlets and one online outlet at strategic locations nationwide</p>
           <a href="{{ route('netcom') }}" target="_blank">explore</a>
         </div>
       </div>
