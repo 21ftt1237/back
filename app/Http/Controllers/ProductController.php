@@ -70,6 +70,12 @@ public function removeFromWishlist(Request $request, Product $product) {
     return redirect()->back()->with('success', 'Product removed from wishlist.');
 }
 
+ublic function showWishlist()
+{
+    $user = Auth::user();
+    $wishlist = $user->wishlist;
 
+    return view('wishlist', compact('wishlist'));
+}
     
 }
