@@ -31,5 +31,14 @@ public function removeFromWishlist(Request $request, Product $product) {
     $user->wishlist()->detach($product->id);
     return redirect()->back()->with('success', 'Product removed from wishlist.');
 }
+
+public function showWishlist(Request $request) {
+    $user = $request->user();
+    $wishlist = $user->wishlistProducts; // Assuming you've defined a relationship in the User model
+
+    return view('wishlist.index', ['wishlist' => $wishlist]);
+}
+
+
     
 }
