@@ -53,25 +53,46 @@
 
         .section2 .container .items .name {
             text-align: center;
-            background-color: yellow;
             height: 25px;
-            padding-top: 4px;
-            color: black;
-            margin: 0;
+    padding-top: 4px;
+    color: black;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    font-weight: 600;
         }
 
         .section2 .container .items .price {
             float: left;
-            padding-left: 10px;
-            display: block;
-            width: 100%;
-            color: rgb(255, 0, 0);
-            font-weight: 650;
+    display: block;
+    width: 100%;
+    color: rgb(255, 0, 0);
+    font-weight: 650;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
         }
 
         .section2 .container .items .info {
             padding-left: 10px;
             color: black;
+                padding-left: 40px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    margin-top: 15px;
+}
         }
 
         .section2 .container .items .img img {
@@ -95,8 +116,13 @@
         }
 
         .items {
-            overflow: hidden;
-            position: relative;
+        overflow: hidden;
+        margin: 0;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
         }
 
         .actions {
