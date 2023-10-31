@@ -478,18 +478,19 @@ header .shopping img{
     <div class="wishlist-line-blw2btn"></div>
 
 
-    <div>
-    <h1>Wishlist</h1>
-    @if(isset($wishlist))
-    @foreach($wishlist as $product)
-        {{ $product->name }}
-        <!-- Add any other product details you want to display -->
-    @endforeach
-@else
-    <p>Your wishlist is empty.</p>
-@endif
-   
-   </div>
+ <h1>Wishlist</h1>
+    @if($wishlist->isEmpty())
+        <p>Your wishlist is empty.</p>
+    @else
+        <ul>
+            @foreach($wishlist as $wishlistItem)
+                <li>
+                    {{ $wishlistItem->product->name }}
+                    <!-- You can display other product details here -->
+                </li>
+            @endforeach
+        </ul>
+    @endif
 
 
 
