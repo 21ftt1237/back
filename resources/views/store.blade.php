@@ -34,7 +34,7 @@
         }
 
         .section2 .container {
-            display: flex;
+/*             display: flex; */
             width: 100%;
             height: max-content;
             flex-wrap: wrap;
@@ -44,8 +44,8 @@
 
         .section2 .container .items {
             margin: 10px;
-            width: 200px;
-            height: 300px;
+            width: 300px;
+            height: 450px;
             background-color: white;
             border: 2.5px solid black;
             border-radius: 12px;
