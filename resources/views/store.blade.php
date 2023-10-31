@@ -119,7 +119,7 @@
         overflow: hidden;
         margin: 0;
         margin-bottom: 15px;
-        display: flex;
+/*         display: flex; */
         justify-content: center;
         align-items: center;
         margin-top: 15px;
