@@ -1542,6 +1542,10 @@ if (storeId !== parseVal) {
   confirmAction();
 }}
 </script>
+    <script>
+        //For cart
+        
+    </script>
 </body>
 
 </html>
