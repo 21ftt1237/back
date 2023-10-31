@@ -478,19 +478,18 @@ header .shopping img{
     <div class="wishlist-line-blw2btn"></div>
 
 
- <h1>Wishlist</h1>
-    @if($wishlist->isEmpty())
-        <p>Your wishlist is empty.</p>
-    @else
-        <ul>
-            @foreach($wishlist as $wishlistItem)
-                <li>
-                    {{ $wishlistItem->product->name }}
-                    <!-- You can display other product details here -->
-                </li>
-            @endforeach
-        </ul>
-    @endif
+<div class="container">
+    <h1>Wishlist</h1>
+    <ul>
+        @foreach($wishlistProducts as $product)
+            <li>
+                {{ $product->name }} <!-- Assuming the product has a 'name' attribute -->
+                <!-- Add other product details you want to display -->
+                <a href="{{ route('removeFromWishlist', $product->id) }}">Remove from Wishlist</a>
+            </li>
+        @endforeach
+    </ul>
+</div>
 
 
 
