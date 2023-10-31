@@ -20,6 +20,12 @@ class ProductController extends Controller
     return view('gamecentral', compact('products'));
 }
 
+       public function indexDigital()
+{
+    $products = Product::all();
+    return view('digital', compact('products'));
+}
+
 public function addToWishlist(Request $request, Product $product) {
     $user = $request->user();
     $user->wishlist()->attach($product->id);
