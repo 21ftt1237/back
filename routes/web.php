@@ -147,6 +147,6 @@ Route::post('/save-cart-items', [CartController::class, 'saveCartItems']);
 
 Route::get('/order', [CartController::class, 'getCartItems'])->name('order');
 
-Route::post('/wishlist/add/{product}', 'ProductController@addToWishlist')->name('wishlist.add');
+Route::post('/wishlist/add/{product}', [ProductController::class, 'addToWishlist'])->name('wishlist.add');
 
 require __DIR__.'/auth.php';
