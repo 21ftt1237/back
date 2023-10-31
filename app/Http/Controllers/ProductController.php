@@ -47,6 +47,12 @@ class ProductController extends Controller
     return view('Guardian', compact('products'));
 }
 
+              public function indexGuardian()
+{
+    $cart= cart::all();
+    return view('Guardian', compact('products'));
+}
+
 public function addToCart(Request $request, Product $product) {
     $user = $request->user();
     $user->cart()->attach($product->id);
