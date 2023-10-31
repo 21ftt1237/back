@@ -146,6 +146,8 @@ Route::get('gamecentral', [ProductController::class, 'indexGameCentral'])->name(
 
 Route::get('digital', [ProductController::class, 'indexDigital'])->name('digital');
 
+Route::get('digital', [ProductController::class, 'indexAvenue'])->name('digital');
+
 Route::post('/save-cart-items', [CartController::class, 'saveCartItems']);
 
 Route::get('/order', [CartController::class, 'getCartItems'])->name('order');
