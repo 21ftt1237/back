@@ -199,7 +199,7 @@
      <div class="container">
     </div>
     
-
+       @include('layouts.app')
       <div class="details-container">
     <ul>
         @foreach($cartItems as $cartItem)
