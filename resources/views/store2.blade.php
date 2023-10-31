@@ -211,9 +211,9 @@
         <div class="section2">
             <div class="container">
                 <div class="containerPage">
-                    <div class="list">
-                        @if ($product->store_id == 1)
+                    <div class="list">           
                         @foreach ($products as $product)
+                         @if ($product->store_id == 1)
                             <div class="items">
                                 <div class="img">
                                     <img src="image/{{ $product->image_link }}" alt="{{ $product->name }}">
