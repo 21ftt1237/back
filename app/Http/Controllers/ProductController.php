@@ -72,7 +72,7 @@ public function indexBruzoneWishlist()
     // Retrieve the wishlist products for the user
     $wishlistProducts = $user->wishlist;
 
-    return view('BruzoneWishlist', compact('wishlistProducts'));
+    return view('Wishlist.BruZoneWishlist', compact('wishlistProducts'));
 }
 
 
