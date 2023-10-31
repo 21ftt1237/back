@@ -120,6 +120,40 @@
         .heart-icon.clicked {
             color: #F6E71D;
         }
+
+        .list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+    margin-top: 50px;
+}
+.list .item{
+    text-align: center;
+    background-color: white;
+  border: 2.5px solid black;
+  border-radius: 12px;
+    padding: 20px;
+/*    box-shadow: 0 50px 50px #757676;*/
+    letter-spacing: 1px;
+}
+.list .item img{
+    width: 90%;
+    height: 250px;
+    object-fit: cover;
+}
+.list .item .title{
+    font-weight: 600;
+}
+.list .item .price{
+    margin: 10px;
+}
+.list .item button{
+    background-color: #1C1F25;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+}
     </style>
 </head>
 <body>
