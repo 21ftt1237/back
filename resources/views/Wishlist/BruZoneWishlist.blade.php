@@ -482,8 +482,10 @@ header .shopping img{
     <ul>
         @foreach ($wishlistItems as $wishlistItem)
             <li>
-                <a href="{{ route('products.show', $wishlistItem->product->id) }}">
+                    
                     {{ $wishlistItem->product->name }}
+                    {{ $wishlistItem->product->price }}
+                    
                 </a>
             </li>
         @endforeach
