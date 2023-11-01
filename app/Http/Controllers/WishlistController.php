@@ -19,7 +19,7 @@ public function index()
         ->with('product') // Assuming you have defined a 'product' relationship in the Wishlist model
         ->get();
 
-    return view('wishlist', compact('wishlistItems'));
+    return view('Wishlist.BruZoneWishlist', compact('wishlistItems'));
 }
   
 }
