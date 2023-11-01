@@ -149,8 +149,6 @@ Route::get('Nimanja', [ProductController::class, 'indexNimanja'])->name('Nimanja
 
 Route::get('Guardian', [ProductController::class, 'indexGuardian'])->name('Guardian');
 
-Route::post('/save-cart-items', [CartController::class, 'saveCartItems']);
-
 Route::get('/order', [CartController::class, 'getCartItems'])->name('order');
 
 Route::post('/cart/add/{product}', [ProductController::class, 'addToCart'])->name('cart.add');
