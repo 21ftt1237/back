@@ -198,8 +198,25 @@
  <body> 
      <div class="container">
     </div>
+
+     <div class="details-container">
+         <div class="data">
+         <div class="eclipse-container">
+        @foreach($cartItems as $cartItem)
+            <div class="eclipse">
+                <img src="image/{{ $cartItem->image }}"><br>
+                </div>
+                 <div class="details-container">
+                <div>Product Name: {{ $cartItem->name }}</div>
+                 <div>Price: ${{ $cartItem->price }}</div>
+                <div>Quantity: {{ $cartItem->quantity }}</div>
+                <div>Created At:{{ $cartItem->created_at->format('Y-m-d H:i:s') }}</div>
+        @endforeach
+       </div>
+    </div>
     
-      <div class="details-container">
+    
+<!--       <div class="details-container">
     <ul>
         @foreach($cartItems as $cartItem)
             <li> 
@@ -211,9 +228,10 @@
                 <hr>
             </li>
         @endforeach
-    </ul>
+    </ul> -->
+<!--       </div> -->
 </body>
-                     </div>
+                    
 
          
  
