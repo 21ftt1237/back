@@ -68,7 +68,7 @@
                 </div>
                 @endif
                 <div class="wishlist">
-                    <a href="{{ route('BruZoneWishlist') }}">
+                    <a href="{{ route('Wishlist') }}">
                         <img src="{{ asset('image/wishlist.png') }}">
                         <span class="wishlist-quantity">0</span>
                     </a>
