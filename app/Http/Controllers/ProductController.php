@@ -72,6 +72,11 @@ public function removeFromWishlist(Request $request, Product $product) {
     return redirect()->back()->with('success', 'Product removed from wishlist.');
 }
 
+    public function show($id)
+{
+    $product = Product::findOrFail($id); 
+    return view('products.show', compact('product'));
+}
 
     
 }
