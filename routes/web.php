@@ -85,9 +85,6 @@ Route::get('BruzoneFAQ', function () {
     return view('Help.BruzoneFAQ'); 
 })->name('BruzoneFAQ');
 
-Route::get('BruZoneWishlist', function () {
-    return view('Wishlist.BruZoneWishlist'); 
-})->name('BruZoneWishlist');
 
 Route::get('BruzoneEmail', function () {
     return view('Help.BruzoneEmail'); 
