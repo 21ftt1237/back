@@ -477,9 +477,10 @@ header .shopping img{
     </div>
 
     <div class="wishlist-line-blw2btn"></div>
-
-<h1>My Wishlist</h1>
-    <ul>
+<div>
+      <!-- Add a container for wishlist items -->
+    <div class="wishlist-items" id="wishlist-items">
+          <ul>
         @foreach ($wishlistItems as $wishlistItem)
             <li>
                     <img src="image/{{ $wishlistItem->product->image_link }}">
@@ -490,6 +491,10 @@ header .shopping img{
             </li>
         @endforeach
     </ul>
+    </div>
+    </div>
+<!-- <h1>My Wishlist</h1> -->
+  
 
   <button id="scrollToTopButton" class="up-button">
   <img src="https://cdn-icons-png.flaticon.com/512/25/25282.png" alt="Up Icon">
