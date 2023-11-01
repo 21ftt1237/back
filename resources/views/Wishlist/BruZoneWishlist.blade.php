@@ -477,7 +477,7 @@ header .shopping img{
     </div>
 
     <div class="wishlist-line-blw2btn"></div>
-<!-- <div> -->
+<div>
     
           <ul>
         @foreach ($wishlistItems as $wishlistItem)
@@ -490,7 +490,7 @@ header .shopping img{
             </li>
         @endforeach
     </ul>
-<!--     </div> -->
+    </div>
 
 <!-- <h1>My Wishlist</h1> -->
   
