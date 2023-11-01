@@ -135,7 +135,7 @@ Route::get('coupon', [ProfileController::class, 'showLoyal'])->name('coupon');
 
 Route::get('store2', [ProductController::class, 'yes']);
 
-Route::get('netcom', [ProductController::class, 'index'])->name('netcom');
+Route::get('netcom', [ProductController::class, 'index'])->name('netcom.products');
 
 // Route::get('netcom', [ProductController::class, 'cart'])->name('netcom');
 
