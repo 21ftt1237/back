@@ -1485,12 +1485,7 @@ function addReview(review) {
     <h1>Your Shopping Cart</h1>
        <ul class="listCard">
         <ul>
-<!--     @foreach ($cart as $cart) -->
-<!--         <li> -->
-<!--             {{ $cart->product->name }} -->
-<!--             {{ $cart->product->price }} -->
-<!--         </li> -->
-<!--     @endforeach -->
+
 </ul>
     </ul> 
         <div class="checkOut" id="">
