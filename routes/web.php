@@ -30,9 +30,9 @@ Route::get('Bruzone_Sign_Up', function () {
     return view('Bruzone_Sign_Up');
 })->name('Bruzone_Sign_Up');
 
-// Route::get('netcom', function () {
-//     return view('netcom');
-// })->name('netcom');
+Route::get('netcom', function () {
+    return view('netcom');
+})->name('netcom');
 
 Route::get('AdminOrderHistory', function () {
     return view('AdminOrderHistory');
