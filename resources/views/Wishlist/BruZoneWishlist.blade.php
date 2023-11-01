@@ -356,24 +356,27 @@ header .shopping img{
 /* Updated CSS for .wishlist-items */
 .wishlist-items {
   position: absolute;
-  left: 350px;
-  top: 265px;
-  display: flex; /* Change the display property to flex */
-  gap: 20px;
+  left: 350px; /* Same as wishlist-title's left position */
+  top: 265px; /* Adjust as needed */
+  display: flex;
+  flex-direction: row;
+  gap: 20px; /* Gap between items */
   padding: 10px;
-  align-items: flex-start;
-  overflow-x: auto;
+  align-items: flex-start; /* Align items to the top */
+  overflow-x: auto; /* Enable horizontal scrolling for smaller screens */
 }
 
-/* Remove the flex-direction and align-items styles from .wishlist-item */
 .wishlist-item {
+  display: flex;
+  flex-direction: column; /* Change flex direction to column */
+  align-items: center;
   padding: 10px;
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
-  width: 250px;
-  min-height: 400px;
+  width: 250px; /* Fixed width for each item */
+  min-height: 400px; /* Fixed minimum height for each item */
 }
 
 
