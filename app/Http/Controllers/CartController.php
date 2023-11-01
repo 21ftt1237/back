@@ -2,77 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\CartItem; // Replace with your actual CartItem model
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
-    public function saveCartItems(Request $request)
-    {
-        \Log::info($request->all());
 
-        // Validate the incoming request data
-        $request->validate([
-            'cartItems' => 'required|array',
-            'cartItems.*.name' => 'required|string',
-            'cartItems.*.image' => 'required|string', // Add 'image' validation
-            'cartItems.*.price' => 'required|numeric',
-            'cartItems.*.desc' => 'required|string', // Add 'desc' validation
-            'cartItems.*.quantity' => 'required|integer|min:1',
-            // Add other validation rules as needed
-        ]);
+public function index()
+{
+    // Fetch the currently logged-in user's wishlist items
+    $user = auth()->user(); // Get the currently authenticated user
+    $cart = Cart::where('user_id', $user->id)
+        ->with('product') // Assuming you have defined a 'product' relationship in the Wishlist model
+        ->get();
 
-        $cartItemsData = $request->input('cartItems');
-        $user = Auth::user(); // Get the authenticated user
-
-        // Initialize an array to store the selected fields
-        $selectedItems = [];
-
-        // Iterate through the cart items and save them to the database with the associated user ID
-        foreach ($cartItemsData as $itemData) {
-            $cartItem = new CartItem([
-                'user_id' => $user->id, // Set the user_id
-                'name' => $itemData['name'],
-                'image' => $itemData['image'],
-                'price' => $itemData['price'],
-                'desc' => $itemData['desc'],
-                'quantity' => $itemData['quantity'],
-                // Add other fields as needed
-            ]);
-            $cartItem->save();
-
-            // Select the desired fields and add them to the $selectedItems array
-            $selectedItems[] = [
-                'name' => $itemData['name'],
-                'image' => $itemData['image'],
-                'price' => $itemData['price'],
-                'desc' => $itemData['desc'],
-                'quantity' => $itemData['quantity'],
-            ];
-        }
-
-        // You can return the selected items as a JSON response if needed
-        return response()->json(['cartItems' => $selectedItems], 200);
-    }
-
-    public function getCartItems()
-    {
-        // Assuming you have a relationship set up in the User model to get the user's cart items
-        $user = Auth::user();
-        $cartItems = $user->cartItems;
-
-        // You can also calculate the total quantity and total price here
-        $totalQuantity = $cartItems->sum('quantity');
-        $totalPrice = $cartItems->sum(function ($cartItem) {
-            return $cartItem->quantity * $cartItem->price;
-        });
-
-        // Pass the cart items and totals to the view
-        return view('My order.order', [
-            'cartItems' => $cartItems,
-            'totalQuantity' => $totalQuantity,
-            'totalPrice' => $totalPrice,
-        ]);
-    }
+    return view('netcom', compact('cart'));
+}
+  
 }
