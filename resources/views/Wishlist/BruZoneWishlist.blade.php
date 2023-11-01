@@ -483,8 +483,8 @@ header .shopping img{
         @foreach ($wishlistItems as $wishlistItem)
             <li class="wishlist-item">
                     <img src="image/{{ $wishlistItem->product->image_link }}">
-                    {{ $wishlistItem->product->name }}
-                    {{ $wishlistItem->product->price }}
+                    <div class= "item-name">{{ $wishlistItem->product->name }}</div>
+                    <div class= "item-price">{{ $wishlistItem->product->price }}</div>
                     
                 </a>
             </li>
