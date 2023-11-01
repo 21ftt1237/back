@@ -447,6 +447,23 @@ header .shopping img{
     object-fit: cover; /* Maintain aspect ratio and cover the entire space */
 }
 
+.list-container {
+    display: flex; /* Use flexbox to arrange the list horizontally */
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+}
+
+.list-container ul {
+    list-style: none; /* Remove list bullets */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Make the ul a flex container */
+}
+
+.list-container li {
+    flex: 1; /* Distribute available space evenly among items */
+    margin: 10px; /* Add margin to separate items */
+    text-align: center; /* Center-align content within each item */
+}
 
  
   
@@ -480,7 +497,7 @@ header .shopping img{
     </div>
 
     <div class="wishlist-line-blw2btn"></div>
-<div class="wishlist-items ">
+<div class="wishlist-items list-container">
     
           <ul>
         @foreach ($wishlistItems as $wishlistItem)
@@ -502,7 +519,8 @@ header .shopping img{
   <img src="https://cdn-icons-png.flaticon.com/512/25/25282.png" alt="Up Icon">
 </button>
 
-   
+
+      
 
   <script>
     
