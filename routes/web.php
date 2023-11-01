@@ -163,6 +163,8 @@ Route::post('/wishlist/add/{product}', [ProductController::class, 'addToWishlist
 
 Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
 
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 
 Route::get('/email', 'EmailController@index');
