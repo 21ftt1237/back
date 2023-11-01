@@ -1487,14 +1487,14 @@ function addReview(review) {
                  
                         @foreach ($cart as $cart)
                        <li>
-                           <div><img src="image/${{ $product->image_link }}"/></div>
-                <div>${{ $product->name }}</div>
-                <div>BND ${{ $product->price }}</div>
-                <div>
+<!--                            <div><img src="image/${{ $product->image_link }}"/></div> -->
+                <div>${{ $cart>product_id }}</div>
+<!--                 <div>BND ${{ $product->price }}</div> -->
+<!--                 <div>
                     <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
                     <div class="count">${value.quantity}</div>
                     <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
-                </div>`;
+                </div>`; -->
                                 </li>
                         
                         @endforeach
