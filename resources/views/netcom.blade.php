@@ -1483,23 +1483,17 @@ function addReview(review) {
     </div>
     <div class="card">
         <h1>Your Shopping Cart</h1>
-        <ul class="listCard">
-                 
-                        @foreach ($cart as $cart)
-                       <li>
-<!--                            <div><img src="image/${{ $product->image_link }}"/></div> -->
-                <div>${{ $cart>product_id }}</div>
-<!--                 <div>BND ${{ $product->price }}</div> -->
-<!--                 <div>
-                    <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
-                    <div class="count">${value.quantity}</div>
-                    <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
-                </div>`; -->
-                                </li>
-                        
-                        @endforeach
-                   
-        </ul>
+           <ul class="listCard">
+        @foreach ($cart as $carts)
+            <li>
+                    
+                    {{ $carts>product->name }}
+                    {{ $carts>product->price }}
+                    
+                </a>
+            </li>
+        @endforeach
+    </ul>
         <div class="checkOut" id="">
             <a href="{{ route('checkout') }}">
             <div class="total">BND 0</div></a>
