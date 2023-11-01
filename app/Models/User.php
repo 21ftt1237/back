@@ -33,14 +33,6 @@ class User extends Authenticatable
         return $this->hasMany(CartItem::class);
     }
 
-    public function wishlist(): BelongsToMany
-    {
-        return $this->belongsToMany(Product::class, 'wishlist')->withTimestamps();
-    }
 
-    public function cart(): BelongsToMany
-    {
-        return $this->belongsToMany(Product::class, 'cart')->withTimestamps();
-    }
 }
 
