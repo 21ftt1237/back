@@ -482,7 +482,7 @@ header .shopping img{
     <div class="wishlist-line-blw2btn"></div>
 <div class="wishlist-items ">
     
-          <ul class = "wishlist-items">
+          <ul>
         @foreach ($wishlistItems as $wishlistItem)
             <li class="wishlist-item">
                     <img src="image/{{ $wishlistItem->product->image_link }}">
