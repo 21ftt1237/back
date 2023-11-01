@@ -49,7 +49,7 @@ class ProductController extends Controller
 
     public function cart()
 {
-    $cart = Cart::all();
+    $cart = Product::all();
     return view('netcom', compact('cart'));
 }
 
