@@ -478,15 +478,16 @@ header .shopping img{
 
     <div class="wishlist-line-blw2btn"></div>
 
-@foreach($wishlist as $product)
-    <div class="product-item">
-        <h2>{{ $product->name }}</h2>
-        <p>{{ $product->description }}</p>
-        <p>Price: ${{ $product->price }}</p>
-        <!-- Add buttons to manage the wishlist, like removing items -->
-    </div>
-@endforeach
-
+<h1>My Wishlist</h1>
+    <ul>
+        @foreach ($wishlistItems as $wishlistItem)
+            <li>
+                <a href="{{ route('products.show', $wishlistItem->product->id) }}">
+                    {{ $wishlistItem->product->name }}
+                </a>
+            </li>
+        @endforeach
+    </ul>
 
   <button id="scrollToTopButton" class="up-button">
   <img src="https://cdn-icons-png.flaticon.com/512/25/25282.png" alt="Up Icon">
