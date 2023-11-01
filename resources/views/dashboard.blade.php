@@ -774,7 +774,7 @@ header{
         <div>
           <h2>Comnet</h2>
           <p>Comnet is one of the largest computer retail shop in Brunei, offering after sales service and repairs, professional resources and expertise in technology solutions, with five retail outlets and one online outlet at strategic locations nationwide</p>
-          <a href="{{ route('netcom') }}" target="_blank">explore</a>
+          <a href="{{ route('netcom.products') }}" target="_blank">explore</a>
         </div>
       </div>
       <div class="swiper-slide swiper-slide--two">
@@ -831,11 +831,11 @@ header{
   <h2 class="line-title">POPULAR STORE TODAY</h2>
   <div class="owl-carousel custom-carousel owl-theme">
 
-    <div class="item active" style="background-image: url(image/netcom.jpg);" data-url="{{ route('netcom') }}">
+    <div class="item active" style="background-image: url(image/netcom.jpg);" data-url="{{ route('netcom.products') }}">
       <div class="item-desc">
         <h3>Comnet</h3>
         <p>Comnet is one of the largest computer retail shop in Brunei, offering after sales service and repairs, professional resources and expertise in technology solutions, with five retail outlets and one online outlet at strategic locations nationwide</p>
-        <a href="{{ route('netcom') }}">
+        <a href="{{ route('netcom.products') }}">
         <button class="item-button">view</button>
         </a>
       </div>
