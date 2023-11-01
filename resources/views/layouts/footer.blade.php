@@ -161,7 +161,7 @@
 
 
 /*PHONE SIZE*/    
-@media (min-width: 480px){
+@media (max-width: 767px){
         .footer-distributed{
 
   margin-top: auto;
