@@ -135,12 +135,12 @@
                         <div class="item-name">{{ $cartItem->product->name }}</div>
                         <div class="item-price">BND {{ $productPrice }}</div>
                         <div class="item-quantity">
-            <form method="POST" action="{{ route('increaseQuantity', ['product' => $product->id]) }}">
+            <form method="POST" action="{{ route('increaseQuantity', ['cart' => $cartItem->id]) }}">
             @csrf
             <button type="submit">+</button>
             </form>
             <input type="number" class="quantity-input" value="{{ $cartItem->quantity }}" readonly>
-            <form method="POST" action="{{ route('decreaseQuantity', ['product' => $product->id]) }}">
+            <form method="POST" action="{{ route('decreaseQuantity', ['cart' => $CartItem->id]) }}">
             @csrf
             <button type="submit">-</button>
             </form>
