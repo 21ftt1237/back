@@ -15,10 +15,14 @@ class Product extends Model
         'name', 'store_id', 'price', 'image_link',
     ];
 
-    public function users(): BelongsToMany
-{
-    return $this->belongsToMany(User::class, 'wishlist')->withTimestamps();
-    return $this->belongsToMany(User::class, 'cart')->withTimestamps();
-}
+public function wishlists(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'wishlist')->withTimestamps();
+    }
+
+    public function carts(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'cart')->withTimestamps();
+    }
 
 }
