@@ -1489,11 +1489,11 @@ function addReview(review) {
 <div>yes</div>
 </ul>
     </ul> 
-        <div class="checkOut" id="">
+<!--         <div class="checkOut" id="">
             <a href="{{ route('checkout') }}">
             <div class="total">BND 0</div></a>
             <div class="closeShopping">Close</div>
-        </div>
+        </div> -->
     </div>
 
 
@@ -1514,15 +1514,15 @@ function addReview(review) {
 
 <script>
 
-    let openShopping = document.querySelector('.shopping');
-let closeShopping = document.querySelector('.closeShopping');
+//     let openShopping = document.querySelector('.shopping');
+// let closeShopping = document.querySelector('.closeShopping');
 
-    openShopping.addEventListener('click', ()=>{
-    document.body.classList.add("active");
-})
-closeShopping.addEventListener('click', ()=>{
-    document.body.classList.remove("active");
-})
+//     openShopping.addEventListener('click', ()=>{
+//     document.body.classList.add("active");
+// })
+// closeShopping.addEventListener('click', ()=>{
+//     document.body.classList.remove("active");
+// })
 
     
    function confirmAction() {
