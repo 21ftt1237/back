@@ -127,16 +127,17 @@
     <script>
 
 let openShopping = document.querySelector('.shopping');
-let closeShopping = document.querySelector('.closeShopping');
+  let closeShopping = document.querySelector('.close-button'); // Update the selector
 
-    openShopping.addEventListener('click', ()=>{
-    document.body.classList.add("active");
-})
-closeShopping.addEventListener('click', ()=>{
-    document.body.classList.remove("active");
-})
+  openShopping.addEventListener('click', () => {
+    document.body.classList.add('active');
+  });
 
-        function closeShoppingCart() {
+  closeShopping.addEventListener('click', () => {
+    document.body.classList.remove('active');
+  });
+
+  function closeShoppingCart() {
     var shoppingCart = document.getElementById('shopping-cart');
     shoppingCart.classList.remove('active');
   }
