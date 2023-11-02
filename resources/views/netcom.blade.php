@@ -1468,7 +1468,7 @@ function addReview(review) {
                                           </form>  
                                     <form action="{{ route('wishlist.add', ['product' => $product]) }}" method="POST">
                                     @csrf
-                                    {{ dd($product) }}
+                                   
                                     <button type="submit" class="heart-icon">❤</button>
                                     </form>  
                                 </div>
