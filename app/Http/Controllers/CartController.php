@@ -19,7 +19,7 @@ public function index()
         ->with('product') // Assuming you have defined a 'product' relationship in the Wishlist model
         ->get();
 
-    return view('netcom', compact('cart'));
+    return view('layouts.header', compact('cart'));
 }
   
 }
