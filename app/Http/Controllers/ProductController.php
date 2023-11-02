@@ -73,35 +73,7 @@ public function addToCart(Request $request, Product $product) {
     return redirect()->back()->with('success', 'Product added to Cart.');
 }
 
-    public function increaseQuantity(Request $request, Product $product) {
-    $user = $request->user();
-    $cartItem = $user->cart()->where('product_id', $product->id)->first();
 
-    if ($cartItem) {
-        $cartItem->pivot->quantity += 1;
-        $cartItem->pivot->save();
-    }
-
-    return redirect()->back()->with('success', 'Quantity increased.');
-}
-
-    public function decreaseQuantity(Request $request, Product $product) {
-    $user = $request->user();
-    $cartItem = $user->cart()->where('product_id', $product->id)->first();
-
-    if ($cartItem) {
-        $cartItem->pivot->quantity -= 1;
-
-        if ($cartItem->pivot->quantity <= 0) {
-            
-            $user->cart()->detach($product->id);
-        } else {
-            $cartItem->pivot->save();
-        }
-    }
-
-    return redirect()->back()->with('success', 'Quantity decreased.');
-}
 
     
 public function addToWishlist(Request $request, Product $product) {
