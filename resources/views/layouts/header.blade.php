@@ -107,7 +107,7 @@
 
     </header>
 
-    <div class="card">
+<!--     <div class="card">
     <h1>Your Shopping Cart</h1>
        <ul class="listCard">
         <ul>
@@ -120,7 +120,7 @@
             <div class="closeShopping">Close</div>
         </div>
     </div>
-
+ -->
 <!--     <script>
 
 let openShopping = document.querySelector('.shopping');
