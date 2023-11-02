@@ -108,6 +108,69 @@
 
     </header>
 
+     <div class="list">
+          
+        </div>
+    </div>
+    <div class="card">
+    <h1>Your Shopping Cart</h1>
+       <ul class="listCard">
+        <ul>
+<div>yes</div>
+</ul>
+    </ul> 
+        <div class="checkOut" id="">
+            <a href="{{ route('checkout') }}">
+            <div class="total">BND 0</div></a>
+            <div class="closeShopping">Close</div>
+        </div>
+    </div>
+
+
+         
+
+        </div>
+
+      </div>
+    </div>
+
+    <script>
+
+    let openShopping = document.querySelector('.shopping');
+let closeShopping = document.querySelector('.closeShopping');
+
+    openShopping.addEventListener('click', ()=>{
+    document.body.classList.add("active");
+})
+closeShopping.addEventListener('click', ()=>{
+    document.body.classList.remove("active");
+})
+
+    
+   function confirmAction() {
+  var confirmation = confirm("You have changed Stores, confirm to clear cart items?");
+  if (confirmation) {
+    
+    localStorage.setItem('storeId', '1');
+    localStorage.removeItem('cartItems');
+  } else {
+    
+    window.location.href = '{{ route('dashboard') }}';
+  }
+}
+
+localStorage.setItem('delivery', '2');
+localStorage.setItem('storename', 'Netcom (Kiulap)');
+
+var storeId = 1;
+var previousStore = localStorage.getItem('storeId');
+var parseVal = parseInt(previousStore);
+if(localStorage.getItem("cartItems") !== null){
+if (storeId !== parseVal) {
+  confirmAction();
+}}
+</script>
+
 
 </body>
 </html>
