@@ -63,7 +63,7 @@
     </style>
 </head>
 <body>
-    </script>
+
     <header>
         <div class="landing-page">
             <div class="navbar">
@@ -161,7 +161,9 @@
         </div>
     </div>
     <script>
-
+ let totalPrice = <?php echo $totalPrice; ?>; // Get the total price from your PHP code
+    localStorage.setItem('totalPrice', totalPrice);
+        
     let openShopping = document.querySelector('.shopping');
 let closeShopping = document.querySelector('.closeShopping');
 
