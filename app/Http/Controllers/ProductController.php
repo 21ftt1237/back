@@ -58,13 +58,21 @@ class ProductController extends Controller
 public function addToCart(Request $request, Product $product) {
     $user = $request->user();
 
-     if ($user->cart()->where('product_id', $product->id)->count() >= 1) {
-    return redirect()->back()->with('error', 'You can only add a maximum of 2 instances of the same product to your wishlist.');
+    // Check if the user already has the product in their cart
+    $existingCartItem = $user->cart()->where('product_id', $product->id)->first();
+
+    if ($existingCartItem) {
+        // If the product is already in the cart, update the quantity to 1
+        $existingCartItem->pivot->quantity = 1;
+        $existingCartItem->pivot->save();
+    } else {
+        // If the product is not in the cart, add it with quantity 1
+        $user->cart()->attach($product->id, ['quantity' => 1]);
     }
-    
-    $user->cart()->attach($product->id);
+
     return redirect()->back()->with('success', 'Product added to Cart.');
 }
+    
 public function addToWishlist(Request $request, Product $product) {
     $user = $request->user();
 
