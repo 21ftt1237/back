@@ -108,31 +108,39 @@
 
     </header>
 
-     <div class="list">
-          
-        </div>
-    </div>
+     <div class="list"></div>
     <div class="card">
-    <h1>Your Shopping Cart</h1>
-       <ul class="listCard">
-        <ul>
-        @if($loggedIn)
-       @foreach ($cart as $cartItem)
-    <li >
-        <img src="image/{{ $cartItem->product->image_link }}">
-        <div class="item-details">
-            <div class="item-name">{{ $cartItem->product->name }}</div>
-            <div class="item-price">BND {{ $cartItem->product->price }}</div>
-        </div>
-    </li>
-    @endforeach
-     @else
-     @endif
-</ul>
-    </ul> 
+        <h1>Your Shopping Cart</h1>
+        <ul class="listCard">
+            <ul>
+                @php
+                $totalPrice = 0; // Initialize the total price variable
+                @endphp
+
+                @if($loggedIn)
+                @foreach ($cart as $cartItem)
+                @php
+                $productPrice = $cartItem->product->price;
+                $totalPrice += $productPrice; // Add the product price to the total price
+                @endphp
+                <li>
+                    <img src="image/{{ $cartItem->product->image_link }}">
+                    <div class="item-details">
+                        <div class="item-name">{{ $cartItem->product->name }}</div>
+                        <div class="item-price">BND {{ $productPrice }}</div>
+                    </div>
+                </li>
+                @endforeach
+                @else
+                @endif
+
+                <div class="total">BND {{ $totalPrice }}</div> <!-- Display the total price -->
+            </ul>
+        </ul>
         <div class="checkOut" id="">
             <a href="{{ route('checkout') }}">
-            <div class="total">BND 0</div></a>
+                <div class="total">BND {{ $totalPrice }}</div> <!-- Display the total price again for checkout -->
+            </a>
             <div class="closeShopping">Close</div>
         </div>
     </div>
