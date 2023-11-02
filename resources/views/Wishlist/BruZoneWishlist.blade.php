@@ -503,9 +503,14 @@ header .shopping img{
         @foreach ($wishlistItems as $wishlistItem)
             <li class="wishlist-item">
                     <img src="image/{{ $wishlistItem->product->image_link }}">
-                    <div class= "item-name">{{ $wishlistItem->product->name }}</div>
-                    <div class= "item-price">{{ $wishlistItem->product->price }}</div>
-                    
+<!--                     <div class= "item-name">{{ $wishlistItem->product->name }}</div>
+                    <div class= "item-price">{{ $wishlistItem->product->price }}</div> -->
+                     <div class="item-details">
+                <div class="item-name">{{ $wishlistItem->product->name }}</div>
+                <div class="item-price">BND {{ $wishlistItem->product->price }}</div>
+            </div>
+            <button class="add-to-cart-button">Add to Cart</button>
+            <button class="remove-button" >Remove</button>
                 </a>
             </li>
         @endforeach
