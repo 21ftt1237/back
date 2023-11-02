@@ -107,67 +107,63 @@
 
     </header>
 
-    <div class="card">
+   <div class="card">
     <h1>Your Shopping Cart</h1>
-       <ul class="listCard">
-        <ul>
-<div>yes</div>
-</ul>
-    </ul> 
-        <div class="checkOut" id="">
-            <a href="{{ route('checkout') }}">
-            <div class="total">BND 0</div></a>
+    <ul class="listCard">
+        <li> <!-- You had extra <ul> here, changed to <li> -->
+            <div>yes</div>
+        </li>
+    </ul>
+    <div class="checkOut" id="">
+        <a href="{{ route('checkout') }}">
+            <div class="total">BND 0</div>
+        </a>
         <div id="shopping-cart" class="shopping-cart active">
-        <button id="closeShopping" class="close-button" onclick="closeShoppingCart()">
-        <i class="fas fa-times-circle"></i></div>    
-        </button>
+            <button id="closeShopping" class="close-button" onclick="closeShoppingCart()">
+                <i class="fas fa-times-circle"></i>
+            </button>
         </div>
     </div>
-
-    <script>
-
-let openShopping = document.querySelector('.shopping');
-  let closeShopping = document.querySelector('.close-button'); // Update the selector
-
-  openShopping.addEventListener('click', () => {
-    document.body.classList.add('active');
-  });
-
-  closeShopping.addEventListener('click', () => {
-    document.body.classList.remove('active');
-  });
-
-  function closeShoppingCart() {
-    var shoppingCart = document.getElementById('shopping-cart');
-    shoppingCart.classList.remove('active');
-  }
-
+</div>
     
-   function confirmAction() {
-  var confirmation = confirm("You have changed Stores, confirm to clear cart items?");
-  if (confirmation) {
-    
-    localStorage.setItem('storeId', '1');
-    localStorage.removeItem('cartItems');
-  } else {
-    
-    window.location.href = '{{ route('dashboard') }}';
-  }
-}
+<script>
+    let openShopping = document.querySelector('.shopping');
+    let closeShopping = document.querySelector('.close-button');
 
-localStorage.setItem('delivery', '2');
-localStorage.setItem('storename', 'Netcom (Kiulap)');
+    openShopping.addEventListener('click', () => {
+        document.body.classList.add('active');
+    });
 
-var storeId = 1;
-var previousStore = localStorage.getItem('storeId');
-var parseVal = parseInt(previousStore);
-if(localStorage.getItem("cartItems") !== null){
-if (storeId !== parseVal) {
-  confirmAction();
-}}
+    closeShopping.addEventListener('click', () => {
+        document.body.classList.remove('active');
+    });
+
+    function closeShoppingCart() {
+        var shoppingCart = document.getElementById('shopping-cart');
+        shoppingCart.classList.remove('active');
+    }
+
+    function confirmAction() {
+        var confirmation = confirm("You have changed Stores, confirm to clear cart items?");
+        if (confirmation) {
+            localStorage.setItem('storeId', '1');
+            localStorage.removeItem('cartItems');
+        } else {
+            window.location.href = '{{ route('dashboard') }}';
+        }
+    }
+
+    localStorage.setItem('delivery', '2');
+    localStorage.setItem('storename', 'Netcom (Kiulap)');
+
+    var storeId = 1;
+    var previousStore = localStorage.getItem('storeId');
+    var parseVal = parseInt(previousStore);
+    if (localStorage.getItem("cartItems") !== null) {
+        if (storeId !== parseVal) {
+            confirmAction();
+        }
+    }
 </script>
-    <script>
-        //For cart        
-    </script>
 </body>
 </html>
