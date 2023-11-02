@@ -128,6 +128,11 @@
                     <div class="item-details">
                         <div class="item-name">{{ $cartItem->product->name }}</div>
                         <div class="item-price">BND {{ $productPrice }}</div>
+                        <div class="item-quantity">
+            <button class="decrease-quantity" data-product-id="{{ $cartItem->product->id }}">-</button>
+            <input type="number" class="quantity-input" value="{{ $cartItem->quantity }}" readonly>
+            <button class="increase-quantity" data-product-id="{{ $cartItem->product->id }}">+</button>
+        </div>
                     </div>
                 </li>
                 @endforeach
