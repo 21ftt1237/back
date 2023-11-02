@@ -107,7 +107,7 @@
 
     </header>
 
-<!--     <div class="card">
+    <div class="card">
     <h1>Your Shopping Cart</h1>
        <ul class="listCard">
         <ul>
@@ -120,8 +120,8 @@
             <div class="closeShopping">Close</div>
         </div>
     </div>
- -->
-<!--     <script>
+
+    <script>
 
 let openShopping = document.querySelector('.shopping');
 let closeShopping = document.querySelector('.closeShopping');
@@ -159,6 +159,6 @@ if (storeId !== parseVal) {
 </script>
     <script>
         //For cart        
-    </script> -->
+    </script>
 </body>
 </html>
