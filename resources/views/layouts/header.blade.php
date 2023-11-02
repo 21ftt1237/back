@@ -133,15 +133,6 @@
             <div class="closeShopping">Close</div>
         </div>
     </div>
-
-
-         
-
-        </div>
-
-      </div>
-    </div>
-
     <script>
 
     let openShopping = document.querySelector('.shopping');
