@@ -126,6 +126,7 @@
                 @foreach ($cart as $cartItem)
                 @php
                 $productPrice = $cartItem->product->price;
+                $product = $cartItem->product;
                 $totalPrice += $productPrice; // Add the product price to the total price
                 @endphp
                 <li>
