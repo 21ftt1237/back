@@ -457,6 +457,90 @@ button:hover {
 }
 
 
+@media screen and (max-width: 500px) {
+  .filters {
+  width: 400px;
+  margin: 0 auto; /* This will center the element horizontally */
+  padding: 10px 20px;
+  border-radius: 4px;
+  background: #f4f6f7;
+  margin-bottom: 20px;
+}
+
+.filters li {
+    margin-bottom: 30px;
+    font-size: 13px;
+}
+
+.filters span {
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    display: block;
+}
+
+input[type="checkbox"] {
+  margin-bottom: 10px;
+  transform: scale(1.0); /* Adjust the scale factor as needed */
+}
+
+button {
+    background: black;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    font-size: 10px;
+    border-radius: 4px;
+    font-weight: 700;
+    border: 0;
+    transition: transform 0.2s;
+}
+
+
+.result-list {
+    display: flex;
+    flex-direction: column ; /* Display results in a column layout */
+    flex-flow: no wrap;
+    align-items: center;
+    width: calc(100% - 250px);
+    padding: 0;
+    margin-left: 30px;
+}
+
+.result-list li {
+    border: 1px solid #f1f1f1;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 3%;
+    border: 1px solid #ccc;
+    margin: .5rem;
+     width: 200%; /* Make the result items full width */
+    text-align: center;
+    font-size: 15px;
+}
+.result-list figure {
+    min-height: 72px;
+}
+.result-list img {
+   width: 90%; 
+    height: 160px;
+}
+
+.result-list li span,
+.result-list li strong {
+    display: block;
+    margin-bottom: 20px;
+} 
+
+.result-wrap {
+    display: flex;
+    flex-direction: column; /* Display elements below each other */
+    align-items: flex-start; /* You can also use "flex-start" to align items to the start of each column */
+    margin: 20px 30px;
+}
+
+
+}
 
 </style>
 
