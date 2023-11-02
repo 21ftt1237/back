@@ -116,20 +116,20 @@
     <h1>Your Shopping Cart</h1>
        <ul class="listCard">
         <ul>
-        @foreach ($cart as $cart)
-         <li class="wishlist-item">
-        <img src="image/{{ $cart->product->image_link }}">
+       @foreach ($cart as $cartItem)
+    <li class="wishlist-item">
+        <img src="image/{{ $cartItem->product->image_link }}">
         <div class="item-details">
-        <div class="item-name">{{ $cart->product->name }}</div>
-        <div class="item-price">BND {{ $cart->product->price }}</div>
+            <div class="item-name">{{ $cartItem->product->name }}</div>
+            <div class="item-price">BND {{ $cartItem->product->price }}</div>
         </div>
         <button class="add-to-cart-button">Add to Cart</button>
-        <form action="{{ route('wishlist.remove', ['product' => $wishlistItem->product]) }}" method="POST">
-        @csrf
-        <button type="submit" class="remove-button">Remove</button>
+        <form action="{{ route('wishlist.remove', ['product' => $cartItem->product]) }}" method="POST">
+            @csrf
+            <button type="submit" class="remove-button">Remove</button>
         </form>
     </li>
-@endforeach
+    @endforeach
 </ul>
     </ul> 
         <div class="checkOut" id="">
