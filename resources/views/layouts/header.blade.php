@@ -55,7 +55,12 @@
 
   .dropdown:hover .dropbtn {
     background-color: #3e8e41;
-  }</style>
+  }
+
+        .quantity-input input{
+            width: 10px;
+        }
+    </style>
 </head>
 <body>
     </script>
