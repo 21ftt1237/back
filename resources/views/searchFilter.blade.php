@@ -677,16 +677,16 @@ button:hover {
 
 const stores = [
   {
-    name: "Netcom",
+    name: "Comnet",
     category: "Electronics, Office equipment",
     location: "Brunei Muara",
     address: "Setia Kenangan Complex, Unit A1 and Unit A2, Ground Floor, Bandar Seri Begawan BE1518",
     imageUrl: "image/netcom.jpg",
-    link: "{{ route('netcom') }}",
+    link: "{{ route('netcom.products') }}",
   },
 
     {
-    name: "Nimanja",
+    name: "SiManja",
     category: "Petcare",
     location: "Brunei Muara",
     address: "Setia Kenangan Complex, Unit A1 and Unit A2, Ground Floor, Bandar Seri Begawan BE1518",
@@ -695,7 +695,7 @@ const stores = [
   },
   
   {
-    name: "Digital World",
+    name: "Digital Universe",
     category: "Electronics, Office equipment, apparel & accessories",
     location: "Brunei Muara",
     address: "Setia Kenangan Complex, Unit A1 and Unit A2, Ground Floor, Bandar Seri Begawan BE1518",
@@ -704,7 +704,7 @@ const stores = [
   },
   
   {
-    name: "Guardian",
+    name: "Defender",
     category: "Health personal care & beauty",
     location: "Brunei Muara",
     address: "Setia Kenangan Complex, Unit A1 and Unit A2, Ground Floor, Bandar Seri Begawan BE1518",
@@ -713,7 +713,7 @@ const stores = [
   },
   
   {
-    name: "88th Avenue",
+    name: "Route 66th",
     category: "Clothings",
     location: "Brunei Muara",
     address: "Setia Kenangan Complex, Unit A1 and Unit A2, Ground Floor, Bandar Seri Begawan BE1518",
@@ -722,7 +722,7 @@ const stores = [
   },
   
   {
-    name: "Game Central",
+    name: "Game Side",
     category: "Electronics, Others",
     location: "Brunei Muara",
     address: "Setia Kenangan Complex, Unit A1 and Unit A2, Ground Floor, Bandar Seri Begawan BE1518",
