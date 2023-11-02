@@ -139,7 +139,7 @@
                 @else
                 @endif
 
-                <div class="total">BND {{ $totalPrice }}</div> <!-- Display the total price -->
+                
             </ul>
         </ul>
         <div class="checkOut" id="">
