@@ -64,12 +64,12 @@
             <div class="navbar">
               
                <div class="logo" id="storeName" data-value=" @if(isset($storehere)) {{ $storenumber}} @endif"><a href="{{ route('dashboard') }}"> <img src="image/BruZone_Logo.png" style="width: 50px">Bruzone</a></div>
-                @if(isset($carts))
+<!--                 @if(isset($carts)) -->
                  <div class="shopping">
                 <img src="image/shoppingCart.png">
                 <span class="quantity">0</span>
                 </div>
-                @endif
+<!--                 @endif -->
                 <div class="wishlist">
                     <a href="{{ route('wishlist') }}">
                         <img src="{{ asset('image/wishlist.png') }}">
