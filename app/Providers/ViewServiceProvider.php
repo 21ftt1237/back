@@ -18,14 +18,19 @@ class ViewServiceProvider extends ServiceProvider
     /**
      * Bootstrap services.
      */
-    public function boot(): void
+   public function boot(): void
     {
-    view()->composer('layouts.header', function ($view) {
-            // Fetch the currently logged-in user's cart items
-            $user = auth()->user(); // Get the currently authenticated user
-            $cart = Cart::where('user_id', $user->id)
-                ->with('product') // Assuming you have defined a 'product' relationship in the Cart model
-                ->get();
+        view()->composer('layouts.header', function ($view) {
+            $cart = [];
+
+            if (Auth::check()) {
+                // The user is authenticated, so fetch their cart items
+                $user = Auth::user();
+                $cart = Cart::where('user_id', $user->id)
+                    ->with('product')
+                    ->get();
+            }
+
             $view->with('cart', $cart);
         });
     }
