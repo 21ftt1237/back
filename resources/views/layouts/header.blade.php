@@ -102,6 +102,43 @@
                 @endif
             </div>
         </div>
-    </header>
-</body>
-</html>
+ 
+<script>
+
+let openShopping = document.querySelector('.shopping');
+let closeShopping = document.querySelector('.closeShopping');
+
+    openShopping.addEventListener('click', ()=>{
+    document.body.classList.add("active");
+})
+closeShopping.addEventListener('click', ()=>{
+    document.body.classList.remove("active");
+})
+
+    
+   function confirmAction() {
+  var confirmation = confirm("You have changed Stores, confirm to clear cart items?");
+  if (confirmation) {
+    
+    localStorage.setItem('storeId', '1');
+    localStorage.removeItem('cartItems');
+  } else {
+    
+    window.location.href = '{{ route('dashboard') }}';
+  }
+}
+
+localStorage.setItem('delivery', '2');
+localStorage.setItem('storename', 'Netcom (Kiulap)');
+
+var storeId = 1;
+var previousStore = localStorage.getItem('storeId');
+var parseVal = parseInt(previousStore);
+if(localStorage.getItem("cartItems") !== null){
+if (storeId !== parseVal) {
+  confirmAction();
+}}
+</script>
+    <script>
+        //For cart        
+    </script>
