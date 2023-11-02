@@ -22,6 +22,10 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
+Route::get('test', function () {
+    return view('test');
+})->name('test');
+
 Route::get('BruzoneLogin', function () {
     return view('BruzoneLogin');
 })->name('BruzoneLogin');
