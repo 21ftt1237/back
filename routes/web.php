@@ -137,7 +137,11 @@ Route::get('store2', [ProductController::class, 'yes']);
 
 // Route::get('netcom', [ProductController::class, 'index'])->name('netcom');
 
+// Route::get('netcom', [ProductController::class, 'cart'])->name('netcom');
 Route::get('netcom', [ProductController::class, 'cart'])->name('netcom');
+
+Route::get('netcom/products', [ProductController::class, 'index'])->name('netcom.products');
+
 
 Route::get('gamecentral', [ProductController::class, 'indexGameCentral'])->name('gamecentral');
 
