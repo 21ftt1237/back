@@ -622,7 +622,7 @@ header a ion-icon {
           <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
           <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
           <a href="#"><ion-icon name="mail"></ion-icon></a>
-          <a href="#"><i class="fab fa-paypal fa-2x"></i></a>
+          <a href="https://www.paypal.com/bn/signin"><i class="fab fa-paypal fa-2x"></i></a>
 
 
 
