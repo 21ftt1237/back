@@ -507,6 +507,7 @@ header .shopping img{
             <div class="item-name">{{ $wishlistItem->product->name }}</div>
             <div class="item-price">BND {{ $wishlistItem->product->price }}</div>
         </div>
+        <button class="add-to-cart-button">Add to Cart</button>
         <form action="{{ route('wishlist.remove', ['product' => $wishlistItem->product]) }}" method="POST">
             @csrf
             <button type="submit" class="remove-button">Remove</button>
