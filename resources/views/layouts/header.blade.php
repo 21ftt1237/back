@@ -117,9 +117,9 @@
         <div class="checkOut" id="">
             <a href="{{ route('checkout') }}">
             <div class="total">BND 0</div></a>
-        <div>    
+        <div>
         <button id="closeShopping" class="close-button" onclick="closeShoppingCart()">
-        <i class="fas fa-times-circle"></i>
+        <i class="fas fa-times-circle"></i></div>    
         </button>
         </div>
     </div>
