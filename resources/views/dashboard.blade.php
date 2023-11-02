@@ -1060,7 +1060,37 @@ header{
     });
   });
 </script>
+<script type="text/javascript">
+    let latitude, longitude;
+    getLocation()
+    function getLocation() {
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(showLocation, showError);
+        } else {
+            alert("Geolocation is not supported by your browser.");
+        }
+    }
 
+    function showLocation(position) {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+
+        // Store latitude and longitude in local storage
+        localStorage.setItem('latitude', latitude);
+        localStorage.setItem('longitude', longitude);
+
+        const mapElement = document.getElementById("maplocation");
+        mapElement.innerHTML = `<p>Latitude: ${latitude}</p><p>Longitude: ${longitude}</p>`;
+
+        initMap();
+    }
+
+    function showError(error) {
+        // Handle error if geolocation is not available or if the user denies the request.
+        alert("Error getting your location: " + error.message);
+    }
+
+</script>
 </body>
 
 </html>
