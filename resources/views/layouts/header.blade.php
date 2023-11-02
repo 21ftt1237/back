@@ -104,7 +104,10 @@
             </div>
         </div>
  
-<script>
+
+    </header>
+
+    <script>
 
 let openShopping = document.querySelector('.shopping');
 let closeShopping = document.querySelector('.closeShopping');
@@ -143,6 +146,5 @@ if (storeId !== parseVal) {
     <script>
         //For cart        
     </script>
-    </header>
 </body>
 </html>
