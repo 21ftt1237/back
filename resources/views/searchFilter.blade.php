@@ -500,10 +500,9 @@ button {
 .result-list {
     display: flex;
     flex-direction: column ; /* Display results in a column layout */
-    width: 200%;
+    width: 40%;
     flex-flow: no wrap;
     align-items: center;
-    width: calc(100% - 250px);
     padding: 0;
     margin-left: 30px;
 }
