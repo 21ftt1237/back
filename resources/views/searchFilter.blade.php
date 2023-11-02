@@ -777,7 +777,7 @@ listItems.forEach((listItem, index) => {
   listItem.addEventListener("click", () => {
     
     const storeUrls = [
-      "{{ route('netcom') }}", 
+      "{{ route('netcom.products') }}", 
       "{{ route('Nimanja') }}", 
       "{{ route('digital') }}",
       "{{ route('Guardian') }}",
