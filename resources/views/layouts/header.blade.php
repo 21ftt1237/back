@@ -14,7 +14,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel="stylesheet" href="{{ asset('css/header.css') }}">
-     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+   
     <title>{{ $pageName }}</title>
     <style>
  /* HELP dropdown styles */
