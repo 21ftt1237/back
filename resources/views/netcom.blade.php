@@ -1482,19 +1482,19 @@ function addReview(review) {
           
         </div>
     </div>
-    <div class="card">
+<!--     <div class="card">
     <h1>Your Shopping Cart</h1>
        <ul class="listCard">
         <ul>
 <div>yes</div>
 </ul>
     </ul> 
-<!--         <div class="checkOut" id="">
+        <div class="checkOut" id="">
             <a href="{{ route('checkout') }}">
             <div class="total">BND 0</div></a>
             <div class="closeShopping">Close</div>
-        </div> -->
-    </div>
+        </div>
+    </div> -->
 
 
          
