@@ -128,7 +128,7 @@
     
 <script>
     let openShopping = document.querySelector('.shopping');
-    let closeShopping = document.querySelector('.close-button');
+    let closeShopping = document.querySelector('#closeShopping');
 
     openShopping.addEventListener('click', () => {
         document.body.classList.add('active');
