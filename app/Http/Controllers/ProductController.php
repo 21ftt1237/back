@@ -62,6 +62,11 @@ public function addToCart(Request $request, Product $product) {
 }
 public function addToWishlist(Request $request, Product $product) {
     $user = $request->user();
+
+     if ($user->wishlist()->where('product_id', $product->id)->count() >= 2) {
+    return redirect()->back()->with('error', 'You can only add a maximum of 2 instances of the same product to your wishlist.');
+    }
+    
     $user->wishlist()->attach($product->id);
     return redirect()->back()->with('success', 'Product added to wishlist.');
 }
