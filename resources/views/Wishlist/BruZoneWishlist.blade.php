@@ -500,24 +500,19 @@ header .shopping img{
 <div class="wishlist-items list-container">
     
           <ul>
-        @foreach ($wishlistItems as $wishlistItem)
-            <li class="wishlist-item">
-                    <img src="image/{{ $wishlistItem->product->image_link }}">
-<!--                     <div class= "item-name">{{ $wishlistItem->product->name }}</div>
-                    <div class= "item-price">{{ $wishlistItem->product->price }}</div> -->
-                     <div class="item-details">
-                <div class="item-name">{{ $wishlistItem->product->name }}</div>
-                <div class="item-price">BND {{ $wishlistItem->product->price }}</div>
-            </div>
-            <button class="add-to-cart-button">Add to Cart</button>
-            <button class="remove-button" >Remove</button>
-            <form action="{{ route('wishlist.remove', ['product' => $product]) }}" method="POST">
-                @csrf
-                <button type="submit" class="remove-button">Remove</button>
-                </form>
-                </a>
-            </li>
-        @endforeach
+      @foreach ($wishlistItems as $wishlistItem)
+    <li class="wishlist-item">
+        <img src="image/{{ $wishlistItem->product->image_link }}">
+        <div class="item-details">
+            <div class="item-name">{{ $wishlistItem->product->name }}</div>
+            <div class="item-price">BND {{ $wishlistItem->product->price }}</div>
+        </div>
+        <form action="{{ route('wishlist.remove', ['product' => $wishlistItem->product]) }}" method="POST">
+            @csrf
+            <button type="submit" class="remove-button">Remove</button>
+        </form>
+    </li>
+@endforeach
     </ul>
     </div>
 
