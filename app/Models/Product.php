@@ -18,6 +18,7 @@ class Product extends Model
     public function users(): BelongsToMany
 {
     return $this->belongsToMany(User::class, 'wishlist')->withTimestamps();
+    return $this->belongsToMany(User::class, 'cart')->withTimestamps();
 }
 
 }
