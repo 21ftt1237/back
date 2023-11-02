@@ -117,17 +117,12 @@
        <ul class="listCard">
         <ul>
        @foreach ($cart as $cartItem)
-    <li class="wishlist-item">
+    <li >
         <img src="image/{{ $cartItem->product->image_link }}">
         <div class="item-details">
             <div class="item-name">{{ $cartItem->product->name }}</div>
             <div class="item-price">BND {{ $cartItem->product->price }}</div>
         </div>
-        <button class="add-to-cart-button">Add to Cart</button>
-        <form action="{{ route('wishlist.remove', ['product' => $cartItem->product]) }}" method="POST">
-            @csrf
-            <button type="submit" class="remove-button">Remove</button>
-        </form>
     </li>
     @endforeach
 </ul>
