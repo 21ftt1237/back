@@ -28,9 +28,9 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function cartItems()
+    public function cart()
     {
-        return $this->hasMany(CartItem::class);
+        return $this->belongsToMany(Product::class, 'cart')->withTimestamps();
     }
 
 public function wishlist()
