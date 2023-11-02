@@ -138,11 +138,6 @@
         document.body.classList.remove('active');
     });
 
-    function closeShoppingCart() {
-        var shoppingCart = document.getElementById('shopping-cart');
-        shoppingCart.classList.remove('active');
-    }
-
     function confirmAction() {
         var confirmation = confirm("You have changed Stores, confirm to clear cart items?");
         if (confirmation) {
