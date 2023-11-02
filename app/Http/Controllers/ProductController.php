@@ -58,20 +58,51 @@ class ProductController extends Controller
 public function addToCart(Request $request, Product $product) {
     $user = $request->user();
 
-    // Check if the user already has the product in their cart
+   
     $existingCartItem = $user->cart()->where('product_id', $product->id)->first();
 
     if ($existingCartItem) {
-        // If the product is already in the cart, update the quantity to 1
+        
         $existingCartItem->pivot->quantity = 1;
         $existingCartItem->pivot->save();
     } else {
-        // If the product is not in the cart, add it with quantity 1
+       
         $user->cart()->attach($product->id, ['quantity' => 1]);
     }
 
     return redirect()->back()->with('success', 'Product added to Cart.');
 }
+
+    public function increaseQuantity(Request $request, Product $product) {
+    $user = $request->user();
+    $cartItem = $user->cart()->where('product_id', $product->id)->first();
+
+    if ($cartItem) {
+        $cartItem->pivot->quantity += 1;
+        $cartItem->pivot->save();
+    }
+
+    return redirect()->back()->with('success', 'Quantity increased.');
+}
+
+    public function decreaseQuantity(Request $request, Product $product) {
+    $user = $request->user();
+    $cartItem = $user->cart()->where('product_id', $product->id)->first();
+
+    if ($cartItem) {
+        $cartItem->pivot->quantity -= 1;
+
+        if ($cartItem->pivot->quantity <= 0) {
+            
+            $user->cart()->detach($product->id);
+        } else {
+            $cartItem->pivot->save();
+        }
+    }
+
+    return redirect()->back()->with('success', 'Quantity decreased.');
+}
+
     
 public function addToWishlist(Request $request, Product $product) {
     $user = $request->user();
