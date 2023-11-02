@@ -170,9 +170,9 @@ Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 
-Route::post('/cart/increase-quantity/{product}', [CartController::class, 'increaseQuantity'])->name('increaseQuantity');
+Route::post('/increase-quantity/{product}', [CartController::class, 'increaseQuantity'])->name('increaseQuantity');
 
-Route::post('/cart/decrease-quantity/{product}', [CartController::class, 'decreaseQuantity'])->name('decreaseQuantity');
+Route::post('/decrease-quantity/{product}', [CartController::class, 'decreaseQuantity'])->name('decreaseQuantity');
 
 Route::get('netcom', [ProductController::class, 'index'])->name('netcom.products');
 
