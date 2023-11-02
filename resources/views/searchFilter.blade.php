@@ -459,7 +459,7 @@ button:hover {
 
 @media screen and (max-width: 500px) {
   .filters {
-  width: 400px;
+  width: 380px;
   margin: 0 auto; /* This will center the element horizontally */
   padding: 10px 20px;
   border-radius: 4px;
@@ -500,6 +500,7 @@ button {
 .result-list {
     display: flex;
     flex-direction: column ; /* Display results in a column layout */
+    width: 200%;
     flex-flow: no wrap;
     align-items: center;
     width: calc(100% - 250px);
@@ -522,7 +523,7 @@ button {
     min-height: 72px;
 }
 .result-list img {
-   width: 90%; 
+   width: 100%; 
     height: 160px;
 }
 
@@ -541,6 +542,7 @@ button {
 
 
 }
+
 
 </style>
 
