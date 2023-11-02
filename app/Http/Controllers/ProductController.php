@@ -62,9 +62,6 @@ public function addToCart(Request $request, Product $product) {
 }
 public function addToWishlist(Request $request, Product $product) {
     $user = $request->user();
-    // Debug statements
-    dd($product, $user);
-
     $user->wishlist()->attach($product->id);
     return redirect()->back()->with('success', 'Product added to wishlist.');
 }
