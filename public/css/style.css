@@ -115,6 +115,7 @@ header .shopping span{
     grid-template-columns: 100px repeat(3, 1fr);
     color: #fff;
     row-gap: 10px;
+    margin-left: 15px;
 }
 .listCard li div{
     display: flex;
