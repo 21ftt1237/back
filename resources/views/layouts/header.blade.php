@@ -120,7 +120,7 @@
         </a>
         <div id="shopping-cart" class="shopping-cart active">
             <button id="closeShopping" class="close-button" onclick="closeShoppingCart()">
-                <i class="fas fa-times-circle"></i>
+                hei man<i class="fas fa-times-circle"></i>
             </button>
         </div>
     </div>
