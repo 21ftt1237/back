@@ -1,7 +1,4 @@
-@php
-    $pageName = 'Bruzone (Profile)';
-@endphp
-@include('layouts.header')
+
 <!DOCTYPE html>
 
 <html>
