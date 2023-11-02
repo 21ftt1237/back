@@ -107,6 +107,9 @@
 
     </header>
 
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  <script src="./ecommerce.js"></script>
+
     <script>
 
 let openShopping = document.querySelector('.shopping');
