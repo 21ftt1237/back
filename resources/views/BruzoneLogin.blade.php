@@ -8,7 +8,7 @@
     <div class="container">
         <div class="form">
             <div class="lala">
-                <img src="image/BruZone_Logo.png" style="width: 50px"><h1>Bruzone</h1>
+                <img src="image/BruZone_Logo.png" style="width: 45px"><h1>Bruzone</h1>
             </div>
             <div class="aa">
                 <h1 id="titla">Login To Your Account</h1>
