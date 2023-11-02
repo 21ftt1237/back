@@ -1445,7 +1445,7 @@ function addReview(review) {
                     </div>
                 </div>
 
-    <div class="card">
+<!--     <div class="card">
         <h1>Your Shopping Cart</h1>
         <ul class="listCard">
         </ul>
@@ -1454,7 +1454,7 @@ function addReview(review) {
             <div class="total">BND 0</div></a>
             <div class="closeShopping">Close</div>
         </div>
-    </div>
+    </div> -->
 
 <!--     <script src="{{ asset('js/app.js') }}">
     </script> -->
@@ -1474,15 +1474,15 @@ function addReview(review) {
   <script src="./ecommerce.js"></script>
 <script>
 
-     let openShopping = document.querySelector('.shopping');
-let closeShopping = document.querySelector('.closeShopping');
+//      let openShopping = document.querySelector('.shopping');
+// let closeShopping = document.querySelector('.closeShopping');
 
-    openShopping.addEventListener('click', ()=>{
-    document.body.classList.add("active");
-})
-closeShopping.addEventListener('click', ()=>{
-    document.body.classList.remove("active");
-})
+//     openShopping.addEventListener('click', ()=>{
+//     document.body.classList.add("active");
+// })
+// closeShopping.addEventListener('click', ()=>{
+//     document.body.classList.remove("active");
+// })
     
   function confirmAction() {
   var confirmation = confirm("You have changed Stores, confirm to clear cart items?");
