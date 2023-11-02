@@ -116,6 +116,7 @@
     <h1>Your Shopping Cart</h1>
        <ul class="listCard">
         <ul>
+        @if($loggedIn)
        @foreach ($cart as $cartItem)
     <li >
         <img src="image/{{ $cartItem->product->image_link }}">
@@ -125,6 +126,8 @@
         </div>
     </li>
     @endforeach
+     @else
+     @endif
 </ul>
     </ul> 
         <div class="checkOut" id="">
