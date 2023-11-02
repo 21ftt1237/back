@@ -511,6 +511,10 @@ header .shopping img{
             </div>
             <button class="add-to-cart-button">Add to Cart</button>
             <button class="remove-button" >Remove</button>
+            <form action="{{ route('wishlist.remove', ['product' => $product]) }}" method="POST">
+                @csrf
+                <button type="submit" class="remove-button">Remove</button>
+                </form>
                 </a>
             </li>
         @endforeach
