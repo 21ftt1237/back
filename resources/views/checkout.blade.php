@@ -376,7 +376,7 @@ input[type='password']:focus {
       </div>
 
        <div class="delivery-info valid">
-       <label for="Address" >Address</label>
+<!--        <label for="Address" >Address</label>
        <input type="text" id="Address" value="Politeknik Brunei OSP" />
 
        <label for="City">City</label>
@@ -386,9 +386,9 @@ input[type='password']:focus {
        <input type="text" id="District"  value="Brunei Muara" />
 
        <label for="Zip">Zip Code</label>
-       <input type="text" id="Zip" value="BA1311" />
+       <input type="text" id="Zip" value="BA1311" /> -->
 
-       <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.208276346985!2d114.93045857588197!3d4.904779039852721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3222f53a5d975483%3A0xb7537ecd6404fef7!2sPoliteknik%20Brunei%20(Main%20Campus)!5e0!3m2!1sen!2sbn!4v1697178517192!5m2!1sen!2sbn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+       <div id="map"></div>
 
        <!-- <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3975.229542262243!2d114.92832122588206!3d4.901205939884869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x3222f549ae428df9%3A0x2899e46367ef25a9!2sNetcom%20Computer%20House%2C%20Kiulap%2C%20Setia%20Kenangan%20Complex%2C%20Bandar%20Seri%20Begawan!3m2!1d4.90083!2d114.9255384!4m5!1s0x3222f53a5d975483%3A0xb7537ecd6404fef7!2sPoliteknik%20Brunei%20(Main%20Campus)%2C%20Ong%20Sum%20Ping%20Apartment%20Complex%2C%20Bandar%20Seri%20Begawan!3m2!1d4.9047737!2d114.9330335!5e0!3m2!1sen!2sbn!4v1698162740543!5m2!1sen!2sbn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
      </div>
@@ -973,7 +973,26 @@ updateTotalPriceAndDeliveryFee();
    
 
 </script>
+ <script>
+        // Initialize the map
+        var map = L.map('map').setView([0, 0], 13);
 
+        // Add the OpenStreetMap tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        // Get the GPS coordinates (e.g., latitude and longitude) from local storage
+        var lat = parseFloat(localStorage.getItem('latitude')) || 0; // Replace with your default latitude
+        var lon = parseFloat(localStorage.getItem('longitude')) || 0; // Replace with your default longitude
+
+        // Create a marker and add it to the map
+        var marker = L.marker([lat, lon]).addTo(map);
+        marker.bindPopup("Your location");
+
+        // Set the map center to the GPS coordinates
+        map.setView([lat, lon], 13);
+    </script>
 
 
 
