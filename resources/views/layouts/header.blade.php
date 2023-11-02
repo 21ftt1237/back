@@ -142,3 +142,6 @@ if (storeId !== parseVal) {
     <script>
         //For cart        
     </script>
+    </header>
+</body>
+</html>
