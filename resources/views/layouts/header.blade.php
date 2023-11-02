@@ -107,6 +107,21 @@
 
     </header>
 
+    <div class="card">
+    <h1>Your Shopping Cart</h1>
+       <ul class="listCard">
+        <ul>
+<div>yes</div>
+</ul>
+    </ul> 
+        <div class="checkOut" id="">
+            <a href="{{ route('checkout') }}">
+            <div class="total">BND 0</div></a>
+            <div class="closeShopping">Close</div>
+        </div>
+    </div>
+
+
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
   <script src="./ecommerce.js"></script>
 
