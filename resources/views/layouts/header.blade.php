@@ -116,7 +116,7 @@
     <h1>Your Shopping Cart</h1>
        <ul class="listCard">
         <ul>
-        @foreach ($Cart as $cart)
+        @foreach ($cart as $cart)
          <li class="wishlist-item">
         <img src="image/{{ $cart->product->image_link }}">
         <div class="item-details">
