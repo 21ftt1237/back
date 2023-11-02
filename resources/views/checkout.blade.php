@@ -599,7 +599,7 @@ $('#proceedBtn').on('click', function() {
           document.getElementById('loyalty').textContent = `Loyalty Points Gained: ${loyaltyPoints}`;
         } else {
           // Show an error message or handle validation failure
-          alert('Please fill out all address fields.');
+         
         }
       } else {
         alert('Please select a valid date and time.');
