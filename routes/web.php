@@ -160,6 +160,8 @@ Route::post('/cart/add/{product}', [ProductController::class, 'addToCart'])->nam
 
 Route::post('/wishlist/add/{product}', [ProductController::class, 'addToWishlist'])->name('wishlist.add');
 
+Route::post('/wishlist/remove/{product}', [ProductController::class, 'removeFromWishlist'])->name('wishlist.remove');
+
 Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
