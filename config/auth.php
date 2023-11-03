@@ -40,10 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
     ],
-        'driv' => [
-            'driver' => 'session',
-            'provider' => 'drivers',
-      ],
+        'admin' => [
+        'driver' => 'session',
+        'provider' => 'admins',
+    ],
     ],
 
     /*
@@ -69,12 +69,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        'drivers' => [ // Add a 'drivers' provider configuration here
-        'driver' => 'eloquent',
-        'model' => App\Models\Driver::class,
-        'table' => 'drivers',
-        'username' => 'driver_email',
-    ],   
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+    ],
          'cart_items' => [
             'driver' => 'eloquent',
             'model' => App\Models\cart_items::class,

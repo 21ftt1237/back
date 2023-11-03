@@ -198,4 +198,10 @@ Route::put('/admins/{admin}', [AdminController::class, 'update'])->name('admins.
 
 Route::delete('/admins/{admin}', [AdminController::class, 'destroy'])->name('admins.destroy');
 
+//Admin Login
+Route::get('/admin/login', 'AdminAuthController@showLoginForm')->name('admin.login');
+Route::post('/admin/login', 'AdminAuthController@login');
+Route::post('/admin/logout', 'AdminAuthController@logout')->name('admin.logout');
+
+
 require __DIR__.'/auth.php';
