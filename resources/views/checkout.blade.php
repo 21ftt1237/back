@@ -537,7 +537,10 @@ input[type='password']:focus {
     var localTotalPay = localStorage.getItem('finalPay');
     var loyaltyGain =  (localTotalPay * 0.1).toFixed(2);
     console.log(loyaltyGain);
+    localStorage.setItem('loyaltytest', loyaltyGain);
+      
   }
+      calculateLoyaltyPoints(localTotalPay)
 
 $('.next-btn').on('click', function(e) {
   e.preventDefault();
