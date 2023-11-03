@@ -473,16 +473,7 @@ header a ion-icon {
   cursor: pointer;
 }
 
-.chatbox a i {
-  margin-left: 250px;
-  margin-right: 10px;
-  color: white;
-  background-color: black;
-}
-.chatbox a:hover i{
-  color: #F6E71D;
-  transform: translateY(5px);
-}
+
 
 
 
@@ -500,13 +491,8 @@ header a ion-icon {
 
            <div class="logo" id="storeName" data-value="7"><a href="#">Bruzone</a></div>
 
-        <div class="chatbox">
-       
-        <a href="#"><i class="fas fa-comment-dots fa-3x"></i></a>
 
-        </div>
-
-        <button class="view-button" onclick="togglePopup2()">VIEW</button>
+        <button class="view-button" onclick="togglePopup2()">ORDERS</button>
          <button class="edit-button" onclick="togglePopup()">EDIT</button>
 
          <div class="shopping">
@@ -544,9 +530,7 @@ header a ion-icon {
   <div class="option-container">
     <button class="option">Stores</button>
   </div>
-    <div class="option-container">
-    <button class="option">Products</button>
-  </div>
+
 </div>
 
 
@@ -554,25 +538,10 @@ header a ion-icon {
  <div id="popup2" class="popup2" style="display: none;">
   <button class="close-button" onclick="togglePopup2()">&#10006;</button>
   <div class="option-container">
-    <h2>View</h2>
-    <br>
-    <button class="option">Orders</button>
-  </div>
-  <div class="option-container">
-    <button class="option">Order history</button>
+    <h2>Orders</h2>
   </div>
 </div>
 
-    </div>
-    <div class="card">
-        <h1>Your Shopping Cart</h1>
-        <ul class="listCard">
-        </ul>
-        <div class="checkOut">
-            <a id="checkoutLink" href="#">
-            <div class="total">BND 0</div></a>
-            <div class="closeShopping">Close</div>
-        </div>
     </div>
 
     <script src="app.js">
