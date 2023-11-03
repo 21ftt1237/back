@@ -1082,6 +1082,7 @@ box-shadow:0px 2px 7px 1px grey;
     display: flex;
     flex-direction: column;
   }
+
   #input {
     width: 150px;
   }
@@ -1091,17 +1092,49 @@ box-shadow:0px 2px 7px 1px grey;
     margin-right: 10px;
   }
 
+  .section {
+    display: block; /* Change display to block to stack elements vertically */
+    width: 100%; /* Set width to 100% to take full width */
+    height: auto; /* Set height to auto to adjust to content */
+    justify-content: center;
+    margin: 10px auto;
+  }
+
+  .section1 {
+    width: 80%;
+    height: 40%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
   .main-section{
-float: right;
-background:#D9D9D9;
-width:10%;
-margin: 0 auto;
-padding: 10px;
-padding-left: 20px;
-margin-top:65px;
-margin-right: 5px;
-box-shadow:0px 2px 7px 1px grey;
-height: 1600px
+display: block; /* Change display to block to stack elements vertically */
+    width: 100%; /* Set width to 100% to take full width */
+    height: auto; /* Set height to auto to adjust to content */
+    justify-content: center;
+    margin: 10px auto;
+}
+
+.section2 {
+    width: 100%; /* Set the width to 100% to take full width */
+  }
+
+.section2 .container {
+  display: block; /* Change display to block to stack elements vertically */
+  width: 100%; /* Set width to 100% to take full width */
+  height: auto; /* Set height to auto to adjust to content */
+  justify-content: center;
+  margin: 10px auto;
+  }
+
+  .main-section, .container, .para, .review-container {
+    display: none;
+  }
+
+
 }
 
 
