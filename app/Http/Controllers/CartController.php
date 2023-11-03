@@ -55,10 +55,31 @@ public function index()
 
     public function addToCart(Request $request, Product $product)
 {
-    // Add the product to the cart
-    // You can access the product ID from $product and use the $request data
+   $productId = $product->id;
 
-    return response()->json(['message' => 'Product added to cart']);
+    // Retrieve the user's cart data from the session (or from your database if needed)
+    $cart = session()->get('cart', []);
+
+    // Check if the product is already in the cart
+    if (array_key_exists($productId, $cart)) {
+        // If the product is in the cart, you can increment its quantity or perform other actions
+        $cart[$productId]['quantity']++;
+    } else {
+        // If the product is not in the cart, add it
+        $cart[$productId] = [
+            'product' => $product,
+            'quantity' => 1,
+        ];
+    }
+
+    // Update the cart data in the session
+    session()->put('cart', $cart);
+
+    // You can return a response with cart data or a success message
+    return response()->json([
+        'message' => 'Product added to cart',
+        'cart' => $cart, // You can return the updated cart data to update the client-side cart
+    ]);
 }
   
 }
