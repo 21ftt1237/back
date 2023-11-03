@@ -26,7 +26,9 @@ return new class extends Migration
             $table->string('postcode')->nullable();
             $table->string('country')->nullable();
             $table->string('district')->nullable();
-        });
+ 	    $table->unsignedBigInteger('role_id')->nullable();
+            $table->foreign('role_id')->references('id')->on('table_roles');
+});
     }
 
     /**
@@ -36,4 +38,4 @@ return new class extends Migration
     {
 
     }
-};
+}
