@@ -714,8 +714,12 @@ header{
   }
 
     .head-title {
-        font-size: 15px; /* Adjust the font size to make it smaller */
+        font-size: 12px; /* Adjust the font size to make it smaller */
       }
+
+      p {
+        font-size: 10px; 
+}
 
 
   header {
@@ -750,13 +754,15 @@ main {
 
 
 .swiper-slide {
-   width: 100%; /* Set width to 100% to take the full width of the parent container */
+   width: 110%; /* Set width to 100% to take the full width of the parent container */
     height: 100% ;
   display: flex;
   flex-direction: column;
   justify-content: end;
   align-items: self-start;
 }
+
+
 
 main a {
    width: 30%; /* Set width to 100% to take the full width of the parent container */
@@ -765,13 +771,25 @@ main a {
 }
 
 .swiper-slide a {
-  font-size: 10px;
+   width: 80px; /* Set width to 100% to take the full width of the parent container */
+    height: 20px ;
+  font-size: 6px;
+
+}
+
+.swiper-slide div {
+    width: 100%; /* Set width to 100% to take the full width of the parent container */
+    height: 50% ;
+    margin-top: 10px;
 }
 
 .swiper-slide p {
- font-size: 10px;
+ font-size: 8px;
 }
 
+.swiper-slide h2 {
+  font-size: 10px;
+}
 
 
 .flex-form {
@@ -798,7 +816,7 @@ button[type="submit"] {
  width: 100px;
     font-size: 10px;
     height: 40px;
-
+    margin-top: -5px;
 }
 
 h2 {
