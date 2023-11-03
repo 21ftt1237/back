@@ -939,6 +939,8 @@ fetch(apiUrl, {
   // Retrieve the delivery fee from the HTML
   const deliveryFee = parseFloat(localStorage.getItem('delivery')) || 0;
 
+      const testPay = totalAmount + deliveryFee;
+      console.log(testPay);
   // Calculate the final total by adding the total amount and the delivery fee
       
   const finalPay = totalAmount + deliveryFee - {{ auth()->user()->redeem_coupon }};
