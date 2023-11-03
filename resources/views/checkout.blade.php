@@ -941,10 +941,10 @@ fetch(apiUrl, {
 
   // Calculate the final total by adding the total amount and the delivery fee
       
-  const finalTotal = totalAmount + deliveryFee - {{ auth()->user()->redeem_coupon }};
+  const finalPay = totalAmount + deliveryFee - {{ auth()->user()->redeem_coupon }};
 
   
-  document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalTotal.toFixed(2)}`;
+  document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}`;
   
 
   // Store the final total in local storage (if needed)
