@@ -934,8 +934,9 @@ fetch(apiUrl, {
 
   function updateTotalPriceAndDeliveryFee() {
   // Calculate the total price from the cart items
-  var totalAmount = localStorage.getItem('totalPrice');
-    console.log(totalAmount);
+  
+const totalAmount = parseFloat(localStorage.getItem('totalPrice')) 
+    console.log(parsed);
   // Retrieve the delivery fee from the HTML
   const deliveryFee = parseFloat(localStorage.getItem('delivery')) || 0;
 
