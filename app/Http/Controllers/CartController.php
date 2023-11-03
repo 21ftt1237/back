@@ -22,6 +22,16 @@ public function index()
 
     return view('layouts.header', compact('cart'));
 }
+    public function indexCheckout()
+{
+    // Fetch the currently logged-in user's wishlist items
+    $user = auth()->user(); // Get the currently authenticated user
+    $cart = Cart::where('user_id', $user->id)
+        ->with('product') // Assuming you have defined a 'product' relationship in the Wishlist model
+        ->get();
+
+    return view('checkout', compact('cart'));
+}
 
         public function increaseQuantity(Request $request, Product $product) {
     $user = $request->user();
