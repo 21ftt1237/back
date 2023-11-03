@@ -28,7 +28,7 @@ $totalQuantity += $cartItem->quantity; // Add the quantity of the item to the to
      <link rel="stylesheet" href="{{ asset('css/header.css') }}">
      <link rel="stylesheet" href="{{ asset('css/style.css') }}">
    
-    <title>{{ $pageName }}</title>
+    <title></title>
     <style>
  /* HELP dropdown styles */
   .dropbtn {
