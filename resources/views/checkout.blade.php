@@ -633,7 +633,7 @@ $('#proceedBtn').on('click', function() {
 
 
           var loyaltyPoints = localStorage.getItem('loyaltytest');
-          document.getElementById('loyalty').textContent = `Loyalty Points Gained: `;
+          document.getElementById("loyalty").innerHTML = `Loyalty Points Gained: ` + loyaltyPoints;
         } else {
           // Show an error message or handle validation failure
          
