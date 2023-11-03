@@ -531,10 +531,10 @@ input[type='password']:focus {
         $('#proceed').hide();
       }
     });
- 
+ var localTotalPay = localStorage.getItem('finalPay');
   function calculateLoyaltyPoints(localTotalPay) {
     // Calculate 10% of the total price as loyalty points
-    var localTotalPay = localStorage.getItem('finalPay');
+    
     var loyaltyGain =  (localTotalPay * 0.1).toFixed(2);
     console.log(loyaltyGain);
     localStorage.setItem('loyaltytest', loyaltyGain);
