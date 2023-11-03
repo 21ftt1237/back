@@ -739,10 +739,15 @@ main {
     padding-bottom: 200px;
 }
 
+.head-title::before {
+    width: 50%;
+    background: #F6E71D;
+}
+
 .swiper {
     position: relative; /* Change position to relative to display below the main container */
     width: 70%; /* Set width to 100% to take the full width of the parent container */
-    height: 50% ;
+    height: 60% ;
     border-style: ridge;
     border-color: white;
     box-shadow: 0 0 5px black;
@@ -762,19 +767,19 @@ main {
   align-items: self-start;
 }
 
-
-
-main a {
-   width: 30%; /* Set width to 100% to take the full width of the parent container */
-    height: 10% ;
-}
-
 .swiper-slide a {
    width: 75px; /* Set width to 100% to take the full width of the parent container */
     height: 20px ;
   font-size: 8px;
 
 }
+
+main a {
+   width: 30%; /* Set width to 100% to take the full width of the parent container */
+    height: 10% ;
+}
+
+
 
 .swiper-slide div {
     width: 100%; /* Set width to 100% to take the full width of the parent container */
@@ -868,7 +873,6 @@ h2 {
 
 
 }
-
 
 
 
