@@ -414,7 +414,21 @@ input[type='password']:focus {
 
  <div class="finalpayment">
     <div id="order">
-       
+        @foreach ($cart as $cartItem)
+                @php
+                $productPrice = $cartItem->product->price;
+                $product = $cartItem->product;
+                @endphp
+                <li>
+                    <div class="top">
+                    <img src="image/{{ $cartItem->product->image_link }}">
+                   
+                        <div class="item-name">{{ $cartItem->product->name }}</div>
+                        <div class="item-price">BND {{ $productPrice }}</div>
+                        <div class="item-quantity">{{ $cartItem->quantity }} </div>
+                    </div>
+                </li>
+                @endforeach
         </div>
     </div>
      <div class="finish">
