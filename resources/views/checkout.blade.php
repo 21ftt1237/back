@@ -842,7 +842,7 @@ paypal.Buttons({
     return actions.order.create({
       purchase_units: [{
         amount: {
-          value:calculateTotalAmount(cartItems).toFixed(2),
+          value:parseFloat(localStorage.getItem('finalPay')),
         },
       }],
     });
