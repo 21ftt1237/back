@@ -1524,18 +1524,7 @@ function addReview(review) {
 //     document.body.classList.remove("active");
 // })
 
-    
-   function confirmAction() {
-  var confirmation = confirm("You have changed Stores, confirm to clear cart items?");
-  if (confirmation) {
-    
-    localStorage.setItem('storeId', '1');
-    localStorage.removeItem('cartItems');
-  } else {
-    
-    window.location.href = '{{ route('dashboard') }}';
-  }
-}
+
 
 localStorage.setItem('delivery', '2');
 localStorage.setItem('storename', 'Netcom (Kiulap)');
@@ -1547,6 +1536,17 @@ if(localStorage.getItem("cartItems") !== null){
 if (storeId !== parseVal) {
   confirmAction();
 }}
+
+
+    $(document).ready(function() {
+        $('#addToCartButton').click(function() {
+            var productId = $(this).data('product-id');
+
+            $.post('{{ route('addToCart') }}/' + productId, function(response) {
+                $('#successMessage').text(response.message).show();
+            });
+        });
+    });
 </script>
     <script>
         //For cart
