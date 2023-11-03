@@ -683,12 +683,7 @@ $('#proceedBtn').on('click', function() {
 </script>
 <script>
 
-    function getTotalPrice() {
-    // Retrieve the total price from Local Storage
-    var localTotalPrice = localStorage.getItem('totalPrice');
 
-  
-}
     
   const confirmationContainer = document.getElementById('confirmationContainer');
 
@@ -787,7 +782,7 @@ cartItems.forEach((item, index) => {
       // Add the price of the current item to the total
       
     });
-
+    var localTotalPrice = localStorage.getItem('totalPrice');
     // Display the total price
     totalPriceElement.textContent = `Total Price: BND ${localTotalPrice.toFixed(2)}`;
     finalTotal.textContent = `Total Price: BND ${total.toFixed(2)}`;
