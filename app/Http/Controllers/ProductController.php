@@ -92,12 +92,38 @@ public function addToWishlist(Request $request, Product $product) {
     $user->wishlist()->attach($product->id);
     return redirect()->back()->with('success', 'Product added to wishlist.');
 }
+
+    
 public function removeFromWishlist(Request $request, Product $product) {
     $user = $request->user();
     $user->wishlist()->detach($product->id);
     return redirect()->back()->with('success', 'Product removed from wishlist.');
 }
 
+    
+    public function addToCart(Request $request, Product $product) {
+    $user = $request->user();
+
+    // Check if the product is already in the user's cart
+    $existingCartItem = $user->cart()->where('product_id', $product->id)->first();
+
+    // If an existing cart item is found, update the quantity
+    if ($existingCartItem) {
+        $existingCartItem->quantity += 1;
+        $existingCartItem->save();
+    } else {
+        // If not found, attach the product to the cart with quantity 1
+        $user->cart()->attach($product->id, ['quantity' => 1]);
+    }
+
+    if ($request->ajax()) {
+        return response()->json(['message' => 'Product added to Cart']);
+    } else {
+        return back(); // Redirect back for non-AJAX requests.
+    }
+}
+
+    
     public function show($id)
 {
     $product = Product::findOrFail($id); 
