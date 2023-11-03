@@ -1535,39 +1535,7 @@ if (storeId !== parseVal) {
 }}
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  const addToCartButton = document.getElementById("addToCartButton");
 
-  if (addToCartButton) {
-    addToCartButton.addEventListener("click", function() {
-      const productId = addToCartButton.getAttribute("data-product-id");
-
-      // Debugging: Log the product ID to the console
-      console.log("Product ID:", productId);
-
-      fetch(`/add-to-cart/${productId}`, {
-        method: "POST",
-        headers: {
-          "X-CSRF-TOKEN": csrfToken,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ productId: productId }),
-      })
-        .then(response => response.json())
-        .then(data => {
-          // Debugging: Log the response data to the console
-          console.log("Response from server:", data);
-
-          // Handle the response from the server (e.g., update the cart icon)
-          console.log("Product added to cart");
-        })
-        .catch(error => {
-          // Debugging: Log errors to the console
-          console.error("Error:", error);
-        });
-    });
-  }
-});
 </script>
     <script>
         //For cart
