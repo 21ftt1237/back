@@ -934,12 +934,13 @@ fetch(apiUrl, {
 
   function updateTotalPriceAndDeliveryFee() {
   // Calculate the total price from the cart items
-  const totalAmount = calculateTotalAmount(cartItems);
+  var totalAmount = localStorage.getItem('totalPrice');
 
   // Retrieve the delivery fee from the HTML
   const deliveryFee = parseFloat(localStorage.getItem('delivery')) || 0;
 
   // Calculate the final total by adding the total amount and the delivery fee
+      
   const finalTotal = totalAmount + deliveryFee - {{ auth()->user()->redeem_coupon }};
 
   
