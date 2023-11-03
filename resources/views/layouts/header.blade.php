@@ -90,7 +90,7 @@ $totalQuantity += $cartItem->quantity; // Add the quantity of the item to the to
                 <div class="wishlist">
                     <a href="{{ route('wishlist') }}">
                         <img src="{{ asset('image/wishlist.png') }}">
-                        <span class="wishlist-quantity">0</span>
+                        
                     </a>
                 </div>
                 <div>
