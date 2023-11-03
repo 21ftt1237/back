@@ -1535,15 +1535,39 @@ if (storeId !== parseVal) {
 }}
 
 
-    $(document).ready(function() {
-        $('#addToCartButton').click(function() {
-            var productId = $(this).data('product-id');
+  // Make sure this code runs after the DOM is ready
+document.addEventListener("DOMContentLoaded", function() {
+  // Find the "Add to Cart" button by its ID
+  const addToCartButton = document.getElementById("addToCartButton");
 
-            $.post('{{ route('addToCart') }}/' + productId, function(response) {
-                $('#successMessage').text(response.message).show();
-            });
+  if (addToCartButton) {
+    // Add a click event listener to the button
+    addToCartButton.addEventListener("click", function() {
+      // Get the product ID from the button's data attribute
+      const productId = addToCartButton.getAttribute("data-product-id");
+
+      // Perform an AJAX request to add the product to the cart
+      fetch(`/add-to-cart/${productId}`, {
+        method: "POST",
+        headers: {
+          "X-CSRF-TOKEN": csrfToken, // Use Laravel's CSRF token
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ productId: productId }),
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response from the server (e.g., update the cart icon)
+          console.log(data);
+        })
+        .catch(error => {
+          // Handle errors (e.g., show an error message)
+          console.error(error);
         });
     });
+  }
+});
+    
 </script>
     <script>
         //For cart
