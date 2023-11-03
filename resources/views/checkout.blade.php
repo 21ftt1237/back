@@ -680,6 +680,14 @@ $('#proceedBtn').on('click', function() {
 
 </script>
 <script>
+
+    function getTotalPrice() {
+    // Retrieve the total price from Local Storage
+    var totalPrice = localStorage.getItem('totalPrice');
+
+  
+}
+    
   const confirmationContainer = document.getElementById('confirmationContainer');
 
   let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
@@ -779,7 +787,7 @@ cartItems.forEach((item, index) => {
     });
 
     // Display the total price
-    totalPriceElement.textContent = `Total Price: BND ${total.toFixed(2)}`;
+    totalPriceElement.textContent = 'Total Price: BND ' + totalPrice;
     finalTotal.textContent = `Total Price: BND ${total.toFixed(2)}`;
     finishTotal.textContent = `Total Spent: BND ${total.toFixed(2)}`;
 
