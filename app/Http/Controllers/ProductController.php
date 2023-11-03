@@ -55,14 +55,22 @@ class ProductController extends Controller
 
 
 public function addToCart(Request $request, Product $product) {
+    // Ensure the product exists
+    if (!$product) {
+        return response()->json(['error' => 'Product not found'], 404);
+    }
+
     $user = $request->user();
 
+    // Check if the product is already in the user's cart
     $existingCartItem = $user->cart()->where('product_id', $product->id)->first();
 
+    // If an existing cart item is found, update the quantity
     if ($existingCartItem) {
-        $existingCartItem->pivot->quantity = 1;
+        $existingCartItem->pivot->quantity += 1;
         $existingCartItem->pivot->save();
     } else {
+        // If not found, attach the product to the cart with quantity 1
         $user->cart()->attach($product->id, ['quantity' => 1]);
     }
 
