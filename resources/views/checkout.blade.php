@@ -532,10 +532,10 @@ input[type='password']:focus {
       }
     });
  
-  function calculateLoyaltyPoints(totalPrice) {
+  function calculateLoyaltyPoints(localTotalPay) {
     // Calculate 10% of the total price as loyalty points
-    var localTotalPrice = localStorage.getItem('totalPay');
-    return (totalPay * 0.1).toFixed(2);
+    var localTotalPay = localStorage.getItem('totalPay');
+    return (localTTotalPay * 0.1).toFixed(2);
   }
 
 $('.next-btn').on('click', function(e) {
