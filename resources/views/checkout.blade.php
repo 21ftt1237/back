@@ -534,7 +534,8 @@ input[type='password']:focus {
  
   function calculateLoyaltyPoints(totalPrice) {
     // Calculate 10% of the total price as loyalty points
-    return (totalPrice * 0.1).toFixed(2);
+    var localTotalPrice = localStorage.getItem('totalPay');
+    return (totalPay * 0.1).toFixed(2);
   }
 
 $('.next-btn').on('click', function(e) {
