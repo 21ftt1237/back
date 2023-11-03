@@ -767,20 +767,19 @@ main {
 main a {
    width: 30%; /* Set width to 100% to take the full width of the parent container */
     height: 10% ;
-
 }
 
 .swiper-slide a {
-   width: 80px; /* Set width to 100% to take the full width of the parent container */
+   width: 75px; /* Set width to 100% to take the full width of the parent container */
     height: 20px ;
-  font-size: 6px;
+  font-size: 8px;
 
 }
 
 .swiper-slide div {
     width: 100%; /* Set width to 100% to take the full width of the parent container */
     height: 50% ;
-    margin-top: 10px;
+    margin-bottom: -40px;
 }
 
 .swiper-slide p {
@@ -816,7 +815,7 @@ button[type="submit"] {
  width: 100px;
     font-size: 10px;
     height: 40px;
-    margin-top: -5px;
+    margin-top: -15px;
 }
 
 h2 {
@@ -869,7 +868,6 @@ h2 {
 
 
 }
-
 
 
 
