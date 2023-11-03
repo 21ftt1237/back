@@ -598,7 +598,7 @@ $('#proceedBtn').on('click', function() {
            var totalPrice = calculateTotalAmount(cartItems);
 
 
-          var loyaltyPoints = calculateLoyaltyPoints(totalPrice);
+          var loyaltyPoints = calculateLoyaltyPoints(localTotalPay);
           document.getElementById('loyalty').textContent = `Loyalty Points Gained: ${loyaltyPoints}`;
         } else {
           // Show an error message or handle validation failure
