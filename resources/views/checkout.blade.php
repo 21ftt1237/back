@@ -767,7 +767,7 @@ $('#proceedBtn').on('click', function() {
     const confirmationContainer = document.getElementById('confirmationContainer');
     const order = document.getElementById('order');
     
-    order.innerHTML = '';
+    
     let total = 0; // Initialize total to 0
     
      var scheduledDateTime = localStorage.getItem('scheduledDateTime');
