@@ -459,7 +459,7 @@ input[type='password']:focus {
             <input type="number" class="quantity-input" value="{{ $cartItem->quantity }}" readonly>
             <form method="POST" action="{{ route('decreaseQuantity', ['product' => $product->id]) }}">
             @csrf
-            <button type="submit">-</button>
+            
             </form>
         </div>
                     </div>
