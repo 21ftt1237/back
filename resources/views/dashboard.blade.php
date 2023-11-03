@@ -703,14 +703,20 @@ header{
 
 
 @media screen and (max-width: 500px) {
+
   .heading ul li {
     display: none;
   }
   .heading1 {
-    opacity: 1;
+    opacity: 0;
 
     bottom: 8px;
   }
+
+    .head-title {
+        font-size: 15px; /* Adjust the font size to make it smaller */
+      }
+
 
   header {
     height: 250px;
@@ -718,14 +724,133 @@ header{
     display: flex;
     flex-direction: column;
   }
-  #input {
-    width: 150px;
+
+  
+
+main {
+    position: relative;
+    width: 100%; /* Set the width to 100% to make it expand to the full width of the parent container */
+    margin: 0 auto;
+    padding-block: min(20vh, 3rem);
+    padding-bottom: 200px;
+}
+
+.swiper {
+    position: relative; /* Change position to relative to display below the main container */
+    width: 70%; /* Set width to 100% to take the full width of the parent container */
+    height: 50% ;
+    border-style: ridge;
+    border-color: white;
+    box-shadow: 0 0 5px black;
+    margin-top: 40px;
+    margin-left: 120px;
+    font-size: 10px;
   }
 
 
-  .search a {
-    margin-right: 10px;
-  }
+
+.swiper-slide {
+   width: 100%; /* Set width to 100% to take the full width of the parent container */
+    height: 100% ;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: self-start;
+}
+
+main a {
+   width: 30%; /* Set width to 100% to take the full width of the parent container */
+    height: 10% ;
+
+}
+
+.swiper-slide a {
+  font-size: 10px;
+}
+
+.swiper-slide p {
+ font-size: 10px;
+}
+
+
+
+.flex-form {
+  margin-top: 30px;
+  display: -webkit-box;
+  display: flex;
+  z-index: 10;
+  position: relative;
+    width: 400px;
+    height: 40px;
+  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+
+
+#goToSearch{
+    width: 400px;
+    font-size: 10px;
+    height: 40px;
+
+}
+
+button[type="submit"] {
+ width: 100px;
+    font-size: 10px;
+    height: 40px;
+
+}
+
+h2 {
+  margin-top: -40px;
+  font-size: 20px;
+}
+
+
+
+.line-title {
+  position: relative;
+  width: 600px;
+  margin-left: 18px;
+  margin-bottom: 25px;
+}
+
+.popular-section {
+  width: 100%;
+  height: 100%;
+}
+
+.popular-section .item {
+  width: 200px;
+  height: 300px;
+}
+
+.popular-section .item.active {
+  width: 300px;
+}
+
+.owl-carousel .owl-stage-outer {
+     width: 600px;
+  height: 400px;
+}
+
+
+.popular-section .item-desc p {
+   font-size: 10px;
+}
+
+.popular-section .owl-theme.custom-carousel .owl-dots {
+  width: 100%;
+  height: 50%;
+  margin-top: -60px;
+}
+
+.item .item-button {
+    font-size: 12px;
+}
+
+
+}
 
 
 
