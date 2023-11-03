@@ -602,7 +602,7 @@ $('#proceedBtn').on('click', function() {
            var totalPrice = calculateTotalAmount(cartItems);
 
 
-          var loyaltyPoints = calculateLoyaltyPoints(localTotalPay);
+          var loyaltyPoints = localStorage.getItem('loyaltytest');
           document.getElementById('loyalty').textContent = `Loyalty Points Gained: ${loyaltyPoints}`;
         } else {
           // Show an error message or handle validation failure
