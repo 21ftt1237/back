@@ -1511,6 +1511,29 @@ function addReview(review) {
 
 <script>
 
+    $(document).ready(function () {
+    $('.addToCartButton').click(function () {
+        var productId = $(this).data('product-id');
+
+        $.ajax({
+            type: 'POST',
+            url: '{{ route('addToCart', ['product' => $product]) }}',
+            data: {
+                '_token': '{{ csrf_token() }}',
+                'product_id': productId
+            },
+            success: function (data) {
+                // Handle a successful response (e.g., show a success message).
+                alert(data.message);
+            },
+            error: function (xhr, status, error) {
+                // Handle errors (e.g., show an error message).
+                console.log(xhr.responseText);
+            }
+        });
+    });
+});
+
 //     let openShopping = document.querySelector('.shopping');
 // let closeShopping = document.querySelector('.closeShopping');
 
