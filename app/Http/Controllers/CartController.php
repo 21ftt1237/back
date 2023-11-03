@@ -52,5 +52,13 @@ public function index()
 
     return redirect()->back()->with('success', 'Quantity decreased.');
 }
+
+    public function addToCart(Request $request, Product $product)
+{
+    // Add the product to the cart
+    // You can access the product ID from $product and use the $request data
+
+    return response()->json(['message' => 'Product added to cart']);
+}
   
 }
