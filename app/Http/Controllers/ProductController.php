@@ -54,24 +54,21 @@ class ProductController extends Controller
 }
 
 
-
 public function addToCart(Request $request, Product $product) {
     $user = $request->user();
 
-   
     $existingCartItem = $user->cart()->where('product_id', $product->id)->first();
 
     if ($existingCartItem) {
-        
         $existingCartItem->pivot->quantity = 1;
         $existingCartItem->pivot->save();
     } else {
-       
         $user->cart()->attach($product->id, ['quantity' => 1]);
     }
 
-    return redirect()->back()->with('success', 'Product added to Cart.');
+    return response()->json(['message' => 'Product added to Cart']);
 }
+
 
 
 
