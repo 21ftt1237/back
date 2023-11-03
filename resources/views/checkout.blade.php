@@ -595,6 +595,8 @@ $('#proceedBtn').on('click', function() {
           updateFormVisibility();
 
            var totalPrice = calculateTotalAmount(cartItems);
+
+
           var loyaltyPoints = calculateLoyaltyPoints(totalPrice);
           document.getElementById('loyalty').textContent = `Loyalty Points Gained: ${loyaltyPoints}`;
         } else {
@@ -683,7 +685,7 @@ $('#proceedBtn').on('click', function() {
 
     function getTotalPrice() {
     // Retrieve the total price from Local Storage
-    var totalPrice = localStorage.getItem('totalPrice');
+    var localTotalPrice = localStorage.getItem('totalPrice');
 
   
 }
@@ -787,7 +789,7 @@ cartItems.forEach((item, index) => {
     });
 
     // Display the total price
-    totalPriceElement.textContent = `Total Price: BND ${totalPrice.toFixed(2)}`;
+    totalPriceElement.textContent = `Total Price: BND ${localTotalPrice.toFixed(2)}`;
     finalTotal.textContent = `Total Price: BND ${total.toFixed(2)}`;
     finishTotal.textContent = `Total Spent: BND ${total.toFixed(2)}`;
 
