@@ -162,7 +162,7 @@ Route::get('/order', [CartController::class, 'getCartItems'])->name('order');
 
 Route::post('/cart/add/{product}', [ProductController::class, 'addToCart'])->name('cart.add');
 
-Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('addToCart');
+Route::post('/add-to-cart/{product}', [CartController::class, 'addToCart'])->name('addToCart');
 
 Route::post('/wishlist/add/{product}', [ProductController::class, 'addToWishlist'])->name('wishlist.add');
 
