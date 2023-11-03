@@ -63,5 +63,28 @@ public function index()
     return redirect()->back()->with('success', 'Quantity decreased.');
 }
 
+    public function addToCart(Request $request)
+{
+    $productId = $request->input('product_id');
+    
+    // You can use your authentication logic to get the currently authenticated user
+    $user = auth()->user();
+
+    // Check if the product is already in the user's cart
+    $cartItem = $user->cart()->where('product_id', $productId)->first();
+
+    if ($cartItem) {
+        // If the product is already in the cart, increase its quantity
+        $cartItem->pivot->quantity += 1;
+        $cartItem->pivot->save();
+    } else {
+        // If the product is not in the cart, add it with a quantity of 1
+        $user->cart()->attach($productId, ['quantity' => 1]);
+    }
+
+    // Return a response (e.g., JSON) indicating success or failure
+    return response()->json(['message' => 'Product added to cart.']);
+}
+
   
 }
