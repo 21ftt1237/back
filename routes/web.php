@@ -172,7 +172,7 @@ Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 
-Route::get('cart', [CartController::class, 'indexCheckout'])->name('cart');
+Route::get('checkout', [CartController::class, 'indexCheckout'])->name('checkout');
 
 Route::post('/increase-quantity/{product}', [CartController::class, 'increaseQuantity'])->name('increaseQuantity');
 
