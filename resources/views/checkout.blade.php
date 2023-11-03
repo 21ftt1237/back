@@ -439,7 +439,33 @@ input[type='password']:focus {
     <div id="totalPrice" style="margin-bottom: 15px;">Total Price: BND 0.00</div>
     <div id="scheduledDeli" class="delivery-time">Scheduled On: </div>
 
-    <div id="confirmationContainer"></div>
+    <div id="confirmationContainer">
+         @foreach ($cart as $cartItem)
+                @php
+                $productPrice = $cartItem->product->price;
+                $product = $cartItem->product;
+                $totalPrice += $productPrice; // Add the product price to the total price
+                @endphp
+                <li>
+                    <img src="image/{{ $cartItem->product->image_link }}">
+                    <div class="item-details">
+                        <div class="item-name">{{ $cartItem->product->name }}</div>
+                        <div class="item-price">BND {{ $productPrice }}</div>
+                        <div class="item-quantity">
+            <form method="POST" action="{{ route('increaseQuantity', ['product' => $product->id]) }}">
+             @csrf
+            <button type="submit">+</button>
+             </form>
+            <input type="number" class="quantity-input" value="{{ $cartItem->quantity }}" readonly>
+            <form method="POST" action="{{ route('decreaseQuantity', ['product' => $product->id]) }}">
+            @csrf
+            <button type="submit">-</button>
+            </form>
+        </div>
+                    </div>
+                </li>
+                @endforeach
+    </div>
      </div>
 
        <div class="finishcontainer" >
