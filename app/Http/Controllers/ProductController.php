@@ -47,9 +47,10 @@ class ProductController extends Controller
     return view('Guardian', compact('products'));
 }
 
-    public function cart()
+public function cart()
 {
-    $cart = Product::all();
+    $user = Auth::user();
+    $cart = $user->cart; 
     return view('netcom', compact('cart'));
 }
 
