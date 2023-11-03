@@ -787,7 +787,7 @@ cartItems.forEach((item, index) => {
     });
 
     // Display the total price
-    totalPriceElement.textContent = 'Total Price: BND ' + totalPrice;
+    totalPriceElement.textContent = `Total Price: BND ${totalPrice.toFixed(2)}`;
     finalTotal.textContent = `Total Price: BND ${total.toFixed(2)}`;
     finishTotal.textContent = `Total Spent: BND ${total.toFixed(2)}`;
 
