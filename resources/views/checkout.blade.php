@@ -783,10 +783,11 @@ cartItems.forEach((item, index) => {
       
     });
     var localTotalPrice = localStorage.getItem('totalPrice');
+    var localTotalPay = localStorage.getItem('finalPay');
     // Display the total price
     totalPriceElement.textContent = `Total Price: BND $` + localTotalPrice;
     finalTotal.textContent =  `Total Price: BND $` + localTotalPrice;
-    finishTotal.textContent = `Total Spent: BND ${total.toFixed(2)}`;
+    finishTotal.textContent = `Total Spent: BND $` + localTotalPay;
 
 
   }
