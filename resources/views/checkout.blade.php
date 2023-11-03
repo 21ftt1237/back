@@ -761,7 +761,7 @@ $('#proceedBtn').on('click', function() {
     const finalTotal = document.getElementById('finalTotal');
     const confirmationContainer = document.getElementById('confirmationContainer');
     const order = document.getElementById('order');
-    confirmationContainer.innerHTML = '';
+    
     order.innerHTML = '';
     let total = 0; // Initialize total to 0
     
