@@ -76,11 +76,14 @@ public function removeFromWishlist(Request $request, Product $product) {
 }
 
     
-    public function addToCart(Request $request, Product $product) {
+   public function addToCart(Request $request, Product $product) {
     $user = $request->user();
 
     // Check if the product is already in the user's cart
     $existingCartItem = $user->cart()->where('product_id', $product->id)->first();
+
+    // Log the product ID for debugging
+    \Log::info('Product ID clicked: ' . $product->id);
 
     // If an existing cart item is found, update the quantity
     if ($existingCartItem) {
@@ -97,6 +100,7 @@ public function removeFromWishlist(Request $request, Product $product) {
         return back(); // Redirect back for non-AJAX requests.
     }
 }
+
 
     
     public function show($id)
