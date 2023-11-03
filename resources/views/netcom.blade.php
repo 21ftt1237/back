@@ -1535,39 +1535,39 @@ if (storeId !== parseVal) {
 }}
 
 
-  // Make sure this code runs after the DOM is ready
 document.addEventListener("DOMContentLoaded", function() {
-  // Find the "Add to Cart" button by its ID
   const addToCartButton = document.getElementById("addToCartButton");
 
   if (addToCartButton) {
-    // Add a click event listener to the button
     addToCartButton.addEventListener("click", function() {
-      // Get the product ID from the button's data attribute
       const productId = addToCartButton.getAttribute("data-product-id");
 
-      // Perform an AJAX request to add the product to the cart
+      // Debugging: Log the product ID to the console
+      console.log("Product ID:", productId);
+
       fetch(`/add-to-cart/${productId}`, {
         method: "POST",
         headers: {
-          "X-CSRF-TOKEN": csrfToken, // Use Laravel's CSRF token
+          "X-CSRF-TOKEN": csrfToken,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ productId: productId }),
       })
         .then(response => response.json())
         .then(data => {
+          // Debugging: Log the response data to the console
+          console.log("Response from server:", data);
+
           // Handle the response from the server (e.g., update the cart icon)
-          console.log(data);
+          console.log("Product added to cart");
         })
         .catch(error => {
-          // Handle errors (e.g., show an error message)
-          console.error(error);
+          // Debugging: Log errors to the console
+          console.error("Error:", error);
         });
     });
   }
 });
-    
 </script>
     <script>
         //For cart
