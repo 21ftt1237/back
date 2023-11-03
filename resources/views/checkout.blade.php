@@ -948,7 +948,7 @@ fetch(apiUrl, {
   
 
   // Store the final total in local storage (if needed)
-  localStorage.setItem('finalTotal', finalTotal.toFixed(2));
+  localStorage.setItem('finalPay', finalPay.toFixed(2));
 }
 
 // Call the function to update the total price and delivery fee
