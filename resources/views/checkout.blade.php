@@ -446,21 +446,12 @@ input[type='password']:focus {
                 $product = $cartItem->product;
                 @endphp
                 <li>
+                    <div class="top">
                     <img src="image/{{ $cartItem->product->image_link }}">
-                    <div class="item-details">
+                   
                         <div class="item-name">{{ $cartItem->product->name }}</div>
                         <div class="item-price">BND {{ $productPrice }}</div>
-                        <div class="item-quantity">
-            <form method="POST" action="{{ route('increaseQuantity', ['product' => $product->id]) }}">
-             @csrf
-            <button type="submit">+</button>
-             </form>
-            <input type="number" class="quantity-input" value="{{ $cartItem->quantity }}" readonly>
-            <form method="POST" action="{{ route('decreaseQuantity', ['product' => $product->id]) }}">
-            @csrf
-            
-            </form>
-        </div>
+                        <div class="item-quantity">{{ $cartItem->quantity }} </div>
                     </div>
                 </li>
                 @endforeach
