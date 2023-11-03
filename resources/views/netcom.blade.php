@@ -1510,12 +1510,11 @@ function addReview(review) {
   <script src="./ecommerce.js"></script>
 
 <script>
-
-    $(document).ready(function () {
+$(document).ready(function () {
         $('.add-to-cart').click(function () {
             var productId = $(this).data('product-id');
             $.ajax({
-                url: '{{ route('addToCart') }}/' + productId, // Include the product ID in the URL
+                url: '{{ route('addToCart', ['product' => '']) }}/' + productId,
                 type: 'POST',
                 data: {
                     _token: '{{ csrf_token() }}'
