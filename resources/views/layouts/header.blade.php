@@ -8,6 +8,18 @@
     @endphp
 @endauth
 
+@php
+$totalQuantity = 0; // Initialize the total quantity variable
+@endphp
+
+@if($loggedIn)
+@foreach ($cart as $cartItem)
+@php
+$totalQuantity += $cartItem->quantity; // Add the quantity of the item to the total quantity
+@endphp
+@endforeach
+@endif
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,7 +84,7 @@
                  @if(isset($carts))
                  <div class="shopping">
                 <img src="image/shoppingCart.png">
-                <span class="quantity">0</span>
+                <span class="quantity">{{ $totalQuantity }}</span>
                 </div>
                  @endif
                 <div class="wishlist">
