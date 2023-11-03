@@ -1515,10 +1515,9 @@ function addReview(review) {
         $('.add-to-cart').click(function () {
             var productId = $(this).data('product-id');
             $.ajax({
-                url: '{{ route('addToCart') }}',
+                url: '{{ route('addToCart') }}/' + productId, // Include the product ID in the URL
                 type: 'POST',
                 data: {
-                    product_id: productId,
                     _token: '{{ csrf_token() }}'
                 },
                 success: function (response) {
