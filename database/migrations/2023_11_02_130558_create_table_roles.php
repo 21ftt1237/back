@@ -16,7 +16,13 @@ return new class extends Migration
 	    $table->string('name');
             $table->timestamps();
         });
-    }
+ 
+        DB::table('table_roles')->insert([
+            ['name' => 'admin'],           // ID: 1
+            ['name' => 'store owner'],     // ID: 2
+            ['name' => 'customer'],        // ID: 3
+        ]);
+   }
 
     /**
      * Reverse the migrations.
