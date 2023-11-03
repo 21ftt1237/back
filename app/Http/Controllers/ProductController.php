@@ -74,7 +74,7 @@ public function addToCart(Request $request, Product $product) {
         // If not found, attach the product to the cart with quantity 1
         $user->cart()->attach($product->id, ['quantity' => 1]);
     }
-
+      Log::info('Product added to cart', ['product_id' => $product->id]);
     return response()->json(['message' => 'Product added to Cart']);
 }
 
