@@ -623,7 +623,9 @@ $('#proceedBtn').on('click', function() {
         var city = $('#City').val();
         var district = $('#District').val();
         var zip = $('#Zip').val();
-
+          
+      var loyaltyPoints = localStorage.getItem('loyaltytest');
+          document.getElementById("loyalty").innerHTML = `Loyalty Points Gained: ` + loyaltyPoints;
         if (address && city && district && zip) {
           // Proceed to the next step
           currentStep++;
@@ -632,8 +634,7 @@ $('#proceedBtn').on('click', function() {
            var totalPrice = calculateTotalAmount(cartItems);
 
 
-          var loyaltyPoints = localStorage.getItem('loyaltytest');
-          document.getElementById("loyalty").innerHTML = `Loyalty Points Gained: ` + loyaltyPoints;
+        
         } else {
           // Show an error message or handle validation failure
          
