@@ -1524,33 +1524,33 @@ $('.add-to-cart').click(function() {
 
     
 document.addEventListener('DOMContentLoaded', function () {
-        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
 
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', function () {
-                const productId = button.getAttribute('data-product-id');
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const productId = button.getAttribute('data-product-id');
 
-                // Send a POST request using the fetch API
-                fetch("{{ route('cart.add') }}", {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRF-TOKEN': "{{ csrf_token() }}", // Include CSRF token if required
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json',
-                    },
-                    body: JSON.stringify({ product_id: productId }),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Handle the response from the server, e.g., show a message to the user
-                    alert(data.message);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+            // Send a POST request using the fetch API
+            fetch("{{ route('cart.add', ['product' => '']) }}/" + productId, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': "{{ csrf_token() }}",
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                },
+                body: JSON.stringify({ product_id: productId }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response from the server, e.g., show a message to the user
+                alert(data.message);
+            })
+            .catch(error => {
+                console.error('Error:', error);
             });
         });
     });
+});
     
 //     let openShopping = document.querySelector('.shopping');
 // let closeShopping = document.querySelector('.closeShopping');
