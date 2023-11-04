@@ -46,11 +46,12 @@ public function placeOrder(Request $request)
 
     // Retrieve all cart items for the user
     $cartItems = $user->cart;
-   
 
     try {
-        dd($cartItems);
         foreach ($cartItems as $cartItem) {
+            // Debugging: Print product_id and quantity for each cart item
+            dd('Product ID: ' . $cartItem->product_id, 'Quantity: ' . $cartItem->quantity);
+
             // Create a new order using the cart item's data
             $order = new Order();
             $order->user_id = $user->id;
@@ -76,7 +77,6 @@ public function placeOrder(Request $request)
         return response()->json(['message' => 'Error creating orders.']);
     }
 }
-
 
 
     
