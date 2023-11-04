@@ -31,7 +31,7 @@ class AdminAuthController extends Controller
 
         if (Auth::guard('admin')->attempt($request->only('email', 'password'))) {
             // Authentication passed
-            return redirect()->intended('/admin/adminDashboard');
+            return redirect()->intended('admin.dashboard');
         }
 
         // Authentication failed
