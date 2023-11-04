@@ -892,41 +892,6 @@ paypal.Buttons({
 var button = document.getElementById("nextBtn");
     button.disabled = false;
 
-// Retrieve the CSRF token value from a meta tag in your HTML
-const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
-console.log('CSRF Token:', csrfToken); // Debugging
-
-// Prepare the data to send
-const data = { cartItems };
-
-console.log('Data to be sent:', data); // Debugging
-
-const apiUrl = 'https://bruzone.tech/save-cart-items';
-
-// Create the Fetch POST request
-fetch(apiUrl, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'X-CSRF-TOKEN': csrfToken, // Include the CSRF token in the request headers
-  },
-  body: JSON.stringify(data),
-})
-  .then(response => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error('Failed to send data to the server');
-    }
-  })
-  .then(responseData => {
-    console.log('Server response:', responseData); // Debugging
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
-
         
   isPayPalTransactionComplete = true;
         
