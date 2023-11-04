@@ -1462,7 +1462,7 @@ function addReview(review) {
                                 <div class="price">$ {{ $product->price }}</div>
                                 <div class="info">{{ $product->description }}</div>
                                 <div class="actions">
-                                   <button class="add-to-cart" data-product-id="{{ $product->id }}">Add to Cart</button>
+                                  <button class="add-to-cart" data-product-id="{{ $product->id }}" data-add-to-cart-url="{{ route('cart.add', ['product' => $product->id]) }}">Add to Cart</button>
                                     <form action="{{ route('wishlist.add', ['product' => $product]) }}" method="POST">
                                     @csrf
                                    
@@ -1510,6 +1510,19 @@ function addReview(review) {
   <script src="./ecommerce.js"></script>
 
 <script>
+
+$('.add-to-cart').click(function() {
+    var productId = $(this).data('product-id');
+    var addToCartUrl = $(this).data('add-to-cart-url');
+    
+    // Make an AJAX request to addToCartUrl, passing productId
+    $.post(addToCartUrl, { product_id: productId }, function(response) {
+        // Handle the response, e.g., show a success message
+        alert(response.message);
+    });
+});    
+
+    
 document.addEventListener('DOMContentLoaded', function () {
         const addToCartButtons = document.querySelectorAll('.add-to-cart');
 
