@@ -53,11 +53,15 @@ public function placeOrder(Request $request)
         DB::beginTransaction();
 
         foreach ($cartItems as $cartItem) {
-            // Create a new order using the cart item's data
+            // Access the pivot values directly
+            $product_id = $cartItem->pivot->product_id;
+            $quantity = $cartItem->pivot->quantity;
+
+            // Create a new order using the pivot values
             $order = new Order();
             $order->user_id = $user->id;
-            $order->product_id = $cartItem->product_id;
-            $order->quantity = $cartItem->quantity;
+            $order->product_id = $product_id;
+            $order->quantity = $quantity;
 
             // Debugging: Print order data before saving
             Log::info('Order Data Before Saving: ' . json_encode($order->toArray()));
@@ -90,6 +94,7 @@ public function placeOrder(Request $request)
         return response()->json(['message' => 'Error creating orders.']);
     }
 }
+
 
     
 }
