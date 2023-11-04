@@ -1378,7 +1378,15 @@ function addReview(review) {
   reviewContainer.appendChild(newReview);
 }
 
-
+// Define your togglePopup function here
+  function togglePopup() {
+    const popup = document.getElementById("popup");
+    if (popup.style.display === "block") {
+      popup.style.display = "none";
+    } else {
+      popup.style.display = "block";
+    }
+  }
 
 </script>
 
