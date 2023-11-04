@@ -52,7 +52,8 @@ public function placeOrder(Request $request)
             $newProduct = new Product();
             $newProduct->product_id = $cartItem->product_id; // Copy the product_id
             $newProduct->quantity = $cartItem->quantity;     // Copy the quantity
-            // Set other fields if needed
+
+            // You might need to set other fields as well, if they exist in the 'products' table.
 
             $newProduct->save();
         }
@@ -75,6 +76,5 @@ public function placeOrder(Request $request)
         return response()->json(['message' => 'Error copying products.']);
     }
 }
-
     
 }
