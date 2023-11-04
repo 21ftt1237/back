@@ -82,29 +82,44 @@ class ProfileController extends Controller
 
 public function redeemCoupon(Request $request)
 {
+    // Check if the user is authenticated
     $user = Auth::user();
+
+    // Check if the user is null
+    if (!$user) {
+        return redirect()->back()->with('error', 'User not authenticated.');
+    }
+
+    // Validate the 'coupon_amount' input
     $couponAmount = $request->input('coupon_amount');
-    
-   if ($user->redeem_coupon === null || empty($user->redeem_coupon) || $user->redeem_coupon > 0) {
-        // Check if the redeem_coupon column is empty
-        if ($user->coupon_point >= $couponAmount) {
-            // Deduct loyalty points
-            $user->coupon_point -= $couponAmount;
 
-            // Divide coupon amount by 100
-            $couponAmount /= 100;
+    if (!is_numeric($couponAmount) || $couponAmount <= 0) {
+        return redirect()->back()->with('error', 'Invalid coupon amount.');
+    }
 
-            // Store coupon amount
-            $user->redeem_coupon = $couponAmount;
-            $user->save();
-            return redirect()->back()->with('message', 'Coupon redeemed successfully.');
-        } else {
-            return redirect()->back()->with('message', 'Insufficient loyalty points to redeem this coupon.');
-        }
-    } else {
+    // Check if the user has already redeemed a coupon
+    if ($user->redeem_coupon !== null && $user->redeem_coupon > 0) {
         return redirect()->back()->with('message', 'You have already redeemed a coupon.');
     }
+
+    // Check if the user has enough loyalty points to redeem the coupon
+    if ($user->coupon_point >= $couponAmount) {
+        // Deduct loyalty points
+        $user->coupon_point -= $couponAmount;
+
+        // Divide coupon amount by 100
+        $couponAmount /= 100;
+
+        // Store coupon amount
+        $user->redeem_coupon = $couponAmount;
+        $user->save();
+
+        return redirect()->back()->with('message', 'Coupon redeemed successfully.');
+    } else {
+        return redirect()->back()->with('message', 'Insufficient loyalty points to redeem this coupon.');
+    }
 }
+
 
     // method to update profile
 public function profupdate(Request $request)
