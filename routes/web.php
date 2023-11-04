@@ -209,7 +209,10 @@ Route::put('/admins/{admin}', [AdminController::class, 'update'])->name('admins.
 
 Route::delete('/admins/{admin}', [AdminController::class, 'destroy'])->name('admins.destroy');
 
-Route::get('/admin/adminDashboard', 'AdminController@index')->name('admin.dashboard');
+Route::middleware(['auth:admin'])->group(function () {
+    Route::get('/admin/adminDashboard', 'AdminController@index')->name('admin.dashboard');
+});
+
 
 
 //LOGIN
