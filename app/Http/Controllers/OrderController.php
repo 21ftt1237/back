@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use App\Models\Order;
+use Illuminate\Support\Facades\dd;
 
 
 
@@ -47,36 +48,12 @@ public function placeOrder(Request $request)
     // Retrieve all cart items for the user
     $cartItems = $user->cart;
 
+    // Debugging: Dump the user, cart items, and other relevant data
+    dd($user, $cartItems, 'Other data to inspect');
+
     try {
-        // Start a database transaction for atomicity
-        DB::beginTransaction();
-
-        foreach ($cartItems as $cartItem) {
-            // Create a new order using the cart item's data
-            $order = new Order();
-            $order->user_id = $user->id;
-            $order->product_id = $cartItem->product_id;
-            $order->quantity = $cartItem->quantity;
-            $order->created_at = now();
-            $order->updated_at = now();
-            $order->save(); // Save the order to the 'orders' table
-        }
-
-        // Delete the cart items that were transferred to orders
-        $user->cart()->detach($cartItems);
-
-        // Commit the database transaction
-        DB::commit();
-
-        // Log success message
-        Log::info('Orders created from cart for user ' . $user->id);
-
-        // Respond with a success message
-        return response()->json(['message' => 'Orders created successfully.']);
+        // Rest of your code
     } catch (\Exception $e) {
-        // Roll back the database transaction on error
-        DB::rollBack();
-
         // Handle exceptions and errors
 
         // Log an error message
@@ -86,7 +63,6 @@ public function placeOrder(Request $request)
         return response()->json(['message' => 'Error creating orders.']);
     }
 }
-
 
     
 }
