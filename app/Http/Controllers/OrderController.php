@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 use App\Models\Order;
 use App\Models\User;
 use App\Models\Cart;
@@ -38,6 +39,8 @@ class OrderController extends Controller
         return response()->json(['message' => 'Coupon points updated successfully']);
     }
 
+
+
 public function placeOrder(Request $request)
 {
     // Retrieve the currently authenticated user
@@ -47,34 +50,35 @@ public function placeOrder(Request $request)
     $cartItems = $user->cart;
 
     try {
+        // Loop through cart items and copy data to the 'products' table
         foreach ($cartItems as $cartItem) {
-            // Create a new product in the 'products' table with the same data
-            $newProduct = new Product();
-            $newProduct->product_id = $cartItem->product_id; // Copy the product_id
-            $newProduct->quantity = $cartItem->quantity;     // Copy the quantity
-
-            // You might need to set other fields as well, if they exist in the 'products' table.
-
-            $newProduct->save();
+            // Insert the data into the 'products' table
+            DB::table('products')->insert([
+                'product_id' => $cartItem->product_id,
+                'quantity' => $cartItem->quantity,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
         }
 
         // Clear the user's cart
         $user->cart()->delete();
 
         // Log success message
-        Log::info('Products copied from cart to products table for user ' . $user->id);
+        Log::info('Data copied from cart to products table for user ' . $user->id);
 
         // Respond with a success message
-        return response()->json(['message' => 'Products copied successfully.']);
+        return response()->json(['message' => 'Data copied successfully.']);
     } catch (\Exception $e) {
         // Handle exceptions and errors
 
         // Log an error message
-        Log::error('Error copying products from cart to products table for user ' . $user->id . ': ' . $e->getMessage());
+        Log::error('Error copying data from cart to products table for user ' . $user->id . ': ' . $e->getMessage());
 
         // Respond with an error message
-        return response()->json(['message' => 'Error copying products.']);
+        return response()->json(['message' => 'Error copying data.']);
     }
 }
+
     
 }
