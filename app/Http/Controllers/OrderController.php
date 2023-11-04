@@ -53,14 +53,11 @@ public function placeOrder(Request $request)
         DB::beginTransaction();
 
         foreach ($cartItems as $cartItem) {
-            // Debugging: Print cart item data
-            Log::info('Cart Item Data: ' . json_encode($cartItem->toArray()));
-
             // Create a new order using the cart item's data
-            $order = new Order($cartItem->toArray());
-
-            // Set the user_id for the order
+            $order = new Order();
             $order->user_id = $user->id;
+            $order->product_id = $cartItem->product_id;
+            $order->quantity = $cartItem->quantity;
 
             // Debugging: Print order data before saving
             Log::info('Order Data Before Saving: ' . json_encode($order->toArray()));
