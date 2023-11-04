@@ -139,7 +139,11 @@ $totalQuantity += $cartItem->quantity; // Add the quantity of the item to the to
                 @php
                 $productPrice = $cartItem->product->price;
                 $product = $cartItem->product;
-                $totalPrice += $productPrice; // Add the product price to the total price
+                $newQuantity = $cartItem->quantity;
+
+                $productPrice = $productPrice * $newQuantity;
+
+                $totalPrice += $productPrice;
                 @endphp
                 <li>
                     <img src="image/{{ $cartItem->product->image_link }}">
