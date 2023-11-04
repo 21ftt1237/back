@@ -20,4 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/update-coupon-point', [API\OrderController::class, 'updateCouponPoint'])->name('api.update.coupon.point');
 
-Route::post('/api/place-order', [API\OrderController::class, 'placeOrder']);
+Route::post('/place-order', [API\OrderController::class, 'placeOrder']);
