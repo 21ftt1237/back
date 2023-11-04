@@ -418,6 +418,9 @@ input[type='password']:focus {
                 @php
                 $productPrice = $cartItem->product->price;
                 $product = $cartItem->product;
+                $newQuantity = $cartItem->quantity;
+                $productPrice = $productPrice * $newQuantity;
+
                 @endphp
                 <li>
                     <div class="top">
@@ -458,6 +461,8 @@ input[type='password']:focus {
                 @php
                 $productPrice = $cartItem->product->price;
                 $product = $cartItem->product;
+                $newQuantity = $cartItem->quantity;
+                $productPrice = $productPrice * $newQuantity;
                 @endphp
                 <li>
                     <div class="top">
