@@ -50,8 +50,8 @@ public function placeOrder(Request $request)
     try {
         foreach ($cartItems as $cartItem) {
             // Debugging: Print product_id and quantity for each cart item
-            dd('Product ID: ' . $cartItem->product_id, 'Quantity: ' . $cartItem->quantity);
-
+            Log::info('Product ID: ' . $cartItem->product_id);
+            Log::info('Quantity: ' . $cartItem->quantity);
             // Create a new order using the cart item's data
             $order = new Order();
             $order->user_id = $user->id;
