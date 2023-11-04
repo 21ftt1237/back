@@ -60,8 +60,6 @@ public function placeOrder(Request $request)
             $order->updated_at = now();
             $order->save(); // Save the order to the 'orders' table
 
-            // Remove the cart item
-            $cartItem->delete();
         }
 
         // Log success message
