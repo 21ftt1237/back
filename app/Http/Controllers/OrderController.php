@@ -46,6 +46,7 @@ public function placeOrder(Request $request)
 
     // Retrieve all cart items for the user
     $cartItems = $user->cart;
+     dd($cartItems); // Add this line to inspect the cart items
 
     try {
         foreach ($cartItems as $cartItem) {
