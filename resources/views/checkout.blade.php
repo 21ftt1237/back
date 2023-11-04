@@ -896,7 +896,7 @@ $.ajax({
     type: 'POST',
     url: '/update-coupon-point',
     data: {
-        _token: '{{ csrf_token() }}',
+        _token: $('meta[name="csrf-token"]').attr('content'), // Retrieve the CSRF token from the meta tag
         coupon_point: couponPointsGained, // Replace with the actual coupon points gained value (decimal)
     },
     success: function (response) {
@@ -908,6 +908,7 @@ $.ajax({
         alert('Error updating coupon points');
     }
 });
+
         
   isPayPalTransactionComplete = true;
         
