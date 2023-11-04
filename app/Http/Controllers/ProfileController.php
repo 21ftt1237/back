@@ -85,7 +85,7 @@ public function redeemCoupon(Request $request)
     $user = Auth::user();
     $couponAmount = $request->input('coupon_amount');
     
-    if ($user->redeem_coupon === null || empty($user->redeem_coupon) || 0) {
+   if ($user->redeem_coupon === null || empty($user->redeem_coupon) || $user->redeem_coupon === 0) {
         // Check if the redeem_coupon column is empty
         if ($user->coupon_point >= $couponAmount) {
             // Deduct loyalty points
