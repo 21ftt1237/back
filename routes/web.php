@@ -162,8 +162,6 @@ Route::get('/order', [CartController::class, 'getCartItems'])->name('order');
 
 Route::post('/cart/add/{product}', [ProductController::class, 'addToCart'])->name('cart.add');
 
-Route::post('/cart/add/{product}', [CartController::class, 'addToCart'])->name('cart.add');
-
 Route::post('/wishlist/add/{product}', [ProductController::class, 'addToWishlist'])->name('wishlist.add');
 
 Route::post('/wishlist/remove/{product}', [ProductController::class, 'removeFromWishlist'])->name('wishlist.remove');
