@@ -185,7 +185,7 @@ Route::get('/products/{id}', [ProductController::class, 'show'])->name('products
 
 //Order
 
-Route::post('/update-redeem-coupon', [OrderController::class, 'updateRedeemCoupon'])->name('update-redeem-coupon');
+Route::post('/update-coupon-points', [OrderController::class, 'updatecouponpoints'])->name('update-coupon-points');
 
 Route::get('/email', 'EmailController@index');
 Route::post('/email/send', 'EmailController@sendEmail')->name('send.email');
