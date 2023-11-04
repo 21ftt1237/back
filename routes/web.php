@@ -198,6 +198,13 @@ Route::put('/admins/{admin}', [AdminController::class, 'update'])->name('admins.
 
 Route::delete('/admins/{admin}', [AdminController::class, 'destroy'])->name('admins.destroy');
 
+
+//LOGIN
+
+//customer login
+Route::get('/login', 'LoginController@showLoginForm')->name('login');
+Route::post('/login', 'LoginController@login');
+
 //Admin Login
 Route::get('/admin/login', 'AdminAuthController@showLoginForm')->name('admin.login');
 Route::post('/admin/login', 'AdminAuthController@login');
