@@ -33,34 +33,47 @@ class OrderController extends Controller
         return response()->json(['message' => 'Coupon points updated successfully']);
     }
 
-    public function placeOrder(Request $request)
+public function placeOrder(Request $request)
 {
     // Retrieve cart items and other necessary data from the request
     $cartItems = $request->input('cart_items');
     // Other order-related data
 
-    // Create a new order
-    $order = new Order();
-    $order->user_id = auth()->user()->id;
-    // Set other order-related data
+    // Add a debug message
+    Log::info('Starting order placement process.');
 
-    // Save the order to the database
-    $order->save();
+    try {
+        // Create a new order
+        $order = new Order();
+        $order->user_id = auth()->user()->id;
+        // Set other order-related data
 
-    // Loop through cart items and add them to the order
-    foreach ($cartItems as $cartItem) {
-        $order->products()->attach($cartItem['product_id'], [
-            'quantity' => $cartItem['quantity'],
-            // Other pivot table data, if needed
-        ]);
+        // Save the order to the database
+        $order->save();
+
+        // Loop through cart items and add them to the order
+        foreach ($cartItems as $cartItem) {
+            $order->products()->attach($cartItem['product_id'], [
+                'quantity' => $cartItem['quantity'],
+                // Other pivot table data, if needed
+            ]);
+        }
+
+        // Clear the user's cart (assuming you have a method for this)
+        auth()->user()->cart()->detach();
+
+        // Add a success message
+        Log::info('Order placed successfully.');
+        
+        // Respond with a success message or appropriate JSON response
+        return response()->json(['message' => 'Order placed successfully.']);
+    } catch (\Exception $e) {
+        // Handle exceptions and errors
+        Log::error('Error placing the order: ' . $e->getMessage());
+        
+        // Return an error response or handle the error as needed
+        return response()->json(['message' => 'Error placing the order.']);
     }
-
-    // Clear the user's cart (assuming you have a method for this)
-    auth()->user()->cart()->detach();
-
-    // Respond with a success message or appropriate JSON response
-    return response()->json(['message' => 'Order placed successfully.']);
 }
-
 
 }
