@@ -202,32 +202,14 @@
      <div class="details-container">
          <div class="data">
          <div class="eclipse-container">
-        @foreach($cartItems as $cartItem)
-            <div class="eclipse">
-                <img src="image/{{ $cartItem->image }}"><br>
-                </div>
-                 <div class="details-container">
-                <div>Product Name: {{ $cartItem->name }}</div>
-                 <div>Price: ${{ $cartItem->price }}</div>
-                <div>Quantity: {{ $cartItem->quantity }}</div>
-                <div>Created At:{{ $cartItem->created_at->format('Y-m-d H:i:s') }}</div>
-        @endforeach
+       
        </div>
     </div>
     
     
 <!--       <div class="details-container">
     <ul>
-        @foreach($cartItems as $cartItem)
-            <li> 
-                <img src="image/{{ $cartItem->image }}" class="haha"><br>
-                <strong>Product Name:</strong> {{ $cartItem->name }}<br>
-                <strong>Price:</strong> ${{ $cartItem->price }}<br>
-                <strong>Quantity:</strong> {{ $cartItem->quantity }}<br>
-                <strong>Created At:</strong> {{ $cartItem->created_at->format('Y-m-d H:i:s') }}<br>
-                <hr>
-            </li>
-        @endforeach
+
     </ul> -->
 <!--       </div> -->
 </body>
