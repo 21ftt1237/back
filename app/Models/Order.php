@@ -9,10 +9,9 @@ class Order extends Model
 {
     protected $table = 'orders';
 
-    protected $fillable = [
-        'user_id',
-    ];
+    protected $fillable = ['user_id', 'product_id', 'quantity'];
 
+    
     public function products()
     {
         return $this->belongsToMany(Product::class, 'order_items')->withPivot('quantity');
