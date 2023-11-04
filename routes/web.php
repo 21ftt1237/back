@@ -221,11 +221,9 @@ Route::post('/login', 'LoginController@login');
 //Admin Login
 Route::prefix('admin')->group(function () {
 
-    Route::get('/admin/login', 'AdminAuthController@showLoginForm')->name('admin.login');
-
-    Route::get('login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
-    Route::post('login', [AdminAuthController::class, 'login']);
-    Route::post('logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
+    Route::get('/login', 'AdminAuthController@showLoginForm')->name('admin.login');
+    Route::post('/login', 'AdminAuthController@login');
+    Route::post('/logout', 'AdminAuthController@logout')->name('admin.logout');
 });
 
 require __DIR__.'/auth.php';
