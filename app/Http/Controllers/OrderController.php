@@ -41,55 +41,52 @@ class OrderController extends Controller
 
 
 public function placeOrder(Request $request)
-    {
-        // Retrieve the currently authenticated user
-        $user = auth()->user();
+{
+    // Retrieve the currently authenticated user
+    $user = auth()->user();
 
-        // Retrieve cart items for the user
-        $cartItems = $user->cart;
+    // Retrieve all cart items for the user
+    $cartItems = $user->cart;
 
-        // Debugging: Print cart items to check their contents
-    Log::info('Cart Items: ' . json_encode($cartItems));
+    try {
+        // Start a database transaction for atomicity
+        DB::beginTransaction();
 
-        try {
-            // Start a database transaction for atomicity
-            \DB::beginTransaction();
+        foreach ($cartItems as $cartItem) {
+            // Create a new order using the cart item's data
+            $order = new Order($cartItem->toArray());
 
-          foreach ($cartItems as $cartItem) {
-    // Debugging: Print cart item to check its contents
-    Log::info('Cart Item: ' . json_encode($cartItem));
+            // Set the user_id for the order
+            $order->user_id = $user->id;
 
-    // Create a new order using the cart item's data
-    $order = new Order($cartItem->toArray());
-
-    // Set the user_id for the order
-    $order->user_id = $user->id;
-
-    // Save the order to the 'orders' table
-    $order->save();
-}
-
-            // Delete the cart items that were transferred to orders
-            $user->cart()->detach($cartItems);
-
-            // Commit the database transaction
-            \DB::commit();
-
-            // Respond with a success message
-            return response()->json(['message' => 'Orders created successfully']);
-        } catch (\Exception $e) {
-            // Roll back the database transaction on error
-            \DB::rollBack();
-
-            // Handle exceptions and errors
-
-            // Log an error message
-            \Log::error('Error creating orders from cart for user ' . $user->id . ': ' . $e->getMessage());
-
-            // Respond with an error message
-            return response()->json(['message' => 'Error creating orders']);
+            // Save the order to the 'orders' table
+            $order->save();
         }
+
+        // Delete the cart items that were transferred to orders
+        $user->cart()->detach($cartItems);
+
+        // Commit the database transaction
+        DB::commit();
+
+        // Log success message
+        Log::info('Orders created from cart for user ' . $user->id);
+
+        // Respond with a success message
+        return response()->json(['message' => 'Orders created successfully.']);
+    } catch (\Exception $e) {
+        // Roll back the database transaction on error
+        DB::rollBack();
+
+        // Handle exceptions and errors
+
+        // Log an error message
+        Log::error('Error creating orders from cart for user ' . $user->id . ': ' . $e->getMessage());
+
+        // Respond with an error message
+        return response()->json(['message' => 'Error creating orders.']);
     }
+}
 
     
 }
