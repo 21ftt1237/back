@@ -7,24 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-   
     protected $table = 'orders';
 
-   
     protected $fillable = [
-        'product_id',
         'user_id',
-        'quantity',
-        
     ];
 
-   
-    public function product()
+    public function products()
     {
-        return $this->belongsTo(Product::class, 'product_id');
+        return $this->belongsToMany(Product::class, 'order_items')->withPivot('quantity');
     }
 
-  
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
