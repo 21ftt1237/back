@@ -1122,7 +1122,7 @@ box-shadow:0px 2px 7px 1px grey;
 
 
 
-   <div class="main-section">
+<!--    <div class="main-section">
 
 <div class="container">
 
@@ -1175,13 +1175,13 @@ box-shadow:0px 2px 7px 1px grey;
   <input id="submitForm" type="submit" style="display:none;">
   <span id="submitInfo" class="help-block">
   </span>
-</form>
+</form> -->
 
-<div class="h2">
+<!-- <div class="h2">
 <h2>Read what others have said about us:</h2>
 
-<div id="review-container">
-</div>
+<div id="review-container"> -->
+<!-- </div> -->
 
 <script type="text/javascript">
   
