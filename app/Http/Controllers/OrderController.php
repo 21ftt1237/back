@@ -41,28 +41,50 @@ class OrderController extends Controller
 
 
 public function placeOrder(Request $request)
-{
-    // Retrieve the currently authenticated user
-    $user = auth()->user();
+    {
+        // Retrieve the currently authenticated user
+        $user = auth()->user();
 
-    // Retrieve all cart items for the user
-    $cartItems = $user->cart;
+        // Retrieve cart items for the user
+        $cartItems = $user->cart;
 
-    // Debugging: Dump the user, cart items, and other relevant data
-    dd($user, $cartItems, 'Other data to inspect');
+        try {
+            // Start a database transaction for atomicity
+            \DB::beginTransaction();
 
-    try {
-        // Rest of your code
-    } catch (\Exception $e) {
-        // Handle exceptions and errors
+            foreach ($cartItems as $cartItem) {
+                // Create a new order using the cart item's data
+                $order = new Order([
+                    'user_id' => $user->id,
+                    'product_id' => $cartItem->product_id,
+                    'quantity' => $cartItem->quantity,
+                ]);
 
-        // Log an error message
-        Log::error('Error creating orders from cart for user ' . $user->id . ': ' . $e->getMessage());
+                // Save the order to the 'orders' table
+                $order->save();
+            }
 
-        // Respond with an error message
-        return response()->json(['message' => 'Error creating orders.']);
+            // Delete the cart items that were transferred to orders
+            $user->cart()->detach($cartItems);
+
+            // Commit the database transaction
+            \DB::commit();
+
+            // Respond with a success message
+            return response()->json(['message' => 'Orders created successfully']);
+        } catch (\Exception $e) {
+            // Roll back the database transaction on error
+            \DB::rollBack();
+
+            // Handle exceptions and errors
+
+            // Log an error message
+            \Log::error('Error creating orders from cart for user ' . $user->id . ': ' . $e->getMessage());
+
+            // Respond with an error message
+            return response()->json(['message' => 'Error creating orders']);
+        }
     }
-}
 
     
 }
