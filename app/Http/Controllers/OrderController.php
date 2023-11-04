@@ -55,17 +55,15 @@ public function placeOrder(Request $request)
             // Start a database transaction for atomicity
             \DB::beginTransaction();
 
-           foreach ($cartItems as $cartItem) {
-    // Debugging: Print product_id and quantity for each cart item
-    Log::info('Product ID: ' . $cartItem->product_id);
-    Log::info('Quantity: ' . $cartItem->quantity);
+          foreach ($cartItems as $cartItem) {
+    // Debugging: Print cart item to check its contents
+    Log::info('Cart Item: ' . json_encode($cartItem));
 
     // Create a new order using the cart item's data
-    $order = new Order([
-        'user_id' => $user->id,
-        'product_id' => $cartItem->product_id,
-        'quantity' => $cartItem->quantity,
-    ]);
+    $order = new Order($cartItem->toArray());
+
+    // Set the user_id for the order
+    $order->user_id = $user->id;
 
     // Save the order to the 'orders' table
     $order->save();
