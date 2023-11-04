@@ -40,20 +40,21 @@ public function placeOrder(Request $request)
     // Retrieve the currently authenticated user
     $user = auth()->user();
 
-    // Retrieve the user's cart items
+    // Retrieve the user's cart items and their product IDs
     $cartItems = $user->cart;
+    $productIds = $cartItems->pluck('product_id');
 
     // Create a new order for the user
     $order = new Order();
     $order->user_id = $user->id;
-    // Set other order-related data as needed
+    // Set other order-related data
     $order->save();
 
     try {
-        // Transfer cart items to the order
-        foreach ($cartItems as $cartItem) {
-            $order->products()->attach($cartItem->product_id, [
-                'quantity' => $cartItem->quantity,
+        // Transfer product IDs from the cart to the order
+        foreach ($productIds as $productId) {
+            $order->products()->attach($productId, [
+                'quantity' => 1,  // Assuming a quantity of 1 per product
                 // Other pivot table data, if needed
             ]);
         }
