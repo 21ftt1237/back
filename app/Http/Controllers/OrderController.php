@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use App\Models\Order;
+use App\Models\User;
 
 class OrderController extends Controller
 {
@@ -36,45 +37,42 @@ class OrderController extends Controller
 
 public function placeOrder(Request $request)
 {
-    // Retrieve cart items and other necessary data from the request
-    $cartItems = $request->input('cart_items');
-    // Other order-related data
+    // Retrieve the currently authenticated user
+    $user = auth()->user();
 
-    // Add a debug message for the "place order" operation
-    Log::info('Placing the order for user ' . auth()->user()->id);
+    // Retrieve the user's cart items
+    $cartItems = $user->cart;
+
+    // Create a new order for the user
+    $order = new Order();
+    $order->user_id = $user->id;
+    // Set other order-related data as needed
+    $order->save();
 
     try {
-        // Create a new order
-        $order = new Order();
-        $order->user_id = auth()->user()->id;
-        // Set other order-related data
-
-        // Save the order to the database
-        $order->save();
-
-        // Loop through cart items and add them to the order
+        // Transfer cart items to the order
         foreach ($cartItems as $cartItem) {
-            $order->products()->attach($cartItem['product_id'], [
-                'quantity' => $cartItem['quantity'],
+            $order->products()->attach($cartItem->product_id, [
+                'quantity' => $cartItem->quantity,
                 // Other pivot table data, if needed
             ]);
         }
 
-        // Clear the user's cart (assuming you have a method for this)
-        auth()->user()->cart()->detach();
+        // Clear the user's cart
+        $user->cart()->detach();
 
-        // Add a success message for the "place order" operation
-        Log::info('Order placed successfully for user ' . auth()->user()->id);
+        // Log success message
+        Log::info('Order placed successfully for user ' . $user->id);
 
-        // Respond with a success message or appropriate JSON response
+        // Respond with a success message
         return response()->json(['message' => 'Order placed successfully.']);
     } catch (\Exception $e) {
         // Handle exceptions and errors
 
-        // Add an error message for the "place order" operation
-        Log::error('Error placing the order for user ' . auth()->user()->id . ': ' . $e->getMessage());
+        // Log an error message
+        Log::error('Error placing the order for user ' . $user->id . ': ' . $e->getMessage());
 
-        // Return an error response or handle the error as needed
+        // Respond with an error message
         return response()->json(['message' => 'Error placing the order.']);
     }
 }
