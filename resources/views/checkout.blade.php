@@ -892,6 +892,8 @@ paypal.Buttons({
 var button = document.getElementById("nextBtn");
     button.disabled = false;
 
+//Get order and coupon point
+        
 // Retrieve the coupon point value from local storage
 var couponPointsGained = localStorage.getItem('loyaltytest');
 
@@ -908,6 +910,20 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
         success: function (response) {
             // Handle success, e.g., display a success message to the user
             alert(response.message);
+
+            // Now, initiate the order placement
+            axios.post('/place-order', {
+                cart_items: cartItems,
+                // Other order-related data
+            })
+            .then(function (response) {
+                // Handle the order placement response, e.g., show a success message or redirect to a thank you page
+                alert(response.message);
+            })
+            .catch(function (error) {
+                // Handle errors, e.g., show an error message
+                alert('Error placing the order');
+            });
         },
         error: function (error) {
             // Handle error, e.g., show an error message
@@ -918,6 +934,7 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
     // Handle the case where the coupon point value is not found in local storage
     alert('Coupon point value not found in local storage');
 }
+
 
         
   isPayPalTransactionComplete = true;
