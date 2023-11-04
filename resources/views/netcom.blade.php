@@ -1510,21 +1510,31 @@ function addReview(review) {
   <script src="./ecommerce.js"></script>
 
 <script>
-$(document).ready(function () {
-        $('.add-to-cart').click(function () {
-            var productId = $(this).data('product-id');
-            $.ajax({
-                url: '{{ route('addToCart', ['product' => '']) }}/' + productId,
-                type: 'POST',
-                data: {
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function (response) {
-                    alert(response.message); // Display a success message
-                },
-                error: function (error) {
-                    console.log(error);
-                }
+document.addEventListener('DOMContentLoaded', function () {
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const productId = button.getAttribute('data-product-id');
+
+                // Send a POST request using the fetch API
+                fetch("{{ route('cart.add') }}", {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': "{{ csrf_token() }}", // Include CSRF token if required
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                    },
+                    body: JSON.stringify({ product_id: productId }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Handle the response from the server, e.g., show a message to the user
+                    alert(data.message);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
             });
         });
     });
