@@ -49,7 +49,7 @@ public function placeOrder(Request $request)
    
 
     try {
-        dd($cartItems
+        dd($cartItems);
         foreach ($cartItems as $cartItem) {
             // Create a new order using the cart item's data
             $order = new Order();
