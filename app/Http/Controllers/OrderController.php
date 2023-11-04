@@ -48,6 +48,9 @@ public function placeOrder(Request $request)
         // Retrieve cart items for the user
         $cartItems = $user->cart;
 
+        // Debugging: Print cart items to check their contents
+    Log::info('Cart Items: ' . json_encode($cartItems));
+
         try {
             // Start a database transaction for atomicity
             \DB::beginTransaction();
