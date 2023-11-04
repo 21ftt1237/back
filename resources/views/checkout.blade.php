@@ -892,22 +892,32 @@ paypal.Buttons({
 var button = document.getElementById("nextBtn");
     button.disabled = false;
 
-$.ajax({
-    type: 'POST',
-    url: '/update-coupon-point',
-    data: {
-        _token: $('meta[name="csrf-token"]').attr('content'), // Retrieve the CSRF token from the meta tag
-        coupon_point: couponPointsGained, // Replace with the actual coupon points gained value (decimal)
-    },
-    success: function (response) {
-        // Handle success, e.g., display a success message to the user
-        alert(response.message);
-    },
-    error: function (error) {
-        // Handle error, e.g., show an error message
-        alert('Error updating coupon points');
-    }
-});
+// Retrieve the coupon point value from local storage
+var couponPointsGained = localStorage.getItem('loyaltytest');
+
+// Check if the value is not null or undefined
+if (couponPointsGained !== null && couponPointsGained !== undefined) {
+    // Send an AJAX request to update the coupon points
+    $.ajax({
+        type: 'POST',
+        url: '/update-coupon-point',
+        data: {
+            _token: '{{ csrf_token() }}',
+            coupon_point: couponPointsGained, // Use the value retrieved from local storage
+        },
+        success: function (response) {
+            // Handle success, e.g., display a success message to the user
+            alert(response.message);
+        },
+        error: function (error) {
+            // Handle error, e.g., show an error message
+            alert('Error updating coupon points');
+        }
+    });
+} else {
+    // Handle the case where the coupon point value is not found in local storage
+    alert('Coupon point value not found in local storage');
+}
 
         
   isPayPalTransactionComplete = true;
