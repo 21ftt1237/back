@@ -183,6 +183,10 @@ Route::get('netcom', [ProductController::class, 'index'])->name('netcom.products
 
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 
+//Order
+
+Route::post('/update-redeem-coupon', [OrderController::class, 'updateRedeemCoupon'])->name('update-redeem-coupon');
+
 Route::get('/email', 'EmailController@index');
 Route::post('/email/send', 'EmailController@sendEmail')->name('send.email');
 
