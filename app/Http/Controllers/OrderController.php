@@ -33,5 +33,34 @@ class OrderController extends Controller
         return response()->json(['message' => 'Coupon points updated successfully']);
     }
 
+    public function placeOrder(Request $request)
+{
+    // Retrieve cart items and other necessary data from the request
+    $cartItems = $request->input('cart_items');
+    // Other order-related data
+
+    // Create a new order
+    $order = new Order();
+    $order->user_id = auth()->user()->id;
+    // Set other order-related data
+
+    // Save the order to the database
+    $order->save();
+
+    // Loop through cart items and add them to the order
+    foreach ($cartItems as $cartItem) {
+        $order->products()->attach($cartItem['product_id'], [
+            'quantity' => $cartItem['quantity'],
+            // Other pivot table data, if needed
+        ]);
+    }
+
+    // Clear the user's cart (assuming you have a method for this)
+    auth()->user()->cart()->detach();
+
+    // Respond with a success message or appropriate JSON response
+    return response()->json(['message' => 'Order placed successfully.']);
+}
+
 
 }
