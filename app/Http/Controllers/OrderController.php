@@ -48,19 +48,25 @@ public function placeOrder(Request $request)
     $cartItems = $user->cart;
 
     try {
+        // Start a database transaction for atomicity
+        DB::beginTransaction();
+
         foreach ($cartItems as $cartItem) {
-            // Debugging: Print product_id and quantity for each cart item
-            Log::info('Product ID: ' . $cartItem->product_id);
-            Log::info('Quantity: ' . $cartItem->quantity);
             // Create a new order using the cart item's data
             $order = new Order();
             $order->user_id = $user->id;
-            $order->product_id = $cartItem->product_id; // Set product ID
-            $order->quantity = $cartItem->quantity;     // Set quantity
+            $order->product_id = $cartItem->product_id;
+            $order->quantity = $cartItem->quantity;
             $order->created_at = now();
             $order->updated_at = now();
             $order->save(); // Save the order to the 'orders' table
         }
+
+        // Delete the cart items that were transferred to orders
+        $user->cart()->detach($cartItems);
+
+        // Commit the database transaction
+        DB::commit();
 
         // Log success message
         Log::info('Orders created from cart for user ' . $user->id);
@@ -68,6 +74,9 @@ public function placeOrder(Request $request)
         // Respond with a success message
         return response()->json(['message' => 'Orders created successfully.']);
     } catch (\Exception $e) {
+        // Roll back the database transaction on error
+        DB::rollBack();
+
         // Handle exceptions and errors
 
         // Log an error message
