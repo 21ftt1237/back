@@ -53,21 +53,16 @@ public function placeOrder(Request $request)
             \DB::beginTransaction();
 
             foreach ($cartItems as $cartItem) {
-    // Debugging: Print product_id and quantity for each cart item
-    Log::info('Product ID: ' . $cartItem->product_id);
-    Log::info('Quantity: ' . $cartItem->quantity);
+   // Create a new order using the cart item's data
+                $order = new Order([
+                    'user_id' => $user->id,
+                    'product_id' => $cartItem->product_id,
+                    'quantity' => $cartItem->quantity,
+                ]);
 
-    // Create a new order using the cart item's data
-    $order = new Order([
-        'user_id' => $user->id,
-        'product_id' => $cartItem->product_id,
-        'quantity' => $cartItem->quantity,
-    ]);
-
-    // Save the order to the 'orders' table
-    $order->save();
-}
-
+                // Save the order to the 'orders' table
+                $order->save();
+            }
             // Delete the cart items that were transferred to orders
             $user->cart()->detach($cartItems);
 
