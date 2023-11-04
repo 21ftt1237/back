@@ -892,6 +892,22 @@ paypal.Buttons({
 var button = document.getElementById("nextBtn");
     button.disabled = false;
 
+$.ajax({
+    type: 'POST',
+    url: '/update-coupon-point',
+    data: {
+        _token: '{{ csrf_token() }}',
+        coupon_point: couponPointsGained, // Replace with the actual coupon points gained value (decimal)
+    },
+    success: function (response) {
+        // Handle success, e.g., display a success message to the user
+        alert(response.message);
+    },
+    error: function (error) {
+        // Handle error, e.g., show an error message
+        alert('Error updating coupon points');
+    }
+});
         
   isPayPalTransactionComplete = true;
         
