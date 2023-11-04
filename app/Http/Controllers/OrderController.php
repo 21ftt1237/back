@@ -55,17 +55,12 @@ public function placeOrder(Request $request)
 
         // Transfer cart items to the order
         foreach ($cartItems as $cartItem) {
-            // Create a new order item for each cart item
-            $orderItem = new OrderItem();
-            $orderItem->order_id = $order->id;
-            $orderItem->product_id = $cartItem->product_id; // Set product_id from cart item
-            $orderItem->quantity = $cartItem->quantity;
-            // Set other order item details as needed
-            $orderItem->save();
+            // Associate the product with the order by attaching it
+            $order->products()->attach($cartItem->product_id, ['quantity' => $cartItem->quantity]);
         }
 
         // Clear the user's cart
-        $user->cart()->delete();
+        $user->cart()->detach();
 
         // Log success message
         Log::info('Order placed successfully for user ' . $user->id);
@@ -82,5 +77,5 @@ public function placeOrder(Request $request)
         return response()->json(['message' => 'Error placing the order.']);
     }
 }
-
+    
 }
