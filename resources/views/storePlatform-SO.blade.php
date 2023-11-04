@@ -1443,7 +1443,7 @@ function addReview(review) {
           
         </div>
     </div>
-    <div class="card">
+<!--     <div class="card">
         <h1>Your Shopping Cart</h1>
         <ul class="listCard">
         </ul>
@@ -1453,7 +1453,7 @@ function addReview(review) {
             <div class="closeShopping">Close</div>
         </div>
     </div>
-
+ -->
     <script src="app.js">
     </script>
          
