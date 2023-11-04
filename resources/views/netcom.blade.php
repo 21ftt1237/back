@@ -1462,7 +1462,10 @@ function addReview(review) {
                                 <div class="price">$ {{ $product->price }}</div>
                                 <div class="info">{{ $product->description }}</div>
                                 <div class="actions">
-                                  <button class="add-to-cart" data-product-id="{{ $product->id }}" data-add-to-cart-url="{{ route('cart.add', ['product' => $product->id]) }}">Add to Cart</button>
+                                 <form action="{{ route('cart.add', ['product' => $product]) }}" method="POST">
+                                    @csrf
+                                    <button>Add To Cart</button>
+                                 </form>  
                                     <form action="{{ route('wishlist.add', ['product' => $product]) }}" method="POST">
                                     @csrf
                                    
@@ -1510,47 +1513,6 @@ function addReview(review) {
   <script src="./ecommerce.js"></script>
 
 <script>
-
-$('.add-to-cart').click(function() {
-    var productId = $(this).data('product-id');
-    var addToCartUrl = $(this).data('add-to-cart-url');
-    
-    // Make an AJAX request to addToCartUrl, passing productId
-    $.post(addToCartUrl, { product_id: productId }, function(response) {
-        // Handle the response, e.g., show a success message
-        alert(response.message);
-    });
-});    
-
-    
-document.addEventListener('DOMContentLoaded', function () {
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
-
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            const productId = button.getAttribute('data-product-id');
-
-            // Send a POST request using the fetch API
-            fetch("{{ route('cart.add', ['product' => '']) }}/" + productId, {
-                method: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': "{{ csrf_token() }}",
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                },
-                body: JSON.stringify({ product_id: productId }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Handle the response from the server, e.g., show a message to the user
-                alert(data.message);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        });
-    });
-});
     
 //     let openShopping = document.querySelector('.shopping');
 // let closeShopping = document.querySelector('.closeShopping');
