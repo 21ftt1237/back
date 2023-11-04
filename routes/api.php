@@ -18,5 +18,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/update-coupon-point', [API\LoyaltyPointsController::class, 'updateCouponPoint'])->name('api.update.coupon.point');
+Route::post('/update-coupon-point', [API\OrderController::class, 'updateCouponPoint'])->name('api.update.coupon.point');
 
