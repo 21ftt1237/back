@@ -13,21 +13,24 @@ use Illuminate\Support\Facades\DB;
 class OrderController extends Controller
 {
 
-public function updateRedeemCoupon(Request $request)
+public function updateCouponPoint(Request $request)
 {
     // Validate the request
     $request->validate([
-        'redeem_coupon' => 'required|integer',
+        'coupon_point' => 'required|numeric', // numeric allows decimal values
     });
 
     // Get the currently authenticated user
     $user = auth()->user();
 
-    // Update the user's redeem_coupon points
-    $user->redeem_coupon += $request->redeem_coupon;
+    // Convert the incoming coupon point value to a decimal
+    $couponPoint = floatval($request->coupon_point);
+
+    // Update the user's "coupon_point" points
+    $user->coupon_point += $couponPoint;
     $user->save();
 
-    return response()->json(['message' => 'Redeem coupon points updated successfully']);
+    return response()->json(['message' => 'Coupon points updated successfully']);
 }
 
 }
