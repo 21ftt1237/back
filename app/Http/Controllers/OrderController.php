@@ -27,6 +27,9 @@ class OrderController extends Controller
 {
     public function updateCouponPoint(Request $request)
     {
+        Log::info('Received coupon_point: ' . $request->coupon_point);
+
+        
         // Validate the request
         $request->validate([
             'coupon_point' => 'required|numeric', // numeric allows decimal values
