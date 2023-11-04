@@ -47,35 +47,34 @@ public function placeOrder(Request $request)
     $cartItems = $user->cart;
 
     try {
-        // Create a new order for the user
-        $order = new Order();
-        $order->user_id = $user->id;
-        // Set other order-related data as needed
-        $order->save();
-
-        // Transfer cart items to the order
         foreach ($cartItems as $cartItem) {
-            // Associate the product with the order by attaching it
-            $order->products()->attach($cartItem->product_id, ['quantity' => $cartItem->quantity]);
+            // Create a new product for each cart item
+            $newProduct = new Product();
+            $newProduct->product_id = $cartItem->product_id; // Copy the product_id
+            $newProduct->quantity = $cartItem->quantity;     // Copy the quantity
+            // Set other fields if needed
+
+            $newProduct->save();
         }
 
         // Clear the user's cart
-        $user->cart()->detach();
+        $user->cart()->delete();
 
         // Log success message
-        Log::info('Order placed successfully for user ' . $user->id);
+        Log::info('Products copied from cart to products table for user ' . $user->id);
 
         // Respond with a success message
-        return response()->json(['message' => 'Order placed successfully.']);
+        return response()->json(['message' => 'Products copied successfully.']);
     } catch (\Exception $e) {
         // Handle exceptions and errors
 
         // Log an error message
-        Log::error('Error placing the order for user ' . $user->id . ': ' . $e->getMessage());
+        Log::error('Error copying products from cart to products table for user ' . $user->id . ': ' . $e->getMessage());
 
         // Respond with an error message
-        return response()->json(['message' => 'Error placing the order.']);
+        return response()->json(['message' => 'Error copying products.']);
     }
 }
+
     
 }
