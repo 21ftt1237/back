@@ -8,9 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use App\Models\Order;
-use App\Models\User;
-use App\Models\Cart;
-use App\Models\Product;
+
 
 
 class OrderController extends Controller
