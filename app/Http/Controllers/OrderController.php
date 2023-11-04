@@ -54,12 +54,11 @@ public function placeOrder(Request $request)
             // Create a new order using the cart item's data
             $order = new Order();
             $order->user_id = $user->id;
-            $order->product_id = $cartItem->product_id;
-            $order->quantity = $cartItem->quantity;
+            $order->product_id = $cartItem->product_id; // Set product ID
+            $order->quantity = $cartItem->quantity;     // Set quantity
             $order->created_at = now();
             $order->updated_at = now();
             $order->save(); // Save the order to the 'orders' table
-
         }
 
         // Log success message
@@ -77,6 +76,7 @@ public function placeOrder(Request $request)
         return response()->json(['message' => 'Error creating orders.']);
     }
 }
+
 
 
     
