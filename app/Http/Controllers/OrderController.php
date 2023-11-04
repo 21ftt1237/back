@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use App\Models\Order;
 use App\Models\User;
+use App\Models\Cart;
+use App\Models\Product;
+
 
 class OrderController extends Controller
 {
@@ -40,27 +43,29 @@ public function placeOrder(Request $request)
     // Retrieve the currently authenticated user
     $user = auth()->user();
 
-    // Retrieve the user's cart items and their product IDs
+    // Retrieve all cart items for the user
     $cartItems = $user->cart;
-    $productIds = $cartItems->pluck('product_id');
-
-    // Create a new order for the user
-    $order = new Order();
-    $order->user_id = $user->id;
-    // Set other order-related data
-    $order->save();
 
     try {
-        // Transfer product IDs from the cart to the order
-        foreach ($productIds as $productId) {
-            $order->products()->attach($productId, [
-                'quantity' => 1,  // Assuming a quantity of 1 per product
-                // Other pivot table data, if needed
-            ]);
+        // Create a new order for the user
+        $order = new Order();
+        $order->user_id = $user->id;
+        // Set other order-related data as needed
+        $order->save();
+
+        // Transfer cart items to the order
+        foreach ($cartItems as $cartItem) {
+            // Create a new order item for each cart item
+            $orderItem = new OrderItem();
+            $orderItem->order_id = $order->id;
+            $orderItem->product_id = $cartItem->product_id;
+            $orderItem->quantity = $cartItem->quantity;
+            // Set other order item details as needed
+            $orderItem->save();
         }
 
         // Clear the user's cart
-        $user->cart()->detach();
+        $user->cart()->delete();
 
         // Log success message
         Log::info('Order placed successfully for user ' . $user->id);
