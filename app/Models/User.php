@@ -28,11 +28,11 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function cart()
-    {
-        return $this->belongsToMany(Product::class, 'cart')->withTimestamps();
-    }
-
+   public function cart()
+{
+    return $this->belongsToMany(Product::class, 'cart')->withPivot('product_id', 'quantity')->withTimestamps();
+}
+    
 public function wishlist()
 {
     return $this->belongsToMany(Product::class, 'wishlist', 'user_id', 'product_id');
