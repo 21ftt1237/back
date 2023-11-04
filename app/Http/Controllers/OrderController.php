@@ -39,8 +39,8 @@ public function placeOrder(Request $request)
     $cartItems = $request->input('cart_items');
     // Other order-related data
 
-    // Add a debug message
-    Log::info('Starting order placement process.');
+    // Add a debug message for the "place order" operation
+    Log::info('Placing the order for user ' . auth()->user()->id);
 
     try {
         // Create a new order
@@ -62,18 +62,19 @@ public function placeOrder(Request $request)
         // Clear the user's cart (assuming you have a method for this)
         auth()->user()->cart()->detach();
 
-        // Add a success message
-        Log::info('Order placed successfully.');
-        
+        // Add a success message for the "place order" operation
+        Log::info('Order placed successfully for user ' . auth()->user()->id);
+
         // Respond with a success message or appropriate JSON response
         return response()->json(['message' => 'Order placed successfully.']);
     } catch (\Exception $e) {
         // Handle exceptions and errors
-        Log::error('Error placing the order: ' . $e->getMessage());
-        
+
+        // Add an error message for the "place order" operation
+        Log::error('Error placing the order for user ' . auth()->user()->id . ': ' . $e->getMessage());
+
         // Return an error response or handle the error as needed
         return response()->json(['message' => 'Error placing the order.']);
     }
 }
-
 }
