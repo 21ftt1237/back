@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\AdminAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -206,9 +207,10 @@ Route::get('/login', 'LoginController@showLoginForm')->name('login');
 Route::post('/login', 'LoginController@login');
 
 //Admin Login
-Route::get('/admin/login', 'AdminAuthController@showLoginForm')->name('admin.login');
-Route::post('/admin/login', 'AdminAuthController@login');
-Route::post('/admin/logout', 'AdminAuthController@logout')->name('admin.logout');
-
+Route::prefix('admin')->group(function () {
+    Route::get('login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
+    Route::post('login', [AdminAuthController::class, 'login']);
+    Route::post('logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
+});
 
 require __DIR__.'/auth.php';
