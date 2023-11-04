@@ -135,17 +135,12 @@ $totalQuantity += $cartItem->quantity; // Add the quantity of the item to the to
                 @endphp
 
                 @if($loggedIn)
-             @php
-    $productPrice = $cartItem->product->price;
-    $product = $cartItem->product;
-    $newQuantity = $cartItem->quantity; // Get the updated quantity
-
-    // Calculate the new product price based on the updated quantity
-    $productPrice = $productPrice * $newQuantity;
-
-    $totalPrice += $productPrice; // Add the updated product price to the total price
-    @endphp
-                @endif
+                @foreach ($cart as $cartItem)
+                @php
+                $productPrice = $cartItem->product->price;
+                $product = $cartItem->product;
+                $totalPrice += $productPrice; // Add the product price to the total price
+                @endphp
                 <li>
                     <img src="image/{{ $cartItem->product->image_link }}">
                     <div class="item-details">
