@@ -63,8 +63,9 @@ public function index()
     return redirect()->back()->with('success', 'Quantity decreased.');
 }
 
-    public function addToCart(Request $request)
+public function addToCart(Request $request)
 {
+    // Get the product_id from the request
     $productId = $request->input('product_id');
     
     // You can use your authentication logic to get the currently authenticated user
@@ -82,7 +83,7 @@ public function index()
         $user->cart()->attach($productId, ['quantity' => 1]);
     }
 
-    // Return a response (e.g., JSON) indicating success or failure
+    // Return a response (e.g., JSON) indicating success
     return response()->json(['message' => 'Product added to cart.']);
 }
 
