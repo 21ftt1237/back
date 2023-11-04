@@ -12,13 +12,13 @@ class Order extends Model
     protected $fillable = ['user_id', 'product_id', 'quantity'];
 
     
-    public function products()
-    {
-        return $this->belongsToMany(Product::class, 'order_items')->withPivot('quantity');
-    }
-
-    public function user()
+   public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id');
     }
 }
