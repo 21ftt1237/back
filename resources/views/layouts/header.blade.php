@@ -145,6 +145,7 @@ $totalQuantity += $cartItem->quantity; // Add the quantity of the item to the to
 
     $totalPrice += $productPrice; // Add the updated product price to the total price
     @endphp
+                @endif
                 <li>
                     <img src="image/{{ $cartItem->product->image_link }}">
                     <div class="item-details">
