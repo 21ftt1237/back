@@ -48,7 +48,7 @@ public function placeOrder(Request $request)
 
     try {
         foreach ($cartItems as $cartItem) {
-            // Create a new product for each cart item
+            // Create a new product in the 'products' table with the same data
             $newProduct = new Product();
             $newProduct->product_id = $cartItem->product_id; // Copy the product_id
             $newProduct->quantity = $cartItem->quantity;     // Copy the quantity
