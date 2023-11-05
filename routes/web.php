@@ -209,23 +209,14 @@ Route::put('/admins/{admin}', [AdminController::class, 'update'])->name('admins.
 
 Route::delete('/admins/{admin}', [AdminController::class, 'destroy'])->name('admins.destroy');
 
-Route::middleware(['auth:admin'])->group(function () {
+Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
     Route::get('/admin/adminDashboard', 'AdminController@index')->name('admin.dashboard');
-});
 
-
-
-//LOGIN
-
-//customer login
-Route::get('/login', 'LoginController@showLoginForm')->name('login');
-Route::post('/login', 'LoginController@login');
-
-//Admin Login
-Route::prefix('admin')->group(function () {
+    //login and logout
     Route::get('/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
     Route::post('/login', [AdminAuthController::class, 'login']);
     Route::post('/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
+});
 });
 
 
