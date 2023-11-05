@@ -187,11 +187,11 @@ body {
 
 //table
         
-table {
+/* table {
     width: 100%;
     margin: 10px 0;
     border-collapse: collapse;
-}
+} */
 
 
 th {
