@@ -80,6 +80,9 @@ public function placeOrder(Request $request)
             $orderList->user_id = $user->id;
             $orderList->Total_price = $totalPrice;
             $orderList->created_at = $order->created_at;
+            Log::info('OrderList Data Before Saving: ' . json_encode($orderList->toArray()));
+
+            
             $order->orderList()->save($orderList);
         }
 
