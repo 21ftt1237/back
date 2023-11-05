@@ -80,7 +80,7 @@ $totalQuantity += $cartItem->quantity; // Add the quantity of the item to the to
         <div class="landing-page">
             <div class="navbar">
               
-               <div class="logo" id="storeName" data-value=" @if(isset($storehere)) {{ $storenumber}} @endif"><a href="{{ route('dashboard') }}"> <img src="image/BruZone_Logo.png" style="width: 50px">Bruzone</a></div>
+               <div class="logo" id="storeName" data-value=" @if(isset($storehere)) {{ $storenumber}} @endif"><a href="{{ route('dashboard') }}"> <img src="{{asset('image/BruZone_Logo.png')}}" style="width: 50px">Bruzone</a></div>
                  @if(isset($carts))
                  <div class="shopping">
                 <img src="{{ asset('image/shoppingCart.png') }}">
