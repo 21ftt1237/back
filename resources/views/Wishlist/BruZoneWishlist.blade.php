@@ -452,12 +452,12 @@ header .shopping img{
     flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
 }
 
-.list-container ul {
+/* .list-container ul {
     list-style: none; /* Remove list bullets */
     padding: 0;
     margin: 0;
     display: flex; /* Make the ul a flex container */
-}
+} */
 
 /* .list-container li {
     flex: 1; /* Distribute available space evenly among items */
