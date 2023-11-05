@@ -2,7 +2,7 @@ body{
     overflow-x: hidden;
   }
 
-button[type="submit"] {
+#sub {
     background: black;
     border: 1px solid black;
     color: #fff;
