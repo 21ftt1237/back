@@ -193,11 +193,31 @@ body {
          
    
   <div class="main-container">
-    <div class="wishlist-title">
-    
-
-       
-       </div>
+   @if ($orderDetails->count() > 0)
+    <h2>Order Details</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($orderDetails as $orderDetail)
+                <tr>
+                    <td>{{ $orderDetail->product->name }}</td>
+                    <td><img src="{{ $orderDetail->product->image_url }}" alt="{{ $orderDetail->product->name }}"></td>
+                    <td>${{ $orderDetail->product->price }}</td>
+                    <td>{{ $orderDetail->quantity }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+@else
+    <p>No order details found.</p>
+@endif
     </div>
     
     
