@@ -930,7 +930,7 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
       // Trigger the next step of your checkout process here
       // For example, you can call a function to proceed to the next step.
       // proceedToNextStep();
-    );
+    
   });
     
   let isPayPalTransactionComplete = false;
