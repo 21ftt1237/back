@@ -13,7 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -64,7 +64,7 @@ header .shopping img{
     top: -5px;
     left: 80%;
     padding: 3px 10px;
-  }
+  } */
 
 
 
