@@ -183,7 +183,7 @@ height: 100px;
 }
 
  table {
-    width: 100%;
+    width: 80%;
     margin: 10px 0;
     border-collapse: collapse;
 }
