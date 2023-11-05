@@ -217,7 +217,7 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
     Route::post('/login', [AdminAuthController::class, 'login']);
     Route::post('/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
 });
-});
+
 
 
 require __DIR__.'/auth.php';
