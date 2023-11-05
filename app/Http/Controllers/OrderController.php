@@ -142,7 +142,8 @@ public function placeOrder(Request $request)
     //get the order status
     $orderStatus = session('order_status', 'unknown');
 
-  return view('My order.order', ['orderLists' => $orderLists,'orderStatus' => $orderStatus]);
+ return view('My order.order', compact('orderLists', 'orderStatus'))
+        ->with('orderStatus', $orderStatus);
 }
 
 
