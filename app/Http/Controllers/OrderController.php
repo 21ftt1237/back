@@ -131,8 +131,7 @@ public function placeOrder(Request $request)
         return response()->json(['message' => 'Error creating orders.']);
     }
 }
-
-public function showOrderList()
+public function showOrderList($orderStatus)
 {
     // Retrieve the currently authenticated user
     $user = Auth::user();
@@ -140,14 +139,10 @@ public function showOrderList()
     // Retrieve the user's order list(s)
     $orderLists = OrderList::where('user_id', $user->id)->get();
 
-    // Get the order status from the session
-    $orderStatus = session('order_status', 'unknown');
-
     return view('My order.order')
         ->with('orderLists', $orderLists)
         ->with('orderStatus', $orderStatus);
 }
-
 
 public function showOrderDetails($created_at)
 {
