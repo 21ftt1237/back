@@ -11,7 +11,7 @@
     <title>BruZone Wishlist</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- <style>
+<style>
 
 * {
   margin: 0;
@@ -464,10 +464,10 @@ header .shopping img{
     margin: 10px; /* Add margin to separate items */
     text-align: center; /* Center-align content within each item */
 }
- -->
+
  
   
-<!-- </style> -->
+ </style> 
 </head>
 <body>
          
