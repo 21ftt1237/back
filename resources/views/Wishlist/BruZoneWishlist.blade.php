@@ -242,7 +242,7 @@ header .shopping img{
   line-height: normal;
 }
 
-  /* Add styles for the sorting select element */
+/*   /* Add styles for the sorting select element */
   select#sortCriteria {
   font-size: 14px;
   padding: 5px;
@@ -277,7 +277,7 @@ header .shopping img{
   position: absolute;
   left: 350px;
   top: 160px; /* Adjust as needed */
-}
+} */
 
  /* New style for the bottom wishlist line */
 .wishlist-line-blw2btn {
@@ -354,7 +354,7 @@ header .shopping img{
 
 
 /* Updated CSS for .wishlist-items */
-/* .wishlist-items {
+.wishlist-items {
   position: absolute;
   left: 350px; /* Same as wishlist-title's left position */
   top: 265px; /* Adjust as needed */
@@ -457,14 +457,14 @@ header .shopping img{
     padding: 0;
     margin: 0;
     display: flex; /* Make the ul a flex container */
-} */
+}
 
-/* .list-container li {
+.list-container li {
     flex: 1; /* Distribute available space evenly among items */
     margin: 10px; /* Add margin to separate items */
     text-align: center; /* Center-align content within each item */
 }
- */
+
  
   
  </style> 
