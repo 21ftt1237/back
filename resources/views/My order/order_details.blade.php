@@ -271,7 +271,7 @@ ul li .active .uil{
 </head>
 <body>
 
-    <h2>back</h2>
+    <h2><a href="{{ route('order.show') }}" style="color: black;">Back To Order List</a></h2>
    
   <div class="main-container">
    @if ($orderDetails->count() > 0)
