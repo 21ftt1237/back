@@ -24,7 +24,7 @@ if(Auth::check()) {
                 return redirect('/dashboard')->with('message', 'Access denied as you are not an admin');
             }
         } else {
-                return redirect('/adminLogin')->with('message', 'Login to access the website info');
+                return redirect('/login')->with('message', 'Login to access the website info');
         }
 
         return $next($request);
