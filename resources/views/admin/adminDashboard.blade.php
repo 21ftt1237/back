@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
+
 @extends('layouts.app')
 
 @section('content')
