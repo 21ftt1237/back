@@ -1,3 +1,7 @@
+@php
+    $cart = 'true';
+@endphp
+@include('layouts.header')
 <!DOCTYPE html>
 <html>
 <head>
