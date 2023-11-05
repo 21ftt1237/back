@@ -877,7 +877,7 @@ function calculateTotalPrice(item) {
 </script>
 
 <script>
-    document.getElementById('proceedBtn').addEventListener('click', function () {
+    $('#proceedBtn').on('click', function() {
    return actions.order.capture().then(function(details) {
       // Handle a successful payment
       alert('Transaction completed by ' + details.payer.name.given_name);
@@ -933,7 +933,7 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
       // For example, you can call a function to proceed to the next step.
       // proceedToNextStep();
     });
-});
+  });
     
   let isPayPalTransactionComplete = false;
 
