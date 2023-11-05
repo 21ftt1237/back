@@ -146,7 +146,7 @@ $totalQuantity += $cartItem->quantity; // Add the quantity of the item to the to
                 $totalPrice += $productPrice;
                 @endphp
                 <li>
-                   <img src="{{ asset($cartItem->product->image_link) }}">
+                   <img src="image/{{ asset($cartItem->product->image_link) }}">
                     <div class="item-details">
                         <div class="item-name">{{ $cartItem->product->name }}</div>
                         <div class="item-price">BND {{ $productPrice }}</div>
