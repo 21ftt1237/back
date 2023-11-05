@@ -57,10 +57,6 @@ public function placeOrder(Request $request)
             $product_id = $cartItem->pivot->product_id;
             $quantity = $cartItem->pivot->quantity;
 
-            // Calculate the total price based on the product price and quantity
-            $product = Product::find($product_id); // Assuming you have a "Product" model
-            $totalPrice = $product->price * $quantity;
-
             // Create a new order using the pivot values
             $order = new Order();
             $order->user_id = $user->id;
@@ -72,13 +68,6 @@ public function placeOrder(Request $request)
 
             // Save the order to the 'orders' table
             $order->save();
-
-            // Insert the calculated total price into the "orders_list" table using Eloquent relationships
-            $orderList = new OrderList();
-            $orderList->user_id = $user->id;
-            $orderList->Total_price = $totalPrice;
-            $orderList->created_at = $order->created_at;
-            $order->orderList()->save($orderList);
         }
 
         // Delete the cart items that were transferred to orders
