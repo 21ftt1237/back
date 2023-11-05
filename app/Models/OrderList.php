@@ -16,8 +16,9 @@ class OrderList extends Model
  protected $table = 'orders_list';
 
 
- public function order()
-    {
-        return $this->belongsTo(Order::class);
-    }
+public function orderLists()
+{
+    return $this->hasMany(OrderList::class);
+}
+    
 }
