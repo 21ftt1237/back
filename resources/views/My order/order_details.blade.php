@@ -200,6 +200,7 @@ ul{
     display: flex;
     margin-top: 80px;
     margin-left: 20%;
+    margin-bottom:120px;
 }
 ul li{
     list-style: none;
