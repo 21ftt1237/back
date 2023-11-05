@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
+
     <title>Admin Login</title>
 </head>
 <body>
