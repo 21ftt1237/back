@@ -194,7 +194,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #F0F0F0;
-  }
+  }*/
 
   .main-container {
             margin-top: 30px;
@@ -202,7 +202,7 @@ body {
             height: 150vh; /* Set a fixed height for scrollable container */
             box-sizing: border-box;
             position: relative; /* Added position to contain absolutely positioned elements */
-        } */
+        } 
 
 
   /* New style for the title */
