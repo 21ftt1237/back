@@ -1,5 +1,4 @@
 @php
-    $pageName = 'My Orders';
     $carts = 'true';
 @endphp
 @include('layouts.header')
