@@ -45,7 +45,9 @@ Route::get('AdminOrderHistory', function () {
     return view('AdminOrderHistory');
 })->name('AdminOrderHistory');
 
-
+Route::get('order_details', function () {
+    return view('My order.order_details');
+})->name('order_details');
 
 Route::get('order', function () {
     return view('My order.order');
