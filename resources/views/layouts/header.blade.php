@@ -70,8 +70,8 @@ $totalQuantity += $cartItem->quantity; // Add the quantity of the item to the to
   }
 
     #quantityup{
-        width: 10px;
-        height: 10px;
+        width: 20px;
+        height: 20px;
         }
         
     </style>
