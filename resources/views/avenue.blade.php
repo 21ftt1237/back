@@ -1406,7 +1406,7 @@ function addReview(review) {
     <div class="section">
       <div class="section1">
         <div class="img-slider">
-          <img src="image/NAUTICA.png" alt="" class="img">
+          <img src="image/nautica.png" alt="" class="img">
           <img src="image/starwars.png" alt="" class="img">
           <img src="image/gildan.png" alt="" class="img">
           <img src="image/patagonia.png" alt="" class="img">
