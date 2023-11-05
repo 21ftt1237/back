@@ -62,23 +62,7 @@ header .shopping img{
     padding: 3px 10px;
   }
 
-    button[type="submit"] {
-    background: black;
-    border: 1px solid black;
-    color: #fff;
-    height: 50px;
-    padding: 0 30px;
-    cursor: pointer;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    transition: all 0.2s;
-}
 
-button[type="submit"]:hover {
-  background: #F6E71D;
-  border: 1px solid #F6E71D;
-  color: black;
-}
 
 
    /*NAVBAR*/
