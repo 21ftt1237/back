@@ -212,7 +212,6 @@ th {
     
       <h1>My Orders</h1>
        <div class="container">
-        <h1>Your Order Lists</h1>
 
         @if ($orderLists->count() > 0)
             <table class="table">
