@@ -76,24 +76,23 @@ public function removeFromWishlist(Request $request, Product $product) {
 }
 
     
-public function addToCart(Request $request, Product $product, $fromWishlist = false) {
+public function addToCart(Request $request, Product $product) {
     $user = $request->user();
+
 
     $existingCartItem = $user->cart()->where('product_id', $product->id)->first();
 
     if ($existingCartItem) {
+
         $existingCartItem->pivot->quantity = 1;
         $existingCartItem->pivot->save();
     } else {
+
         $user->cart()->attach($product->id, ['quantity' => 1]);
     }
 
-    $message = $fromWishlist ? 'Product added to Cart from Wishlist.' : 'Product added to Cart.';
-    $redirectRoute = $fromWishlist ? 'wishlist.page' : 'cart.page';
-
-    return redirect()->route($redirectRoute)->with('success', $message);
+    return redirect()->back()->with('success', 'Product added to Cart.');
 }
-
 
     
     public function show($id)
