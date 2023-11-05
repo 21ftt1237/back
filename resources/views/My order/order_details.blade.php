@@ -278,7 +278,7 @@ ul li .active .uil{
         <ul>
             <li>
                 <i class="icon uil uil-capture"></i>
-                <div class="progress one active">
+                <div class="progress one @if($orderStatus == 'Order Placed') active @endif">
                     <p>1</p>
                     <i class="uil uil-check"></i>
                 </div>
@@ -286,7 +286,7 @@ ul li .active .uil{
             </li>
             <li>
                 <i class="icon uil uil-clipboard-notes"></i>
-                <div class="progress two active">
+                <div class="progress two ">
                     <p>2</p>
                     <i class="uil uil-check"></i>
                 </div>
@@ -294,7 +294,7 @@ ul li .active .uil{
             </li>
             <li>
                 <i class="icon uil uil-credit-card"></i>
-                <div class="progress three active">
+                <div class="progress three ">
                     <p>3</p>
                     <i class="uil uil-check"></i>
                 </div>
@@ -302,7 +302,7 @@ ul li .active .uil{
             </li>
             <li>
                 <i class="icon uil uil-exchange"></i>
-                <div class="progress four active">
+                <div class="progress four ">
                     <p>4</p>
                     <i class="uil uil-check"></i>
                 </div>
