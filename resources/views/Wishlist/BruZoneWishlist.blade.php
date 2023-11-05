@@ -459,11 +459,11 @@ header .shopping img{
     display: flex; /* Make the ul a flex container */
 }
 
-.list-container li {
+/* .list-container li {
     flex: 1; /* Distribute available space evenly among items */
     margin: 10px; /* Add margin to separate items */
     text-align: center; /* Center-align content within each item */
-}
+} */
 
  
   
