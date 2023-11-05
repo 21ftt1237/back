@@ -63,7 +63,11 @@ header {
     padding: 3px 10px;
   }
 
-
+#quantityup {
+    width: 20px;
+    height: 20px;
+    margin-left: 90px;
+}
 
    /*NAVBAR*/
      body {
