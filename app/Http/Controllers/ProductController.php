@@ -23,6 +23,12 @@ class ProductController extends Controller
     return view('gamecentral', compact('products'));
 }
 
+      public function indexWishlist()
+{
+    $products = Product::all();
+    return view('Wishlist.BruZoneWishlist', compact('products'));
+}
+
        public function indexDigital()
 {
     $products = Product::all();
