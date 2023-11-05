@@ -13,10 +13,10 @@ class WishlistController extends Controller
 
 public function index()
 {
-    // Fetch the currently logged-in user's wishlist items
-    $user = auth()->user(); // Get the currently authenticated user
+   
+    $user = auth()->user(); 
     $wishlistItems = Wishlist::where('user_id', $user->id)
-        ->with('product') // Assuming you have defined a 'product' relationship in the Wishlist model
+        ->with('product') 
         ->get();
 
     return view('Wishlist.BruZoneWishlist', compact('wishlistItems'));
