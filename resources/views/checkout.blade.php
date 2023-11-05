@@ -877,6 +877,64 @@ function calculateTotalPrice(item) {
 </script>
 
 <script>
+    document.getElementById('proceedBtn').addEventListener('click', function () {
+   return actions.order.capture().then(function(details) {
+      // Handle a successful payment
+      alert('Transaction completed by ' + details.payer.name.given_name);
+var button = document.getElementById("nextBtn");
+    button.disabled = false;
+
+//Get order and coupon point
+        
+// Retrieve the coupon point value from local storage
+var couponPointsGained = localStorage.getItem('loyaltytest');
+
+// Check if the value is not null or undefined
+if (couponPointsGained !== null && couponPointsGained !== undefined) {
+    // Send an AJAX request to update the coupon points
+    $.ajax({
+        type: 'POST',
+        url: '/update-coupon-point',
+        data: {
+            _token: '{{ csrf_token() }}',
+            coupon_point: couponPointsGained, // Use the value retrieved from local storage
+        },
+        success: function (response) {
+            // Handle success, e.g., display a success message to the user
+            alert(response.message);
+            // Now, initiate the order placement
+            axios.post('/place-order', {
+                cart_items: cartItems,
+                // Other order-related data
+            })
+            .then(function (response) {
+                // Handle the order placement response, e.g., show a success message or redirect to a thank you page
+                alert(response.message);
+            })
+            .catch(function (error) {
+                // Handle errors, e.g., show an error message
+                alert('Error placing the order');
+            });
+        },
+        error: function (error) {
+            // Handle error, e.g., show an error message
+            alert('Error updating coupon points');
+        }
+    });
+} else {
+    // Handle the case where the coupon point value is not found in local storage
+    alert('Coupon point value not found in local storage');
+}
+
+        
+  isPayPalTransactionComplete = true;
+        
+      // Trigger the next step of your checkout process here
+      // For example, you can call a function to proceed to the next step.
+      // proceedToNextStep();
+    });
+});
+    
   let isPayPalTransactionComplete = false;
 
 paypal.Buttons({
