@@ -201,7 +201,7 @@ body {
             padding-left: 350px;
             height: 150vh; /* Set a fixed height for scrollable container */
             box-sizing: border-box;
-            position: relative; /* Added position to contain absolutely positioned elements */
+          
         } 
 
 
