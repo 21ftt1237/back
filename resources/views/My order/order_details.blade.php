@@ -188,7 +188,7 @@ body {
 
 img {
 width: 50px;
-height: 50pxx;
+height: 50px;
 }
         
 </style>
