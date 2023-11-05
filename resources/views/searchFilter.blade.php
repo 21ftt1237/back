@@ -1,5 +1,5 @@
 @php
-    $cart = 'true';
+    $carts = 'true';
 @endphp
 @include('layouts.header')
 <!DOCTYPE html>
