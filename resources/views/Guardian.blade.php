@@ -80,7 +80,12 @@ header {
     padding: 10px;
 }
 
-
+.item-quantity {
+    justify-content: center;
+    align-items: center !important;
+    position: fixed;
+    margin-left: 400px;
+}
     
 
    /*NAVBAR*/
