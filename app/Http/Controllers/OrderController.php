@@ -132,6 +132,17 @@ public function placeOrder(Request $request)
     }
 }
 
+    public function showOrderList()
+{
+    // Retrieve the currently authenticated user
+    $user = Auth::user();
+
+    // Retrieve the user's order list(s)
+    $orderLists = OrderList::where('user_id', $user->id)->get();
+
+    return view('order-list', ['orderLists' => $orderLists]);
+}
+
 
 
     
