@@ -232,7 +232,12 @@ th, td {
                         <td>{{ $orderList->created_at }}</td>
                         <td>${{ number_format($orderList->Total_price, 2) }}</td>
                         <td>{{ $orderList->status }}</td>
-                        <td><button>Track</button></td>
+                       <td>
+                       <a href="{{ route('order.details', $orderList->created_at) }}" 
+                        onclick="sessionStorage.setItem('orderCreated_at', '{{ $orderList->created_at }}');">
+                         Track
+                         </a>
+                       </td>
                         </tr>
                     @endforeach
                 </tbody>
