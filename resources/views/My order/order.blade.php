@@ -179,6 +179,14 @@ body {
   border-radius: 0px;
 }
 
+.main-container {
+            margin-top: 30px;
+            padding-left: 350px;
+            height: 150vh; /* Set a fixed height for scrollable container */
+            box-sizing: border-box;
+          
+        } 
+        
 </style>
  
 </head>
