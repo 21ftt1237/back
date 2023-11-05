@@ -83,7 +83,12 @@ header {
     justify-content: center;
     align-items: center !important;
     position: fixed;
-    margin-left: 300px;
+    margin-left: 350px;
+}
+
+.item-price {
+    position: fixed;
+    margin-left: 180px;
 }
 
 
