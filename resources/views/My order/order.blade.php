@@ -196,7 +196,33 @@ body {
     <div class="wishlist-title">
     
       <h1>My Orders</h1>
-       
+       <div class="container">
+        <h1>Your Order Lists</h1>
+
+        @if ($orderLists->count() > 0)
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Order Date</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($orderLists as $orderList)
+                        <tr>
+                            <td>{{ $orderList->created_at }}</td>
+                            <td>${{ number_format($orderList->Total_price, 2) }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @else
+            <p>No order lists found.</p>
+        @endif
+    
+
+           
+          </div>    
        </div>
     </div>
     
