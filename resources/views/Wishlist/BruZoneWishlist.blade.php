@@ -544,7 +544,7 @@ header .shopping img{
 </body>
       
 
-  <script>
+<!--   <script>
     
 
 
@@ -662,7 +662,7 @@ sortCriteriaSelect.addEventListener('change', (event) => {
 // Call renderWishlistItems to initially render the wishlist items and show/hide the explore button
 renderWishlistItems(wishlistItems);
 
-  </script>
+  </script> -->
 
 
 
