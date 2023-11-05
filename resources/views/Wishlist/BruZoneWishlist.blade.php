@@ -507,10 +507,10 @@ body {
             <div class="item-name">{{ $wishlistItem->product->name }}</div>
             <div class="item-price">BND {{ $wishlistItem->product->price }}</div>
         </div>
-        <form action="{{ route('cart.add', ['product' => $product]) }}" method="POST">
-                                    @csrf
+<!--         <form action="{{ route('cart.add', ['product' => $product]) }}" method="POST">
+                                    @csrf -->
         <button class="add-to-cart-button">Add To Cart</button>
-        </form>  
+<!--         </form>   -->
         
         <form action="{{ route('wishlist.remove', ['product' => $wishlistItem->product]) }}" method="POST">
             @csrf
