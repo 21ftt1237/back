@@ -190,6 +190,168 @@ body {
 /*WISHLIST*/
 
 
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #F0F0F0;
+  }
+
+  .main-container {
+            margin-top: 30px;
+            padding-left: 350px;
+            height: 150vh; /* Set a fixed height for scrollable container */
+            box-sizing: border-box;
+            position: relative; /* Added position to contain absolutely positioned elements */
+        }
+
+
+  /* New style for the title */
+  .wishlist-title {
+   position: absolute;
+    top: 20px;
+    left: 350px;
+    color: #1E1E1E;
+    font-family: Imprima;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  /* New style for the line */
+  .wishlist-line {
+    width: 516.001px;
+    height: 1px;
+    background-color: #000;
+    margin-top: 80px; /* Adjust as needed */
+   position: absolute;
+    left: 350px; /* Same as wishlist-title's left position */
+    display: none;
+  }
+
+  /* New style for the sorting elements */
+  .sorting-elements {
+  position: absolute;
+  left: 350px; /* Same as wishlist-title's left position */
+  top: 100px; /* Adjust as needed */
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Adjust as needed */
+  color: #000;
+  font-family: JetBrains Mono;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+  /* Add styles for the sorting select element */
+  select#sortCriteria {
+  font-size: 14px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+  /* New style for the bottom wishlist line */
+.wishlist-line-bottom {
+  width: 516.001px;
+  height: 1px;
+  background-color: #000;
+  margin-top: -90px; /* Adjust as needed */
+  position: absolute;
+  left: 350px; /* Same as wishlist-title's left position */
+  top: 230px; /* Adjust as needed */
+}
+
+    /* New style for the custom buttons */
+.custom-button {
+  border-radius: 30px;
+  background: #F6E71D;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  color: #000;
+  cursor: pointer;
+}
+
+/* New style for the button row */
+.button-row {
+  position: absolute;
+  left: 350px;
+  top: 160px; /* Adjust as needed */
+} 
+
+ /* New style for the bottom wishlist line */
+.wishlist-line-blw2btn {
+  width: 700px;
+  height: 1px;
+  background-color: #000;
+  margin-top: -10px; /* Adjust as needed */
+  position: absolute;
+  left: 350px; /* Same as wishlist-title's left position */
+  top: 230px; /* Adjust as needed */
+}
+
+/* New style for the image */
+  .wishlist-image {
+    width: 600px;
+    height: 400px;
+    flex-shrink: 0;
+    margin-top: 10px; /* Adjust as needed */
+    position: absolute;
+    left: 350px; /* Same as wishlist-title's left position */
+    top: 240px; /* Adjust as needed */
+  }
+/* New style for the Explore button */
+  .explore-button {
+    border-radius: 30px;
+    background: #F6E71D;
+    padding: 10px 20px;
+    margin-top: 20px; /* Adjust as needed */
+    position: absolute;
+    left: 610px; /* Same as wishlist-title's left position */
+    top: 600px; /* Adjust as needed */
+    cursor: pointer;
+  }
+
+  .explore-button a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+}
+
+  .up-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #F6E71D;
+  border: none;
+  border-radius: 50%;
+  width: 50px; /* Adjust the width to make it smaller */
+  height: 50px; /* Adjust the height to make it smaller */
+  cursor: pointer;
+  z-index: 5;
+  opacity: 0.7;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.up-button:hover {
+  opacity: 1;
+}
+
+.up-button::before {
+  content: ""; /* Empty content */
+  display: block;
+  width: 100%; /* Make the pseudo-element match the button's width */
+  height: 100%; /* Make the pseudo-element match the button's height */
+  background-image: url('https://cdn-icons-png.flaticon.com/512/25/25282.png'); /* URL of the image */
+  background-size: contain; /* Scale the image to fit the pseudo-element */
+  background-repeat: no-repeat;
+  background-position: center center;
+  border-radius: inherit; /* Inherit the button's border-radius */
+}
 
 /* Updated CSS for .wishlist-items */
 .wishlist-items {
