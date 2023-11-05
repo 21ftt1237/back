@@ -196,7 +196,7 @@ th, td {
 }
 
 #head{
-margin-top:auto;
+margin-top:30%;
 margin-left:auto;
     
 }
