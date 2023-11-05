@@ -42,15 +42,6 @@ header {
     padding: 3px 10px;
   }
 
-header .shopping img{
-    width: 40px;
-  }
-
-  header .shopping{
-    position: relative;
-
-  }
-
   header .shopping span{
     background: red;
     border-radius: 50%;
