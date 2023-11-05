@@ -144,6 +144,18 @@ public function placeOrder(Request $request)
 }
 
 
+public function showOrderDetails($created_at)
+{
+    // Retrieve the order details based on the user_id and created_at
+    $user = Auth::user();
+    $orderDetails = Order::where('user_id', $user->id)
+                         ->where('created_at', $created_at)
+                         ->with('product')
+                         ->get();
+
+    return view('order.order-details', ['orderDetails' => $orderDetails]);
+}
+
 
     
 }
