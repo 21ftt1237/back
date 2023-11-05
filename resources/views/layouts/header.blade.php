@@ -73,6 +73,7 @@ $totalQuantity += $cartItem->quantity; // Add the quantity of the item to the to
         width: 5px;
         height: 5px;
         }
+        
     </style>
 </head>
 <body>
@@ -115,7 +116,7 @@ $totalQuantity += $cartItem->quantity; // Add the quantity of the item to the to
                 @if($loggedIn)
                     <form method="post" action="{{ route('logout') }}">
                         @csrf
-                        <button type="submit" class="btn-sign-up">Logout</button>
+                        <button type="submit" class="btn-sign-up" id="sub">Logout</button>
                     </form>
                 @else
                     <button class="btn-sign-up"><a href="{{ route('BruzoneLogin') }}" style="color: black;">Login</a></button>
