@@ -248,7 +248,7 @@
 
           <a href="{{ route('profilev') }}" class="link">MY ACCOUNT</a>
 
-          <a href="" class="link">HELP</a>
+          <a href="{{ route('BruzoneFAQ') }}" class="link">FAQ</a>
 
         </p>
 
