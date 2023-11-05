@@ -182,13 +182,18 @@ body {
 </style>
  
 </head>
- <body> 
-    
-
-                    
-
+<body>
          
- 
+   
+  <div class="main-container">
+    <div class="wishlist-title">
     
+
+       
+       </div>
+    </div>
+    
+    
+
 </body>
 </html>
