@@ -185,6 +185,35 @@ body {
             box-sizing: border-box;
           
         } 
+
+//table
+        
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+
+
+th {
+    background-color: #333; 
+    color: #fff; 
+    padding: 10px; 
+
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; 
+}
+
+
+td {
+    padding: 10px; 
+}
+
+
+tr:hover {
+    background-color: #ddd; 
+}
         
 </style>
  
