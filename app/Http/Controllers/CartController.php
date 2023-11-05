@@ -25,7 +25,7 @@ public function index()
     public function indexCheckout()
 {
     //display cart item into checkout
-    $user = auth()->user(); // Get the currently authenticated user
+    $user = auth()->user(); 
     $cart = Cart::where('user_id', $user->id)
         ->with('product') 
         ->get();
