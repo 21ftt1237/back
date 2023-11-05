@@ -20,20 +20,15 @@ class OrderController extends Controller
     {
         Log::info('Received coupon_point: ' . $request->coupon_point);
 
-        
-        // Validate the request
         $request->validate([
-            'coupon_point' => 'required|numeric', // numeric allows decimal values
+            'coupon_point' => 'required|numeric', 
         ]);
 
-        // Get the currently authenticated user
+        
         $user = Auth::user();
 
-        // Convert the incoming coupon point value to a decimal
         $couponPoint = floatval($request->coupon_point);
         Log::info('Coupon Points: ' . $couponPoint);
-
-        // Update the user's "coupon_point" points
         $user->coupon_point += $couponPoint;
         $user->save();
 
@@ -44,41 +39,38 @@ class OrderController extends Controller
 
 public function placeOrder(Request $request)
 {
-    // Retrieve the currently authenticated user
+   
     $user = auth()->user();
 
-    // Retrieve all cart items for the user
+  
     $cartItems = $user->cart;
 
     try {
         // Start a database transaction for atomicity
         DB::beginTransaction();
 
-        // Create an array to consolidate orders by created_at timestamp
+        
         $consolidatedOrders = [];
 
         foreach ($cartItems as $cartItem) {
-            // Access the pivot values directly
             $product_id = $cartItem->pivot->product_id;
             $quantity = $cartItem->pivot->quantity;
-
-            // Calculate the total price based on the product price and quantity
-            $product = Product::find($product_id); // Assuming you have a "Product" model
+            $product = Product::find($product_id); 
             $totalPrice = $product->price * $quantity;
 
-            // Create a new order using the pivot values
+            
             $order = new Order();
             $order->user_id = $user->id;
             $order->product_id = $product_id;
             $order->quantity = $quantity;
 
-            // Debugging: Print order data before saving
+            
             Log::info('Order Data Before Saving: ' . json_encode($order->toArray()));
 
-            // Save the order to the 'orders' table
+           
             $order->save();
 
-            // Create or update the order_list record
+           
             $createdAtKey = $order->created_at->format('Y-m-d H:i:s');
             $consolidatedOrders[$createdAtKey][] = [
             'user_id' => $user->id,
@@ -87,7 +79,7 @@ public function placeOrder(Request $request)
              ];
         }
 
-        // Process the consolidated orders
+        
         foreach ($consolidatedOrders as $createdAt => $ordersData) {
             $existingOrderList = OrderList::where('user_id', $user->id)
                 ->where('created_at', $createdAt)
@@ -107,39 +99,37 @@ public function placeOrder(Request $request)
             }
         }
 
-        // Delete the cart items that were transferred to orders
+       
         $user->cart()->detach($cartItems);
 
-        // Commit the database transaction
+        
         DB::commit();
 
-        // Log success message
+        
         Log::info('Orders created from cart for user ' . $user->id);
 
-        // Respond with a success message
+      
         return response()->json(['message' => 'Orders created successfully.']);
     } catch (\Exception $e) {
-        // Roll back the database transaction on error
+      
         DB::rollBack();
 
-        // Handle exceptions and errors
-
-        // Log an error message
+       
         Log::error('Error creating orders from cart for user ' . $user->id . ': ' . $e->getMessage());
 
-        // Respond with an error message
+        
         return response()->json(['message' => 'Error creating orders.']);
     }
 }
     
 public function showOrderList()
 {
-    // Retrieve the currently authenticated user
+   
     $user = Auth::user();
 
-    // Retrieve the user's order list(s)
+    
     $orderLists = OrderList::where('user_id', $user->id)->get();
-    //get the order status
+   
     $orderStatus = session('order_status', 'unknown');
 
   return view('My order.order', ['orderLists' => $orderLists,'orderStatus' => $orderStatus]);
@@ -147,23 +137,23 @@ public function showOrderList()
     
 public function showOrderDetails($created_at)
 {
-    // Retrieve the order details based on the user_id and created_at
+    
     $user = Auth::user();
     $orderDetails = Order::where('user_id', $user->id)
                          ->where('created_at', $created_at)
                          ->with('product')
                          ->get();
 
-    // Retrieve the order status from the orders_list table
+    
     $orderList = OrderList::where('user_id', $user->id)
                           ->where('created_at', $created_at)
                           ->first();
 
-    // Check if an order list record was found
+  
     if ($orderList) {
         $orderStatus = $orderList->status;
     } else {
-        // Handle the case where no order list record was found
+       
         $orderStatus = "Status not available"; 
     }
 
