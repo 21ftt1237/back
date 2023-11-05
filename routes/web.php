@@ -193,7 +193,7 @@ Route::post('/update-coupon-point', [OrderController::class, 'updateCouponPoint'
 
 Route::post('/place-order', [OrderController::class, 'placeOrder']);
 
-Route::get('/order-list', [OrderController::class,'showOrderList'])->name('order.list');
+Route::get('/My order.order'', [OrderController::class,'showOrderList'])->name('order.show');
 
 //ETC
 Route::get('/email', 'EmailController@index');
