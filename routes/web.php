@@ -210,7 +210,7 @@ Route::post('/email/send', 'EmailController@sendEmail')->name('send.email');
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
-    Route::get('/adminDashboard', 'AdminController@index')->name('admin.dashboard');
+    Route::get('/adminDashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
     //login and logout
     Route::get('/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
