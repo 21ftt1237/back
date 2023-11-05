@@ -926,9 +926,9 @@ h2 {
       </div>
       <div class="swiper-slide swiper-slide--two">
         <div>
-          <h2>Game Central</h2>
+          <h2>Game Side</h2>
           <p>
-            At Game Central, we live and breathe games. We're not just a store; we're a community of gamers dedicated to providing you with the best gaming experience possible.
+            At Game Side, we live and breathe games. We're not just a store; we're a community of gamers dedicated to providing you with the best gaming experience possible.
           </p>
           <a href="{{ route('gamecentral') }}" target="_blank">explore</a>
         </div>
@@ -989,8 +989,8 @@ h2 {
     </div>
     <div class="item" style="background-image: url(image/gclogo.png);" data-url="gamecentral.blade.php">
       <div class="item-desc">
-        <h3>Game Central</h3>
-        <p>At Game Central, we live and breathe games. We're not just a store; we're a community of gamers dedicated to providing you with the best gaming experience possible.</p>
+        <h3>Game Side</h3>
+        <p>At Game Side, we live and breathe games. We're not just a store; we're a community of gamers dedicated to providing you with the best gaming experience possible.</p>
               <a href="{{ route('gamecentral') }}">
         <button class="item-button">view</button>
         </a>
