@@ -14,7 +14,7 @@ class AdminController extends Controller
         $admins = Admin::with('role')->get();
 
         // You can return a view and pass the $admins data to display it
-        return view('Dashboard-adm', compact('admins'));
+        return view('adminDashboard', compact('admins'));
     }
 
     public function ChangeStatuss (Request $request){
