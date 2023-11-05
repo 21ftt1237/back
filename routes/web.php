@@ -163,6 +163,8 @@ Route::get('Nimanja', [ProductController::class, 'indexNimanja'])->name('Nimanja
 
 Route::get('Guardian', [ProductController::class, 'indexGuardian'])->name('Guardian');
 
+Route::get('Wishlist.BruZoneWishlist', [ProductController::class, 'indexWishlist'])->name('wishlists');
+
 
 
 
