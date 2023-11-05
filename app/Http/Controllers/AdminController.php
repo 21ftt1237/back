@@ -11,7 +11,7 @@ class AdminController extends Controller
     
     {
        
-        $admins = Admin::with('role')->get();
+        $admins = Admin::with('role_id')->get();
 
       
         return view('admin.adminDashboard', compact('admins'));
