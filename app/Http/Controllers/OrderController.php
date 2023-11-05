@@ -132,17 +132,20 @@ public function placeOrder(Request $request)
     }
 }
     
-public function showOrderList()
+public function showOrderDetails($created_at)
 {
-    // Retrieve the currently authenticated user
+    // Retrieve the order details based on the user_id and created_at
     $user = Auth::user();
+    $orderDetails = Order::where('user_id', $user->id)
+                         ->where('created_at', $created_at)
+                         ->with('product')
+                         ->get();
 
-    // Retrieve the user's order list(s)
-    $orderLists = OrderList::where('user_id', $user->id)->get();
-    //get the order status
-    $orderStatus = session('order_status', 'unknown');
-
-  return view('My order.order', ['orderLists' => $orderLists,'orderStatus' => $orderStatus]);
+    // Pass the orderStatus variable to the view
+    return view('My order.order_details', [
+        'orderDetails' => $orderDetails,
+        'orderStatus' => $orderStatus, 
+    ]);
 }
     
 public function showOrderDetails($created_at)
