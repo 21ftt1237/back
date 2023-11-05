@@ -73,6 +73,11 @@ $totalQuantity += $cartItem->quantity; // Add the quantity of the item to the to
         width: 20px;
         height: 20px;
         }
+
+            #quantitydown{
+        width: 20px;
+        height: 20px;
+        }
         
     </style>
 </head>
