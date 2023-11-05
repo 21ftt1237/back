@@ -67,6 +67,13 @@ header {
     width: 20px;
     height: 20px;
     margin-left: 90px;
+    margin-right: 20px;
+}
+
+#quantitydown {
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
 }
 
    /*NAVBAR*/
