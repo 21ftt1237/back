@@ -191,6 +191,7 @@ body {
 table {
     width: 100%;
     margin: 10px 0;
+    border-collapse: collapse;
 }
 
 
@@ -231,16 +232,16 @@ tr:hover {
         @if ($orderLists->count() > 0)
             <table class="table">
                 <thead>
-                    <tr>
-                        <th>Order Date</th>
-                        <th>Total Price</th>
-                    </tr>
+                <tr>
+                <th>Order Date</th>
+                <th>Total Price</th>
+                </tr>
                 </thead>
                 <tbody>
                     @foreach ($orderLists as $orderList)
                         <tr>
-                            <td>{{ $orderList->created_at }}</td>
-                            <td>${{ number_format($orderList->Total_price, 2) }}</td>
+                        <td>{{ $orderList->created_at }}</td>
+                        <td>${{ number_format($orderList->Total_price, 2) }}</td>
                         </tr>
                     @endforeach
                 </tbody>
