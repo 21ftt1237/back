@@ -206,6 +206,11 @@ Route::get('/email', 'EmailController@index');
 Route::post('/email/send', 'EmailController@sendEmail')->name('send.email');
 
 //ADMIN
+
+
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+
+    
 Route::get('/admins', [AdminController::class, 'index'])->name('admins.index');
 
 Route::get('/admins/create', [AdminController::class, 'create'])->name('admins.create');
@@ -220,7 +225,6 @@ Route::put('/admins/{admin}', [AdminController::class, 'update'])->name('admins.
 
 Route::delete('/admins/{admin}', [AdminController::class, 'destroy'])->name('admins.destroy');
 
-Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
     Route::get('/admin/adminDashboard', 'AdminController@index')->name('admin.dashboard');
 
     //login and logout
