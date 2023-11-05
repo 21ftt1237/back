@@ -524,7 +524,24 @@ header .shopping img{
   <img src="https://cdn-icons-png.flaticon.com/512/25/25282.png" alt="Up Icon">
 </button>
 
+<body> 
+     <div class="container">
+    </div>
 
+     <div class="details-container">
+         <div class="data">
+         <div class="eclipse-container">
+       
+       </div>
+    </div>
+    
+    
+<!--       <div class="details-container">
+    <ul>
+
+    </ul> -->
+<!--       </div> -->
+</body>
       
 
   <script>
