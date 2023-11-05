@@ -194,6 +194,12 @@ th, td {
   text-align: center;
   border-bottom: 1px solid #ddd;
 }
+
+.head{
+margin-top:auto;
+margin-left:auto;
+    
+}
         
 </style>
  
@@ -203,7 +209,7 @@ th, td {
    
   <div class="main-container">
    @if ($orderDetails->count() > 0)
-    <h2>Order Details</h2>
+    <h2 class="head">Order Details</h2>
     <table class="table">
         <thead>
             <tr>              
