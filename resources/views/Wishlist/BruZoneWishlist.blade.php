@@ -508,7 +508,7 @@ body {
             <div class="item-price">BND {{ $wishlistItem->product->price }}</div>
         </div>
 
-        <button class="add-to-cart-button">Add To Cart</button>
+        
 
         <form action="{{ route('wishlist.remove', ['product' => $wishlistItem->product]) }}" method="POST">
             @csrf
