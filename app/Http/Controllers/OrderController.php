@@ -54,6 +54,9 @@ public function placeOrder(Request $request)
         // Start a database transaction for atomicity
         DB::beginTransaction();
 
+        // Create an array to consolidate orders by created_at timestamp
+        $consolidatedOrders = [];
+
         foreach ($cartItems as $cartItem) {
             // Access the pivot values directly
             $product_id = $cartItem->pivot->product_id;
@@ -75,16 +78,32 @@ public function placeOrder(Request $request)
             // Save the order to the 'orders' table
             $order->save();
 
-            // Insert the calculated total price into the "orders_list" table using Eloquent relationships
-            $orderList = new OrderList();
-            $orderList->user_id = $user->id;
-            $orderList->Total_price = $totalPrice;
-            $orderList->created_at = $order->created_at;
-            Log::info('OrderList Data Before Saving: ' . json_encode($orderList->toArray()));
+            // Create or update the order_list record
+            $consolidatedOrders[$order->created_at][] = [
+                'user_id' => $user->id,
+                'Total_price' => $totalPrice,
+                'created_at' => $order->created_at,
+            ];
+        }
 
-            
-            $order->orderLists()->save($orderList);
+        // Process the consolidated orders
+        foreach ($consolidatedOrders as $createdAt => $ordersData) {
+            $existingOrderList = OrderList::where('user_id', $user->id)
+                ->where('created_at', $createdAt)
+                ->first();
 
+            if ($existingOrderList) {
+                // Update the existing order_list record
+                $existingOrderList->Total_price += array_sum(array_column($ordersData, 'Total_price'));
+                $existingOrderList->save();
+            } else {
+                // Create a new order_list record
+                $orderList = new OrderList();
+                $orderList->user_id = $user->id;
+                $orderList->Total_price = array_sum(array_column($ordersData, 'Total_price'));
+                $orderList->created_at = $createdAt;
+                $orderList->save();
+            }
         }
 
         // Delete the cart items that were transferred to orders
