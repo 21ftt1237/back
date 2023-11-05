@@ -10,10 +10,10 @@ class AdminController extends Controller
      public function index()
     
     {
-        // Retrieve admins with their roles
+       
         $admins = Admin::with('role')->get();
 
-        // You can return a view and pass the $admins data to display it
+      
         return view('admin.adminDashboard', compact('admins'));
     }
 
