@@ -198,8 +198,8 @@ public function calculateLoyaltyPoints(Request $request) {
 
 public function updateLoyaltyPoints(Request $request)
 {
-    $userId = auth()->user()->id; // Get the currently logged-in user's ID
-    $loyaltyPoints = $request->input('loyaltyPoints'); // Get the loyalty points value from the request
+    $userId = auth()->user()->id; 
+    $loyaltyPoints = $request->input('loyaltyPoints');
 
    
     User::where('id', $userId)->update(['coupon_point' => $loyaltyPoints]);
