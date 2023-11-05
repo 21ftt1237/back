@@ -354,7 +354,7 @@ header .shopping img{
 
 
 /* Updated CSS for .wishlist-items */
-.wishlist-items {
+/* .wishlist-items {
   position: absolute;
   left: 350px; /* Same as wishlist-title's left position */
   top: 265px; /* Adjust as needed */
@@ -407,7 +407,7 @@ header .shopping img{
   font-size: 14px;
 }
 
-/* .remove-button {
+.remove-button {
   background-color: #EB4949;
   color: #fff;
   border: none;
@@ -450,9 +450,9 @@ header .shopping img{
 .list-container {
     display: flex; /* Use flexbox to arrange the list horizontally */
     flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
-} */
+}
 
-/* .list-container ul {
+.list-container ul {
     list-style: none; /* Remove list bullets */
     padding: 0;
     margin: 0;
@@ -463,8 +463,8 @@ header .shopping img{
     flex: 1; /* Distribute available space evenly among items */
     margin: 10px; /* Add margin to separate items */
     text-align: center; /* Center-align content within each item */
-} */
-
+}
+ */
  
   
  </style> 
