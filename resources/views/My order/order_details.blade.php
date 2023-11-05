@@ -196,8 +196,8 @@ th, td {
 }
 
 #head{
-margin-top:30%;
-margin-left:auto;
+margin-top:aut0;
+margin-left:30%;
     
 }
         
