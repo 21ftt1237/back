@@ -74,6 +74,12 @@ header .shopping img{
     transition: all 0.2s;
 }
 
+button[type="submit"]:hover {
+  background: #F6E71D;
+  border: 1px solid #F6E71D;
+  color: black;
+}
+
 
    /*NAVBAR*/
 body {
