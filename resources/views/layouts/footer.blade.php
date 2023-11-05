@@ -244,7 +244,7 @@
         <p class="footer-links">
           <a href="{{ route('dashboard') }}" class="link">HOME</a>
 
-          <a href="#" class="link">ABOUT US</a>
+<!--           <a href="#" class="link">ABOUT US</a> -->
 
           <a href="{{ route('profilev') }}" class="link">MY ACCOUNT</a>
 
