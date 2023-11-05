@@ -187,11 +187,11 @@ body {
 
 //table
         
-/* table {
+table {
     width: 100%;
     margin: 10px 0;
     border-collapse: collapse;
-} */
+}
 
 
 th {
@@ -208,7 +208,7 @@ th {
     
    
   <div class="main-container">
-    <div class="wishlist-title">
+   
     
       <h1>My Orders</h1>
 
@@ -242,7 +242,7 @@ th {
 
            
           </div>    
-       </div>
+       
     </div>
     
     
