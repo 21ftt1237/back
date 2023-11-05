@@ -207,7 +207,8 @@ tr:nth-child(even) {
 
 
 td {
-    padding: 10px; 
+    padding: 10px;
+    border: solid black 5px;
 }
 
 
