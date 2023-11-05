@@ -205,7 +205,9 @@ th {
  
 </head>
 <body>
-         
+
+    <br>
+    <br>
    
   <div class="main-container">
     <div class="wishlist-title">
