@@ -250,7 +250,7 @@ main > div > a:hover {
 
 .swiper-slide--five {
   background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
-    url("image/.png")
+    url("image/nimanjalogo.png")
       no-repeat 50% 50% / cover;
 }
 
