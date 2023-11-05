@@ -206,13 +206,15 @@ th {
 </head>
 <body>
 
-    <br>
-    <br>
+    
    
   <div class="main-container">
     <div class="wishlist-title">
     
       <h1>My Orders</h1>
+
+        <br>
+        <br>
        <div class="container">
 
         @if ($orderLists->count() > 0)
