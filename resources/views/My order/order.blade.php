@@ -199,21 +199,6 @@ th {
     background-color: #333; 
     color: #fff; 
     padding: 10px; 
-
-
-tr:nth-child(even) {
-    background-color: #f2f2f2; 
-}
-
-
-td {
-    padding: 10px;
-    border: solid black 5px;
-}
-
-
-tr:hover {
-    background-color: #ddd; 
 }
         
 </style>
