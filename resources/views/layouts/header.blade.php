@@ -69,12 +69,9 @@ $totalQuantity += $cartItem->quantity; // Add the quantity of the item to the to
     background-color: #3e8e41;
   }
 
-        .quantity-input input{
-            width: 5px;
-        }
-
-        .quantity-input button{
-            width: 5px;
+    #quantityup{
+        width: 5px;
+        height: 5px;
         }
     </style>
 </head>
@@ -162,7 +159,7 @@ $totalQuantity += $cartItem->quantity; // Add the quantity of the item to the to
              <div> {{ $cartItem->quantity }}</div>
             <form method="POST" action="{{ route('decreaseQuantity', ['product' => $product->id]) }}">
             @csrf
-            <button type="submit">-</button>
+            <button type="submit" id="quantitydown">-</button>
             </form>
         </div>
                     </div>
