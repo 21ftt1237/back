@@ -83,7 +83,8 @@ public function placeOrder(Request $request)
             Log::info('OrderList Data Before Saving: ' . json_encode($orderList->toArray()));
 
             
-            $order->orderList()->save($orderList);
+            $order->orderLists()->save($orderList);
+
         }
 
         // Delete the cart items that were transferred to orders
