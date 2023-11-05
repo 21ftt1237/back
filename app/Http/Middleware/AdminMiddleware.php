@@ -18,7 +18,7 @@ class AdminMiddleware
     {
 
 if(Auth::check()) {
-    if(Auth::guard('admin')->check() && Auth::guard('admin')->admins()->role_id == '1'){
+    if(Auth::guard('admin')->check() && Auth::guard('admin')->users()->role_id == '1'){
         return $next($request);
             } else {
                 return redirect('/dashboard')->with('message', 'Access denied as you are not an admin');
