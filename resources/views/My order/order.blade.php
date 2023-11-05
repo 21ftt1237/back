@@ -194,10 +194,10 @@ table {
 }
 
 
-th {
-    background-color: #333; 
-    color: #fff; 
-    padding: 10px; 
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
         
 </style>
