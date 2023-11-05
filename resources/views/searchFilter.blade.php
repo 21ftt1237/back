@@ -681,49 +681,6 @@ button {
             </div>
         </section>
 
-<footer class="footer-distributed">
-
-      <div class="footer-left">
-
-        <h3>Bru<span>zone</span></h3>
-
-        <p class="footer-links">
-          <a href="{{ route('dashboard') }}" class="link">HOME</a>
-          
-          <a href="#" class="link">ABOUT US</a>
-        
-          <a href="profiletest.html" class="link">MY ACCOUNT</a>
-          
-          <a href="Help/help.html" class="link">HELP</a>
-          
-        </p>
-
-        <p class="footer-company-name">Bruzone © 2023</p>
-      </div>
-
-
-      <div class="footer-right">
-
-        <p class="footer-company-about">
-          <span></span>
-          Life is short, so why not buy more.
-        </p>
-
-        <div class="footer-icons">
-
-        <a href="#"><i class="fab fa-facebook fa-lg"></i></a>
-          <a href="#"><i class="fab fa-twitter fa-lg"></i></a>
-          <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
-          <a href="#"><i class="fas fa-envelope fa-lg"></i></a>
-          <a href="#"><i class="fab fa-paypal fa-lg"></i></a>
-
-
-
-        </div>
-
-      </div>
-
-    </footer>
 
         <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
         <script src="./ecommerce.js"></script>
@@ -979,3 +936,4 @@ function showResults() {
 
 </body>
 </html>
+@include('layouts.footer')
