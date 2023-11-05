@@ -134,7 +134,7 @@ Route::get('checkout', function () {
 })->name('checkout');
 
 
-Route::get('profilev', [ProfileController::class, 'showProfile'])->name('profilev');
+Route::get('profilev', [ProfileController::class, 'showCoupon'])->name('profilev');
 
 Route::post('/redeem-coupon', [ProfileController::class, 'redeemCoupon'])->name('redeemCoupon');
 
