@@ -185,6 +185,11 @@ body {
             box-sizing: border-box;
           
         } 
+
+img {
+width: 50px;
+height: 50pxx;
+}
         
 </style>
  
