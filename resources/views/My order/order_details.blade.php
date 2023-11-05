@@ -195,7 +195,7 @@ th, td {
   border-bottom: 1px solid #ddd;
 }
 
-.head{
+#head{
 margin-top:auto;
 margin-left:auto;
     
@@ -209,7 +209,7 @@ margin-left:auto;
    
   <div class="main-container">
    @if ($orderDetails->count() > 0)
-    <h2 class="head">Order Details</h2>
+    <h2 id="head">Order Details</h2>
     <table class="table">
         <thead>
             <tr>              
