@@ -132,27 +132,19 @@ public function placeOrder(Request $request)
     }
 }
     
-public function showOrderList($orderListId)
+public function showOrderList()
 {
     // Retrieve the currently authenticated user
     $user = Auth::user();
 
     // Retrieve the user's order list(s)
-    $orderList = OrderList::where('user_id', $user->id)
-                            ->where('id', $orderListId)
-                            ->first(); // Retrieve a specific order list by its ID
+    $orderLists = OrderList::where('user_id', $user->id)->get();
+    //get the order status
+    $orderStatus = session('order_status', 'unknown');
 
-    if (!$orderList) {
-        // Handle the case where the order list doesn't exist
-        return redirect()->route('your_redirect_route'); // Replace with an appropriate redirect
-    }
-
-    // Get the order status from the retrieved order list
-    $orderStatus = $orderList->status;
-
-    return view('My order.order_details', compact('orderList', 'orderStatus'));
+  return view('My order.order', ['orderLists' => $orderLists,'orderStatus' => $orderStatus]);
 }
-
+    
 public function showOrderDetails($created_at)
 {
     // Retrieve the order details based on the user_id and created_at
