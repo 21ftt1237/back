@@ -190,7 +190,6 @@ body {
         
 table {
     width: 100%;
-    border-collapse: collapse;
     margin: 10px 0;
 }
 
