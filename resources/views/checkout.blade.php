@@ -482,7 +482,7 @@ input[type='password']:focus {
  <div class="purchase-complete-message">
     <h2>Purchase Completed</h2>
     <p>Your order has been successfully processed.</p>
-    <p id="finishstore">Store: </p>
+    
 
     <p id="finishtime">Order Made on: </p>
 
@@ -966,7 +966,7 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
   const deliveryFee = localStorage.getItem('delivery');
   const storeName = localStorage.getItem('storename');
 
-  const store = document.getElementById('finishstore');
+ 
   const feeDiv = document.getElementById('fee');
 
   if (deliveryFee) {
@@ -977,10 +977,6 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
     feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
   }
 
-    if (storeName) {
-
-    store.innerHTML = `Store: ${storeName}`;
-  } 
 
   function updateTotalPriceAndDeliveryFee() {
   // Calculate the total price from the cart items
