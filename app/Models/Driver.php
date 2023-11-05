@@ -20,7 +20,6 @@ class Driver extends Model implements AuthenticatableContract
         'name',
         'driver_email',
         'driver_password',
-        // Add any other driver-specific fields here
     ];
 
     protected $hidden = [
