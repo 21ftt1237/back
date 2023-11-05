@@ -8,7 +8,7 @@
 <html>
 <head>
     <title>BruZone Order History</title>
-<!--     <style>
+    <style>
        * {
   margin: 0;
   padding: 0;
@@ -195,7 +195,7 @@ th, td {
   border-bottom: 1px solid #ddd;
 }
         
-</style> -->
+</style>
  
 </head>
 <body>
