@@ -208,7 +208,7 @@ Route::post('/email/send', 'EmailController@sendEmail')->name('send.email');
 //ADMIN
 
 
-Route::prefix('admin')->middleware(['auth'])->group(function () {
+Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
     Route::get('/adminDashboard', 'AdminController@index')->name('admin.dashboard');
 
