@@ -191,6 +191,7 @@ margin-left:30%;
 
     .main{
     display: flex;
+    margin-left: 30px;
     justify-content: center;
     align-items: center;    
     font-family: pop;
