@@ -9,209 +9,182 @@
 <head>
     <title>BruZone Order History</title>
     <style>
-        .my-orders {
-            color: #1E1E1E;
-            font-family: Imprima, sans-serif;
-            font-size: 45px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            margin: 0;
-        }
+       * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  background: black;
+}
 
-        .line {
-            width: 1053px;
-            height: 1px;
-            background-color: #1E1E1E;
-            margin-left: 10px;
-            margin-top: 20px;
-        }
 
-        .container {
-            background-color: #F6E71D;
-            padding: 20px;
-            text-align: center;
-            width: 100%;
-            height: 20%;
-            margin: 0 auto;
-            margin-top: 10px;
-        }
+  header .wishlist img{
+    width: 40px;
+  }
 
-        .data {
-            display: flex;
-            align-items: center;
-            margin-top: 20px;
-        }
+  header .wishlist{
+    position: relative;
 
-        .eclipse-container {
-            display: flex;
-            align-items: center;
-            margin-right: 20px;
-        }
+  }
 
-        .eclipse {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #E9E9E9;
-            width: 150px;
-            height: 150px;
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-            border-radius: 50%;
-            overflow: hidden;
-        }
+  header .wishlist span{
+    background: red;
+    border-radius: 50%;
+    color: #fff;
+    position: absolute;
+    top: -5px;
+    left: 80%;
+    padding: 3px 10px;
+  }
 
-        .eclipse img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
+header .shopping img{
+    width: 40px;
+  }
 
-         .details-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            flex-grow: 1; /* Allow the details container to grow to fill remaining space */
-            padding-right: 20px; /* Add some spacing on the right side */
-        }
+  header .shopping{
+    position: relative;
 
-        .price-container {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            margin-top: 10px; /* Adjust the margin as needed */
-            font-weight: bold;
-            color: black;
-        }
+  }
 
-        .details-box {
-            width: 80px;
-            height: 30px;
-            border: 3px solid #000;
-            background: #F6E71D;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            color: blue;
-            text-align: center;
-            margin-top: 10px;
-        }
+  header .shopping span{
+    background: red;
+    border-radius: 50%;
+    color: #fff;
+    position: absolute;
+    top: -5px;
+    left: 80%;
+    padding: 3px 10px;
+  }
 
-        .price {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            margin-top: 20px;
-            font-weight: bold;
-            color: black;
-        }
 
-        .searchInputWrapper {
-            position: relative;
-            display: inline-block;
-        }
 
-        .searchInput {
-            width: 20rem;
-            height: 2rem;
-            padding: 0 1rem; 
-            border-radius: 2rem;
-            border: none;
-            transition: transform 0.1s ease-in-out;
-        }
+   /*NAVBAR*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-image: linear-gradient(to bottom, #ffffff, #fff7ff, #ffeef1, #ffe8d6, #ffeabe, #ffecaa, #fff097, #fdf483, #fbf16f, #faee59, #f8ea41, #f6e71d);
+}
 
-        ::placeholder {
-            color: #a1a1a1;
-        }
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    z-index: 1000;
+}
 
-        /* hide the placeholder text on focus */
-        :focus::placeholder {
-            text-indent: -999px
-        }
+.logo {
+    margin-left: 10px;
+}
 
-        .searchInput:focus {
-            outline: none;
-            transform: scale(1.1);
-            transition: all 0.1s ease-in-out;
-        }
+.logo a {
+    color: white;
+    margin-left: 15px;
+    font-size: 35px;
+    font-weight: 500;
+    text-decoration: none;
+}
 
-        .searchInputIcon {
-            position: absolute;
-            right: 0.8rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #a1a1a1;
-            transition: all 0.1s ease-in-out;
-        }
+.nav-links {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin-right: 0px;
+    margin-left: 20px;
+}
 
-        .container:focus-within > .searchInputWrapper > .searchInputIcon {
-            right: 0.2rem;
-        }
+.nav-link, .nav-link-last {
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    margin-right: 0px;
+    font-weight: 600;
+}
 
-        /* New styles for the popup */
-    .popup {
-        display: none;
-        width: 50%;
-        height: 50%;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: white;
-        padding: 20px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        z-index: 9999;
-    }
+.btn-sign-up {
+    color: black;
+    font-size: 12px;
+    font-weight: bolder;
+    width: 4%;
+    padding: 5px;
+    background-color: #F6E71D;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-right: 20px;
+}
 
-    .popup-content {
-        /* You can style the popup content here */
-    }
+.btn-sign-up:hover {
+    background-color: #555;
+}
 
-    .popup-close {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        cursor: pointer;
-    }
 
-    .go-back-button {
-            display: none;
-            border-radius: 30px;
-            background: #F6E71D;
-            padding: 10px 20px;
-            position: fixed;
-            cursor: pointer;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .haha {
-        height: 200px;
-        width: 200px;
-        }
+
+#input {
+    height: 30px;
+    width: 30px;
+    border: none;
+    padding: 5px;
+}
+
+.search ion-icon {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+
+
+
+    .navbar, .nav-link:hover{
+    color: #F6E71D;
+    text-decoration: none;
+}
+
+  .nav-link-last:hover{
+    color: #F6E71D;
+    text-decoration: none;
+  }
+
+
+
+.shopping img:hover,
+.wishlist img:hover {
+    color: red;
+    transform: translateY(5px);
+}
+
+.search {
+  display: flex;
+  margin-left: 30px;
+  margin-right: 45px;
+
+}
+
+.search #input{
+  width: 900px;
+  border-radius: 0px;
+}
+
 </style>
-
-   
+ 
 </head>
  <body> 
-     <div class="container">
-    </div>
-
-     <div class="details-container">
-         <div class="data">
-         <div class="eclipse-container">
-       
-       </div>
-    </div>
     
-    
-<!--       <div class="details-container">
-    <ul>
 
-    </ul> -->
-<!--       </div> -->
-</body>
                     
 
          
