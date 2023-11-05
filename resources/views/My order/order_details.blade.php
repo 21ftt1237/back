@@ -190,6 +190,19 @@ body {
 width: 100px;
 height: 100px;
 }
+
+ table {
+    width: 100%;
+    margin: 10px 0;
+    border-collapse: collapse;
+}
+
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
         
 </style>
  
