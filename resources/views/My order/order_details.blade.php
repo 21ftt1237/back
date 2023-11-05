@@ -183,7 +183,7 @@ th, td {
 
 #head{
 margin-top:aut0;
-margin-left:40%;
+margin-left:30%;
     
 }
 
