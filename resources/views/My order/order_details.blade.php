@@ -207,7 +207,7 @@ body {
         <tbody>
             @foreach ($orderDetails as $orderDetail)
                 <tr>
-                    <td><img src="/image/{{ $orderDetail->product->image_url }}" alt="{{ $orderDetail->product->name }}"></td>
+                    <td><img src="/image/{{ $orderDetail->product->image_link }}" alt="{{ $orderDetail->product->name }}"></td>
                     <td>{{ $orderDetail->product->name }}</td>                    
                     <td>${{ $orderDetail->product->price }}</td>
                     <td>{{ $orderDetail->quantity }}</td>
