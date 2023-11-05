@@ -197,7 +197,7 @@ Route::post('/place-order', [OrderController::class, 'placeOrder']);
 
 Route::get('/order', [OrderController::class,'showOrderList'])->name('order.show');
 
-Route::get('/order-details/{created_at}', [OrderController::class, 'showOrderDetails'])->name('order.details');
+Route::get('/order-details/{created_at}/{status}', [OrderController::class, 'showOrderDetails'])->name('order.details');
 
 Route::get('/order-list/{orderStatus}', [OrderController::class, 'showOrderList']);
 
