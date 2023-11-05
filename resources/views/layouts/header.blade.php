@@ -83,7 +83,7 @@ $totalQuantity += $cartItem->quantity; // Add the quantity of the item to the to
                <div class="logo" id="storeName" data-value=" @if(isset($storehere)) {{ $storenumber}} @endif"><a href="{{ route('dashboard') }}"> <img src="image/BruZone_Logo.png" style="width: 50px">Bruzone</a></div>
                  @if(isset($carts))
                  <div class="shopping">
-                <img src="image/shoppingCart.png">
+                <img src="{{ asset('image/shoppingcart.png') }}">
                 <span class="quantity">{{ $totalQuantity }}</span>
                 </div>
                  @endif
