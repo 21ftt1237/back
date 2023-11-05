@@ -186,7 +186,7 @@ body {
           
         } 
 
-img {
+img .prodimg {
 width: 50px;
 height: 50px;
 }
@@ -212,7 +212,7 @@ height: 50px;
         <tbody>
             @foreach ($orderDetails as $orderDetail)
                 <tr>
-                    <td><img src="/image/{{ $orderDetail->product->image_link }}" alt="{{ $orderDetail->product->name }}"></td>
+                    <td><img src="/image/{{ $orderDetail->product->image_link }}" alt="{{ $orderDetail->product->name }}" class="prodimg"></td>
                     <td>{{ $orderDetail->product->name }}</td>                    
                     <td>${{ $orderDetail->product->price }}</td>
                     <td>{{ $orderDetail->quantity }}</td>
