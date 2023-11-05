@@ -407,7 +407,7 @@ header .shopping img{
   font-size: 14px;
 }
 
-.remove-button {
+/* .remove-button {
   background-color: #EB4949;
   color: #fff;
   border: none;
@@ -450,7 +450,7 @@ header .shopping img{
 .list-container {
     display: flex; /* Use flexbox to arrange the list horizontally */
     flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
-}
+} */
 
 /* .list-container ul {
     list-style: none; /* Remove list bullets */
