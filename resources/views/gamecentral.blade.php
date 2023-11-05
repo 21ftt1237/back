@@ -62,7 +62,29 @@ header {
     left: 80%;
     padding: 3px 10px;
   }
+#quantityup {
+    width: 20px;
+    height: 20px;
+    margin-left: 90px;
+    margin-right: 20px;
+}
 
+#quantitydown {
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+}
+
+.listCard li div {
+    padding: 10px;
+}
+
+.item-quantity {
+    justify-content: center;
+    align-items: center !important;
+    position: fixed;
+    margin-left: 300px;
+}
 
 
    /*NAVBAR*/
