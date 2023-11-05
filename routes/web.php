@@ -199,6 +199,8 @@ Route::get('/order', [OrderController::class,'showOrderList'])->name('order.show
 
 Route::get('/order-details/{created_at}', [OrderController::class, 'showOrderDetails'])->name('order.details');
 
+Route::get('/order-list/{orderStatus}', [OrderController::class, 'showOrderList']);
+
 //ETC
 Route::get('/email', 'EmailController@index');
 Route::post('/email/send', 'EmailController@sendEmail')->name('send.email');
