@@ -131,17 +131,26 @@ public function placeOrder(Request $request)
         return response()->json(['message' => 'Error creating orders.']);
     }
 }
-public function showOrderList($orderStatus)
+    
+public function showOrderList($orderListId)
 {
     // Retrieve the currently authenticated user
     $user = Auth::user();
 
     // Retrieve the user's order list(s)
-    $orderLists = OrderList::where('user_id', $user->id)->get();
+    $orderList = OrderList::where('user_id', $user->id)
+                            ->where('id', $orderListId)
+                            ->first(); // Retrieve a specific order list by its ID
 
-    return view('My order.order')
-        ->with('orderLists', $orderLists)
-        ->with('orderStatus', $orderStatus);
+    if (!$orderList) {
+        // Handle the case where the order list doesn't exist
+        return redirect()->route('your_redirect_route'); // Replace with an appropriate redirect
+    }
+
+    // Get the order status from the retrieved order list
+    $orderStatus = $orderList->status;
+
+    return view('My order.order_details', compact('orderList', 'orderStatus'));
 }
 
 public function showOrderDetails($created_at)
