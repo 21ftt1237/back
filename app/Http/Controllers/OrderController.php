@@ -153,7 +153,7 @@ public function showOrderDetails($created_at)
                          ->with('product')
                          ->get();
 
-    return view('order.order-details', ['orderDetails' => $orderDetails]);
+    return view('My order.order_details', ['orderDetails' => $orderDetails]);
 }
 
 
