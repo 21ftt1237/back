@@ -79,11 +79,12 @@ public function placeOrder(Request $request)
             $order->save();
 
             // Create or update the order_list record
-            $consolidatedOrders[$order->created_at][] = [
-                'user_id' => $user->id,
-                'Total_price' => $totalPrice,
-                'created_at' => $order->created_at,
-            ];
+            $createdAtKey = $order->created_at->format('Y-m-d H:i:s');
+            $consolidatedOrders[$createdAtKey][] = [
+            'user_id' => $user->id,
+            'Total_price' => $totalPrice,
+            'created_at' => $createdAtKey,
+             ];
         }
 
         // Process the consolidated orders
