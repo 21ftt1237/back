@@ -159,7 +159,7 @@ $totalQuantity += $cartItem->quantity; // Add the quantity of the item to the to
              @csrf
             <button type="submit" id="quantityup">+</button>
              </form>
-            <input type="number" class="quantity-input" value="{{ $cartItem->quantity }}" readonly>
+             <div> {{ $cartItem->quantity }}</div>
             <form method="POST" action="{{ route('decreaseQuantity', ['product' => $product->id]) }}">
             @csrf
             <button type="submit">-</button>
