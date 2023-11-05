@@ -278,7 +278,7 @@ ul li .active .uil{
         <ul>
             <li>
                 <i class="icon uil uil-capture"></i>
-                <div class="progress one @if($orderStatus == 'Order Placed') active @endif">
+                <div class="progress one @if($orderStatus == 'processing') active @endif">
                     <p>1</p>
                     <i class="uil uil-check"></i>
                 </div>
