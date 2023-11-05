@@ -140,7 +140,7 @@ public function placeOrder(Request $request)
     // Retrieve the user's order list(s)
     $orderLists = OrderList::where('user_id', $user->id)->get();
 
-   return view('My order.order', ['orderLists' => $orderLists]);
+  return view('My order.order', ['orderLists' => $orderLists]);
 }
 
 
