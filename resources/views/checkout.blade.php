@@ -379,17 +379,7 @@ input[type='password']:focus {
       </div>
 
        <div class="delivery-info valid">
-<!--        <label for="Address" >Address</label>
-       <input type="text" id="Address" value="Politeknik Brunei OSP" />
 
-       <label for="City">City</label>
-       <input type="text" id="City" value="Bandar Seri Begawan" />
-
-       <label for="District">District</label>
-       <input type="text" id="District"  value="Brunei Muara" />
-
-       <label for="Zip">Zip Code</label>
-       <input type="text" id="Zip" value="BA1311" /> -->
 
        <div id="map"></div>
 
@@ -507,13 +497,13 @@ input[type='password']:focus {
 <script >
 
   $(document).ready(function() {
-    var currentStep = 1; // Initialize the current step
+    var currentStep = 1; 
 
     function updateFormVisibility() {
-      // Hide all form sections
+      
       $('.payment-method, .delivery-info, .finalpayment, .delivery-method, .calendar, .finish, #proceed, .finishcontainer').hide();
 
-      // Show the appropriate section based on the current step
+      
       if (currentStep === 1) {
         $('.progress-bar .step').removeClass('active');
 
@@ -558,7 +548,7 @@ input[type='password']:focus {
       $('input[name="payment"]').on('change', function() {
       var selectedPaymentMethod = $('input[name="payment"]:checked').val();
 
-      // Check the selected payment method and show/hide the PayPal section accordingly
+      
       if (selectedPaymentMethod === 'cash') {
         $('#paypal-button-container').hide();
         $('#proceed').show();
@@ -569,7 +559,7 @@ input[type='password']:focus {
     });
  var localTotalPay = localStorage.getItem('finalPay');
   function calculateLoyaltyPoints(localTotalPay) {
-    // Calculate 10% of the total price as loyalty points
+    
     
     var loyaltyGain =  (localTotalPay * 0.1).toFixed(2);
     console.log(loyaltyGain);
@@ -590,11 +580,11 @@ $('.next-btn').on('click', function(e) {
     button.disabled = false;
       updateFormVisibility();
     } else {
-      // Show an error message or handle the case where the transaction is not complete
+     
       alert('Please complete the PayPal transaction before proceeding.');
     }
   } else {
-    // Handle other steps as needed
+    
   }
 });
 
@@ -624,7 +614,7 @@ $('#proceedBtn').on('click', function() {
 
         document.getElementById('scheduledDeli').textContent = 'Scheduled On: ' + scheduledDateTime;
 
-        // Check if the address fields are filled out
+        
         var address = $('#Address').val();
         var city = $('#City').val();
         var district = $('#District').val();
@@ -633,7 +623,7 @@ $('#proceedBtn').on('click', function() {
       var loyaltyPoints = localStorage.getItem('loyaltytest');
           document.getElementById("loyalty").innerHTML = `Loyalty Points Gained: ` + loyaltyPoints;
         if (address && city && district && zip) {
-          // Proceed to the next step
+          
           currentStep++;
           updateFormVisibility();
 
@@ -642,7 +632,7 @@ $('#proceedBtn').on('click', function() {
 
         
         } else {
-          // Show an error message or handle validation failure
+          
          
         }
       } else {
@@ -652,9 +642,7 @@ $('#proceedBtn').on('click', function() {
 
 
   } else if (currentStep === 2) {
-    // Get the scheduled date and time from local storage
-    // var scheduledDateTime = localStorage.getItem('scheduledDateTime');
-    // var [scheduledDate, scheduledTime] = scheduledDateTime.split(' ');
+   
     var button = document.getElementById("nextBtn");
     var backBtn = document.getElementById("backBtn");
 
@@ -662,16 +650,12 @@ $('#proceedBtn').on('click', function() {
     button.disabled = true;
   currentStep++;
       updateFormVisibility();
-    // Update the delivery time div
-    // document.getElementById('scheduledDeli').textContent = 'Scheduled On: ' + scheduledDateTime;
+   
   }else if (currentStep === 2) {
-    // Get the scheduled date and time from local storage
-    // var scheduledDateTime = localStorage.getItem('scheduledDateTime');
-    // var [scheduledDate, scheduledTime] = scheduledDateTime.split(' ');
+  
   currentStep++;
       updateFormVisibility();
-    // Update the delivery time div
-    // document.getElementById('scheduledDeli').textContent = 'Scheduled On: ' + scheduledDateTime;
+  
   }
 
 
@@ -689,16 +673,16 @@ $('#proceedBtn').on('click', function() {
     }
   });
 
-    // Initial form visibility
+    
   updateFormVisibility();
 
-    // Radio box border
+    
   $('.method').on('click', function() {
     $('.method').removeClass('blue-border');
     $(this).addClass('blue-border');
   });
 
-    // Validation
+   
   var $cardInput = $('.valid input');
 
   $('.next-btn').on('click', function(e) {
@@ -764,9 +748,6 @@ $('#proceedBtn').on('click', function() {
     }
   }
 
-  // function calculateTotalPrice(item) {
-  //   return item.price * item.quantity; 
-  // }
 
   function renderCart(cartItems) {
     const totalPriceElement = document.getElementById('totalPrice');
@@ -778,7 +759,7 @@ $('#proceedBtn').on('click', function() {
     let total = 0; // Initialize total to 0
     
      var scheduledDateTime = localStorage.getItem('scheduledDateTime');
-    // var [scheduledDate, scheduledTime] = scheduledDateTime.split(' ');
+   
 
     // Update the delivery time div
     document.getElementById('scheduledDeli').textContent = 'Scheduled On: ' + scheduledDateTime;
@@ -801,7 +782,7 @@ $('#proceedBtn').on('click', function() {
       `;
       confirmationContainer.appendChild(itemDiv);
 
-      // Add the price of the current item to the total
+      
       total += calculateTotalPrice(item);
     });
 
@@ -821,7 +802,7 @@ cartItems.forEach((item, index) => {
       `;
       order.appendChild(itemDiv);
 
-      // Add the price of the current item to the total
+      
       
     });
     var localTotalPrice = localStorage.getItem('totalPrice');
@@ -845,20 +826,20 @@ const currentDay = currentDate.getDate().toString().padStart(2, '0');
 const currentHours = currentDate.getHours().toString().padStart(2, '0');
 const currentMinutes = currentDate.getMinutes().toString().padStart(2, '0');
 
-// Format the date in YYYY-MM-DD format
+
 const formattedDate = `${currentYear}-${currentMonth}-${currentDay}`;
 
-// Format the time in HH:MM format
+
 const formattedTime = `${currentHours}:${currentMinutes}`;
 
-// Set the default values in the date and time input fields
+
 document.getElementById('date1').value = formattedDate;
 document.getElementById('time').value = formattedTime;
 
-// Set the minimum date for the date input field (current date)
+
 document.getElementById('date1').min = formattedDate;
 
-// Set the minimum time for the time input field (current time)
+
 document.getElementById('time').min = formattedTime;
 
 function calculateTotalAmount(cartItems) {
@@ -882,54 +863,50 @@ function calculateTotalPrice(item) {
 var button = document.getElementById("nextBtn");
     button.disabled = false;
 
-//Get order and coupon point
-        
-// Retrieve the coupon point value from local storage
+
 var couponPointsGained = localStorage.getItem('loyaltytest');
 
-// Check if the value is not null or undefined
+
 if (couponPointsGained !== null && couponPointsGained !== undefined) {
-    // Send an AJAX request to update the coupon points
+   
     $.ajax({
         type: 'POST',
         url: '/update-coupon-point',
         data: {
             _token: '{{ csrf_token() }}',
-            coupon_point: couponPointsGained, // Use the value retrieved from local storage
+            coupon_point: couponPointsGained, 
         },
         success: function (response) {
-            // Handle success, e.g., display a success message to the user
             
-            // Now, initiate the order placement
+            
+            
             axios.post('/place-order', {
                 cart_items: cartItems,
-                // Other order-related data
+                
             })
             .then(function (response) {
-                // Handle the order placement response, e.g., show a success message or redirect to a thank you page
+               
                 
             })
             .catch(function (error) {
-                // Handle errors, e.g., show an error message
+              
                
             });
         },
         error: function (error) {
-            // Handle error, e.g., show an error message
+           
             
         }
     });
 } else {
-    // Handle the case where the coupon point value is not found in local storage
+   
     alert('Coupon point value not found in local storage');
 }
 
         
   isPayPalTransactionComplete = true;
         
-      // Trigger the next step of your checkout process here
-      // For example, you can call a function to proceed to the next step.
-      // proceedToNextStep();
+     
     
   });
     
@@ -937,7 +914,7 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
 
 paypal.Buttons({
   createOrder: function(data, actions) {
-    // Set up the transaction details
+    
     return actions.order.create({
       purchase_units: [{
         amount: {
@@ -947,71 +924,64 @@ paypal.Buttons({
     });
   },
   onApprove: function(data, actions) {
-    // Capture the funds from the transaction
+    
     return actions.order.capture().then(function(details) {
-      // Handle a successful payment
+      
       
 var button = document.getElementById("nextBtn");
     button.disabled = false;
 
-//Get order and coupon point
+
         
-// Retrieve the coupon point value from local storage
+
 var couponPointsGained = localStorage.getItem('loyaltytest');
 
-// Check if the value is not null or undefined
+
 if (couponPointsGained !== null && couponPointsGained !== undefined) {
-    // Send an AJAX request to update the coupon points
+    
     $.ajax({
         type: 'POST',
         url: '/update-coupon-point',
         data: {
             _token: '{{ csrf_token() }}',
-            coupon_point: couponPointsGained, // Use the value retrieved from local storage
+            coupon_point: couponPointsGained, 
         },
         success: function (response) {
-            // Handle success, e.g., display a success message to the user
+            
             alert(response.message);
-            // Now, initiate the order placement
+            
             axios.post('/place-order', {
                 cart_items: cartItems,
-                // Other order-related data
+                
             })
             .then(function (response) {
-                // Handle the order placement response, e.g., show a success message or redirect to a thank you page
+               
                 alert(response.message);
             })
             .catch(function (error) {
-                // Handle errors, e.g., show an error message
+                
                 alert('Error placing the order');
             });
         },
         error: function (error) {
-            // Handle error, e.g., show an error message
+            
             alert('Error updating coupon points');
         }
     });
 } else {
-    // Handle the case where the coupon point value is not found in local storage
+    
     alert('Coupon point value not found in local storage');
 }
 
         
   isPayPalTransactionComplete = true;
         
-      // Trigger the next step of your checkout process here
-      // For example, you can call a function to proceed to the next step.
-      // proceedToNextStep();
+    
     });
   },
 }).render('#paypal-button-container');
 
-// function proceedToNextStep() {
-//   // Add code here to move to the next step of your checkout process.
-//   // You can update the 'currentStep' variable, update the form visibility, or perform any other necessary actions.
-//   currentStep = 3; // For example, proceed to step 3
-//   updateFormVisibility(); // Update the form visibility
-// }
+
 
 
 </script>
@@ -1035,7 +1005,7 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
 
 
   function updateTotalPriceAndDeliveryFee() {
-  // Calculate the total price from the cart items
+  
   
 const totalAmount = parseFloat(localStorage.getItem('totalPrice')) 
    
@@ -1049,32 +1019,32 @@ const totalAmount = parseFloat(localStorage.getItem('totalPrice'))
   document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}`;
   
 
-  // Store the final total in local storage (if needed)
+  
   localStorage.setItem('finalPay', finalPay.toFixed(2));
 }
 
-// Call the function to update the total price and delivery fee
+
 updateTotalPriceAndDeliveryFee();
 
  $(document).ready(function () {
         $('#update-loyalty-points-form').submit(function (e) {
             e.preventDefault();
 
-            const loyaltyPoints = $('#loyalty-points-input').val(); // Get the loyalty points value from the input field
+            const loyaltyPoints = $('#loyalty-points-input').val(); 
 
             $.ajax({
                 type: 'POST',
                 url: '/update-loyalty-points',
                 data: {
-                    _token: '{{ csrf_token() }}', // Include the CSRF token
+                    _token: '{{ csrf_token() }}', 
                     loyaltyPoints: loyaltyPoints
                 },
                 success: function (response) {
-                    // Handle success, e.g., display a success message to the user
+                    
                     alert(response.message);
                 },
                 error: function (error) {
-                    // Handle error, e.g., show an error message
+                    
                     alert('Error updating coupon points');
                 }
             });
@@ -1084,23 +1054,23 @@ updateTotalPriceAndDeliveryFee();
 
 </script>
  <script>
-        // Initialize the map
+        
         var map = L.map('map').setView([0, 0], 13);
 
-        // Add the OpenStreetMap tile layer
+       
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
         }).addTo(map);
 
-        // Get the GPS coordinates (e.g., latitude and longitude) from local storage
-        var lat = parseFloat(localStorage.getItem('latitude')) || 0; // Replace with your default latitude
-        var lon = parseFloat(localStorage.getItem('longitude')) || 0; // Replace with your default longitude
+        
+        var lat = parseFloat(localStorage.getItem('latitude')) || 0; 
+        var lon = parseFloat(localStorage.getItem('longitude')) || 0; 
 
-        // Create a marker and add it to the map
+        
         var marker = L.marker([lat, lon]).addTo(map);
         marker.bindPopup("Your location");
 
-        // Set the map center to the GPS coordinates
+        
         map.setView([lat, lon], 13);
     </script>
 
