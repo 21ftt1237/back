@@ -222,6 +222,7 @@ th, td {
                 <tr>
                 <th>Order Date</th>
                 <th>Total Price</th>
+                <th>Status</th>
                 <th>Action</th>
                 </tr>
                 </thead>
@@ -230,6 +231,7 @@ th, td {
                         <tr>
                         <td>{{ $orderList->created_at }}</td>
                         <td>${{ number_format($orderList->Total_price, 2) }}</td>
+                        <td>{{ $orderList->status }}</td>
                         <td><button>Track</button></td>
                         </tr>
                     @endforeach
