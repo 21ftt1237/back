@@ -407,7 +407,7 @@ body {
   font-size: 14px;
 }
 
-.remove-button {
+#remove-button {
   background-color: #EB4949;
   color: #fff;
   border: none;
@@ -420,7 +420,7 @@ body {
 
 
 
-.remove-button:hover {
+#remove-button:hover {
   background-color: #c63737;
 }
 
@@ -510,7 +510,7 @@ body {
         <button class="add-to-cart-button">Add to Cart</button>
         <form action="{{ route('wishlist.remove', ['product' => $wishlistItem->product]) }}" method="POST">
             @csrf
-            <button type="submit" class="remove-button">Remove</button>
+            <button type="submit" id="remove-button">Remove</button>
         </form>
     </li>
 @endforeach
