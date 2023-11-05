@@ -899,7 +899,7 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
         },
         success: function (response) {
             // Handle success, e.g., display a success message to the user
-            alert(response.message);
+            
             // Now, initiate the order placement
             axios.post('/place-order', {
                 cart_items: cartItems,
@@ -907,16 +907,16 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
             })
             .then(function (response) {
                 // Handle the order placement response, e.g., show a success message or redirect to a thank you page
-                alert(response.message);
+                
             })
             .catch(function (error) {
                 // Handle errors, e.g., show an error message
-                alert('Error placing the order');
+               
             });
         },
         error: function (error) {
             // Handle error, e.g., show an error message
-            alert('Error updating coupon points');
+            
         }
     });
 } else {
@@ -950,7 +950,7 @@ paypal.Buttons({
     // Capture the funds from the transaction
     return actions.order.capture().then(function(details) {
       // Handle a successful payment
-      alert('Transaction completed by ' + details.payer.name.given_name);
+      
 var button = document.getElementById("nextBtn");
     button.disabled = false;
 
