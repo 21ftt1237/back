@@ -278,7 +278,7 @@ ul li .active .uil{
         <ul>
             <li>
                 <i class="icon uil uil-capture"></i>
-                <div class="progress one  active">
+                <div class="progress one ">
                     <p>1</p>
                     <i class="uil uil-check"></i>
                 </div>
@@ -302,7 +302,7 @@ ul li .active .uil{
             </li>
             <li>
                 <i class="icon uil uil-exchange"></i>
-                <div class="progress four">
+                <div class="progress four active">
                     <p>4</p>
                     <i class="uil uil-check"></i>
                 </div>
