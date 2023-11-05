@@ -68,11 +68,11 @@ header .shopping img{
 
 
 
-   NAVBAR*/
+   /*NAVBAR*/
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-   background-image: linear-gradient(to bottom, #ffffff, #fff7ff, #ffeef1, #ffe8d6, #ffeabe, #ffecaa, #fff097, #fdf483, #fbf16f, #faee59, #f8ea41, #f6e71d);
+    background-image: linear-gradient(to bottom, #ffffff, #fff7ff, #ffeef1, #ffe8d6, #ffeabe, #ffecaa, #fff097, #fdf483, #fbf16f, #faee59, #f8ea41, #f6e71d);
 }
 
 .navbar {
