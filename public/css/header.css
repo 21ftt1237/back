@@ -14,7 +14,7 @@ body{
     transition: all 0.2s;
 }
 
-#sub:hover {
+ button[type="submit"]:hover {
   background: #F6E71D;
   border: 1px solid #F6E71D;
   color: black;
