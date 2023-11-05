@@ -13,7 +13,7 @@ class Role extends Model
         'name',
     ];
 
-    // Define relationships if needed
+   
     public function admins()
     {
         return $this->hasMany(admin::class);
