@@ -552,38 +552,6 @@ button {
 <body>
 
 
-<header>
-  
-<div class="landing-page">
-
-        <div class="navbar">
-
-           <div class="logo"><a href="#">Search</a></div>
-
-    
-
-         <div class="shopping">
-                <img src="image/shoppingCart.png">
-                <span class="quantity">0</span>
-            </div>
-
-                   <div class="wishlist">
-             <a href="wishlist/Bruzone Wishlist.html">
-                <img src="image/wishlist.png">
-                <span class="quantity">0</span>
-            </a>
-            </div>
-
-            <a href="profiletest.html" class="nav-link">MY ACCOUNT</a>
-            <a href="#" class="nav-link">ABOUT US</a>
-            <a href="{{ route('dashboard') }}" class="nav-link">HOME</a>
-            <a href="help/help.html" class="nav-link-last">HELP</a>
-              <button class="btn-sign-up">SIGN UP</button>
-        </div>
-    
-
-  </header>
-
         <section>
             <h1>STORE RESULTS</h1>
 
