@@ -242,7 +242,7 @@ header .shopping img{
   line-height: normal;
 }
 
-/*   /* Add styles for the sorting select element */
+  /* Add styles for the sorting select element */
   select#sortCriteria {
   font-size: 14px;
   padding: 5px;
@@ -277,7 +277,7 @@ header .shopping img{
   position: absolute;
   left: 350px;
   top: 160px; /* Adjust as needed */
-} */
+} 
 
  /* New style for the bottom wishlist line */
 .wishlist-line-blw2btn {
