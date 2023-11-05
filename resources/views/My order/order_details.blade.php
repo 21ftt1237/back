@@ -191,7 +191,6 @@ margin-left:30%;
 
     .main{
     display: flex;
-    margin-left: 30px;
     justify-content: center;
     align-items: center;    
     font-family: pop;
@@ -200,7 +199,7 @@ margin-left:30%;
 ul{
     display: flex;
     margin-top: 80px;
-    margin-left: 30%;
+    margin-left: 25%;
 }
 ul li{
     list-style: none;
