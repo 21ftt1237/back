@@ -154,10 +154,23 @@ public function showOrderDetails($created_at)
                          ->with('product')
                          ->get();
 
-    // Pass the orderStatus variable to the view
+    // Retrieve the order status from the orders_list table
+    $orderList = OrderList::where('user_id', $user->id)
+                          ->where('created_at', $created_at)
+                          ->first();
+
+    // Check if an order list record was found
+    if ($orderList) {
+        $orderStatus = $orderList->status;
+    } else {
+        // Handle the case where no order list record was found
+        $orderStatus = "Status not available"; 
+    }
+
+    // Pass the $orderStatus variable to the view
     return view('My order.order_details', [
         'orderDetails' => $orderDetails,
-        'orderStatus' => $orderStatus, 
+        'orderStatus' => $orderStatus,
     ]);
 }
 
