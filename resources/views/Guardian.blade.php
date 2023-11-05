@@ -76,6 +76,13 @@ header {
     margin-left: 20px;
 }
 
+.listCard li div {
+    padding: 10px;
+}
+
+
+    
+
    /*NAVBAR*/
      body {
     font-family: Arial, sans-serif;
