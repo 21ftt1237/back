@@ -84,7 +84,7 @@ header {
     justify-content: center;
     align-items: center !important;
     position: fixed;
-    margin-left: 400px;
+    margin-left: 300px;
 }
     
 
