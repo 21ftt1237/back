@@ -186,20 +186,7 @@ body {
           
         } 
 
-//table
-        
-table {
-    width: 100%;
-    margin: 10px 0;
-    border-collapse: collapse;
-}
 
-
-th {
-    background-color: #333; 
-    color: #fff; 
-    padding: 10px; 
-}
         
 </style>
  
