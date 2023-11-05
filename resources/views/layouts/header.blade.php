@@ -70,7 +70,7 @@ $totalQuantity += $cartItem->quantity; // Add the quantity of the item to the to
   }
 
         .quantity-input input{
-            width: 10px;
+            width: 5px;
         }
     </style>
 </head>
