@@ -69,7 +69,7 @@ header .shopping img{
 
 
    /*NAVBAR*/
-     body {
+/*      body {
     font-family: Arial, sans-serif;
     margin: 0;
    background-image: linear-gradient(to bottom, #ffffff, #fff7ff, #ffeef1, #ffe8d6, #ffeabe, #ffecaa, #fff097, #fdf483, #fbf16f, #faee59, #f8ea41, #f6e71d);
@@ -181,7 +181,7 @@ header .shopping img{
 .search #input{
   width: 900px;
   border-radius: 0px;
-}
+} */
 
  
 
