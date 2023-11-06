@@ -23,7 +23,7 @@ use App\Http\Controllers\OrderController;
 
 Route::get('/', function () {
     return view('dashboard');
-});
+})->middleware(['auth','verified'])->name('dashboard');
 
 Route::get('test', function () {
     return view('test');
