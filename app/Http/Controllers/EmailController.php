@@ -23,7 +23,7 @@ class EmailController extends Controller
         ]);
 
         // Send the email
-        Mail::to('bruzonestore@gmail.com')->send(new EmailToGmail(
+        Mail::to('rekkolosta@gufum.com')->send(new EmailToGmail(
             $request->input('subject'),
             $request->input('from'),
             $request->input('message')
