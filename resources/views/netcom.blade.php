@@ -4,6 +4,17 @@
     $storenumber = '1';
     $carts = 'true';
 @endphp
+
+@auth
+    @php
+    $loggedIn = true;
+    @endphp
+@else
+    @php
+    $loggedIn = false;
+    @endphp
+@endauth
+
 @include('layouts.header')
 <!DOCTYPE html>
 <html>
