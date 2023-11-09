@@ -1670,10 +1670,17 @@ function addReview(review) {
                                 <div class="price">$ {{ $product->price }}</div>
                                 <div class="info">{{ $product->description }}</div>
                                 <div class="actions">
+                                @if(loggedin)
                                  <form action="{{ route('cart.add', ['product' => $product]) }}" method="POST">
                                     @csrf
                                     <button>Add To Cart</button>
-                                 </form>  
+                                 </form>
+                                @else 
+                                 <form action="{{ route('BruzoneLogin') }}">
+                                    @csrf
+                                    <button>Add To Cart</button>
+                                 </form>
+                                @endif
                                     <form action="{{ route('wishlist.add', ['product' => $product]) }}" method="POST">
                                     @csrf
                                    
