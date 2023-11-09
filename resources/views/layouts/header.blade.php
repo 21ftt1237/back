@@ -111,8 +111,12 @@ $totalQuantity += $cartItem->quantity; // Add the quantity of the item to the to
                 @else 
                 <a href="{{ route('BruzoneLogin') }}" class="nav-link">MY ORDERS</a>
                 @endif
+                @if($loggedIn)
                 <a href="{{ route('profilev') }}" class="nav-link">MY ACCOUNT</a>
-                 <div class="dropdown">
+                @else 
+                <a href="{{ route('BruzoneLogin') }}" class="nav-link">MY ACCOUNT</a>
+                @endif
+                <div class="dropdown">
                     <span class="nav-link-last dropbtn">HELP</span>
                     <div class="dropdown-content">
                         <a href="{{ route('BruzoneFAQ') }}">Frequently Asked Question</a>
