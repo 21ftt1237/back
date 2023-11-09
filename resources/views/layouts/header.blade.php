@@ -94,12 +94,19 @@ $totalQuantity += $cartItem->quantity; // Add the quantity of the item to the to
                 <span class="quantity">{{ $totalQuantity }}</span>
                 </div>
                  @endif
+                @if($loggedIn)
                 <div class="wishlist">
-                    <a href="{{ route('wishlist') }}">
-                        <img src="{{ asset('image/wishlist.png') }}">
-                        
-                    </a>
+                <a href="{{ route('wishlist') }}">
+                <img src="{{ asset('image/wishlist.png') }}">
+                </a> 
                 </div>
+                @else       
+                <div class="wishlist">
+                <a href="{{ route('BruzoneLogin') }}">
+                <img src="{{ asset('image/wishlist.png') }}">
+                </a> 
+                </div>   
+                @endif
                 <div>
                     <a href="{{ route('coupon') }}" class="nav-link">REDEEM COUPON</a>
                     
