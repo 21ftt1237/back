@@ -65,6 +65,11 @@ Route::get('store2', function () {
     return view('store2');
 })->name('store2');
 
+Route::get('emails', function () {
+    return view('emails');
+})->name('emails');
+
+
 Route::get('searchFilter', function () {
     return view('searchFilter');
 })->name('searchFilter');
