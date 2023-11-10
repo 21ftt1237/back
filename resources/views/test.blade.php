@@ -5,56 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Sender</title>
 </head>
+    <style>
+        .container{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 <body>
-
-<h2>Email Sender</h2>
-
-
-  
-
-    <button type="button" onclick="sendEmail()">Send Email</button>
-
-
-<script>
- const nodemailer = require("nodemailer");
-
-// Set up nodemailer transporter
-const transporter = nodemailer.createTransport({
-  service: "gmail", // Use the email service provider you prefer
-  auth: {
-    user: "Bruzonestore@gmail.com", // Your email address
-    pass: "Bruzone2023" // Your email password or an app-specific password
-  }
-});
-
-// Function to send an email
-function sendEmail(toEmail, subject, htmlContent) {
-  // Email options
-  const mailOptions = {
-    from: "Bruzonestore@gmail.com", // Your email address
-    to: toEmail,
-    subject: subject,
-    html: htmlContent
-  };
-
-  // Send email
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error("Error sending email:", error);
-    } else {
-      console.log("Email sent:", info.response);
-    }
-  });
-}
-
-// Example usage
-const toEmail = "hafiysyahrulnizam@gmail.com";
-const subject = "Subject of your email";
-const htmlContent = "<p>This is your HTML content</p>";
-
-sendEmail(toEmail, subject, htmlContent);
-
-</script>
-
+<div class="container">
+    <form onsubmit="sendEmail(); reset(); return false;">
+        <h3>Test help</h3>
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Email id" required>
+        <input type="text" id="phone" placeholder="Phone Number" required>
+        <textarea id="message" rows="4" placeholder="How can we help you?"></textarea>
+        <button type="submit">Send</button>
+    </form>
+    
+</div>
+    <script src=" https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+            Email.send({
+            Host : "smtp.gmail.com",
+            Username : "Bruzonestore@gmail.com",
+            Password : "Bruzone2023",
+            To : 'hafiysyahrulnizam@gmail.com',
+            From : document.getElementById("email").value,
+            Subject : "New Email",
+            Body : "And this is the body"
+        }).then(
+          message => alert(message)
+        );
+        }
+    </script>
 </body>
 </html>
