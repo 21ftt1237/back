@@ -30,11 +30,11 @@
     <script>
         function sendEmail(){
             Email.send({
-            Host : "smtp.gmail.com",
+            Host : "Bruzonestore@gmail.com",
             Username : "Bruzonestore@gmail.com",
             Password : "Bruzone2023",
             To : 'hafiysyahrulnizam@gmail.com',
-            From : 'Bruzonestore@gmail.com',
+            From : document.getElementById("email").value,
             Subject : "New Email",
             Body : "And this is the body"
         }).then(
