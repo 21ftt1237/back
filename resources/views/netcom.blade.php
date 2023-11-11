@@ -1568,6 +1568,39 @@ function addReview(review) {
   reviewContainer.appendChild(newReview);
 }
 
+    //store to database tables
+    
+    document.getElementById('submit').addEventListener('click', function(e) {
+    e.preventDefault();
+
+    // Create an object with the review data
+    let reviewData = {
+        stars: state.starsSet,
+        review: form['review'].value,
+    };
+
+    // Make an AJAX request to the Laravel route
+    fetch('/submit-review', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        },
+        body: JSON.stringify(reviewData),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.message); // Handle the response as needed
+    })
+    .catch(error => console.error('Error:', error));
+
+    // Clear the form fields
+    form.reset();
+    remaining.innerHTML = '999';
+    state = starsReducer(state, { type: 'CLICK_STAR', value: 4 });
+    render(state.starsSet);
+});
+
 </script>
 
 </div>
