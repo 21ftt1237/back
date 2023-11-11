@@ -213,7 +213,7 @@ Route::get('/order-list/{orderStatus}', [OrderController::class, 'showOrderList'
 
 Route::get('/email', [EmailController::class, 'index']);
 
-Route::post('/email/send', [EmailController::class, sendEmail'])->name('send.email');
+// Route::post('/email/send', [EmailController::class, sendEmail'])->name('send.email');
 
 //ADMIN
 
