@@ -8,6 +8,8 @@ use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AdminAuthController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ReviewsController;
+
 
 
 /*
@@ -69,9 +71,6 @@ Route::get('emails', function () {
     return view('emails');
 })->name('emails');
 
-Route::get('testhaha', function () {
-    return view('testhaha');
-})->name('testhaha');
 
 Route::get('searchFilter', function () {
     return view('searchFilter');
@@ -160,6 +159,7 @@ Route::get('store2', [ProductController::class, 'yes']);
 
 // Route::get('netcom/products', [ProductController::class, 'index'])->name('netcom.products');
 
+//Store
 
 Route::get('gamecentral', [ProductController::class, 'indexGameCentral'])->name('gamecentral');
 
@@ -171,19 +171,17 @@ Route::get('Nimanja', [ProductController::class, 'indexNimanja'])->name('Nimanja
 
 Route::get('Guardian', [ProductController::class, 'indexGuardian'])->name('Guardian');
 
+Route::get('netcom', [ProductController::class, 'index'])->name('netcom.products');
 
 
+//Review
+
+Route::post('/reviews/store', [ReviewsController::class, 'store'])->name('reviews.store');
 
 
-
+//Cart
 
 Route::post('/cart/add/{product}', [ProductController::class, 'addToCart'])->name('cart.add');
-
-Route::post('/wishlist/add/{product}', [ProductController::class, 'addToWishlist'])->name('wishlist.add');
-
-Route::post('/wishlist/remove/{product}', [ProductController::class, 'removeFromWishlist'])->name('wishlist.remove');
-
-Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 
@@ -193,9 +191,17 @@ Route::post('/increase-quantity/{product}', [CartController::class, 'increaseQua
 
 Route::post('/decrease-quantity/{product}', [CartController::class, 'decreaseQuantity'])->name('decreaseQuantity');
 
-Route::get('netcom', [ProductController::class, 'index'])->name('netcom.products');
+
+//Wishlist
+
+Route::post('/wishlist/add/{product}', [ProductController::class, 'addToWishlist'])->name('wishlist.add');
+
+Route::post('/wishlist/remove/{product}', [ProductController::class, 'removeFromWishlist'])->name('wishlist.remove');
+
+Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
 
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+
 
 //Order
 
