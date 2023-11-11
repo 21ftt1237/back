@@ -7,11 +7,11 @@ use App\Models\Review;
 
 class ReviewController extends Controller
 {
-   public function store(Request $request)
+    
+ public function store(Request $request)
 {
     // Validate the request data
     $request->validate([
-        'store_id' => 'required|exists:stores,id',
         'review' => 'required|string|max:255',
         'rating' => 'required|integer',
     ]);
@@ -19,14 +19,23 @@ class ReviewController extends Controller
     // Get the currently authenticated user
     $user = auth()->user();
 
-    // Insert the review into the database with the authenticated user ID
+    // Find the store by store number
+    $store = Store::where('store_number', $storeNumber)->first();
+
+    // Check if the store exists
+    if (!$store) {
+        return response()->json(['error' => 'Store not found.'], 404);
+    }
+
+    // Insert the review into the database with the authenticated user ID and store ID
     $review = Review::create([
         'user_id' => $user->id,
-        'store_id' => $request->input('store_id'),
+        'store_id' => $store->id,
         'review' => $request->input('review'),
         'rating' => $request->input('rating'),
     ]);
 
     return response()->json($review, 201); // Return the inserted review data
 }
+    
 }
