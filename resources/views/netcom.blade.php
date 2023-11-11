@@ -1367,7 +1367,7 @@ box-shadow:0px 2px 7px 1px grey;
 </div>
 
 <form id="review-form" action="index.html" method="post">
-  <h2>Write Your Review</h2>
+  <h2>Write Your Review For This Store</h2>
   <div id="rating">
     <svg class="star" id="1" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" style="fill: #f39c12;">
       <polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
@@ -1395,16 +1395,6 @@ box-shadow:0px 2px 7px 1px grey;
       <span id="remaining">999</span> Characters remaining
     </span>
   </div>
-  <h2>Your Info:</h2>
-  <div class="form-group">
-    <label for="name">Name:</label>
-    <input class="form-control" type="text" placeholder="Name" name="name" id="name" value="">
-  </div>
-  <div class="form-group">
-    <label for="city">Place:</label>
-    <input class="form-control" type="text" placeholder="place" name="place" id="place" value="">
-  </div>
-
   <button href="#" id="submit" class="submit-btn" type="submit">Submit</button>
   <input id="submitForm" type="submit" style="display:none;">
   <span id="submitInfo" class="help-block">
