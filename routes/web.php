@@ -8,7 +8,7 @@ use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AdminAuthController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\ReviewsController;
+use App\Http\Controllers\ReviewController;
 
 
 
