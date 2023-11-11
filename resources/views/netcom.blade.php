@@ -1509,7 +1509,7 @@ box-shadow:0px 2px 7px 1px grey;
     // Additional logic can be added here if needed
 });
 
-    function displayReviews(reviews) {
+   function displayReviews(reviews) {
   var reviewContainer = document.getElementById('review-container');
   // Clear existing reviews
   reviewContainer.innerHTML = '';
@@ -1519,7 +1519,7 @@ box-shadow:0px 2px 7px 1px grey;
     newReview.className = 'review';
 
     var starContainer = ReviewStarContainer(reviews[i].rating);
-    var contentContainer = ReviewContentContainer(reviews[i].review);
+    var contentContainer = ReviewContentContainer(reviews[i].user.name, reviews[i].created_at, reviews[i].review);
 
     newReview.appendChild(starContainer);
     newReview.appendChild(contentContainer);
