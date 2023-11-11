@@ -1599,9 +1599,9 @@ function addReview(review) {
 document.getElementById('submit').addEventListener('click', function (e) {
     e.preventDefault();
 
-    // Assuming you have the necessary variables: storeNumber, reviewText, rating
-var storeNumber = @json($storenumber);
-    // Add your Ajax request here
+    var reviewText = document.getElementById('review').value;
+    var storeNumber = @json($storenumber);
+   
     $.ajax({
         url: '{{ route("reviews.store") }}',
         type: 'POST',
