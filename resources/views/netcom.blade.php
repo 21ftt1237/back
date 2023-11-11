@@ -1565,12 +1565,17 @@ for (var i = 0; i < reviews.reviews.length; i++) {
   document.getElementById('review-container').appendChild(ReviewsContainer(reviews.reviews[i]));
 }
 
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  let post = {
-    stars: state.starsSet,
-    review: form['review'].value,
-  };
+document.getElementById('submit').addEventListener('click', function (e) {
+    e.preventDefault();
+
+    // Get the selected star rating
+    var selectedRating = document.querySelector('.star[style*="fill: #f39c12;"]').id;
+
+    // Prepare data for submission
+    let post = {
+        rating: selectedRating,
+        review: document.getElementById('review').value,
+    };
 
     // Add an AJAX request to send data to Laravel
     fetch('/submit-review', {
@@ -1584,6 +1589,13 @@ form.addEventListener('submit', function (e) {
     .then(response => response.json())
     .then(data => {
         console.log(data.message); // You can handle success message here
+
+        // Clear the form fields
+        document.getElementById('review').value = '';
+        document.getElementById('remaining').textContent = '999';
+
+        // Reset star ratings
+        document.getElementById(selectedRating).style.fill = '#808080';
     })
     .catch(error => {
         console.error('Error:', error);
