@@ -1411,61 +1411,29 @@ box-shadow:0px 2px 7px 1px grey;
 
 <script type="text/javascript">
   
-function starsReducer(state, action) {
-    switch (action.type) {
-      case 'HOVER_STAR': {
-        return {
-          starsHover: action.value,
-          starsSet: state.starsSet
-        }
-      }
-      case 'CLICK_STAR': {
-        return {
-          starsHover: state.starsHover,
-          starsSet: action.value
-        }
-      }
-        break;
-      default:
-        return state
-    }
-  }
+for (var i = 0; i < StarComponents.length; i++) {
+  StarComponents[i].addEventListener('mouseenter', function () {
+    state = starsReducer(state, {
+      type: 'HOVER_STAR',
+      value: this.id
+    });
+    render(state.starsHover);
+  });
 
-  var StarContainer = document.getElementById('rating');
-  var StarComponents = StarContainer.children;
+  StarComponents[i].addEventListener('click', function () {
+    state = starsReducer(state, {
+      type: 'CLICK_STAR',
+      value: this.id
+    });
+    render(state.starsHover);
 
-  var state = {
-    starsHover: 0,
-    starsSet: 4
-  }
+    // Update the 'rating' variable with the clicked star's ID
+    var rating = parseInt(this.id);
 
-  function render(value) {
-    for(var i = 0; i < StarComponents.length; i++) {
-      StarComponents[i].style.fill = i < value ? '#f39c12' : '#808080'
-    }
-  }
-
-  for (var i=0; i < StarComponents.length; i++) {
-    StarComponents[i].addEventListener('mouseenter', function() {
-      state = starsReducer(state, {
-        type: 'HOVER_STAR',
-        value: this.id
-      })
-      render(state.starsHover);
-    })
-
-    StarComponents[i].addEventListener('click', function() {
-      state = starsReducer(state, {
-        type: 'CLICK_STAR',
-        value: this.id
-      })
-      render(state.starsHover);
-    })
-  }
-
-  StarContainer.addEventListener('mouseleave', function() {
-    render(state.starsSet);
-  })
+    // Log the selected rating to the console
+    console.log('Selected Rating:', rating);
+  });
+}
 
   var review = document.getElementById('review');
   var remaining = document.getElementById('remaining');
