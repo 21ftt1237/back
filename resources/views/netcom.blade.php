@@ -1494,7 +1494,23 @@ function starsReducer(state, action) {
 
   var reviews = {
     reviews: [
+         {
 
+        stars: 2,
+        name: 'C Bro', 
+        place: 'Netcom',
+        review: 'Bro ada jual nasi katok kh sini? kasi campur la bro'
+      },{
+        stars: 1,
+        name: 'C tuha',
+        place: 'Hospital Ripas',
+        review: 'Adeyhh lai, ku ani tuha sdh, inglish na ku paham, cemana kn membali?'
+      },{
+        stars: 5,
+        name: 'C boi',
+        place: 'Uni Arcade',
+        review: 'Gilak nais mousenya ku bali dri sini, very smooth yo'
+      },
     ]
 
   }
