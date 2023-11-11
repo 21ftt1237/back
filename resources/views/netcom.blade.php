@@ -1413,166 +1413,80 @@ box-shadow:0px 2px 7px 1px grey;
 </div>
 
 <script type="text/javascript">
-  
-function starsReducer(state, action) {
-  switch (action.type) {
-    case 'HOVER_STAR': {
-      return {
-        starsHover: action.value,
-        starsSet: state.starsSet
-      };
+
+  function starsReducer(state, action) {
+    switch (action.type) {
+      case 'HOVER_STAR': {
+        return {
+          starsHover: action.value,
+          starsSet: state.starsSet
+        };
+      }
+      case 'CLICK_STAR': {
+        return {
+          starsHover: state.starsHover,
+          starsSet: action.value
+        };
+      }
+      break;
+      default:
+        return state;
     }
-    case 'CLICK_STAR': {
-      return {
-        starsHover: state.starsHover,
-        starsSet: action.value
-      };
-    }
-    break;
-    default:
-      return state;
   }
-}
 
-var StarContainer = document.getElementById('rating');
-var StarComponents = StarContainer.children;
+  var StarContainer = document.getElementById('rating');
+  var StarComponents = StarContainer.children;
 
-var state = {
-  starsHover: 0,
-  starsSet: 4
-};
+  var state = {
+    starsHover: 0,
+    starsSet: 4
+  };
 
-function render(value) {
+  function render(value) {
+    for (var i = 0; i < StarComponents.length; i++) {
+      StarComponents[i].style.fill = i < value ? '#f39c12' : '#808080';
+    }
+  }
+
   for (var i = 0; i < StarComponents.length; i++) {
-    StarComponents[i].style.fill = i < value ? '#f39c12' : '#808080';
-  }
-}
-
-for (var i = 0; i < StarComponents.length; i++) {
-  StarComponents[i].addEventListener('mouseenter', function () {
-    state = starsReducer(state, {
-      type: 'HOVER_STAR',
-      value: this.id
+    StarComponents[i].addEventListener('mouseenter', function () {
+      state = starsReducer(state, {
+        type: 'HOVER_STAR',
+        value: this.id
+      });
+      render(state.starsHover);
     });
-    render(state.starsHover);
+
+    StarComponents[i].addEventListener('click', function () {
+      state = starsReducer(state, {
+        type: 'CLICK_STAR',
+        value: this.id
+      });
+      render(state.starsHover);
+    });
+  }
+
+  StarContainer.addEventListener('mouseleave', function () {
+    render(state.starsSet);
   });
 
-  StarComponents[i].addEventListener('click', function () {
-    state = starsReducer(state, {
-      type: 'CLICK_STAR',
-      value: this.id
-    });
-    render(state.starsHover);
+  var review = document.getElementById('review');
+  var remaining = document.getElementById('remaining');
+  review.addEventListener('input', function (e) {
+    review.value = e.target.value.slice(0, 999);
+    remaining.innerHTML = 999 - e.target.value.length;
   });
-}
 
-StarContainer.addEventListener('mouseleave', function () {
-  render(state.starsSet);
-});
+  var form = document.getElementById('review-form');
 
-var review = document.getElementById('review');
-var remaining = document.getElementById('remaining');
-review.addEventListener('input', function (e) {
-  review.value = e.target.value.slice(0, 999);
-  remaining.innerHTML = 999 - e.target.value.length;
-});
-
-var form = document.getElementById('review-form');
-
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  let post = {
-    stars: state.starsSet,
-    review: form['review'].value
-  };
-
-  console.log(post);
-});
-
-document.getElementById('submit').addEventListener('click', function (e) {
-  e.preventDefault();
-  document.getElementById('submitForm').click();
-});
-
-var reviews = {
-  reviews: [
-    {
-      stars: 2,
-      review: 'Bro ada jual nasi katok kh sini? kasi campur la bro'
-    },
-    {
-      stars: 1,
-      review: 'Adeyhh lai, ku ani tuha sdh, inglish na ku paham, cemana kn membali?'
-    },
-    {
-      stars: 5,
-      review: 'Gilak nais mousenya ku bali dri sini, very smooth yo'
-    }
-  ]
-};
-
-function ReviewStarContainer(stars) {
-  var div = document.createElement('div');
-  div.className = "stars-container";
-  for (var i = 0; i < 5; i++) {
-    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute('viewBox', "0 12.705 512 486.59");
-    svg.setAttribute('x', "0px");
-    svg.setAttribute('y', "0px");
-    svg.setAttribute('xml:space', "preserve");
-    svg.setAttribute('class', "star");
-    var svgNS = svg.namespaceURI;
-    var star = document.createElementNS(svgNS, 'polygon');
-    star.setAttribute('points', '256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566');
-    star.setAttribute('fill', i < stars ? '#f39c12' : '#808080');
-    svg.appendChild(star);
-    div.appendChild(svg);
-  }
-  return div;
-}
-
-function ReviewContentContainer(review) {
-  var comment = document.createElement('p');
-  comment.innerHTML = review;
-
-  var div = document.createElement('div');
-  div.className = "review-content";
-  div.appendChild(comment);
-
-  return div;
-}
-
-function ReviewsContainer(review) {
-  var div = document.createElement('blockquote');
-  div.className = "review";
-  div.appendChild(ReviewStarContainer(review.stars));
-  div.appendChild(ReviewContentContainer(review.review));
-  return div;
-}
-
-for (var i = 0; i < reviews.reviews.length; i++) {
-  document.getElementById('review-container').appendChild(ReviewsContainer(reviews.reviews[i]));
-}
-
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  let post = {
-    stars: state.starsSet,
-    review: form['review'].value
-  };
-
-document.getElementById('submit').addEventListener('click', function (e) {
+  document.getElementById('submit').addEventListener('click', function (e) {
     e.preventDefault();
 
     // Get the form data
-    let formData = new FormData(document.getElementById('review-form'));
+    let formData = new FormData(form);
 
     // Add the CSRF token
     formData.append('_token', '{{ csrf_token() }}');
-
-    // Make sure the "review" field is included
-    let reviewInput = document.getElementById('review');
-    formData.append('review', reviewInput.value);
 
     // Make an AJAX request to submit the form data
     fetch('/submit-review', {
@@ -1588,32 +1502,83 @@ document.getElementById('submit').addEventListener('click', function (e) {
         console.error('Error:', error);
         // Handle errors if any
     });
-});
 
+    // Additional logic can be added here if needed
+  });
 
-  // Add the submitted review to the reviews container
-  addReview(post);
+  var reviews = {
+    reviews: [
+      {
+        stars: 2,
+        review: 'Bro ada jual nasi katok kh sini? kasi campur la bro'
+      },
+      {
+        stars: 1,
+        review: 'Adeyhh lai, ku ani tuha sdh, inglish na ku paham, cemana kn membali?'
+      },
+      {
+        stars: 5,
+        review: 'Gilak nais mousenya ku bali dri sini, very smooth yo'
+      }
+    ]
+  };
 
-  // Clear the form fields
-  form.reset();
-  remaining.innerHTML = '999';
-  state = starsReducer(state, { type: 'CLICK_STAR', value: 4 });
-  render(state.starsSet);
-});
+  function ReviewStarContainer(stars) {
+    var div = document.createElement('div');
+    div.className = "stars-container";
+    for (var i = 0; i < 5; i++) {
+      var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      svg.setAttribute('viewBox', "0 12.705 512 486.59");
+      svg.setAttribute('x', "0px");
+      svg.setAttribute('y', "0px");
+      svg.setAttribute('xml:space', "preserve");
+      svg.setAttribute('class', "star");
+      var svgNS = svg.namespaceURI;
+      var star = document.createElementNS(svgNS, 'polygon');
+      star.setAttribute('points', '256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566');
+      star.setAttribute('fill', i < stars ? '#f39c12' : '#808080');
+      svg.appendChild(star);
+      div.appendChild(svg);
+    }
+    return div;
+  }
 
-function addReview(review) {
-  var reviewContainer = document.getElementById('review-container');
-  var newReview = document.createElement('div');
-  newReview.className = 'review';
+  function ReviewContentContainer(review) {
+    var comment = document.createElement('p');
+    comment.innerHTML = review;
 
-  var starContainer = ReviewStarContainer(review.stars);
-  var contentContainer = ReviewContentContainer(review.review);
+    var div = document.createElement('div');
+    div.className = "review-content";
+    div.appendChild(comment);
 
-  newReview.appendChild(starContainer);
-  newReview.appendChild(contentContainer);
+    return div;
+  }
 
-  reviewContainer.appendChild(newReview);
-}
+  function ReviewsContainer(review) {
+    var div = document.createElement('blockquote');
+    div.className = "review";
+    div.appendChild(ReviewStarContainer(review.stars));
+    div.appendChild(ReviewContentContainer(review.review));
+    return div;
+  }
+
+  for (var i = 0; i < reviews.reviews.length; i++) {
+    document.getElementById('review-container').appendChild(ReviewsContainer(reviews.reviews[i]));
+  }
+
+  function addReview(review) {
+    var reviewContainer = document.getElementById('review-container');
+    var newReview = document.createElement('div');
+    newReview.className = 'review';
+
+    var starContainer = ReviewStarContainer(review.stars);
+    var contentContainer = ReviewContentContainer(review.review);
+
+    newReview.appendChild(starContainer);
+    newReview.appendChild(contentContainer);
+
+    reviewContainer.appendChild(newReview);
+  }
 
 </script>
 
