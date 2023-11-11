@@ -1508,6 +1508,22 @@ box-shadow:0px 2px 7px 1px grey;
 
     // Additional logic can be added here if needed
 });
+
+    function displayReview(review) {
+    var reviewContainer = document.getElementById('review-container');
+
+    var newReview = document.createElement('div');
+    newReview.className = 'review';
+
+    var starContainer = ReviewStarContainer(review.rating);
+    var contentContainer = ReviewContentContainer(review.review);
+
+    newReview.appendChild(starContainer);
+    newReview.appendChild(contentContainer);
+
+    reviewContainer.appendChild(newReview);
+  }
+
     
   var reviews = {
     reviews: [
