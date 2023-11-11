@@ -1479,7 +1479,7 @@ box-shadow:0px 2px 7px 1px grey;
 
   var form = document.getElementById('review-form');
 
-  document.getElementById('submit').addEventListener('click', function (e) {
+ document.getElementById('submit').addEventListener('click', function (e) {
     e.preventDefault();
 
     // Get the form data
@@ -1487,6 +1487,9 @@ box-shadow:0px 2px 7px 1px grey;
 
     // Add the CSRF token
     formData.append('_token', '{{ csrf_token() }}');
+
+    // Add the rating field to the form data
+    formData.append('rating', state.starsSet);
 
     // Make an AJAX request to submit the form data
     fetch('/submit-review', {
@@ -1504,8 +1507,8 @@ box-shadow:0px 2px 7px 1px grey;
     });
 
     // Additional logic can be added here if needed
-  });
-
+});
+    
   var reviews = {
     reviews: [
       {
