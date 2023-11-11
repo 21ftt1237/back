@@ -1600,7 +1600,7 @@ document.getElementById('submit').addEventListener('click', function (e) {
     .catch(error => {
         console.error('Error:', error);
     });
-});
+
 
   // Add the submitted review to the reviews container
   addReview(post);
