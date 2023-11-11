@@ -1577,12 +1577,16 @@ box-shadow:0px 2px 7px 1px grey;
     return div;
   }
 
-    // Fetch reviews when the page loads
 window.addEventListener('load', function () {
-  fetch('/get-reviews') // Replace with your endpoint to fetch reviews
+  fetch('/get-reviews')
     .then(response => response.json())
     .then(data => {
       console.log(data);
+      
+      if (data.debug) {
+        console.log(data.debug);
+      }
+
       // Display the fetched reviews
       displayReviews(data.reviews);
     })
@@ -1591,6 +1595,7 @@ window.addEventListener('load', function () {
       // Handle errors if any
     });
 });
+
 
   function ReviewsContainer(review) {
     var div = document.createElement('blockquote');
