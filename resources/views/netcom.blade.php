@@ -1509,20 +1509,24 @@ box-shadow:0px 2px 7px 1px grey;
     // Additional logic can be added here if needed
 });
 
-    function displayReview(review) {
-    var reviewContainer = document.getElementById('review-container');
+    function displayReviews(reviews) {
+  var reviewContainer = document.getElementById('review-container');
+  // Clear existing reviews
+  reviewContainer.innerHTML = '';
 
+  for (var i = 0; i < reviews.length; i++) {
     var newReview = document.createElement('div');
     newReview.className = 'review';
 
-    var starContainer = ReviewStarContainer(review.rating);
-    var contentContainer = ReviewContentContainer(review.review);
+    var starContainer = ReviewStarContainer(reviews[i].rating);
+    var contentContainer = ReviewContentContainer(reviews[i].review);
 
     newReview.appendChild(starContainer);
     newReview.appendChild(contentContainer);
 
     reviewContainer.appendChild(newReview);
   }
+}
 
     
   var reviews = {
@@ -1572,6 +1576,21 @@ box-shadow:0px 2px 7px 1px grey;
 
     return div;
   }
+
+    // Fetch reviews when the page loads
+window.addEventListener('load', function () {
+  fetch('/get-reviews') // Replace with your endpoint to fetch reviews
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      // Display the fetched reviews
+      displayReviews(data.reviews);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Handle errors if any
+    });
+});
 
   function ReviewsContainer(review) {
     var div = document.createElement('blockquote');
