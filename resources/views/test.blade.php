@@ -34,7 +34,7 @@
             Username : "Bruzonestore@gmail.com",
             Password : "Bruzone2023",
             To : 'hafiysyahrulnizam@gmail.com',
-            From : document.getElementById("email").value,
+            From : 'Bruzonestore@gmail.com',
             Subject : "New Email",
             Body : "And this is the body"
         }).then(
