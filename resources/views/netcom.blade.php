@@ -1566,16 +1566,21 @@ box-shadow:0px 2px 7px 1px grey;
     return div;
   }
 
-  function ReviewContentContainer(review) {
-    var comment = document.createElement('p');
-    comment.innerHTML = review;
+  function ReviewContentContainer(name, createdAt, review) {
+  var reviewee = document.createElement('div');
+  reviewee.className = "reviewee footer";
+  reviewee.innerHTML = '- ' + name + ', ' + createdAt; // Include the creation time
 
-    var div = document.createElement('div');
-    div.className = "review-content";
-    div.appendChild(comment);
+  var comment = document.createElement('p');
+  comment.innerHTML = review;
 
-    return div;
-  }
+  var div = document.createElement('div');
+  div.className = "review-content";
+  div.appendChild(comment);
+  div.appendChild(reviewee);
+
+  return div;
+}
 
 window.addEventListener('load', function () {
   fetch('/get-reviews')
