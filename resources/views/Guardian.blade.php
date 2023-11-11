@@ -3,6 +3,8 @@
     $storehere = 'true';
     $storenumber = '6';
     $carts = 'true';
+  $deliveryFee = 2; // Set the default delivery fee for this store
+
 @endphp
 @include('layouts.header')
 <!DOCTYPE html>
