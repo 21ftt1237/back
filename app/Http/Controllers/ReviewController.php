@@ -9,25 +9,27 @@ use Illuminate\Support\Facades\Auth;
 class ReviewController extends Controller
 {
     
-public function submitReview(Request $request)
+public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'rating' => 'required|integer|min:1|max:5',
-            'review' => 'required|string|max:255',
+        // Validate the request data
+        $request->validate([
+            'review' => 'required|string',
+            'rating' => 'required|integer',
         ]);
 
-        // Assuming you have an authenticated user
-        $user_id = auth()->id();
+        // Get the currently logged user's ID
+        $userId = auth()->id();
 
-        // Create a new review
-        Review::create([
-            'user_id' => $user_id,
-            'store_id' => $request->input('store_id'), // You may need to pass the store_id from the front end
-            'rating' => $validatedData['rating'],
-            'review' => $validatedData['review'],
+        // Create a new review record
+        $review = Review::create([
+            'user_id' => $userId,
+            'review' => $request->input('review'),
+            'rating' => $request->input('rating'),
+            // Add store_id if you have a way to associate the review with a store
         ]);
 
-        return response()->json(['message' => 'Review submitted successfully']);
+        // Redirect or return a response as needed
+        return redirect()->back()->with('success', 'Review submitted successfully!');
     }
     
 }
