@@ -39,6 +39,10 @@ public function wishlist()
     return $this->belongsToMany(Product::class, 'wishlist', 'user_id', 'product_id');
 }
 
+public function reviews()
+{
+    return $this->hasMany(Review::class);
+}
 
 }
 
