@@ -9,33 +9,21 @@ use Auth;
 class ReviewController extends Controller
 {
     
- public function store(Request $request)
+public function store(Request $request)
     {
-        $user = Auth::user(); // Get the currently logged-in user
-
-        // Assuming you have a variable $storeNumber available
-        $storeNumber = $request->input('storeNumber');
-
-        // Fetch store based on the store number
-        $store = Store::where('store_number', $storeNumber)->first();
-
-        // Check if the store exists
-        if (!$store) {
-            return response()->json(['error' => 'Store not found'], 404);
-        }
-
-        // Create a new review
-        $review = new Review([
-            'user_id' => $user->id,
-            'store_id' => $store->id,
-            'review' => $request->input('review'),
-            'rating' => $request->input('rating'),
+        $request->validate([
+            'stars' => 'required|integer|min:1|max:5',
+            'review' => 'required|string',
         ]);
 
-        // Save the review
-        $review->save();
+        // Store the review associated with the currently logged-in user
+        $user = Auth::user();
+        $review = new Review;
+        $review->stars = $request->input('stars');
+        $review->review = $request->input('review');
+        $user->reviews()->save($review);
 
-        return response()->json(['success' => true]);
+        return response()->json(['message' => 'Review submitted successfully']);
     }
     
 }
