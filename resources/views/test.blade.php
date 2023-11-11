@@ -1,46 +1,40 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form data
+    $to = "Bruzonestore@gmail.com";
+    $subject = $_POST["subject"];
+    $message = $_POST["message"];
+    $headers = "From: " . $_POST["email"];
+
+    // Send email
+    if (mail($to, $subject, $message, $headers)) {
+        echo "Email sent successfully!";
+    } else {
+        echo "Error sending email.";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Sender</title>
+    <title>Contact Form</title>
 </head>
-    <style>
-        .container{
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
 <body>
-<div class="container">
-    <form onsubmit="sendEmail(); reset(); return false;">
-        <h3>Test help</h3>
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="email" id="email" placeholder="Email id" required>
-        <input type="text" id="phone" placeholder="Phone Number" required>
-        <textarea id="message" rows="4" placeholder="How can we help you?"></textarea>
-        <button type="submit">Send</button>
+    <h2>Contact Us</h2>
+    <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+        <label for="email">Your Email:</label>
+        <input type="email" name="email" required><br>
+
+        <label for="subject">Subject:</label>
+        <input type="text" name="subject" required><br>
+
+        <label for="message">Message:</label>
+        <textarea name="message" rows="4" required></textarea><br>
+
+        <input type="submit" value="Send Email">
     </form>
-    
-</div>
-    <script src=" https://smtpjs.com/v3/smtp.js"></script>
-    <script>
-        function sendEmail(){
-            Email.send({
-            Host : "smtp.elasticemail.com",
-            Username : "Bruzonestore@gmail.com",
-            Password : "Bruzone2023",
-            To : 'hafiysyahrulnizam@gmail.com',
-            From : 'Bruzonestore@gmail.com',
-            Subject : "New Email",
-            Body : "And this is the body"
-        }).then(
-          message => alert(message)
-        );
-        }
-    </script>
 </body>
 </html>
