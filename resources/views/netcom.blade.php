@@ -1602,33 +1602,42 @@ function addReview(review) {
   reviewContainer.appendChild(newReview);
 }
 
-   
+//Ajax fabuluso
+    
 document.getElementById('submit').addEventListener('click', function (e) {
-e.preventDefault();
-        
-// Assuming you have the necessary variables: storeNumber, reviewText, rating
+    e.preventDefault();
 
-// Add your Ajax request here
-$.ajax({
-url: '{{ route("reviews.store") }}', // Assuming the route name is "reviews.store"
-type: 'POST',
-dataType: 'json',
-data: {
-        '_token': $('meta[name="csrf-token"]').attr('content'),
-        'storeNumber': storeNumber,
-        'review': reviewText,
-        'rating': rating,
-    },
-success: function (data) {
-    console.log(data);
-// You can handle success actions here
-    },
-error: function (error) {
-console.error(error);
-// You can handle error actions here
-    },
+    // Assuming you have the necessary variables: storeNumber, reviewText, rating
+
+    // Add your Ajax request here
+    $.ajax({
+        url: '{{ route("reviews.store") }}',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            '_token': $('meta[name="csrf-token"]').attr('content'),
+            'storeNumber': storeNumber,
+            'review': reviewText,
+            'rating': rating,
+        },
+        success: function (data) {
+            console.log(data);
+
+            // Log success message to Laravel log
+            logger('Review submitted successfully.');
+
+            // You can handle success actions here
+        },
+        error: function (error) {
+            console.error(error);
+
+            // Log error message to Laravel log
+            logger('Error submitting review: ' + JSON.stringify(error));
+
+            // You can handle error actions here
+        },
     });
-    });
+});
 
 
 </script>
