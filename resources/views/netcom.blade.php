@@ -1411,48 +1411,54 @@ box-shadow:0px 2px 7px 1px grey;
 
 <script type="text/javascript">
   
-for (var i = 0; i < StarComponents.length; i++) {
-  StarComponents[i].addEventListener('mouseenter', function () {
-    state = starsReducer(state, {
-      type: 'HOVER_STAR',
-      value: this.id
-    });
-    render(state.starsHover);
-  });
-
-  StarComponents[i].addEventListener('click', function () {
-    state = starsReducer(state, {
-      type: 'CLICK_STAR',
-      value: this.id
-    });
-    render(state.starsHover);
-
-    // Update the 'rating' variable with the clicked star's ID
-    var rating = parseInt(this.id);
-
-    // Log the selected rating to the console
-    console.log('Selected Rating:', rating);
-  });
-}
-
-  var review = document.getElementById('review');
-  var remaining = document.getElementById('remaining');
-  review.addEventListener('input', function(e) {
-    review.value = (e.target.value.slice(0,999));
-    remaining.innerHTML = (999-e.target.value.length);
-  })
-
-  var form = document.getElementById("review-form")
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    let post = {
-      stars: state.starsSet,
-      review: form['review'].value,
-      
+function starsReducer(state, action) {
+    switch (action.type) {
+      case 'HOVER_STAR': {
+        return {
+          starsHover: action.value,
+          starsSet: state.starsSet
+        }
+      }
+      case 'CLICK_STAR': {
+        return {
+          starsHover: state.starsHover,
+          starsSet: action.value
+        }
+      }
+        break;
+      default:
+        return state
     }
-
-    console.log(post)
+  }
+  var StarContainer = document.getElementById('rating');
+  var StarComponents = StarContainer.children;
+  var state = {
+    starsHover: 0,
+    starsSet: 4
+  }
+  function render(value) {
+    for(var i = 0; i < StarComponents.length; i++) {
+      StarComponents[i].style.fill = i < value ? '#f39c12' : '#808080'
+    }
+  }
+  for (var i=0; i < StarComponents.length; i++) {
+    StarComponents[i].addEventListener('mouseenter', function() {
+      state = starsReducer(state, {
+        type: 'HOVER_STAR',
+        value: this.id
+      })
+      render(state.starsHover);
+    })
+    StarComponents[i].addEventListener('click', function() {
+      state = starsReducer(state, {
+        type: 'CLICK_STAR',
+        value: this.id
+      })
+      render(state.starsHover);
+    })
+  }
+  StarContainer.addEventListener('mouseleave', function() {
+    render(state.starsSet);
   })
 
   document.getElementById('submit').addEventListener('click', function(e) {
