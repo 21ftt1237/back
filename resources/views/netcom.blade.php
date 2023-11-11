@@ -1479,8 +1479,6 @@ function starsReducer(state, action) {
     let post = {
       stars: state.starsSet,
       review: form['review'].value,
-      name: form['name'].value,
-      place: form['place'].value,
       
     }
 
@@ -1496,19 +1494,13 @@ function starsReducer(state, action) {
     reviews: [
          {
 
-        stars: 2,
-        name: 'C Bro', 
-        place: 'Netcom',
+        stars: 2,      
         review: 'Bro ada jual nasi katok kh sini? kasi campur la bro'
       },{
         stars: 1,
-        name: 'C tuha',
-        place: 'Hospital Ripas',
         review: 'Adeyhh lai, ku ani tuha sdh, inglish na ku paham, cemana kn membali?'
       },{
         stars: 5,
-        name: 'C boi',
-        place: 'Uni Arcade',
         review: 'Gilak nais mousenya ku bali dri sini, very smooth yo'
       },
     ]
@@ -1537,11 +1529,11 @@ function starsReducer(state, action) {
     return div;
   }
 
-  function ReviewContentContainer(name, place, review) {
+  function ReviewContentContainer(review) {
 
     var reviewee = document.createElement('div');
     reviewee.className = "reviewee footer";
-    reviewee.innerHTML  = '- ' + name + ', ' + place
+    
 
     var comment = document.createElement('p');
     comment.innerHTML = review;
@@ -1558,7 +1550,7 @@ function starsReducer(state, action) {
     var div = document.createElement('blockquote');
     div.className = "review";
     div.appendChild(ReviewStarContainer(review.stars));
-    div.appendChild(ReviewContentContainer(review.name,review.place,review.review));
+    div.appendChild(ReviewContentContainer(review.review));
     return div;
   }
 
@@ -1572,8 +1564,6 @@ function starsReducer(state, action) {
   let post = {
     stars: state.starsSet,
     review: form['review'].value,
-    name: form['name'].value,
-    place: form['place'].value,
   };
 
   // Add the submitted review to the reviews container
@@ -1594,7 +1584,7 @@ function addReview(review) {
   newReview.className = 'review';
   
   var starContainer = ReviewStarContainer(review.stars);
-  var contentContainer = ReviewContentContainer(review.name, review.place, review.review);
+  var contentContainer = ReviewContentContainer(review.review);
   
   newReview.appendChild(starContainer);
   newReview.appendChild(contentContainer);
