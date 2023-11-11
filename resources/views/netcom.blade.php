@@ -1397,15 +1397,7 @@ box-shadow:0px 2px 7px 1px grey;
       <span id="remaining">999</span> Characters remaining
     </span>
   </div>
-  <h2>Your Info:</h2>
-  <div class="form-group">
-    <label for="name">Name:</label>
-    <input class="form-control" type="text" placeholder="Name" name="name" id="name" value="">
-  </div>
-  <div class="form-group">
-    <label for="city">Place:</label>
-    <input class="form-control" type="text" placeholder="place" name="place" id="place" value="">
-  </div>
+ 
 
   <button href="#" id="submit" class="submit-btn" type="submit">Submit</button>
   <input id="submitForm" type="submit" style="display:none;">
@@ -1422,91 +1414,88 @@ box-shadow:0px 2px 7px 1px grey;
 <script type="text/javascript">
   
 function starsReducer(state, action) {
-    switch (action.type) {
-      case 'HOVER_STAR': {
-        return {
-          starsHover: action.value,
-          starsSet: state.starsSet
-        }
-      }
-      case 'CLICK_STAR': {
-        return {
-          starsHover: state.starsHover,
-          starsSet: action.value
-        }
-      }
-        break;
-      default:
-        return state
+  switch (action.type) {
+    case 'HOVER_STAR': {
+      return {
+        starsHover: action.value,
+        starsSet: state.starsSet,
+      };
     }
-  }
-
-  var StarContainer = document.getElementById('rating');
-  var StarComponents = StarContainer.children;
-
-  var state = {
-    starsHover: 0,
-    starsSet: 4
-  }
-
-  function render(value) {
-    for(var i = 0; i < StarComponents.length; i++) {
-      StarComponents[i].style.fill = i < value ? '#f39c12' : '#808080'
+    case 'CLICK_STAR': {
+      return {
+        starsHover: state.starsHover,
+        starsSet: action.value,
+      };
     }
+    break;
+    default:
+      return state;
   }
+}
 
-  for (var i=0; i < StarComponents.length; i++) {
-    StarComponents[i].addEventListener('mouseenter', function() {
-      state = starsReducer(state, {
-        type: 'HOVER_STAR',
-        value: this.id
-      })
-      render(state.starsHover);
-    })
+var StarContainer = document.getElementById('rating');
+var StarComponents = StarContainer.children;
 
-    StarComponents[i].addEventListener('click', function() {
-      state = starsReducer(state, {
-        type: 'CLICK_STAR',
-        value: this.id
-      })
-      render(state.starsHover);
-    })
+var state = {
+  starsHover: 0,
+  starsSet: 4,
+};
+
+function render(value) {
+  for (var i = 0; i < StarComponents.length; i++) {
+    StarComponents[i].style.fill = i < value ? '#f39c12' : '#808080';
   }
+}
 
-  StarContainer.addEventListener('mouseleave', function() {
-    render(state.starsSet);
-  })
+for (var i = 0; i < StarComponents.length; i++) {
+  StarComponents[i].addEventListener('mouseenter', function () {
+    state = starsReducer(state, {
+      type: 'HOVER_STAR',
+      value: this.id,
+    });
+    render(state.starsHover);
+  });
 
-  var review = document.getElementById('review');
-  var remaining = document.getElementById('remaining');
-  review.addEventListener('input', function(e) {
-    review.value = (e.target.value.slice(0,999));
-    remaining.innerHTML = (999-e.target.value.length);
-  })
+  StarComponents[i].addEventListener('click', function () {
+    state = starsReducer(state, {
+      type: 'CLICK_STAR',
+      value: this.id,
+    });
+    render(state.starsHover);
+  });
+}
 
-  var form = document.getElementById("review-form")
+StarContainer.addEventListener('mouseleave', function () {
+  render(state.starsSet);
+});
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    let post = {
-      stars: state.starsSet,
-      review: form['review'].value,
-      name: form['name'].value,
-      place: form['place'].value,
-      
-    }
+var review = document.getElementById('review');
+var remaining = document.getElementById('remaining');
+review.addEventListener('input', function (e) {
+  review.value = e.target.value.slice(0, 999);
+  remaining.innerHTML = 999 - e.target.value.length;
+});
 
-    console.log(post)
-  })
+var form = document.getElementById('review-form');
 
-  document.getElementById('submit').addEventListener('click', function(e) {
-    e.preventDefault();
-    document.getElementById('submitForm').click();
-  })
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  let post = {
+    stars: state.starsSet,
+    review: form['review'].value,
+  };
 
-  var reviews = {
-    reviews: [
-      {
+  console.log(post);
+});
+
+document.getElementById('submit').addEventListener('click', function (e) {
+  e.preventDefault();
+  document.getElementById('submitForm').click();
+});
+
+var reviews = {
+  reviews: [
+    {
 
         stars: 2,
         name: 'C Bro', 
@@ -1523,69 +1512,67 @@ function starsReducer(state, action) {
         place: 'Uni Arcade',
         review: 'Gilak nais mousenya ku bali dri sini, very smooth yo'
       },
-    ]
+  ],
+};
 
+function ReviewStarContainer(stars) {
+  var div = document.createElement('div');
+  div.className = 'stars-container';
+  for (var i = 0; i < 5; i++) {
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 12.705 512 486.59');
+    svg.setAttribute('x', '0px');
+    svg.setAttribute('y', '0px');
+    svg.setAttribute('xml:space', 'preserve');
+    svg.setAttribute('class', 'star');
+    var svgNS = svg.namespaceURI;
+    var star = document.createElementNS(svgNS, 'polygon');
+    star.setAttribute(
+      'points',
+      '256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566'
+    );
+    star.setAttribute('fill', i < stars ? '#f39c12' : '#808080');
+    svg.appendChild(star);
+    div.appendChild(svg);
   }
+  return div;
+}
 
+function ReviewContentContainer(name, place, review) {
+  var reviewee = document.createElement('div');
+  reviewee.className = 'reviewee footer';
+  reviewee.innerHTML = '- ' + name + ', ' + place;
 
+  var comment = document.createElement('p');
+  comment.innerHTML = review;
 
-  function ReviewStarContainer(stars) {
-    var div = document.createElement('div');
-    div.className = "stars-container";
-    for (var i = 0; i < 5; i++) {
-      var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      svg.setAttribute('viewBox',"0 12.705 512 486.59");
-      svg.setAttribute('x',"0px");
-      svg.setAttribute('y',"0px");
-      svg.setAttribute('xml:space',"preserve");
-      svg.setAttribute('class',"star");
-      var svgNS = svg.namespaceURI;
-      var star = document.createElementNS(svgNS,'polygon');
-      star.setAttribute('points', '256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566');
-      star.setAttribute('fill', i < stars ? '#f39c12' : '#808080');
-      svg.appendChild(star);
-      div.appendChild(svg);
-    }
-    return div;
-  }
+  var div = document.createElement('div');
+  div.className = 'review-content';
+  div.appendChild(comment);
+  div.appendChild(reviewee);
 
-  function ReviewContentContainer(name, place, review) {
+  return div;
+}
 
-    var reviewee = document.createElement('div');
-    reviewee.className = "reviewee footer";
-    reviewee.innerHTML  = '- ' + name + ', ' + place
+function ReviewsContainer(review) {
+  var div = document.createElement('blockquote');
+  div.className = 'review';
+  div.appendChild(ReviewStarContainer(review.stars));
+  div.appendChild(
+    ReviewContentContainer(review.name, review.place, review.review)
+  );
+  return div;
+}
 
-    var comment = document.createElement('p');
-    comment.innerHTML = review;
+for (var i = 0; i < reviews.reviews.length; i++) {
+  document.getElementById('review-container').appendChild(ReviewsContainer(reviews.reviews[i]));
+}
 
-    var div = document.createElement('div');
-    div.className = "review-content";
-    div.appendChild(comment);
-    div.appendChild(reviewee);
-
-    return div;
-  }
-
-  function ReviewsContainer(review) {
-    var div = document.createElement('blockquote');
-    div.className = "review";
-    div.appendChild(ReviewStarContainer(review.stars));
-    div.appendChild(ReviewContentContainer(review.name,review.place,review.review));
-    return div;
-  }
-
-  for(var i = 0; i < reviews.reviews.length; i++) {
-    document.getElementById('review-container').appendChild(ReviewsContainer(reviews.reviews[i]))
-  }
-
-
-  form.addEventListener('submit', function(e) {
+form.addEventListener('submit', function (e) {
   e.preventDefault();
   let post = {
     stars: state.starsSet,
     review: form['review'].value,
-    name: form['name'].value,
-    place: form['place'].value,
   };
 
   // Add the submitted review to the reviews container
@@ -1598,21 +1585,24 @@ function starsReducer(state, action) {
   render(state.starsSet);
 });
 
-
-
 function addReview(review) {
   var reviewContainer = document.getElementById('review-container');
   var newReview = document.createElement('div');
   newReview.className = 'review';
-  
+
   var starContainer = ReviewStarContainer(review.stars);
-  var contentContainer = ReviewContentContainer(review.name, review.place, review.review);
-  
+  var contentContainer = ReviewContentContainer(
+    'Anonymous', // Since name and place are removed, set them to default values
+    'Unknown',
+    review.review
+  );
+
   newReview.appendChild(starContainer);
   newReview.appendChild(contentContainer);
-  
+
   reviewContainer.appendChild(newReview);
 }
+
 
 </script>
 
