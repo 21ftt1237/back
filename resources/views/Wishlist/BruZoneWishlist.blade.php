@@ -543,6 +543,35 @@ body {
 
     </ul> -->
 <!--       </div> -->
+
+         <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const sortCriteria = document.getElementById("sortCriteria");
+        const wishlistItemsContainer = document.querySelector(".wishlist-items ul");
+
+        sortCriteria.addEventListener("change", function () {
+            const selectedOption = sortCriteria.value;
+            const wishlistItems = Array.from(wishlistItemsContainer.children);
+
+            if (selectedOption === "priceLowToHigh") {
+                wishlistItems.sort((a, b) => {
+                    const priceA = parseFloat(a.querySelector(".item-price").textContent.split(" ")[1]);
+                    const priceB = parseFloat(b.querySelector(".item-price").textContent.split(" ")[1]);
+                    return priceA - priceB;
+                });
+            } else if (selectedOption === "priceHighToLow") {
+                wishlistItems.sort((a, b) => {
+                    const priceA = parseFloat(a.querySelector(".item-price").textContent.split(" ")[1]);
+                    const priceB = parseFloat(b.querySelector(".item-price").textContent.split(" ")[1]);
+                    return priceB - priceA;
+                });
+            }
+
+            wishlistItems.forEach(item => wishlistItemsContainer.appendChild(item));
+        });
+    });
+</script>
+         
 </body>
       
 
