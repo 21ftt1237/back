@@ -1575,6 +1575,24 @@ form.addEventListener('submit', function (e) {
     review: form['review'].value,
   };
 
+    // Add an AJAX request to send data to Laravel
+    fetch('/submit-review', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        },
+        body: JSON.stringify(post),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.message); // You can handle success message here
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+
   // Add the submitted review to the reviews container
   addReview(post);
 
