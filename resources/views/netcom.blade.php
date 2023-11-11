@@ -1560,6 +1560,31 @@ form.addEventListener('submit', function (e) {
     review: form['review'].value
   };
 
+document.getElementById('submit').addEventListener('click', function (e) {
+    e.preventDefault();
+
+    // Get the form data
+    let formData = new FormData(document.getElementById('review-form'));
+
+    // Add the CSRF token
+    formData.append('_token', '{{ csrf_token() }}');
+
+    // Make an AJAX request to submit the form data
+    fetch('/submit-review', {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        // Handle the response as needed (e.g., display a success message)
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        // Handle errors if any
+    });
+});
+
   // Add the submitted review to the reviews container
   addReview(post);
 
