@@ -1574,6 +1574,9 @@ function addReview(review) {
 localStorage.setItem('delivery', '5');
 localStorage.setItem('storename', 'Guardian (Sengkurong)');
 
+    // Save the delivery fee to local storage
+    localStorage.setItem('deliveryFee', '{{ $deliveryFee }}');
+
 var storeId = 6;
 var previousStore = localStorage.getItem('storeId');
 var parseVal = parseInt(previousStore);
