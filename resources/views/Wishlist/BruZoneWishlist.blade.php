@@ -90,10 +90,10 @@ header .shopping img{
     margin-left: 350px;
 }
 
-.item-price {
+/* .item-price {
     position: fixed;
     margin-left: 180px;
-}
+} */
 
 
 
