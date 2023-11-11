@@ -1600,7 +1600,7 @@ document.getElementById('submit').addEventListener('click', function (e) {
     e.preventDefault();
 
     // Assuming you have the necessary variables: storeNumber, reviewText, rating
-
+var storeNumber = @json($storenumber);
     // Add your Ajax request here
     $.ajax({
         url: '{{ route("reviews.store") }}',
