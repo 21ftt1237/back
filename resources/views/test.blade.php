@@ -30,7 +30,7 @@
     <script>
         function sendEmail(){
             Email.send({
-            Host : "smtp.gmail.com",
+            Host : "smtp.elasticemail.com",
             Username : "Bruzonestore@gmail.com",
             Password : "Bruzone2023",
             To : 'hafiysyahrulnizam@gmail.com',
