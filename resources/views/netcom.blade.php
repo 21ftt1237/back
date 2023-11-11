@@ -1570,6 +1570,10 @@ document.getElementById('submit').addEventListener('click', function (e) {
     // Add the CSRF token
     formData.append('_token', '{{ csrf_token() }}');
 
+    // Make sure the "review" field is included
+    let reviewInput = document.getElementById('review');
+    formData.append('review', reviewInput.value);
+
     // Make an AJAX request to submit the form data
     fetch('/submit-review', {
         method: 'POST',
@@ -1585,6 +1589,7 @@ document.getElementById('submit').addEventListener('click', function (e) {
         // Handle errors if any
     });
 });
+
 
   // Add the submitted review to the reviews container
   addReview(post);
