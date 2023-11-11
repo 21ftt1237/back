@@ -52,7 +52,7 @@ public function store(Request $request)
 
     public function getReviews()
     {
-       $reviews = Review::with('users') 
+       $reviews = Review::with('User') 
             ->latest() 
             ->get();
         return response()->json(['reviews' => $reviews]);
