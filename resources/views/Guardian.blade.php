@@ -3,7 +3,7 @@
     $storehere = 'true';
     $storenumber = '6';
     $carts = 'true';
-  $deliveryFee = 2; // Set the default delivery fee for this store
+  
 
 @endphp
 @include('layouts.header')
@@ -1573,12 +1573,6 @@ function addReview(review) {
 
 localStorage.setItem('delivery', '5');
 localStorage.setItem('storename', 'Guardian (Sengkurong)');
-
-   // Replace '{{ $deliveryFee }}' with your actual PHP variable for the delivery fee
-        var deliveryFee = <?php echo json_encode($deliveryFee); ?>;
-        
-        // Save the delivery fee to local storage
-        localStorage.setItem('deliveryFee', deliveryFee);
 
 var storeId = 6;
 var previousStore = localStorage.getItem('storeId');
