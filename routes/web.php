@@ -69,9 +69,9 @@ Route::get('emails', function () {
     return view('emails');
 })->name('emails');
 
-Route::get('test2', function () {
-    return view('test2');
-})->name('test2');
+Route::get('testhaha', function () {
+    return view('testhaha');
+})->name('testhaha');
 
 Route::get('searchFilter', function () {
     return view('searchFilter');
