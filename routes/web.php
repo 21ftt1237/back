@@ -25,10 +25,6 @@ Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth','verified'])->name('dashboard');
 
-Route::get('test2', function () {
-    return view('test2');
-})->name('test2');
-
 Route::get('test', function () {
     return view('test');
 })->name('test');
@@ -73,6 +69,9 @@ Route::get('emails', function () {
     return view('emails');
 })->name('emails');
 
+Route::get('test2', function () {
+    return view('test2');
+})->name('test2');
 
 Route::get('searchFilter', function () {
     return view('searchFilter');
