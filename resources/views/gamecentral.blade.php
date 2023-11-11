@@ -1409,19 +1409,21 @@ function starsReducer(state, action) {
 
 
 
-function addReview(review) {
-  var reviewContainer = document.getElementById('review-container');
-  var newReview = document.createElement('div');
-  newReview.className = 'review';
-  
-  var starContainer = ReviewStarContainer(review.stars);
-  var contentContainer = ReviewContentContainer(review.name, review.place, review.review);
-  
-  newReview.appendChild(starContainer);
-  newReview.appendChild(contentContainer);
-  
-  reviewContainer.appendChild(newReview);
-}
+function displayReview(review) {
+    var reviewContainer = document.getElementById('review-container');
+
+    var newReview = document.createElement('div');
+    newReview.className = 'review';
+
+    var starContainer = ReviewStarContainer(review.rating);
+    var contentContainer = ReviewContentContainer(review.review);
+
+    newReview.appendChild(starContainer);
+    newReview.appendChild(contentContainer);
+
+    reviewContainer.appendChild(newReview);
+  }
+
 
 </script>
 
