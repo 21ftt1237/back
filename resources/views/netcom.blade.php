@@ -1368,7 +1368,7 @@ box-shadow:0px 2px 7px 1px grey;
 </p>
 </div>
 
-<form id="review-form" action="index.html" method="post">
+<form id="review-form">
   <h2>Write Your Review</h2>
   <div id="rating">
     <svg class="star" id="1" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" style="fill: #f39c12;">
@@ -1386,23 +1386,20 @@ box-shadow:0px 2px 7px 1px grey;
     <svg class="star" id="5" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" style="fill: #808080;">
       <polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
     </svg>
-  </div>
+ </div>
   <span id="starsInfo" class="help-block">
     Click on a star to change your rating 1 - 5, where 5 = great! and 1 = really bad
   </span>
   <div class="form-group">
     <label class="control-label" for="review">Your Review:</label>
-    <textarea class="form-control" rows="10" placeholder=" Write your review...." name="review" id="review"></textarea>
+    <textarea class="form-control" rows="10" placeholder="Write your review...." name="review" id="review"></textarea>
     <span id="reviewInfo" class="help-block pull-right">
       <span id="remaining">999</span> Characters remaining
     </span>
   </div>
- 
 
-  <button href="#" id="submit" class="submit-btn" type="submit">Submit</button>
-  <input id="submitForm" type="submit" style="display:none;">
-  <span id="submitInfo" class="help-block">
-  </span>
+  <button id="submit" class="submit-btn" type="button">Submit</button>
+  <span id="submitInfo" class="help-block"></span>
 </form>
 
 <div class="h2">
