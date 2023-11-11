@@ -49,5 +49,12 @@ public function store(Request $request)
             return redirect()->back()->with('error', 'An error occurred while submitting the review.');
         }
     }
+
+    public function getReviews()
+    {
+        $reviews = Review::all(); 
+
+        return response()->json(['reviews' => $reviews]);
+    }
     
 }
