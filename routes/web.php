@@ -176,7 +176,7 @@ Route::get('netcom', [ProductController::class, 'index'])->name('netcom.products
 
 //Review
 
-Route::post('/submit-review', [ReviewController::class, 'store'])->name('submit-review');
+Route::post('/submit-review', [ReviewController::class, 'submitReview']);
 
 
 //Cart
