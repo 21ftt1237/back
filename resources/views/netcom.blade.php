@@ -1366,7 +1366,7 @@ box-shadow:0px 2px 7px 1px grey;
 </p>
 </div>
 
-<form id="review-form" action="{{route('store')}}" method="post">
+<form id="review-form" action="" method="post">
   <h2>Write Your Review For This Store</h2>
   <div id="rating">
     <svg class="star" id="1" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" style="fill: #f39c12;">
@@ -1601,6 +1601,35 @@ function addReview(review) {
   
   reviewContainer.appendChild(newReview);
 }
+
+   
+document.getElementById('submit').addEventListener('click', function (e) {
+e.preventDefault();
+        
+// Assuming you have the necessary variables: storeNumber, reviewText, rating
+
+// Add your Ajax request here
+$.ajax({
+url: '{{ route("reviews.store") }}', // Assuming the route name is "reviews.store"
+type: 'POST',
+dataType: 'json',
+data: {
+        '_token': $('meta[name="csrf-token"]').attr('content'),
+        'storeNumber': storeNumber,
+        'review': reviewText,
+        'rating': rating,
+    },
+success: function (data) {
+    console.log(data);
+// You can handle success actions here
+    },
+error: function (error) {
+console.error(error);
+// You can handle error actions here
+    },
+    });
+    });
+
 
 </script>
 
