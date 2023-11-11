@@ -1599,6 +1599,13 @@ function addReview(review) {
 var storeNumber = @json($storenumber); // Assuming $storenumber is a PHP variable
 var reviewText = document.getElementById('review').value;
 
+console.log('Data to be sent:', {
+    '_token': $('meta[name="csrf-token"]').attr('content'),
+    'storeNumber': storeNumber,
+    'review': reviewText,
+    'rating': rating,
+});
+    
 // Ajax request
     $.ajax({
     url: '{{ route("reviews.store") }}',
