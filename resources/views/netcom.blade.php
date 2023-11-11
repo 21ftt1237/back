@@ -1368,8 +1368,8 @@ box-shadow:0px 2px 7px 1px grey;
 </p>
 </div>
 
-<form id="review-form" action="{{ route('submit-review') }}" method="post">
-  <h2>Write Your Review For This Store</h2>
+<form id="review-form" action="index.html" method="post">
+  <h2>Write Your Review</h2>
   <div id="rating">
     <svg class="star" id="1" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" style="fill: #f39c12;">
       <polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
@@ -1397,6 +1397,16 @@ box-shadow:0px 2px 7px 1px grey;
       <span id="remaining">999</span> Characters remaining
     </span>
   </div>
+  <h2>Your Info:</h2>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input class="form-control" type="text" placeholder="Name" name="name" id="name" value="">
+  </div>
+  <div class="form-group">
+    <label for="city">Place:</label>
+    <input class="form-control" type="text" placeholder="place" name="place" id="place" value="">
+  </div>
+
   <button href="#" id="submit" class="submit-btn" type="submit">Submit</button>
   <input id="submitForm" type="submit" style="display:none;">
   <span id="submitInfo" class="help-block">
@@ -1430,17 +1440,21 @@ function starsReducer(state, action) {
         return state
     }
   }
+
   var StarContainer = document.getElementById('rating');
   var StarComponents = StarContainer.children;
+
   var state = {
     starsHover: 0,
     starsSet: 4
   }
+
   function render(value) {
     for(var i = 0; i < StarComponents.length; i++) {
       StarComponents[i].style.fill = i < value ? '#f39c12' : '#808080'
     }
   }
+
   for (var i=0; i < StarComponents.length; i++) {
     StarComponents[i].addEventListener('mouseenter', function() {
       state = starsReducer(state, {
@@ -1449,6 +1463,7 @@ function starsReducer(state, action) {
       })
       render(state.starsHover);
     })
+
     StarComponents[i].addEventListener('click', function() {
       state = starsReducer(state, {
         type: 'CLICK_STAR',
@@ -1457,8 +1472,31 @@ function starsReducer(state, action) {
       render(state.starsHover);
     })
   }
+
   StarContainer.addEventListener('mouseleave', function() {
     render(state.starsSet);
+  })
+
+  var review = document.getElementById('review');
+  var remaining = document.getElementById('remaining');
+  review.addEventListener('input', function(e) {
+    review.value = (e.target.value.slice(0,999));
+    remaining.innerHTML = (999-e.target.value.length);
+  })
+
+  var form = document.getElementById("review-form")
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    let post = {
+      stars: state.starsSet,
+      review: form['review'].value,
+      name: form['name'].value,
+      place: form['place'].value,
+      
+    }
+
+    console.log(post)
   })
 
   document.getElementById('submit').addEventListener('click', function(e) {
@@ -1468,15 +1506,21 @@ function starsReducer(state, action) {
 
   var reviews = {
     reviews: [
-         {
+      {
 
-        stars: 2,      
+        stars: 2,
+        name: 'C Bro', 
+        place: 'Netcom',
         review: 'Bro ada jual nasi katok kh sini? kasi campur la bro'
       },{
         stars: 1,
+        name: 'C tuha',
+        place: 'Hospital Ripas',
         review: 'Adeyhh lai, ku ani tuha sdh, inglish na ku paham, cemana kn membali?'
       },{
         stars: 5,
+        name: 'C boi',
+        place: 'Uni Arcade',
         review: 'Gilak nais mousenya ku bali dri sini, very smooth yo'
       },
     ]
@@ -1505,11 +1549,11 @@ function starsReducer(state, action) {
     return div;
   }
 
-  function ReviewContentContainer(review) {
+  function ReviewContentContainer(name, place, review) {
 
     var reviewee = document.createElement('div');
     reviewee.className = "reviewee footer";
-    
+    reviewee.innerHTML  = '- ' + name + ', ' + place
 
     var comment = document.createElement('p');
     comment.innerHTML = review;
@@ -1526,7 +1570,7 @@ function starsReducer(state, action) {
     var div = document.createElement('blockquote');
     div.className = "review";
     div.appendChild(ReviewStarContainer(review.stars));
-    div.appendChild(ReviewContentContainer(review.review));
+    div.appendChild(ReviewContentContainer(review.name,review.place,review.review));
     return div;
   }
 
@@ -1540,6 +1584,8 @@ function starsReducer(state, action) {
   let post = {
     stars: state.starsSet,
     review: form['review'].value,
+    name: form['name'].value,
+    place: form['place'].value,
   };
 
   // Add the submitted review to the reviews container
@@ -1560,46 +1606,13 @@ function addReview(review) {
   newReview.className = 'review';
   
   var starContainer = ReviewStarContainer(review.stars);
-  var contentContainer = ReviewContentContainer(review.review);
+  var contentContainer = ReviewContentContainer(review.name, review.place, review.review);
   
   newReview.appendChild(starContainer);
   newReview.appendChild(contentContainer);
   
   reviewContainer.appendChild(newReview);
 }
-
-    //store to database tables
-    
-    document.getElementById('submit').addEventListener('click', function(e) {
-    e.preventDefault();
-
-    // Create an object with the review data
-    let reviewData = {
-        stars: state.starsSet,
-        review: form['review'].value,
-    };
-
-    // Make an AJAX request to the Laravel route
-    fetch('/submit-review', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-        },
-        body: JSON.stringify(reviewData),
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data.message); // Handle the response as needed
-    })
-    .catch(error => console.error('Error:', error));
-
-    // Clear the form fields
-    form.reset();
-    remaining.innerHTML = '999';
-    state = starsReducer(state, { type: 'CLICK_STAR', value: 4 });
-    render(state.starsSet);
-});
 
 </script>
 
