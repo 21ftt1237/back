@@ -1366,7 +1366,7 @@ box-shadow:0px 2px 7px 1px grey;
 </p>
 </div>
 
-<form id="review-form" action="{{route('store')}}" method="post">
+<form id="review-form" action="" method="post">
   <h2>Write Your Review For This Store</h2>
   <div id="rating">
     <svg class="star" id="1" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" style="fill: #f39c12;">
