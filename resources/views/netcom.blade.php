@@ -4,7 +4,6 @@
     $storenumber = '1';
     $carts = 'true';
 @endphp
-
 @auth
     @php
     $loggedIn = true;
@@ -14,7 +13,6 @@
     $loggedIn = false;
     @endphp
 @endauth
-
 @include('layouts.header')
 <!DOCTYPE html>
 <html>
@@ -32,12 +30,8 @@
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
-
-
-
   <title></title>
 </head>
-
 <style type="text/css">
   
 * {
@@ -53,20 +47,15 @@ header {
   width: 100%;
   background: black;
 }
-
   .desc{
   height: 150px;
 }
-
   header .wishlist img{
     width: 40px;
   }
-
   header .wishlist{
     position: relative;
-
   }
-
   header .wishlist span{
     background: red;
     border-radius: 50%;
@@ -76,42 +65,35 @@ header {
     left: 80%;
     padding: 3px 10px;
   }
-
 #quantityup {
     width: 20px;
     height: 20px;
     margin-left: 90px;
     margin-right: 20px;
 }
-
 #quantitydown {
     width: 20px;
     height: 20px;
     margin-left: 20px;
 }
-
 .listCard li div {
     padding: 10px;
 }
-
 .item-quantity {
     justify-content: center;
     align-items: center !important;
     position: fixed;
     margin-left: 350px;
 }
-
 .item-price {
     position: fixed;
     margin-left: 180px;
 }
-
    /*NAVBAR*/
      body {
     font-family: Arial, sans-serif;
     margin: 0;
 }
-
 .navbar {
     position: fixed;
     top: 0;
@@ -124,11 +106,9 @@ header {
     padding: 15px 0;
     z-index: 1000;
 }
-
 .logo {
     margin-left: 10px;
 }
-
 .logo a {
     color: white;
     margin-left: 15px;
@@ -136,7 +116,6 @@ header {
     font-weight: 500;
     text-decoration: none;
 }
-
 .nav-links {
     font-size: 14px;
     display: flex;
@@ -144,7 +123,6 @@ header {
     margin-right: 0px;
     margin-left: 20px;
 }
-
 .nav-link, .nav-link-last {
     color: white;
     font-size: 16px;
@@ -152,7 +130,6 @@ header {
     margin-right: 0px;
     font-weight: 600;
 }
-
 .btn-sign-up {
     color: black;
     font-size: 12px;
@@ -165,20 +142,15 @@ header {
     cursor: pointer;
     margin-right: 20px;
 }
-
 .btn-sign-up:hover {
     background-color: #555;
 }
-
-
-
 #input {
     height: 30px;
     width: 30px;
     border: none;
     padding: 5px;
 }
-
 .search ion-icon {
     width: 30px;
     height: 30px;
@@ -186,57 +158,35 @@ header {
     color: black;
     cursor: pointer;
 }
-
-
-
-
     .navbar, .nav-link:hover{
     color: #F6E71D;
     text-decoration: none;
 }
-
   .nav-link-last:hover{
     color: #F6E71D;
     text-decoration: none;
   }
-
-
-
 .shopping img:hover,
 .wishlist img:hover {
     color: red;
     transform: translateY(5px);
 }
-
 .search {
   display: flex;
   margin-left: 30px;
   margin-right: 45px;
-
 }
-
 .search #input{
   width: 900px;
   border-radius: 0px;
 }
-
-
     
-
-
-
-
-
-
-
 .heading ul {
   display: flex;
 }
-
 .logo{
   margin-left: 30px;
 }
-
 .logo a {
   color: white;
   transition-duration: 1s;
@@ -267,7 +217,6 @@ header {
   color: rgb(243, 168, 7);
   transition-duration: 1s;
 }
-
 .heading ul li a::before {
   content: "";
   height: 2px;
@@ -312,7 +261,6 @@ header a ion-icon {
   position: relative;
   right: 3px;
 }
-
 .img-slider img {
   height: 720px;
    width: 1080px;
@@ -368,20 +316,13 @@ header a ion-icon {
   animation-iteration-count: infinite;
   transition-duration: 2s;
 }
-
 .heading1 {
   opacity: 0;
 }
-
-
-
-
 /*REVIEWS*/
-
   body{
 font-family: 'Barlow Semi Condensed', sans-serif;
 } 
-
 .main-section{
 float: right;
 background:#D9D9D9;
@@ -396,22 +337,16 @@ margin-right: 5px;
 box-shadow:0px 2px 7px 1px grey;
 height: 1570px
 }
-
-
 .h2 h2{
   margin-top: 15px;
 }
-
 #review-form input.form-control {
   width: 20%; /* Adjust the width value as needed */
 }
-
-
 .star {
     width: 32px;
     height: 32px;
     transition: .6s all;
-
   }
   #rating {
     cursor: pointer;
@@ -440,9 +375,6 @@ height: 1570px
 .submit-btn:hover,.submit-btn:active,.submit-btn:focus {
   background: #C9BC0C;
 }
-
-
-
   #review-form {
     min-width: 100px;
   }
@@ -470,14 +402,9 @@ height: 1570px
     display: block;
     font-size: 80%;
   }
-
   .stars-container {
     margin-bottom: 5px;
   }
-
-
-
-
 .review {
   border-left:  solid #eee;
   padding-left: 20px;
@@ -485,45 +412,35 @@ height: 1570px
   margin-bottom: 20px;
   margin-left: 2px;
   width: ;
-
-
 }
-
 .review .stars-container {
   margin-bottom: 10px;
 }
-
 .review .stars-container svg {
   width: 18px;
   height: 18px;
   fill: #f39c12;
   margin-right: 2px;
 }
-
 .review .review-content {
   font-size: 16px;
   line-height: 1.4;
 }
-
 .review .review-content .reviewee {
   font-size: 14px;
   color: #888;
 }
-
 .para{
   margin-bottom: 20px;
   margin-right: 40px;
 }
-
 h2{
   margin-top: 50px;
   margin-bottom: 15px;
 }
-
 #rating{
   margin-bottom: 10px;
 }
-
 input {
   vertical-align: middle;
   border-radius: 5px;
@@ -532,9 +449,6 @@ input {
   border: none;
   margin-left: 10px;
 }
-
-
-
 textarea {
   border-radius: 5px;
   min-width: 50%;
@@ -542,7 +456,6 @@ textarea {
   border: none;
   margin-top: 15px;
 }
-
 .h2{
 background:#D9D9D9;
 width:100%;
@@ -551,33 +464,17 @@ padding-left: 20px;
 overflow-y: auto;
 box-shadow:0px 2px 7px 1px grey;
 }
-
 .h2 h2{
   padding-right: 4px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 /*PRODUCTS*/
-
 .section1 {
   width: 1080px;
 /*  width: 100%;*/
-
 /*  width: 80%;*/
   height: 720px;
   overflow: hidden;
   float: left;
-
   justify-content: center;
   align-items: center;
   margin-top: 50px;
@@ -585,14 +482,11 @@ box-shadow:0px 2px 7px 1px grey;
   border-style: solid;
   border-color: black;
 }
-
-
 .section2, .container, .items{
   margin: 10px;
 /*  margin-right:750px ;*/
   margin-left: 45px;
 }
-
 .section2{
   width: 1080px;
 }
@@ -650,26 +544,18 @@ box-shadow:0px 2px 7px 1px grey;
   transition-duration: 0.8s;
   border-radius: 12px;
 }
-
-
 .items {
   overflow: hidden;
   position: relative;
-
 }
-
-
 .actions {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 }
-
     .info{
             height: 200px;
         }
-
 .heart-icon {
   padding-left: 20px;
     font-size: 20px;
@@ -677,19 +563,13 @@ box-shadow:0px 2px 7px 1px grey;
     cursor: pointer;
     transition: color 0.3s;
 }
-
 .heart-icon:hover {
     color: #F6E71D;
 }
-
 .heart-icon.clicked {
     color: #F6E71D;
 }
-
-
 /*FOOTER*/
-
-
 .footer-distributed{
   margin-top: auto;
   background: black;
@@ -700,40 +580,31 @@ box-shadow:0px 2px 7px 1px grey;
   font: bold 16px sans-serif;
   padding: 55px 40px;
 }
-
 .footer-distributed .footer-left,
 .footer-distributed .footer-center,
 .footer-distributed .footer-right{
   display: inline-block;
   vertical-align: top;
 }
-
 /* Footer left */
-
 .footer-distributed .footer-left{
   width: 40%;
 }
-
 /* The company logo */
-
 .footer-distributed h3{
   color:  #ffffff;
   font: normal 36px sans-serif;
   margin: 0;
 }
-
 .footer-distributed h3 span{
   color:  #F6E71D;
 }
-
 /* Footer links */
-
 .footer-distributed .footer-links{
   color:  #ffffff;
   margin: 20px 0 12px;
   padding: 0;
 }
-
 .footer-distributed .footer-links a{
   display:inline-block;
   line-height: 1;
@@ -741,15 +612,12 @@ box-shadow:0px 2px 7px 1px grey;
   text-decoration: none;
   color:  inherit;
 }
-
 .footer-distributed .footer-company-name{
   color:  grey;
   font-size: 14px;
   font-weight: normal;
   margin: 0;
 }
-
-
 .footer-distributed .footer-links a:before {
   content: "|";
   font-weight:300;
@@ -759,18 +627,14 @@ box-shadow:0px 2px 7px 1px grey;
   display: inline-block;
   padding-right: 5px;
 }
-
 .footer-distributed .footer-links .link-1:before {
   content: none;
 }
-
 /* Footer Right */
-
 .footer-distributed .footer-right{
   width: 20%;
   float: right;
 }
-
 .footer-distributed .footer-company-about{
   line-height: 20px;
   color:  white;
@@ -778,7 +642,6 @@ box-shadow:0px 2px 7px 1px grey;
   font-weight: normal;
   margin: 0;
 }
-
 .footer-distributed .footer-company-about span{
   display: block;
   color:  #ffffff;
@@ -786,32 +649,25 @@ box-shadow:0px 2px 7px 1px grey;
   font-weight: bold;
   margin-bottom: 20px;
 }
-
 .footer-icons{
   margin-left: 20px;
 }
-
 .footer-distributed .footer-icons{
   margin-top: 25px;
 }
-
 .footer-distributed .footer-icons a{
   display: inline-block;
   width: 35px;
   height: 35px;
   cursor: pointer;
   border-radius: 2px;
-
   font-size: 20px;
   color: #ffffff;
   text-align: center;
   line-height: 35px;
-
   margin-right: 3px;
   margin-bottom: 5px;
 }
-
-
 .footer-icons a ion-icon {
   color: white;
   background-color: black;
@@ -820,7 +676,6 @@ box-shadow:0px 2px 7px 1px grey;
   color: #F6E71D;
   transform: translateY(5px);
 }
-
 .footer-icons a i {
   color: white;
   background-color: black;
@@ -829,35 +684,18 @@ box-shadow:0px 2px 7px 1px grey;
   color: #F6E71D;
   transform: translateY(5px);
 }
-
-
-
-
 .footer-links a:hover {
   color: yellow;
   text-decoration: none;
 }
-
-
-
-
 .items {
   overflow: hidden;
 }
-
-
-
-
-
-
 @media screen and (max-width: 1536px) {
-
 /*NAVBAR*/
-
 header{
   height: 85px;
 }
-
 .navbar {
     position: fixed;
     top: 0;
@@ -870,11 +708,9 @@ header{
     padding: 15px 0;
     z-index: 1000;
 }
-
 .logo {
     margin-left: 10px;
 }
-
 .logo a {
     color: white;
     margin-left: 15px;
@@ -882,7 +718,6 @@ header{
     font-weight: 500;
     text-decoration: none;
 }
-
 .nav-links {
     font-size: 9px;
     display: flex;
@@ -890,7 +725,6 @@ header{
     margin-right: 10px;
     margin-left: 20px;
 }
-
 .nav-link, .nav-link-last {
     color: white;
     font-size: 12px;
@@ -899,7 +733,6 @@ header{
     margin-left:10px ;
     font-weight: 600;
 }
-
 .btn-sign-up {
     color: black;
     font-size: 12px;
@@ -912,20 +745,15 @@ header{
     cursor: pointer;
     margin-right: 20px;
 }
-
 .btn-sign-up:hover {
     background-color: #555;
 }
-
-
-
 #input {
     height: 30px;
     width: 30px;
     border: none;
     padding: 5px;
 }
-
 .search ion-icon {
     width: 30px;
     height: 30px;
@@ -933,12 +761,9 @@ header{
     color: black;
     cursor: pointer;
 }
-
-
   .shopping{
     margin-right: 15px;
   }
-
   .wishlist{
     margin-right: 15px;
   }
@@ -946,66 +771,40 @@ header{
     color: #F6E71D;
     text-decoration: none;
 }
-
   .nav-link-last:hover{
     color: #F6E71D;
     text-decoration: none;
   }
-
-
-
-
-
 .shopping img:hover,
 .wishlist img:hover {
     color: red;
     transform: translateY(5px);
 }
-
 .search {
   display: flex;
   margin-left: 30px;
   margin-right: 45px;
-
 }
-
 .search #input{
   width: 700px;
   border-radius: 0px;
 }
-
-
-
-
-
-
-
   .items {
     transform: scale(0.9);
   }
-
-
-
-
-
   .img-slider img {
     width: 200%;
     height: 130%;
 /*    width: 100%;*/
   }
    
-
   @keyframes slide1 {
-
     0% {
       left: 15.9vw;
     }
-
     5% {
       left: 15.9vw;
     }
-
-
     12% {
       left: 16vw;
     }
@@ -1045,11 +844,7 @@ header{
       left: -15.9vw;
     }
   
-
   }
-
-
-
   .img-slider {
     display: flex;
     float: left;
@@ -1069,19 +864,15 @@ header{
     margin-left: 50px;
     margin-top: 20px;
   }
-
   .heading1 {
     opacity: 1;
     position: relative;
     bottom: 8px;
   }
-
   .search a {
     display: flex;
     flex-wrap: nowrap;
-
   }
-
   .heading1 .ham {
     background-color: black;
     color: white;
@@ -1090,8 +881,6 @@ header{
     width: 200px;
     flex-shrink: 2;
   }
-
-
 .main-section{
 float: right;
 background:#D9D9D9;
@@ -1104,33 +893,23 @@ margin-right: 15px;
 box-shadow:0px 2px 7px 1px grey;
 height: 1600px
 }
-
 .h2 h2{
   margin-top: 10px;
 }
-
 .h2{
 background:#D9D9D9;
 margin-top: 20px;
 width:90%;
 height: 102vh;
-
 overflow-y: auto;
 box-shadow:0px 2px 7px 1px grey;
 }
-
 .submit-btn{
   width: 90%;
 }
-
 }
-
-
-
-
 @media screen and (max-width: 500px) {
     
-
   .navbar {
     position: fixed;
     top: 0;
@@ -1143,17 +922,14 @@ box-shadow:0px 2px 7px 1px grey;
     padding: 15px 0;
     z-index: 1000;
   }
-
   .logo {
     margin: 0;
   }
-
   .logo a {
     color: white;
     font-size: 24px;
     text-decoration: none;
   }
-
   .nav-links {
     font-size: 12px;
     display: flex;
@@ -1161,7 +937,6 @@ box-shadow:0px 2px 7px 1px grey;
     margin-right: 10px;
     margin-left: 10px;
   }
-
   .nav-link, .nav-link-last {
     color: white;
     font-size: 12px;
@@ -1169,7 +944,6 @@ box-shadow:0px 2px 7px 1px grey;
     margin: 0 5px;
     font-weight: 600;
   }
-
   .btn-sign-up {
     font-size: 12px;
     font-weight: bolder;
@@ -1181,66 +955,53 @@ box-shadow:0px 2px 7px 1px grey;
     cursor: pointer;
     margin: 10px 0;
   }
-
   .shopping, .wishlist {
     margin: 5px;
   }
-
   .navbar,
   .nav-link:hover,
   .nav-link-last:hover {
     color: #F6E71D;
     text-decoration: none;
   }
-
   .shopping img:hover,
   .wishlist img:hover {
     color: red;
     transform: translateY(5px);
   }
-
   .search {
     display: flex;
     flex-wrap: wrap;
     margin: 10px;
   }
-
   .search #input {
     width: 100%;
   }
-
   /*for header*/
   .img-slider img {
     width: 100%;
   }
-
   .img-slider {
     width: 100%;
     height: auto;
   }
-
   .heading1 .ham {
     background-color: black;
     color: white;
   }
-
   .main-section {
     display: none;
   }
-
   .h2 h2 {
     margin-top: 10px;
   }
-
   .h2 {
     margin-top: 20px;
     height: auto;
   }
-
   .submit-btn {
     width: 100%;
   }
-
 /* Image slider   */
   .section1,
   .container .para .form-group {
@@ -1253,8 +1014,6 @@ box-shadow:0px 2px 7px 1px grey;
     box-shadow: 0px 2px 7px 1px grey;
     height: 300px;
   }
-
-
   /*products*/
   .section1,
   .section2,
@@ -1264,38 +1023,31 @@ box-shadow:0px 2px 7px 1px grey;
     margin: 10px;
     margin-left: 0;
   }
-
   .section2 .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
-
   .section2 .container .items {
     width: 100%;
     height: auto;
   }
-
   .section2 .container .items .name {
     height: auto;
   }
-
   .section2 .container .items .price {
     width: auto;
   }
-
   .section2 .container .items .info {
     padding-left: 10px;
     font-size: 10px;
   }
-
   .section2 .container .items .img img {
     width: 100%;
     height: auto;
     border-radius: 0;
     transition-duration: 0.8s;
   }
-
   .items {
     overflow: hidden;
   } 
@@ -1307,7 +1059,6 @@ box-shadow:0px 2px 7px 1px grey;
     display: flex;
     flex-direction: column;
   }
-
 .list .item {
    width:100%;
    height:90%;
@@ -1316,14 +1067,12 @@ box-shadow:0px 2px 7px 1px grey;
 .list .item .title {
     font-size:10px;
 }
-
 .list .item .price {
     font-size:8px;
 }
 .desc {
     font-size: 8px;
 }
-
 	.list .item button {
     width: 80% !important;
     padding: 10px;
@@ -1331,12 +1080,10 @@ box-shadow:0px 2px 7px 1px grey;
     font-size: 10px !important;
     margin-left: -60px !important;
 }
-
 .list .item img {
     width: 100% !important;
     height: 100px !important;
 }
-
 .list {
     display: grid;
     grid-template-columns: repeat(2, 1fr) !important;
@@ -1346,28 +1093,16 @@ box-shadow:0px 2px 7px 1px grey;
 }
     
 } 
-
-
-
-
-
-
 </style>
-
-
 <body>
       
-
    <div class="main-section">
-
 <div class="container">
-
   <div class="para">
 <p>
   We strive to provide the best possible service for our clients. Please leave a review to let us know how we are doing and to share your experience with others.
 </p>
 </div>
-
 <form id="review-form" action="{{ route('submit.review', ['store_id' => $storenumber]) }}) }}" method="post">
      @csrf
   <h2>Write Your Review</h2>
@@ -1398,22 +1133,16 @@ box-shadow:0px 2px 7px 1px grey;
       <span id="remaining">999</span> Characters remaining
     </span>
   </div>
-
-
   <button href="#" id="submit" class="submit-btn" type="submit">Submit</button>
   <input id="submitForm" type="submit" style="display:none;">
   <span id="submitInfo" class="help-block">
   </span>
 </form>
-
 <div class="h2">
 <h2>Read what others have said about us:</h2>
-
 <div id="review-container">
 </div>
-
 <script type="text/javascript">
-
   function starsReducer(state, action) {
     switch (action.type) {
       case 'HOVER_STAR': {
@@ -1433,21 +1162,17 @@ box-shadow:0px 2px 7px 1px grey;
         return state;
     }
   }
-
   var StarContainer = document.getElementById('rating');
   var StarComponents = StarContainer.children;
-
   var state = {
     starsHover: 0,
     starsSet: 4
   };
-
   function render(value) {
     for (var i = 0; i < StarComponents.length; i++) {
       StarComponents[i].style.fill = i < value ? '#f39c12' : '#808080';
     }
   }
-
   for (var i = 0; i < StarComponents.length; i++) {
     StarComponents[i].addEventListener('mouseenter', function () {
       state = starsReducer(state, {
@@ -1456,7 +1181,6 @@ box-shadow:0px 2px 7px 1px grey;
       });
       render(state.starsHover);
     });
-
     StarComponents[i].addEventListener('click', function () {
       state = starsReducer(state, {
         type: 'CLICK_STAR',
@@ -1465,36 +1189,27 @@ box-shadow:0px 2px 7px 1px grey;
       render(state.starsHover);
     });
   }
-
   StarContainer.addEventListener('mouseleave', function () {
     render(state.starsSet);
   });
-
   var review = document.getElementById('review');
   var remaining = document.getElementById('remaining');
   review.addEventListener('input', function (e) {
     review.value = e.target.value.slice(0, 999);
     remaining.innerHTML = 999 - e.target.value.length;
   });
-
   var form = document.getElementById('review-form');
   var store_id = '{{ $storenumber }}';
-
  document.getElementById('submit').addEventListener('click', function (e) {
     e.preventDefault();
-
     // Get the form data
     let formData = new FormData(form);
-
     // Add the CSRF token
     formData.append('_token', '{{ csrf_token() }}');
-
     // Add the rating field to the form data
     formData.append('rating', state.starsSet);
-
     // Add the store_id field to the form data
     formData.append('store_id', store_id);
-
     // Make an AJAX request to submit the form data
     fetch('/submit-review', {
         method: 'POST',
@@ -1509,35 +1224,61 @@ box-shadow:0px 2px 7px 1px grey;
         console.error('Error:', error);
         // Handle errors if any
     });
-
     // Additional logic can be added here if needed
 });
-
-function displayReviews(reviews) {
+   function displayReviews(reviews, storeNumber) {
+  // Get the review container element
   var reviewContainer = document.getElementById('review-container');
-  // Clear existing reviews
+  // Clear existing reviews in the container
   reviewContainer.innerHTML = '';
-  for (var i = 0; i < reviews.length; i++) {
+  // Filter reviews for the specified store
+  var filteredReviews = reviews.filter(function(review) {
+    return review.storeNumber === storeNumber;
+  });
+  // Loop through each review in the filtered array
+  for (var i = 0; i < filteredReviews.length; i++) {
+    // Create a new div element for each review
     var newReview = document.createElement('div');
     newReview.className = 'review';
-    var starContainer = ReviewStarContainer(reviews[i].rating);
-    var contentContainer = ReviewContentContainer(reviews[i].user.name, reviews[i].created_at, reviews[i].review);
+    // Create the star rating container for the current review
+    var starContainer = ReviewStarContainer(filteredReviews[i].rating);
+    // Create the content container for the current review
+    var contentContainer = ReviewContentContainer(filteredReviews[i].user.name, filteredReviews[i].created_at, filteredReviews[i].review);
+    // Append the star rating and content containers to the new review div
     newReview.appendChild(starContainer);
     newReview.appendChild(contentContainer);
+    // Append the new review div to the review container
     reviewContainer.appendChild(newReview);
   }
 }
-
-
     
   var reviews = {
     reviews: [
-  { store_id: 1, stars: 5, user: { name: 'John', created_at: '2023-11-11T12:34:56' }, review: 'Great service!' },
-   
+
+    
+          
+            
+    
+
+          
+          Expand Down
+    
+    
   
+      {
+        stars: 2,
+        review: 'Bro ada jual nasi katok kh sini? kasi campur la bro'
+      },
+      {
+        stars: 1,
+        review: 'Adeyhh lai, ku ani tuha sdh, inglish na ku paham, cemana kn membali?'
+      },
+      {
+        stars: 5,
+        review: 'Gilak nais mousenya ku bali dri sini, very smooth yo'
+      }
     ]
   };
-
   function ReviewStarContainer(stars) {
     var div = document.createElement('div');
     div.className = "stars-container";
@@ -1557,29 +1298,23 @@ function displayReviews(reviews) {
     }
     return div;
   }
-
  function formatDateTime(dateTimeString) {
   const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
   return new Date(dateTimeString).toLocaleDateString('en-US', options);
 }
-
 function ReviewContentContainer(name, createdAt, review) {
   var reviewee = document.createElement('div');
   reviewee.className = "reviewee footer";
   reviewee.innerHTML = '- ' + name + ', ' + formatDateTime(createdAt); // Format the creation time
-
   var comment = document.createElement('p');
   comment.innerHTML = review;
-
   var div = document.createElement('div');
   div.className = "review-content";
   div.appendChild(comment);
   div.appendChild(reviewee);
-
   return div;
 }
-
-    window.addEventListener('load', function () {
+window.addEventListener('load', function () {
   fetch('/get-reviews')
     .then(response => response.json())
     .then(data => {
@@ -1588,26 +1323,37 @@ function ReviewContentContainer(name, createdAt, review) {
       if (data.debug) {
         console.log(data.debug);
       }
-
       // Display the fetched reviews
-     displayReviews(reviews.reviews);
+      displayReviews(data.reviews);
     })
     .catch(error => {
       console.error('Error:', error);
       // Handle errors if any
     });
 });
-
-
- 
+  function ReviewsContainer(review) {
+    var div = document.createElement('blockquote');
+    div.className = "review";
+    div.appendChild(ReviewStarContainer(review.stars));
+    div.appendChild(ReviewContentContainer(review.review));
+    return div;
+  }
+  for (var i = 0; i < reviews.reviews.length; i++) {
+    document.getElementById('review-container').appendChild(ReviewsContainer(reviews.reviews[i]));
+  }
+  function addReview(review) {
+    var reviewContainer = document.getElementById('review-container');
+    var newReview = document.createElement('div');
+    newReview.className = 'review';
+    var starContainer = ReviewStarContainer(review.stars);
+    var contentContainer = ReviewContentContainer(review.review);
+    newReview.appendChild(starContainer);
+    newReview.appendChild(contentContainer);
+    reviewContainer.appendChild(newReview);
+  }
 </script>
-
 </div>
-
 </div>
-
-
-
 </div>
    
   </header>
@@ -1621,11 +1367,9 @@ function ReviewContentContainer(name, createdAt, review) {
           <img src="image/razerkraken.png" alt="" class="img">
           <img src="image/corsairstand.png" alt="" class="img">
         </div>
-
       </div>
       <div class="section2">
         <div class="container">
-
          <!--  <div class="items">
             <div class="img img1"><img src="asusLaptop.jpg" alt=""></div>
             <div class="name">Laptop</div>
@@ -1691,7 +1435,6 @@ function ReviewContentContainer(name, createdAt, review) {
                         @endforeach
                     </div>
                 </div>
-
         <div class="list">
           
         </div>
@@ -1709,40 +1452,25 @@ function ReviewContentContainer(name, createdAt, review) {
             <div class="closeShopping">Close</div>
         </div>
     </div> -->
-
-
          
-
         </div>
-
       </div>
     </div>
-
-
-
-
   </section>
-
   <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
   <script src="./ecommerce.js"></script>
-
 <script>
     
 //     let openShopping = document.querySelector('.shopping');
 // let closeShopping = document.querySelector('.closeShopping');
-
 //     openShopping.addEventListener('click', ()=>{
 //     document.body.classList.add("active");
 // })
 // closeShopping.addEventListener('click', ()=>{
 //     document.body.classList.remove("active");
 // })
-
-
-
 localStorage.setItem('delivery', '2');
 localStorage.setItem('storename', 'Netcom (Kiulap)');
-
 var storeId = 1;
 var previousStore = localStorage.getItem('storeId');
 var parseVal = parseInt(previousStore);
@@ -1750,15 +1478,11 @@ if(localStorage.getItem("cartItems") !== null){
 if (storeId !== parseVal) {
   confirmAction();
 }}
-
-
-
 </script>
     <script>
         //For cart
         
     </script>
 </body>
-
 </html>
 @include('layouts.footer')
