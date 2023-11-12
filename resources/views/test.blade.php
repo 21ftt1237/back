@@ -29,9 +29,9 @@
     <script >
     function sendEmail(){
         Email.send({
-            Host : "smtp.gmail.com",
-            Username : "bruzonedept@gmail.com",
-            Password : "klfc slad fbvp mlht",
+            Host : "smtp.elasticemail.com",
+            Username : "info@domain.com",
+            Password : "8BDBCCE722F4D1FE27FE0A4E963416C82F49",
             To : 'bruzonedept@gmail.com',
             From : document.getElementById("email").value,
             Subject : "hi qebs",
