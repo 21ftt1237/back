@@ -1524,7 +1524,7 @@ box-shadow:0px 2px 7px 1px grey;
       }
 
       // Display the fetched reviews
-     displayReviews(reviews.reviews, store_id);
+     displayReviews(reviews.reviews);
     })
     .catch(error => {
       console.error('Error:', error);
@@ -1538,46 +1538,26 @@ function displayReviews(reviews, storeNumber) {
   var reviewContainer = document.getElementById('review-container');
   // Clear existing reviews in the container
   reviewContainer.innerHTML = '';
-
-  console.log('Store Number:', storeNumber);
-
   // Filter reviews for the specified store
-  var filteredReviews = reviews.filter(function (review) {
-    console.log('Review:', review);
-    console.log('Review Store ID:', review.store_id);
-    console.log('Filter Store ID:', storeNumber);
-    return review.store_id.toString() === storeNumber.toString();
+  var filteredReviews = reviews.filter(function(review) {
+    return review.storeNumber === storeNumber;
   });
-
-  console.log('Filtered Reviews:', filteredReviews);
-
   // Loop through each review in the filtered array
   for (var i = 0; i < filteredReviews.length; i++) {
     // Create a new div element for each review
     var newReview = document.createElement('div');
     newReview.className = 'review';
-
     // Create the star rating container for the current review
     var starContainer = ReviewStarContainer(filteredReviews[i].rating);
-
     // Create the content container for the current review
-    var contentContainer = ReviewContentContainer(
-      filteredReviews[i].user.name,
-      filteredReviews[i].created_at,
-      filteredReviews[i].review
-    );
-
+    var contentContainer = ReviewContentContainer(filteredReviews[i].user.name, filteredReviews[i].created_at, filteredReviews[i].review);
     // Append the star rating and content containers to the new review div
     newReview.appendChild(starContainer);
     newReview.appendChild(contentContainer);
-
     // Append the new review div to the review container
     reviewContainer.appendChild(newReview);
   }
 }
-
-
-
 
 
     
