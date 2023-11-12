@@ -454,7 +454,9 @@ header .shopping img{
             To : 'bruzonedept@gmail.com',
             From : document.getElementById("email").value,
             Subject : "New Contact Form Enquiry",
-            Body : "Message: " + document.getElementById("message").value,
+            Body : "Subject: " + document.getElementById("subject").value
+            +  "<br> To: " +document.getElementById("recepient").value
+            +  "<br> Message: " + document.getElementById("message").value,
             Port: 2525,
         }).then(
       message => alert(message)
