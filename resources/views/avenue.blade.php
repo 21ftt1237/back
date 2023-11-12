@@ -1267,8 +1267,7 @@ height: 1600px
 });
 
 window.addEventListener('load', function () {
-  const storeId = 4; // Replace with the actual store_id you want to retrieve reviews for
-
+  const storeId = 4; 
   fetch(`/get-reviews/${storeId}`)
     .then(response => response.json())
     .then(data => {
