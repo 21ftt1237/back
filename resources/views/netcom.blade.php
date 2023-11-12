@@ -1522,8 +1522,9 @@ function displayReviews(reviews, storeNumber) {
   // Clear existing reviews in the container
   reviewContainer.innerHTML = '';
   // Filter reviews for the specified store
-  var filteredReviews = reviews.filter(function(review) {
-    return review.storeNumber === storeNumber;
+ var filteredReviews = reviews.filter(function(review) {
+    return review.store_id === store_id;
+});
   });
   // Loop through each review in the filtered array
   for (var i = 0; i < filteredReviews.length; i++) {
@@ -1612,7 +1613,7 @@ window.addEventListener('load', function () {
       }
 
       // Display the fetched reviews
-      displayReviews(data.reviews);
+      displayReviews(data.reviews, store_id);
     })
     .catch(error => {
       console.error('Error:', error);
