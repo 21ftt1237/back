@@ -1542,6 +1542,10 @@ function displayReviews(reviews, storeNumber) {
   }
 }
 
+// Call displayReviews with the store number from the PHP variable
+window.addEventListener('load', function () {
+  displayReviews(reviews.reviews, '{{ $storenumber }}');
+});
 
 
 
