@@ -1519,34 +1519,48 @@ box-shadow:0px 2px 7px 1px grey;
 function displayReviews(reviews, storeNumber) {
   // Get the review container element
   var reviewContainer = document.getElementById('review-container');
+
+  // Log the storeNumber to ensure it's correct
+  console.log('Store Number:', storeNumber);
+
   // Clear existing reviews in the container
   reviewContainer.innerHTML = '';
+
+  // Log all reviews data to ensure it's correct
+  console.log('All Reviews:', reviews);
+
   // Filter reviews for the specified store
- var filteredReviews = reviews.filter(function(review) {
-    return review.store_id === store_id;
-});
+  var filteredReviews = reviews.reviews.filter(function (review) {
+    return parseInt(review.store_id) === parseInt(storeNumber);
   });
+
+  // Log the filtered reviews
+  console.log('Filtered Reviews:', filteredReviews);
+
   // Loop through each review in the filtered array
   for (var i = 0; i < filteredReviews.length; i++) {
     // Create a new div element for each review
     var newReview = document.createElement('div');
     newReview.className = 'review';
+
     // Create the star rating container for the current review
-    var starContainer = ReviewStarContainer(filteredReviews[i].rating);
+    var starContainer = ReviewStarContainer(filteredReviews[i].stars);
+
     // Create the content container for the current review
     var contentContainer = ReviewContentContainer(filteredReviews[i].user.name, filteredReviews[i].created_at, filteredReviews[i].review);
+
     // Append the star rating and content containers to the new review div
     newReview.appendChild(starContainer);
     newReview.appendChild(contentContainer);
+
     // Append the new review div to the review container
     reviewContainer.appendChild(newReview);
   }
+
+  // Log the final state after displaying reviews
+  console.log('Final Filtered Reviews:', filteredReviews);
 }
 
-// Call displayReviews with the store number from the PHP variable
-window.addEventListener('load', function () {
-  displayReviews(reviews.reviews, '{{ $storenumber }}');
-});
 
 
 
