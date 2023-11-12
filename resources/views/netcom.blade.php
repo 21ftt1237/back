@@ -1579,7 +1579,7 @@ window.addEventListener('load', function () {
     reviews: [
   { store_id: 1, stars: 5, user: { name: 'John', created_at: '2023-11-11T12:34:56' }, review: 'Great service!' },
    
-  ]
+  
     ]
   };
 
