@@ -1462,6 +1462,7 @@ function ReviewContentContainer(name, createdAt, review) {
                                 <div class="name">{{ $product->name }}</div>
                                 <div class="price">$ {{ $product->price }}</div>
                                 <div class="info">{{ $product->description }}</div>
+                                <div class="actions">
                                 @if($loggedIn)
                                  <form action="{{ route('cart.add', ['product' => $product]) }}" method="POST">
                                     @csrf
