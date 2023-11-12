@@ -1555,6 +1555,8 @@ reviews.reviews.forEach(function (review) {
     // Append the new review div to the review container
     reviewContainer.appendChild(newReview);
   }
+// Check if the filteredReviews are correct before and after the loop
+console.log('Filtered Reviews After Loop:', filteredReviews);
 }
 
 // Log the reviews when the page loads
