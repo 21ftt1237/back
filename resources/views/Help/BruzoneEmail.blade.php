@@ -305,13 +305,13 @@ header .shopping img{
   <div class="customer-support">
     Customer Support
   </div>
- <form  onsubmit="return validateForm()">
+ <form onsubmit="sendEmail(); reset(); return false;">
   <div class="border-box">
     <!-- Email input -->
     <div class="textfont">
       From: <span class="highlight">*</span>
     </div>
-    <input type="text" id="from" name="from" placeholder="Your email">
+    <input type="text" id="email" name="from" placeholder="Your email">
     <div id="fromError" class="errorText"></div>
 
     <!-- Recipient select -->
@@ -444,6 +444,22 @@ header .shopping img{
 
 
 </script>
-
+   <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script >
+    function sendEmail(){
+        Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "info@domain.com",
+            Password : "8BDBCCE722F4D1FE27FE0A4E963416C82F49",
+            To : 'bruzonedept@gmail.com',
+            From : document.getElementById("email").value,
+            Subject : "New Contact Form Enquiry",
+            Body : "Message: " + document.getElementById("message").value,
+            Port: 2525,
+        }).then(
+      message => alert(message)
+    );
+    }
+</script>
 </body>
 </html>
