@@ -1536,6 +1536,8 @@ reviews.reviews.forEach(function (review) {
   console.log('Review Store ID:', review.store_id);
 });
 
+  console.log('Review Container Element:', reviewContainer);
+    
   // Loop through each review in the filtered array
   for (var i = 0; i < filteredReviews.length; i++) {
     // Create a new div element for each review
