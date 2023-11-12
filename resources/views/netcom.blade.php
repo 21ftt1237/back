@@ -1516,50 +1516,31 @@ box-shadow:0px 2px 7px 1px grey;
 
 
     
-async function displayReviews(storeNumber) {
+function displayReviews(reviews, storeNumber) {
   // Get the review container element
   var reviewContainer = document.getElementById('review-container');
-  try {
-    // Fetch reviews data
-    const response = await fetch('/get-reviews');
-    const data = await response.json();
-    // Log the fetched data
-    console.log('Fetched Data:', data);
-    if (data.debug) {
-      console.log(data.debug);
-    }
-    // Clear existing reviews in the container
-    reviewContainer.innerHTML = '';
-    // Loop through each review in the array
-    for (var i = 0; i < data.reviews.length; i++) {
-      // Create a new div element for each review
-      var newReview = document.createElement('div');
-      newReview.className = 'review';
-      // Create the star rating container for the current review
-      var starContainer = ReviewStarContainer(data.reviews[i].stars);
-      // Create the content container for the current review
-      var contentContainer = ReviewContentContainer(
-        data.reviews[i].user.name,
-        data.reviews[i].created_at,
-        data.reviews[i].review
-      );
-      // Append the star rating and content containers to the new review div
-      newReview.appendChild(starContainer);
-      newReview.appendChild(contentContainer);
-      // Append the new review div to the review container
-      reviewContainer.appendChild(newReview);
-    }
-  } catch (error) {
-    console.error('Error:', error);
-    // Handle errors if any
+  // Clear existing reviews in the container
+  reviewContainer.innerHTML = '';
+  // Filter reviews for the specified store
+  var filteredReviews = reviews.filter(function(review) {
+    return review.storeNumber === storeNumber;
+  });
+  // Loop through each review in the filtered array
+  for (var i = 0; i < filteredReviews.length; i++) {
+    // Create a new div element for each review
+    var newReview = document.createElement('div');
+    newReview.className = 'review';
+    // Create the star rating container for the current review
+    var starContainer = ReviewStarContainer(filteredReviews[i].rating);
+    // Create the content container for the current review
+    var contentContainer = ReviewContentContainer(filteredReviews[i].user.name, filteredReviews[i].created_at, filteredReviews[i].review);
+    // Append the star rating and content containers to the new review div
+    newReview.appendChild(starContainer);
+    newReview.appendChild(contentContainer);
+    // Append the new review div to the review container
+    reviewContainer.appendChild(newReview);
   }
 }
-
-// Log the reviews when the page loads
-window.addEventListener('load', function () {
-  // Display the fetched reviews
-  displayReviews('{{ $storenumber }}');
-});
 
 
 
