@@ -1513,6 +1513,25 @@ box-shadow:0px 2px 7px 1px grey;
     // Additional logic can be added here if needed
 });
 
+    window.addEventListener('load', function () {
+  fetch('/get-reviews')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      
+      if (data.debug) {
+        console.log(data.debug);
+      }
+
+      // Display the fetched reviews
+     displayReviews(reviews.reviews, store_id);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Handle errors if any
+    });
+});
+
 
 function displayReviews(reviews, storeNumber) {
   // Get the review container element
@@ -1611,24 +1630,7 @@ function ReviewContentContainer(name, createdAt, review) {
   return div;
 }
 
-window.addEventListener('load', function () {
-  fetch('/get-reviews')
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      
-      if (data.debug) {
-        console.log(data.debug);
-      }
 
-      // Display the fetched reviews
-     displayReviews(reviews.reviews, store_id);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      // Handle errors if any
-    });
-});
 
 
  
