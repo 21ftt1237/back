@@ -1520,6 +1520,12 @@ function displayReviews(reviews, storeNumber) {
   // Get the review container element
   var reviewContainer = document.getElementById('review-container');
 
+  // Check if reviews object is defined and has a 'reviews' property
+  if (!reviews || !reviews.reviews) {
+    console.error('Invalid reviews data:', reviews);
+    return;
+  }
+
   // Log the storeNumber to ensure it's correct
   console.log('Store Number:', storeNumber);
 
@@ -1547,7 +1553,11 @@ function displayReviews(reviews, storeNumber) {
     var starContainer = ReviewStarContainer(filteredReviews[i].stars);
 
     // Create the content container for the current review
-    var contentContainer = ReviewContentContainer(filteredReviews[i].user.name, filteredReviews[i].created_at, filteredReviews[i].review);
+    var contentContainer = ReviewContentContainer(
+      filteredReviews[i].user.name,
+      filteredReviews[i].created_at,
+      filteredReviews[i].review
+    );
 
     // Append the star rating and content containers to the new review div
     newReview.appendChild(starContainer);
@@ -1560,6 +1570,7 @@ function displayReviews(reviews, storeNumber) {
   // Log the final state after displaying reviews
   console.log('Final Filtered Reviews:', filteredReviews);
 }
+
 
 
 
