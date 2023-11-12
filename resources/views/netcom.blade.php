@@ -1255,16 +1255,6 @@ box-shadow:0px 2px 7px 1px grey;
   var reviews = {
     reviews: [
 
-    
-          
-            
-    
-
-          
-          Expand Down
-    
-    
-  
       {
         stars: 2,
         review: 'Bro ada jual nasi katok kh sini? kasi campur la bro'
