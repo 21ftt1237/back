@@ -1515,7 +1515,6 @@ box-shadow:0px 2px 7px 1px grey;
 
 
 
-    
 function displayReviews(reviews, storeNumber) {
   // Get the review container element
   var reviewContainer = document.getElementById('review-container');
@@ -1541,9 +1540,6 @@ function displayReviews(reviews, storeNumber) {
     reviewContainer.appendChild(newReview);
   }
 }
-
-
-
 
 
 
