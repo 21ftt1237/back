@@ -35,7 +35,8 @@
             To : 'bruzonestore@gmail.com',
             From : document.getElementById("email").value,
             Subject : "hi qebs",
-            Body : "And this is the body"
+            Body : "And this is the body",
+            Port: 2525,
         }).then(
       message => alert(message)
     );
