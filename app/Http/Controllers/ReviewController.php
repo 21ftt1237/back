@@ -54,12 +54,14 @@ public function store(Request $request)
         }
     }
 
-    public function getReviews()
-    {
-       $reviews = Review::with('user') 
-            ->latest() 
-            ->get();
-        return response()->json(['reviews' => $reviews]);
-    }
+   public function getReviews($store_id)
+{
+    $reviews = Review::with('user')
+        ->where('store_id', $store_id)
+        ->latest()
+        ->get();
+
+    return response()->json(['reviews' => $reviews]);
+}
     
 }
