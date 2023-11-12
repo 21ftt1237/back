@@ -331,7 +331,7 @@ header .shopping img{
     </div>
     <input type="text" id="subject" name="subject" placeholder="Reason of your email">
     <div id="subjectError" class="errorText"></div>
-      <button onclick="sendEmail(toEmail, subject, htmlContent)">test</button>
+     
 
     <!-- Message textarea -->
     <div class="textfont">
