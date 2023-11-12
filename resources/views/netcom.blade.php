@@ -1513,79 +1513,71 @@ box-shadow:0px 2px 7px 1px grey;
     // Additional logic can be added here if needed
 });
 
-function displayReviews(reviews, storeNumber) {
+async function displayReviews(storeNumber) {
   // Get the review container element
   var reviewContainer = document.getElementById('review-container');
 
   // Clear existing reviews in the container
   reviewContainer.innerHTML = '';
 
-  // Log the reviews object
-  console.log('All Reviews:', reviews);
+  try {
+    // Fetch reviews data
+    const response = await fetch('/get-reviews');
+    const data = await response.json();
 
-  // Filter reviews for the specified store
-  var filteredReviews = reviews.reviews.filter(function (review) {
-    return parseInt(review.store_id) === parseInt(storeNumber);
-  });
+    // Log the fetched data
+    console.log('Fetched Data:', data);
 
-  // Log the filtered reviews
-  console.log('Filtered Reviews:', filteredReviews);
+    if (data.debug) {
+      console.log(data.debug);
+    }
 
-  console.log('Store Number:', storeNumber);
-  reviews.reviews.forEach(function (review) {
-    console.log('Review Store ID:', review.store_id);
-  });
+    // Filter reviews for the specified store
+    var filteredReviews = data.reviews.filter(function (review) {
+      return parseInt(review.store_id) === parseInt(storeNumber);
+    });
 
-  console.log('Review Container Element:', reviewContainer);
+    // Log the filtered reviews
+    console.log('Filtered Reviews:', filteredReviews);
 
-  // Loop through each review in the filtered array
-  for (var i = 0; i < filteredReviews.length; i++) {
-    // Create a new div element for each review
-    var newReview = document.createElement('div');
-    newReview.className = 'review';
+    // Loop through each review in the filtered array
+    for (var i = 0; i < filteredReviews.length; i++) {
+      // Create a new div element for each review
+      var newReview = document.createElement('div');
+      newReview.className = 'review';
 
-    // Create the star rating container for the current review
-    var starContainer = ReviewStarContainer(filteredReviews[i].stars);
+      // Create the star rating container for the current review
+      var starContainer = ReviewStarContainer(filteredReviews[i].stars);
 
-    // Create the content container for the current review
-    var contentContainer = ReviewContentContainer(
-      filteredReviews[i].user.name,
-      filteredReviews[i].created_at,
-      filteredReviews[i].review
-    );
+      // Create the content container for the current review
+      var contentContainer = ReviewContentContainer(
+        filteredReviews[i].user.name,
+        filteredReviews[i].created_at,
+        filteredReviews[i].review
+      );
 
-    // Append the star rating and content containers to the new review div
-    newReview.appendChild(starContainer);
-    newReview.appendChild(contentContainer);
+      // Append the star rating and content containers to the new review div
+      newReview.appendChild(starContainer);
+      newReview.appendChild(contentContainer);
 
-    // Append the new review div to the review container
-    reviewContainer.appendChild(newReview);
+      // Append the new review div to the review container
+      reviewContainer.appendChild(newReview);
+    }
+
+    // Check if the filteredReviews are correct after the loop
+    console.log('Filtered Reviews After Loop:', filteredReviews);
+  } catch (error) {
+    console.error('Error:', error);
+    // Handle errors if any
   }
-
-  // Check if the filteredReviews are correct before and after the loop
-  console.log('Filtered Reviews After Loop:', filteredReviews);
 }
 
 // Log the reviews when the page loads
 window.addEventListener('load', function () {
-  fetch('/get-reviews')
-    .then((response) => response.json())
-    .then((data) => {
-      // Log the fetched data
-      console.log('Fetched Data:', data);
-
-      if (data.debug) {
-        console.log(data.debug);
-      }
-
-      // Display the fetched reviews
-      displayReviews(data, '{{ $storenumber }}');
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-      // Handle errors if any
-    });
+  // Display the fetched reviews
+  displayReviews('{{ $storenumber }}');
 });
+
 
 
 
