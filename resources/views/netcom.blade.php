@@ -1604,7 +1604,7 @@ window.addEventListener('load', function () {
       }
 
       // Display the fetched reviews
-      displayReviews(data.reviews, store_id);
+      displayReviews(data.reviews);
     })
     .catch(error => {
       console.error('Error:', error);
