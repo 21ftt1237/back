@@ -4,6 +4,15 @@
     $storenumber = '7';
     $carts = 'true';
 @endphp
+@auth
+    @php
+    $loggedIn = true;
+    @endphp
+@else
+    @php
+    $loggedIn = false;
+    @endphp
+@endauth
 @include('layouts.header')
 
 <!DOCTYPE html>
@@ -1453,17 +1462,28 @@ function ReviewContentContainer(name, createdAt, review) {
                                 <div class="name">{{ $product->name }}</div>
                                 <div class="price">$ {{ $product->price }}</div>
                                 <div class="info">{{ $product->description }}</div>
-                                <div class="actions">
-                                   <form action="{{ route('cart.add', ['product' => $product]) }}" method="POST">
+                                @if($loggedIn)
+                                 <form action="{{ route('cart.add', ['product' => $product]) }}" method="POST">
                                     @csrf
                                     <button>Add To Cart</button>
-                                          </form>  
+                                 </form>
+                                @else 
+                                 <form action="{{ route('BruzoneLogin') }}">
+                                    @csrf
+                                    <button>Add To Cart</button>
+                                 </form>
+                                @endif
+                                @if($loggedIn)
                                     <form action="{{ route('wishlist.add', ['product' => $product]) }}" method="POST">
                                     @csrf
-                                   
                                     <button type="submit" class="heart-icon">❤</button>
-                                    </form>  
-                                    </form>  
+                                    </form> 
+                                    @else 
+                                     <form action="{{ route('BruzoneLogin') }}">
+                                    @csrf
+                                    <button type="submit" class="heart-icon">❤</button>
+                                 </form>
+                                 @endif
                                 </div>
                             </div>
                         @endif
