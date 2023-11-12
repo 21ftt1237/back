@@ -28,9 +28,10 @@ public function store(Request $request)
             // Create a new review record
             $review = Review::create([
                 'user_id' => $userId,
+                'store_id' => $store_id,
                 'review' => $request->input('review'),
                 'rating' => $request->input('rating'),
-                'store_id' => $store_id,
+               
             ]);
 
             // Log success
