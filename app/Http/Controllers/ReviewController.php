@@ -21,13 +21,16 @@ public function store(Request $request)
 
             // Get the currently logged user's ID
             $userId = auth()->id();
+            
+            //Get store id
+            $store_id = $request->input('store_id');
 
             // Create a new review record
             $review = Review::create([
                 'user_id' => $userId,
                 'review' => $request->input('review'),
                 'rating' => $request->input('rating'),
-                // Add store_id if you have a way to associate the review with a store
+                'store_id' => $store_id,
             ]);
 
             // Log success
