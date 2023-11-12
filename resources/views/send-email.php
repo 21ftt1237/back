@@ -25,9 +25,11 @@ $mail->Username = "you@example.com";
 $mail->Password = "password";
 
 $mail->setFrom($email, $name);
-$mail->addAddress("dave@example.com", "Dave");
+$mail->addAddress("hafiysyahrulnizam@gmail.com", "Hafiy");
 
 $mail->Subject = $subject;
 $mail->Body = $message;
 
 $mail->send();
+
+echo "email sent";
