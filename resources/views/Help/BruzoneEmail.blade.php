@@ -305,7 +305,7 @@ header .shopping img{
   <div class="customer-support">
     Customer Support
   </div>
- <form action="{{ route('send.email') }}" method="post" onsubmit="return validateForm()">
+ <form  onsubmit="return validateForm()">
   <div class="border-box">
     <!-- Email input -->
     <div class="textfont">
