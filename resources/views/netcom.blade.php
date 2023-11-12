@@ -1566,10 +1566,15 @@ box-shadow:0px 2px 7px 1px grey;
     return div;
   }
 
-  function ReviewContentContainer(name, createdAt, review) {
+ function formatDateTime(dateTimeString) {
+  const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+  return new Date(dateTimeString).toLocaleDateString('en-US', options);
+}
+
+function ReviewContentContainer(name, createdAt, review) {
   var reviewee = document.createElement('div');
   reviewee.className = "reviewee footer";
-  reviewee.innerHTML = '- ' + name + ', ' + createdAt; // Include the creation time
+  reviewee.innerHTML = '- ' + name + ', ' + formatDateTime(createdAt); // Format the creation time
 
   var comment = document.createElement('p');
   comment.innerHTML = review;
