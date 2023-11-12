@@ -1368,7 +1368,7 @@ box-shadow:0px 2px 7px 1px grey;
 </p>
 </div>
 
-<form id="review-form" action="{{ route('submit.review') }}" method="post">
+<form id="review-form" action="{{ route('submit.review', ['store_id' => $storenumber]) }}) }}" method="post">
      @csrf
   <h2>Write Your Review</h2>
   <div id="rating">
@@ -1478,6 +1478,7 @@ box-shadow:0px 2px 7px 1px grey;
   });
 
   var form = document.getElementById('review-form');
+  var store_id = '{{ $storenumber }}';
 
  document.getElementById('submit').addEventListener('click', function (e) {
     e.preventDefault();
@@ -1490,6 +1491,9 @@ box-shadow:0px 2px 7px 1px grey;
 
     // Add the rating field to the form data
     formData.append('rating', state.starsSet);
+
+    // Add the store_id field to the form data
+    formData.append('store_id', store_id);
 
     // Make an AJAX request to submit the form data
     fetch('/submit-review', {
