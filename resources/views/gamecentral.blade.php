@@ -1348,18 +1348,7 @@ window.addEventListener('load', function () {
   var reviews = {
     reviews: [
 
-      {
-        stars: 2,
-        review: 'Bro ada jual nasi katok kh sini? kasi campur la bro'
-      },
-      {
-        stars: 1,
-        review: 'Adeyhh lai, ku ani tuha sdh, inglish na ku paham, cemana kn membali?'
-      },
-      {
-        stars: 5,
-        review: 'Gilak nais mousenya ku bali dri sini, very smooth yo'
-      }
+      
     ]
   };
   function ReviewStarContainer(stars) {
