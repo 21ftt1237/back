@@ -25,7 +25,8 @@
         
         <button type="submit">Send</button>
     </form>
-    <script src="https://smtpjs.com/v3/smtp.js">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script >
     function sendEmail(){
         Email.send({
             Host : "smtp.gmail.com",
