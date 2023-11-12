@@ -455,8 +455,8 @@ header .shopping img{
             From : document.getElementById("email").value,
             Subject : "New Contact Form Enquiry",
             Body : "<b>Subject: </b> " + document.getElementById("subject").value
-            +  "<br> To: " +document.getElementById("recepient").value
-            +  "<br> Message: " + document.getElementById("message").value,
+            +  "<br> <b>To: </b> " +document.getElementById("recepient").value
+            +  "<br> <b>Message: </b> " + document.getElementById("message").value,
             Port: 2525,
         }).then(
       message => alert(message)
