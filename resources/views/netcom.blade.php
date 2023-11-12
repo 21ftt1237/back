@@ -1226,6 +1226,25 @@ box-shadow:0px 2px 7px 1px grey;
     });
     // Additional logic can be added here if needed
 });
+
+window.addEventListener('load', function () {
+  fetch('/get-reviews')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      
+      if (data.debug) {
+        console.log(data.debug);
+      }
+      // Display the fetched reviews
+      displayReviews(data.reviews);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Handle errors if any
+    });
+});
+    
    function displayReviews(reviews, storeNumber) {
   // Get the review container element
   var reviewContainer = document.getElementById('review-container');
@@ -1304,23 +1323,7 @@ function ReviewContentContainer(name, createdAt, review) {
   div.appendChild(reviewee);
   return div;
 }
-window.addEventListener('load', function () {
-  fetch('/get-reviews')
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      
-      if (data.debug) {
-        console.log(data.debug);
-      }
-      // Display the fetched reviews
-      displayReviews(data.reviews);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      // Handle errors if any
-    });
-});
+
   function ReviewsContainer(review) {
     var div = document.createElement('blockquote');
     div.className = "review";
