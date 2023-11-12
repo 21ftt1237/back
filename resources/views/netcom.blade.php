@@ -1524,8 +1524,10 @@ function displayReviews(reviews, storeNumber) {
 
   // Filter reviews for the specified store
   var filteredReviews = reviews.filter(function (review) {
+    console.log('Review:', review);
     console.log('Review Store ID:', review.store_id);
-    return review.store_id.toString() == storeNumber.toString();
+    console.log('Filter Store ID:', storeNumber);
+    return review.store_id.toString() === storeNumber.toString();
   });
 
   console.log('Filtered Reviews:', filteredReviews);
@@ -1554,6 +1556,7 @@ function displayReviews(reviews, storeNumber) {
     reviewContainer.appendChild(newReview);
   }
 }
+
 
 
 
