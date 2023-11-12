@@ -1269,17 +1269,17 @@ height: 1600px
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        // Handle the response as needed (e.g., display a success message)
+
     })
     .catch(error => {
         console.error('Error:', error);
         // Handle errors if any
     });
-    // Additional logic can be added here if needed
+   
 });
 
 window.addEventListener('load', function () {
-  const storeId = 7; // Replace with the actual store_id you want to retrieve reviews for
+  const storeId = 7; 
 
   fetch(`/get-reviews/${storeId}`)
     .then(response => response.json())
@@ -1328,18 +1328,7 @@ window.addEventListener('load', function () {
   var reviews = {
     reviews: [
 
-      {
-        stars: 2,
-        review: 'Bro ada jual nasi katok kh sini? kasi campur la bro'
-      },
-      {
-        stars: 1,
-        review: 'Adeyhh lai, ku ani tuha sdh, inglish na ku paham, cemana kn membali?'
-      },
-      {
-        stars: 5,
-        review: 'Gilak nais mousenya ku bali dri sini, very smooth yo'
-      }
+      
     ]
   };
   function ReviewStarContainer(stars) {
