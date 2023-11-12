@@ -1621,32 +1621,7 @@ window.addEventListener('load', function () {
 });
 
 
-  function ReviewsContainer(review) {
-    var div = document.createElement('blockquote');
-    div.className = "review";
-    div.appendChild(ReviewStarContainer(review.stars));
-    div.appendChild(ReviewContentContainer(review.review));
-    return div;
-  }
-
-  for (var i = 0; i < reviews.reviews.length; i++) {
-    document.getElementById('review-container').appendChild(ReviewsContainer(reviews.reviews[i]));
-  }
-
-  function addReview(review) {
-    var reviewContainer = document.getElementById('review-container');
-    var newReview = document.createElement('div');
-    newReview.className = 'review';
-
-    var starContainer = ReviewStarContainer(review.stars);
-    var contentContainer = ReviewContentContainer(review.review);
-
-    newReview.appendChild(starContainer);
-    newReview.appendChild(contentContainer);
-
-    reviewContainer.appendChild(newReview);
-  }
-
+ 
 </script>
 
 </div>
