@@ -1228,11 +1228,13 @@ box-shadow:0px 2px 7px 1px grey;
 });
 
 window.addEventListener('load', function () {
-  fetch('/get-reviews')
+  const storeId = 1; // Replace with the actual store_id you want to retrieve reviews for
+
+  fetch(`/get-reviews/${storeId}`)
     .then(response => response.json())
     .then(data => {
       console.log(data);
-      
+
       if (data.debug) {
         console.log(data.debug);
       }
@@ -1244,6 +1246,7 @@ window.addEventListener('load', function () {
       // Handle errors if any
     });
 });
+
     
    function displayReviews(reviews, storeNumber) {
   // Get the review container element
