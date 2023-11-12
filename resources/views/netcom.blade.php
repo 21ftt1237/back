@@ -1514,17 +1514,21 @@ box-shadow:0px 2px 7px 1px grey;
 });
 
 
-
 function displayReviews(reviews, storeNumber) {
   // Get the review container element
   var reviewContainer = document.getElementById('review-container');
   // Clear existing reviews in the container
   reviewContainer.innerHTML = '';
 
+  console.log('Store Number:', storeNumber);
+
   // Filter reviews for the specified store
   var filteredReviews = reviews.filter(function (review) {
-    return review.store_id === storeNumber; // Assuming store_id is the correct property name
+    console.log('Review Store ID:', review.store_id);
+    return review.store_id == storeNumber; // Use '==' for loose comparison
   });
+
+  console.log('Filtered Reviews:', filteredReviews);
 
   // Loop through each review in the filtered array
   for (var i = 0; i < filteredReviews.length; i++) {
@@ -1550,6 +1554,7 @@ function displayReviews(reviews, storeNumber) {
     reviewContainer.appendChild(newReview);
   }
 }
+
 
 
 
