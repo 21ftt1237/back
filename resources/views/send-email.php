@@ -25,7 +25,7 @@ $mail->Username = "you@example.com";
 $mail->Password = "password";
 
 $mail->setFrom($email, $name);
-$mail->addAddress("hafiysyahrulnizam@gmail.com", "Hafiy");
+$mail->addAddress("hafiysyahrulnizam@example.com", "Hafiy");
 
 $mail->Subject = $subject;
 $mail->Body = $message;
