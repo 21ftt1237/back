@@ -1525,7 +1525,7 @@ function displayReviews(reviews, storeNumber) {
   // Filter reviews for the specified store
   var filteredReviews = reviews.filter(function (review) {
     console.log('Review Store ID:', review.store_id);
-    return review.store_id == storeNumber; // Use '==' for loose comparison
+    return review.store_id.toString() == storeNumber.toString();
   });
 
   console.log('Filtered Reviews:', filteredReviews);
