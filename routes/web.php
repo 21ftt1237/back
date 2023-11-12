@@ -180,7 +180,7 @@ Route::post('/submit-review', [ReviewController::class, 'store'])->name('submit.
 
 Route::post('/submit-review/{store_id}', [ReviewController::class, 'submitReview'])->name('submit.review');
 
-Route::get('/get-reviews/{store_id}', [ReviewController::class, 'getReviews']);
+Route::get('/get-reviews', [ReviewController::class, 'getReviews']);
 
 
 //Cart
