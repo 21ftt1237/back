@@ -1517,9 +1517,6 @@ async function displayReviews(storeNumber) {
   // Get the review container element
   var reviewContainer = document.getElementById('review-container');
 
-  // Clear existing reviews in the container
-  reviewContainer.innerHTML = '';
-
   try {
     // Fetch reviews data
     const response = await fetch('/get-reviews');
@@ -1539,6 +1536,9 @@ async function displayReviews(storeNumber) {
 
     // Log the filtered reviews
     console.log('Filtered Reviews:', filteredReviews);
+
+    // Clear existing reviews in the container
+    reviewContainer.innerHTML = '';
 
     // Loop through each review in the filtered array
     for (var i = 0; i < filteredReviews.length; i++) {
@@ -1577,6 +1577,7 @@ window.addEventListener('load', function () {
   // Display the fetched reviews
   displayReviews('{{ $storenumber }}');
 });
+
 
 
 
