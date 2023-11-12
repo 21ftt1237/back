@@ -1513,25 +1513,38 @@ box-shadow:0px 2px 7px 1px grey;
     // Additional logic can be added here if needed
 });
 
-   function displayReviews(reviews) {
+   function displayReviews(reviews, storeNumber) {
+  // Get the review container element
   var reviewContainer = document.getElementById('review-container');
-  // Clear existing reviews
+
+  // Clear existing reviews in the container
   reviewContainer.innerHTML = '';
 
-  for (var i = 0; i < reviews.length; i++) {
+  // Filter reviews for the specified store
+  var filteredReviews = reviews.filter(function(review) {
+    return review.storeNumber === storeNumber;
+  });
+
+  // Loop through each review in the filtered array
+  for (var i = 0; i < filteredReviews.length; i++) {
+    // Create a new div element for each review
     var newReview = document.createElement('div');
     newReview.className = 'review';
 
-    var starContainer = ReviewStarContainer(reviews[i].rating);
-    var contentContainer = ReviewContentContainer(reviews[i].user.name, reviews[i].created_at, reviews[i].review);
+    // Create the star rating container for the current review
+    var starContainer = ReviewStarContainer(filteredReviews[i].rating);
 
+    // Create the content container for the current review
+    var contentContainer = ReviewContentContainer(filteredReviews[i].user.name, filteredReviews[i].created_at, filteredReviews[i].review);
+
+    // Append the star rating and content containers to the new review div
     newReview.appendChild(starContainer);
     newReview.appendChild(contentContainer);
 
+    // Append the new review div to the review container
     reviewContainer.appendChild(newReview);
   }
 }
-
     
   var reviews = {
     reviews: [
