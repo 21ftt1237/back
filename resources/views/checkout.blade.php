@@ -990,7 +990,7 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
 
 <script>
 
-const deliveryFees = {
+const deliveryFee = {
     'Netcom (Kiulap)': 2,
     'Game Central (Bandar)': 3,
     '88th Avenue': 3,
@@ -998,42 +998,25 @@ const deliveryFees = {
     'Nimanja (Bandar)': 2,
     'Digital World (Bandar)': 2,
   };
+    
+const storeName = localStorage.getItem('storename');
+const feeDiv = document.getElementById('fee');
 
-  function calculateTotalDeliveryFee() {
-    const cart = localStorage.getItem('cart');
-    const cartItems = cart ? JSON.parse(cart) : {};
+if (deliveryFee[storeName]) {
+    feeDiv.innerHTML = `<h4>Delivery Fee for ${storeName}: BND ${deliveryFee[storeName]}</h4>`;
+} else {
+    feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
+}
 
-    let totalDeliveryFee = 0;
+function updateTotalPriceAndDeliveryFee() {
+  const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
+  const couponDiscount = parseFloat({{ auth()->user()->redeem_coupon }}) || 0;
 
-    for (const store in cartItems) {
-      cartItems[store].forEach(item => {
-        if (deliveryFees[store]) {
-          totalDeliveryFee += deliveryFees[store];
-        }
-      });
-    }
-    return totalDeliveryFee;
-  }
+  const finalPay = totalAmount + deliveryFee[storeName] - couponDiscount;
 
-  const totalDeliveryFee = calculateTotalDeliveryFee();
-
-  // Now you have the total delivery fee across all stores in the cart
-  console.log("Total Delivery Fee: BND", totalDeliveryFee);
-
-  // Update the feeDiv with the total delivery fee
-  const feeDiv = document.getElementById('fee');
-  feeDiv.innerHTML = `<h4>Total Delivery Fee: BND ${totalDeliveryFee}</h4>`;
-
-  // Calculate the total price considering delivery fees, coupons, etc.
-  function updateTotalPriceAndDeliveryFee() {
-    const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
-    const couponDiscount = parseFloat('{{ auth()->user()->redeem_coupon }}') || 0;
-
-    const finalPay = totalAmount + totalDeliveryFee - couponDiscount;
-
-    document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}</h4>`;
-    localStorage.setItem('finalPay', finalPay.toFixed(2));
-  }
+  document.getElementById('pay').innerHTML = `<h4>Final Total for ${storeName}: BND ${finalPay.toFixed(2)}</h4>`;
+  localStorage.setItem('finalPay', finalPay.toFixed(2));
+}
 
 updateTotalPriceAndDeliveryFee();
 
