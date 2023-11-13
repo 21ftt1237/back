@@ -989,48 +989,25 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
 
 
 <script>
-  const deliveryFee = localStorage.getItem('delivery');
-  const storeName = localStorage.getItem('storename');
-
- 
-  const feeDiv = document.getElementById('fee');
-
-  if (deliveryFee) {
-
-    feeDiv.innerHTML = `<h4>Delivery Fee: BND ${deliveryFee}</h4>`;
-  } else {
-   
-    feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
-  }
-
-
+  
 const deliveryFee = parseFloat(localStorage.getItem('delivery')) || 0;
 const storeName = localStorage.getItem('storename');
 
 const feeDiv = document.getElementById('fee');
 
-const deliveryFees = [
-  parseFloat(localStorage.getItem('store1Delivery')) || 0,
-  parseFloat(localStorage.getItem('store2Delivery')) || 0,
-  // Add more stores as needed
-];
-
-// Summing up the delivery fees for all stores
-const totalDeliveryFee = deliveryFees.reduce((sum, fee) => sum + fee, 0);
-
-// Display the total delivery fee in the checkout section
-const checkoutDeliveryFeeDiv = document.getElementById('checkoutDeliveryFee');
-checkoutDeliveryFeeDiv.innerHTML = `<h4>Total Delivery Fee: BND ${totalDeliveryFee.toFixed(2)}</h4>`;
-
-// Rest of your code...
+if (deliveryFee) {
+  feeDiv.innerHTML = <h4>Delivery Fee for ${storeName}: BND ${deliveryFee}</h4>;
+} else {
+  feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
+}
 
 function updateTotalPriceAndDeliveryFee() {
   const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
-  const couponDiscount = parseFloat("{{ auth()->user()->redeem_coupon }}") || 0; // Assuming this is a string in your backend
+  const couponDiscount = parseFloat({{ auth()->user()->redeem_coupon }}) || 0;
 
-  const finalPay = totalAmount + totalDeliveryFee - couponDiscount;
+  const finalPay = totalAmount + deliveryFee - couponDiscount;
 
-  document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}</h4>`;
+  document.getElementById('pay').innerHTML = <h4>Final Total for ${storeName}: BND ${finalPay.toFixed(2)}</h4>;
   localStorage.setItem('finalPay', finalPay.toFixed(2));
 }
 
