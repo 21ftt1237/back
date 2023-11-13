@@ -990,43 +990,52 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
 
 <script>
 
-// const deliveryFee = parseFloat(localStorage.getItem('delivery')) || 0;
-
 const deliveryFees = {
     'Netcom (Kiulap)': 2,
     'Game Central (Bandar)': 3,
-    '88th Avenue (Bandar)': 3,
+    '88th Avenue': 3,
     'Guardian (Sengkurong)': 5,
-    'Nimanja(Bandar)': 2,
+    'Nimanja (Bandar)': 2,
     'Digital World (Bandar)': 2,
-};
-const storeName = localStorage.getItem('storename');
+  };
 
-const feeDiv = document.getElementById('fee');
+  function calculateTotalDeliveryFee() {
+    const cart = localStorage.getItem('cart');
+    const cartItems = cart ? JSON.parse(cart) : {};
 
-// if (deliveryFee) {
-  // feeDiv.innerHTML = <h4>Delivery Fee for ${storeName}: BND ${deliveryFee}</h4>;
-//     feeDiv.innerHTML = `<h4>Delivery Fee for ${storeName}: BND ${deliveryFee}</h4>`;
-// } else {
-//   feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
-// }
+    let totalDeliveryFee = 0;
 
-if (deliveryFees[storeName]) {
-    feeDiv.innerHTML = `<h4>Delivery Fee for ${storeName}: BND ${deliveryFees[storeName]}</h4>`;
-} else {
-    feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
-}
+    for (const store in cartItems) {
+      cartItems[store].forEach(item => {
+        if (deliveryFees[store]) {
+          totalDeliveryFee += deliveryFees[store];
+        }
+      });
+    }
+    return totalDeliveryFee;
+  }
 
-function updateTotalPriceAndDeliveryFee() {
-  const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
-  const couponDiscount = parseFloat({{ auth()->user()->redeem_coupon }}) || 0;
+  const totalDeliveryFee = calculateTotalDeliveryFee();
 
-  const finalPay = totalAmount + deliveryFee - couponDiscount;
+  // Now you have the total delivery fee across all stores in the cart
+  console.log("Total Delivery Fee: BND", totalDeliveryFee);
 
-  // document.getElementById('pay').innerHTML = <h4>Final Total for ${storeName}: BND ${finalPay.toFixed(2)}</h4>;
-    document.getElementById('pay').innerHTML = `<h4>Final Total for ${storeName}: BND ${finalPay.toFixed(2)}</h4>`;
+  // Update the feeDiv with the total delivery fee
+  const feeDiv = document.getElementById('fee');
+  feeDiv.innerHTML = `<h4>Total Delivery Fee: BND ${totalDeliveryFee}</h4>`;
+
+  // Calculate the total price considering delivery fees, coupons, etc.
+  function updateTotalPriceAndDeliveryFee() {
+    const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
+    const couponDiscount = parseFloat('{{ auth()->user()->redeem_coupon }}') || 0;
+
+    const finalPay = totalAmount + totalDeliveryFee - couponDiscount;
+
+    document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}</h4>`;
     localStorage.setItem('finalPay', finalPay.toFixed(2));
-}
+  }
+
+  updateTotalPriceAndDeliveryFee();
 
 updateTotalPriceAndDeliveryFee();
 
