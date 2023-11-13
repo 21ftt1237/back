@@ -989,17 +989,10 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
 
 
 <script>
-  
-const selectedStores = JSON.parse(localStorage.getItem('selectedStores'));
 
-// Example of data structure for selected stores:
-// const selectedStores = [
-//   { storeName: "Netcom (Kiulap)", items: [...] },
-//   { storeName: "Game Central (Bandar)", items: [...] },
-//   // Add more selected stores as needed
-// ];
+// const deliveryFee = parseFloat(localStorage.getItem('delivery')) || 0;
 
-const deliveryFees = {
+const deliveryFee = {
     'netcom': 2,
     'gamecentral': 3,
     'avenue': 3,
@@ -1007,38 +1000,27 @@ const deliveryFees = {
     'Nimanja': 2,
     'digital': 2,
 };
-
-const totalDeliveryFee = selectedStores.reduce((acc, store) => {
-    const fee = deliveryFees[store.storeName];
-    return acc + (fee || 0);
-}, 0);
+const storeName = localStorage.getItem('storename');
 
 const feeDiv = document.getElementById('fee');
 
-if (totalDeliveryFee > 0) {
-    feeDiv.innerHTML = `<h4>Total Delivery Fee: BND ${totalDeliveryFee}</h4>`;
+if (deliveryFee) {
+  // feeDiv.innerHTML = <h4>Delivery Fee for ${storeName}: BND ${deliveryFee}</h4>;
+    feeDiv.innerHTML = `<h4>Delivery Fee for ${storeName}: BND ${deliveryFee}</h4>`;
 } else {
-    feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
+  feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
 }
 
 function updateTotalPriceAndDeliveryFee() {
-    const totalAmount = selectedStores.reduce((acc, store) => {
-        // Calculate total amount from all selected stores
-        return acc + store.items.reduce((sum, item) => {
-            // Example: sum the prices of items in each store
-            return sum + item.price;
-        }, 0);
-    }, 0);
+  const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
+  const couponDiscount = parseFloat({{ auth()->user()->redeem_coupon }}) || 0;
 
-    // I replaced the next line as the original code isn't very clear
-    const couponDiscount = parseFloat('{{ auth()->user()->redeem_coupon }}') || 0;
+  const finalPay = totalAmount + deliveryFee - couponDiscount;
 
-    const finalPay = totalAmount + totalDeliveryFee - couponDiscount;
-
-    document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}</h4>`;
+  // document.getElementById('pay').innerHTML = <h4>Final Total for ${storeName}: BND ${finalPay.toFixed(2)}</h4>;
+    document.getElementById('pay').innerHTML = `<h4>Final Total for ${storeName}: BND ${finalPay.toFixed(2)}</h4>`;
     localStorage.setItem('finalPay', finalPay.toFixed(2));
 }
-
 
 updateTotalPriceAndDeliveryFee();
 
