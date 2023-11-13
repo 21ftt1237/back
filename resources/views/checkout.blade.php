@@ -990,7 +990,16 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
 
 <script>
   
-const deliveryFee = parseFloat(localStorage.getItem('delivery')) || 0;
+// const deliveryFee = parseFloat(localStorage.getItem('delivery')) || 0;
+
+const deliveryFee = {
+    'netcom': 2,
+    'gamecentral': 3,
+    'avenue': 3,
+    'Guardian': 5,
+    'Nimanja': 2,
+    'digital': 2,
+};
 const storeName = localStorage.getItem('storename');
 
 const feeDiv = document.getElementById('fee');
