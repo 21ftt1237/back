@@ -1009,22 +1009,34 @@ const storeName = localStorage.getItem('storename');
 
 const feeDiv = document.getElementById('fee');
 
-if (deliveryFee) {
-  feeDiv.innerHTML = <h4>Delivery Fee: BND ${deliveryFee}</h4>;
-} else {
-  feeDiv.innerHTML = "<h4>Delivery Fee not found</h4> }
+const deliveryFees = [
+  parseFloat(localStorage.getItem('store1Delivery')) || 0,
+  parseFloat(localStorage.getItem('store2Delivery')) || 0,
+  // Add more stores as needed
+];
+
+// Summing up the delivery fees for all stores
+const totalDeliveryFee = deliveryFees.reduce((sum, fee) => sum + fee, 0);
+
+// Display the total delivery fee in the checkout section
+const checkoutDeliveryFeeDiv = document.getElementById('checkoutDeliveryFee');
+checkoutDeliveryFeeDiv.innerHTML = `<h4>Total Delivery Fee: BND ${totalDeliveryFee.toFixed(2)}</h4>`;
+
+// Rest of your code...
 
 function updateTotalPriceAndDeliveryFee() {
   const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
-  const couponDiscount = parseFloat({{ auth()->user()->redeem_coupon }}) || 0;
+  const couponDiscount = parseFloat("{{ auth()->user()->redeem_coupon }}") || 0; // Assuming this is a string in your backend
 
-  const finalPay = totalAmount + deliveryFee - couponDiscount;
+  const finalPay = totalAmount + totalDeliveryFee - couponDiscount;
 
-  document.getElementById('pay').innerHTML = <h4>Final Total: BND ${finalPay.toFixed(2)};
+  document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}</h4>`;
   localStorage.setItem('finalPay', finalPay.toFixed(2));
 }
 
 updateTotalPriceAndDeliveryFee();
+
+    
 
  $(document).ready(function () {
         $('#update-loyalty-points-form').submit(function (e) {
