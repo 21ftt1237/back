@@ -1559,48 +1559,22 @@ function ReviewContentContainer(name, createdAt, review) {
 //     document.body.classList.remove("active");
 // })
 
-    
- function confirmAction() {
-  var confirmation = confirm("You have changed Stores, confirm to clear cart items?");
-  if (confirmation) {
-    
-    localStorage.setItem('storeId', '6');
-    localStorage.removeItem('cartItems');
-  } else {
-    
-    window.location.href = '{{ route('dashboard') }}';
-  }
-}
+var storeId = 6; // Replace with your logic to determine the store ID
+var deliveryFee = 5; // Set the fixed delivery fee value
 
-localStorage.setItem('delivery', '5');
+localStorage.setItem('delivery', deliveryFee);
 localStorage.setItem('storename', 'Guardian (Sengkurong)');
 
-var storeId = 6;
 var previousStore = localStorage.getItem('storeId');
 var parseVal = parseInt(previousStore);
 
-if(localStorage.getItem("cartItems") !== null){
-if (storeId !== parseVal) {
-  confirmAction();
-}}
-
-
-updateStoreInfo('5', 'Guardian (Sengkurong)', 6);
-
-
-function updateStoreInfo(deliveryFee, storeName, storeId) {
-  localStorage.setItem('delivery', deliveryFee);
-  localStorage.setItem('storename', storeName);
-
-  var previousStore = localStorage.getItem('storeId');
-  var parseVal = parseInt(previousStore);
-
-  if (localStorage.getItem("cartItems") !== null) {
-    if (storeId !== parseVal) {
-      confirmAction();
-    }
-  }
+if (localStorage.getItem("cartItems") !== null) {
+  if (storeId !== parseVal) {
+    confirmAction();
+  }
 }
+ 
+ 
 
 
     
