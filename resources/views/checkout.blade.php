@@ -990,9 +990,9 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
 
 <script>
   
-// const deliveryFee = parseFloat(localStorage.getItem('delivery')) || 0;
+const storeName = localStorage.getItem('storename');
 
-const deliveryFee = {
+const deliveryFees = {
     'netcom': 2,
     'gamecentral': 3,
     'avenue': 3,
@@ -1000,27 +1000,33 @@ const deliveryFee = {
     'Nimanja': 2,
     'digital': 2,
 };
-const storeName = localStorage.getItem('storename');
 
 const feeDiv = document.getElementById('fee');
+const storeDeliveryFee = deliveryFees[storeName];
 
-if (deliveryFee) {
-  // feeDiv.innerHTML = <h4>Delivery Fee for ${storeName}: BND ${deliveryFee}</h4>;
-    feeDiv.innerHTML = `<h4>Delivery Fee for ${storeName}: BND ${deliveryFee}</h4>`;
+if (storeDeliveryFee !== undefined) {
+    feeDiv.innerHTML = `<h4>Delivery Fee for ${storeName}: BND ${storeDeliveryFee}</h4>`;
 } else {
-  feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
+    feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
 }
 
 function updateTotalPriceAndDeliveryFee() {
-  const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
-  const couponDiscount = parseFloat({{ auth()->user()->redeem_coupon }}) || 0;
+    const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
+    // I replaced the next line as the original code isn't very clear
+    const couponDiscount = parseFloat('{{ auth()->user()->redeem_coupon }}') || 0;
 
-  const finalPay = totalAmount + deliveryFee - couponDiscount;
+    const finalPay = totalAmount + (storeDeliveryFee || 0) - couponDiscount;
 
-  // document.getElementById('pay').innerHTML = <h4>Final Total for ${storeName}: BND ${finalPay.toFixed(2)}</h4>;
     document.getElementById('pay').innerHTML = `<h4>Final Total for ${storeName}: BND ${finalPay.toFixed(2)}</h4>`;
     localStorage.setItem('finalPay', finalPay.toFixed(2));
 }
+
+updateTotalPriceAndDeliveryFee();
+
+$(document).ready(function () {
+    // Rest of your existing jQuery logic
+});
+
 
 updateTotalPriceAndDeliveryFee();
 
