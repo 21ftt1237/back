@@ -993,12 +993,12 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
 // const deliveryFee = parseFloat(localStorage.getItem('delivery')) || 0;
 
 const deliveryFees = {
-    'netcom': 2,
-    'gamecentral': 3,
-    'avenue': 3,
-    'Guardian': 5,
-    'Nimanja': 2,
-    'digital': 2,
+    'Netcom (Kiulap)': 2,
+    'Game Central (Bandar)': 3,
+    '88th Avenue (Bandar)': 3,
+    'Guardian (Sengkurong)': 5,
+    'Nimanja(Bandar)': 2,
+    'Digital World (Bandar)': 2,
 };
 const storeName = localStorage.getItem('storename');
 
