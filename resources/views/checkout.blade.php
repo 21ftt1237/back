@@ -992,7 +992,7 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
 
 // const deliveryFee = parseFloat(localStorage.getItem('delivery')) || 0;
 
-const deliveryFee = {
+const deliveryFees = {
     'netcom': 2,
     'gamecentral': 3,
     'avenue': 3,
@@ -1004,11 +1004,17 @@ const storeName = localStorage.getItem('storename');
 
 const feeDiv = document.getElementById('fee');
 
-if (deliveryFee) {
+// if (deliveryFee) {
   // feeDiv.innerHTML = <h4>Delivery Fee for ${storeName}: BND ${deliveryFee}</h4>;
-    feeDiv.innerHTML = `<h4>Delivery Fee for ${storeName}: BND ${deliveryFee}</h4>`;
+//     feeDiv.innerHTML = `<h4>Delivery Fee for ${storeName}: BND ${deliveryFee}</h4>`;
+// } else {
+//   feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
+// }
+
+if (deliveryFees[storeName]) {
+    feeDiv.innerHTML = `<h4>Delivery Fee for ${storeName}: BND ${deliveryFees[storeName]}</h4>`;
 } else {
-  feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
+    feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
 }
 
 function updateTotalPriceAndDeliveryFee() {
