@@ -1072,6 +1072,34 @@ updateTotalPriceAndDeliveryFee();
 
         
         map.setView([lat, lon], 13);
+
+// Replace the following line with the actual number of stores you have
+const numberOfStores = 6;
+
+// Function to calculate the total delivery fee
+function calculateTotalDeliveryFee() {
+  let totalDeliveryFee = 0;
+
+  // Loop through each store
+  for (let i = 1; i <= numberOfStores; i++) {
+    // Replace 'deliveryFeeStoreX' with the actual delivery fee variable for each store
+    const deliveryFeeStoreX = parseFloat(localStorage.getItem(`deliveryStore${i}`)) || 0;
+
+    // Add the delivery fee of the current store to the total
+    totalDeliveryFee += deliveryFeeStoreX;
+  }
+
+  return totalDeliveryFee;
+}
+
+// Example usage
+const totalDeliveryFee = calculateTotalDeliveryFee();
+console.log(`Total Delivery Fee for ${numberOfStores} stores: BND ${totalDeliveryFee.toFixed(2)}`);
+
+
+
+
+     
     </script>
 
 
