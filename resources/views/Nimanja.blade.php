@@ -1552,6 +1552,25 @@ if(localStorage.getItem("cartItems") !== null){
 if (storeId !== parseVal) {
   confirmAction();
 }}
+
+    
+updateStoreInfo('2', 'Nimanja (Bandar)', 5);
+
+
+function updateStoreInfo(deliveryFee, storeName, storeId) {
+  localStorage.setItem('delivery', deliveryFee);
+  localStorage.setItem('storename', storeName);
+
+  var previousStore = localStorage.getItem('storeId');
+  var parseVal = parseInt(previousStore);
+
+  if (localStorage.getItem("cartItems") !== null) {
+    if (storeId !== parseVal) {
+      confirmAction();
+    }
+  }
+}
+    
 </script>
 
 </body>
