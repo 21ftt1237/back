@@ -996,7 +996,8 @@ const storeName = localStorage.getItem('storename');
 const feeDiv = document.getElementById('fee');
 
 if (deliveryFee) {
-  feeDiv.innerHTML = <h4>Delivery Fee for ${storeName}: BND ${deliveryFee}</h4>;
+  // feeDiv.innerHTML = <h4>Delivery Fee for ${storeName}: BND ${deliveryFee}</h4>;
+    feeDiv.innerHTML = `<h4>Delivery Fee for ${storeName}: BND ${deliveryFee}</h4>`;
 } else {
   feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
 }
@@ -1007,13 +1008,13 @@ function updateTotalPriceAndDeliveryFee() {
 
   const finalPay = totalAmount + deliveryFee - couponDiscount;
 
-  document.getElementById('pay').innerHTML = <h4>Final Total for ${storeName}: BND ${finalPay.toFixed(2)}</h4>;
-  localStorage.setItem('finalPay', finalPay.toFixed(2));
+  // document.getElementById('pay').innerHTML = <h4>Final Total for ${storeName}: BND ${finalPay.toFixed(2)}</h4>;
+    document.getElementById('pay').innerHTML = `<h4>Final Total for ${storeName}: BND ${finalPay.toFixed(2)}</h4>`;
+    localStorage.setItem('finalPay', finalPay.toFixed(2));
 }
 
 updateTotalPriceAndDeliveryFee();
 
-    
 
  $(document).ready(function () {
         $('#update-loyalty-points-form').submit(function (e) {
