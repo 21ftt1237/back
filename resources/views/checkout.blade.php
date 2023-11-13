@@ -1035,8 +1035,6 @@ const deliveryFees = {
     localStorage.setItem('finalPay', finalPay.toFixed(2));
   }
 
-  updateTotalPriceAndDeliveryFee();
-
 updateTotalPriceAndDeliveryFee();
 
 
