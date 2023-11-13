@@ -1573,10 +1573,6 @@ if (localStorage.getItem("cartItems") !== null) {
     confirmAction();
   }
 }
- 
- 
-
-
     
 </script>
 
