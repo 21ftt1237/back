@@ -32,6 +32,20 @@
   box-sizing: border-box;
 }
 
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* This ensures the content takes at least the full height of the viewport. */
+        }
+
+main {
+            flex: 1; /* This makes the main content area expand to fill the available space. */
+        }
+    
+
 </style>
 <body>
 
