@@ -23,9 +23,11 @@ use App\Http\Controllers\ReviewController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-})->middleware(['auth','verified'])->name('dashboard');
+//Route::get('/', function () {
+//    return view('dashboard');
+//})->middleware(['auth','verified'])->name('dashboard');
+
+return redirect()->route('dashboard.user');
 
 Route::get('test', function () {
     return view('test');
