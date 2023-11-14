@@ -15,7 +15,7 @@ class AdminLoginController extends Controller
 
         if (Auth::guard('admin')->attempt($credentials)) {
             // Admin login successful
-            return view('Dashboard-adm'); // Load the admin dashboard view
+            return view('admin.adminDashboard'); // Load the admin dashboard view
         }
 
         // Admin authentication failed
