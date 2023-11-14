@@ -76,6 +76,20 @@ header {
      margin-right: 40px;
 }
 
+    .logo {
+    margin-left: 10px;
+}
+
+.logo a {
+    color: white;
+    margin-left: 15px;
+    font-size: 35px;
+    font-weight: 800;
+    text-decoration: none;
+    transition-duration: 1s;
+     margin-right: 40px;
+}
+
 .nav-links {
     font-size: 9px;
     display: flex;
