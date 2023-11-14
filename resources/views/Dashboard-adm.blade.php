@@ -2,7 +2,7 @@
     $pageName = 'Bruzone - admin';
 @endphp
 
-@include('admin-header')
+@include('layouts.admin-header')
 
 <!DOCTYPE html>
 <html>
