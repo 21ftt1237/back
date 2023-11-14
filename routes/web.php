@@ -27,6 +27,24 @@ use App\Http\Controllers\ReviewController;
 //    return view('dashboard');
 //})->middleware(['auth','verified'])->name('dashboard');
 
+// Authenticate login
+Auth::routes(['verify' => true]);
+
+// Dashboard route for regular users
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard.user');
+
+// Dashboard route for admins
+Route::middleware(['auth', 'verified', 'admin'])->group(function () {
+    Route::get('/admin/dashboard', function () {
+        return view('admin.auth.adminDashboard');
+    })->name('dashboard.admin');
+});
+
+Route::get('/', function () {
+    return redirect()->route('dashboard.user');
+});
 
 Route::get('test', function () {
     return view('test');
@@ -243,21 +261,3 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
 require __DIR__.'/auth.php';
 
-// Authenticate login
-Auth::routes(['verify' => true]);
-
-// Dashboard route for regular users
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard.user');
-
-// Dashboard route for admins
-Route::middleware(['auth', 'verified', 'admin'])->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return view('admin.auth.adminDashboard');
-    })->name('dashboard.admin');
-});
-
-Route::get('/', function () {
-    return redirect()->route('dashboard.user');
-});
