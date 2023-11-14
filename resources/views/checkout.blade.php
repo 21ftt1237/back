@@ -430,7 +430,7 @@ input[type='password']:focus {
 
         <div class="rightside">
       <h4><div id="finalTotal"></div>  </h4>
-     <div id="fee"><h4>Delivery Fee: BND </div>  
+     <div id="fee"><h4>Delivery Fee: BND <span id="deliveryFee">5</span></div>
      <div id="coupon"><h4>Coupon: ${{ auth()->user()->redeem_coupon}} off</div>  
 
     <div id="pay"><h4>Final Total: </div>  
@@ -1010,21 +1010,15 @@ if (deliveryFee) {
 }
 
 
-  function updateTotalPriceAndDeliveryFee() {
-  
-  
-const totalAmount = parseFloat(localStorage.getItem('totalPrice')) 
-   
+ function updateTotalPriceAndDeliveryFee() {
+  const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
   const deliveryFee = parseFloat(localStorage.getItem('delivery')) || 0;
 
-      const testPay = totalAmount + deliveryFee;
- 
+  const testPay = totalAmount + deliveryFee;
   const finalPay = totalAmount + deliveryFee - {{ auth()->user()->redeem_coupon }};
 
-  
-  document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}`;
-  
-
+  document.getElementById('pay').innerHTML = <h4>Final Total: BND ${finalPay.toFixed(2)}</h4>;
+  document.getElementById('deliveryFee').textContent = deliveryFee.toFixed(2);
   
   localStorage.setItem('finalPay', finalPay.toFixed(2));
 }
