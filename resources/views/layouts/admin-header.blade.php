@@ -342,8 +342,9 @@ header a ion-icon {
  <div id="popup2" class="popup2" style="display: none;">
   <button class="close-button" onclick="togglePopup2()">&#10006;</button>
   <div class="option-container">
+    <h2>View</h2>
+    <br>
   </div>
-
 </div>
     
     <script src="app.js">
