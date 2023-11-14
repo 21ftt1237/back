@@ -70,8 +70,9 @@ header {
     color: white;
     margin-left: 15px;
     font-size: 35px;
-    font-weight: 500;
+    font-weight: 800;
     text-decoration: none;
+    transition-duration: 1s;
      margin-right: 40px;
 }
 
@@ -123,15 +124,6 @@ header {
   display: flex;
 }
 
-.logo{
-  margin-left: 30px;
-}
-
-.logo a {
-  color: white;
-  transition-duration: 1s;
-  font-weight: 800;
-}
 .logo a:hover {
   color: rgb(240, 197, 6);
   transition-duration: 1s;
