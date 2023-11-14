@@ -520,12 +520,14 @@ body {
 
     <div class="wishlist-line-bottom"></div>
 
-    <div class="button-row">
+<!--     <div class="button-row">
       <button class="custom-button">Discount</button>
       <button class="custom-button">Low Stock</button>
     </div>
 
-    <div class="wishlist-line-blw2btn"></div>
+    <div class="wishlist-line-blw2btn"></div> -->
+<h3>Dream Cache: Your Personal Wishlist Sanctuary</h3>
+
 <div class="wishlist-items list-container">
     
           <ul>
