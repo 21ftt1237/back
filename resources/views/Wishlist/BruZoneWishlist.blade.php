@@ -14,8 +14,19 @@
 <style>
     
 .wp {
-    padding: 20px;
-    font-size: 20px;
+/*     padding: 20px;
+    font-size: 20px; */
+     position: absolute;
+  left: 350px; /* Same as wishlist-title's left position */
+  top: 100px; /* Adjust as needed */
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Adjust as needed */
+  color: #000;
+  font-family: JetBrains Mono;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
     
 * {
