@@ -997,8 +997,6 @@ const storeNumber = 2; // Replace this with the appropriate store number
 const deliveryFee = localStorage.getItem(`delivery${storeNumber}`);
 const storeName = localStorage.getItem(`storename${storeNumber}`);
 
-// Now you can use deliveryFee and storeName in the checkout process
-console.log(`Delivery Fee from ${storeName}: $${deliveryFee}`);
 
  
   const feeDiv = document.getElementById('fee');
