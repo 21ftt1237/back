@@ -460,29 +460,6 @@ header a ion-icon {
 </style>
 <body>
 
-      <header>
-  
-
-
-        <div class="navbar">
-
-           <div class="logo" id="storeName" data-value="7"><a href="#">Bruzone</a></div>
-
-
-        <button class="view-button" onclick="togglePopup2()">ORDERS</button>
-         <button class="edit-button" onclick="togglePopup()">EDIT</button>
-
-
-
-            <a href="dashboard.html" class="nav-link">HOME</a>
-            <a href="#" class="nav-link">ABOUT US</a>
-            <a href="profiletest.html" class="nav-link">MY ACCOUNT</a>
-            <a href="Help/help.html" class="nav-link-last">HELP</a>
-              <button class="btn-sign-up">SIGN UP</button>
-        </div>
-    </div>
-
-  </header>
 
   <!-- Popup -->
  <div id="popup" class="popup" style="display: none;">
