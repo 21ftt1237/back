@@ -997,57 +997,59 @@ const deliveryFee = {
     'Guardian (Sengkurong)': 5,
     'Nimanja (Bandar)': 2,
     'Digital World (Bandar)': 2,
-  };
-    
-const storeName = localStorage.getItem('storename');
-const feeDiv = document.getElementById('fee');
+};
 
-if (deliveryFee[storeName]) {
-    feeDiv.innerHTML = `<h4>Delivery Fee for ${storeName}: BND ${deliveryFee[storeName]}</h4>`;
-} else {
-    feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
+const storeNames = localStorage.getItem('storenames').split(','); // assuming 'storenames' is a comma-separated string
+let totalDeliveryFee = 0;
+
+for (let i = 0; i < storeNames.length; i++) {
+    const storeName = storeNames[i];
+    if (deliveryFee[storeName]) {
+        totalDeliveryFee += deliveryFee[storeName];
+    }
 }
+
+const feeDiv = document.getElementById('fee');
+feeDiv.innerHTML = `<h4>Total Delivery Fee: BND ${totalDeliveryFee}</h4>`;
 
 function updateTotalPriceAndDeliveryFee() {
   const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
   const couponDiscount = parseFloat({{ auth()->user()->redeem_coupon }}) || 0;
 
-  const finalPay = totalAmount + deliveryFee[storeName] - couponDiscount;
+  const finalPay = totalAmount + totalDeliveryFee - couponDiscount;
 
-  document.getElementById('pay').innerHTML = `<h4>Final Total for ${storeName}: BND ${finalPay.toFixed(2)}</h4>`;
+  document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}</h4>`;
   localStorage.setItem('finalPay', finalPay.toFixed(2));
 }
 
 updateTotalPriceAndDeliveryFee();
 
+$(document).ready(function () {
+    $('#update-loyalty-points-form').submit(function (e) {
+        e.preventDefault();
 
- $(document).ready(function () {
-        $('#update-loyalty-points-form').submit(function (e) {
-            e.preventDefault();
+        const loyaltyPoints = $('#loyalty-points-input').val(); 
 
-            const loyaltyPoints = $('#loyalty-points-input').val(); 
-
-            $.ajax({
-                type: 'POST',
-                url: '/update-loyalty-points',
-                data: {
-                    _token: '{{ csrf_token() }}', 
-                    loyaltyPoints: loyaltyPoints
-                },
-                success: function (response) {
-                    
-                    alert(response.message);
-                },
-                error: function (error) {
-                    
-                    alert('Error updating coupon points');
-                }
-            });
+        $.ajax({
+            type: 'POST',
+            url: '/update-loyalty-points',
+            data: {
+                _token: '{{ csrf_token() }}', 
+                loyaltyPoints: loyaltyPoints
+            },
+            success: function (response) {
+                
+                alert(response.message);
+            },
+            error: function (error) {
+                
+                alert('Error updating coupon points');
+            }
         });
     });
-   
-
+});
 </script>
+
  <script>
         
         var map = L.map('map').setView([0, 0], 13);
