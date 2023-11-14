@@ -19,7 +19,8 @@
 </head>
 <style>
     .footer-distributed{
-
+  position:absolute;
+  bottom: 0;      
   margin-top: auto;
   background: black;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
