@@ -808,9 +808,9 @@ cartItems.forEach((item, index) => {
     var localTotalPrice = localStorage.getItem('totalPrice');
     var localTotalPay = localStorage.getItem('finalPay');
     // Display the total price
-    totalPriceElement.textContent = Total Price: BND $ + localTotalPrice;
-    finalTotal.textContent =  Total Price: BND $ + localTotalPrice;
-    finishTotal.textContent = Total Spent: BND $ + localTotalPay;
+    totalPriceElement.textContent = `Total Price: BND $` + localTotalPrice;
+    finalTotal.textContent =  `Total Price: BND $` + localTotalPrice;
+    finishTotal.textContent = `Total Spent: BND $` + localTotalPay;
 
 
   }
@@ -827,10 +827,10 @@ const currentHours = currentDate.getHours().toString().padStart(2, '0');
 const currentMinutes = currentDate.getMinutes().toString().padStart(2, '0');
 
 
-const formattedDate = ${currentYear}-${currentMonth}-${currentDay};
+const formattedDate = `${currentYear}-${currentMonth}-${currentDay}`;
 
 
-const formattedTime = ${currentHours}:${currentMinutes};
+const formattedTime = `${currentHours}:${currentMinutes}`;
 
 
 document.getElementById('date1').value = formattedDate;
@@ -997,7 +997,7 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
 
   if (deliveryFee) {
 
-    feeDiv.innerHTML = <h4>Delivery Fee: BND ${deliveryFee}</h4>;
+    feeDiv.innerHTML = `<h4>Delivery Fee: BND ${deliveryFee}</h4>`;
   } else {
    
     feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
@@ -1016,7 +1016,7 @@ const totalAmount = parseFloat(localStorage.getItem('totalPrice'))
   const finalPay = totalAmount + deliveryFee - {{ auth()->user()->redeem_coupon }};
 
   
-  document.getElementById('pay').innerHTML = <h4>Final Total: BND ${finalPay.toFixed(2)};
+  document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}`;
   
 
   
