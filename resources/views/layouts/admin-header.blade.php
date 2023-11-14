@@ -11,7 +11,7 @@
 <header>
 <div class="admin-landing-page">
     <div class="navbar">
-        <div class="logo" id="storeName" data-value="7"><a href="{{ url('adminDashboard') }}">Bruzone</a></div>
+        <div class="logo" id="storeName" data-value="7"><a href="{{ url('admin/adminDashboard') }}">Bruzone</a></div>
         <button class="view-button" onclick="togglePopup2()">ORDERS</button>
         <button class="edit-button" onclick="togglePopup()">EDIT</button>
         <!-- Add your other header elements here -->
