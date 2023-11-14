@@ -17,7 +17,7 @@
   padding: 20px;
   font-size: 20px; */
   gap: 20px; /* Adjust as needed */
-  color: #000;
+  color: #666;
   font-family: JetBrains Mono;
   font-style: normal;
   font-weight: 400;
@@ -537,7 +537,7 @@ body {
     </div>
 
     <div class="wishlist-line-blw2btn"></div> -->
-<div class="wp">Dream Cache: Your Personal Wishlist Sanctuary</div>
+<div class="wp">Dream Cache: Your Personal Wishlist Sanctuary.</div>
 
 <div class="wishlist-items list-container">
     
