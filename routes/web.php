@@ -43,7 +43,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 });
 
 Route::get('/', function () {
-    return redirect()->route('/dashboard');
+    return redirect()->route('dashboard');
 });
 
 Route::get('test', function () {
