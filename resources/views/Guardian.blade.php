@@ -1572,8 +1572,9 @@ function ReviewContentContainer(name, createdAt, review) {
   }
 }
 
-localStorage.setItem('delivery', '5');
-localStorage.setItem('storename', 'Guardian (Sengkurong)');
+// Storing values for the first store
+localStorage.setItem('delivery1', '5');
+localStorage.setItem('storename1', 'Guardian (Sengkurong)');
 
 var storeId = 6;
 var previousStore = localStorage.getItem('storeId');
