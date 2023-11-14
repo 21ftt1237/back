@@ -704,15 +704,13 @@ $('#proceedBtn').on('click', function() {
   });
 });
 
-
-
 </script>
-<!-- <script>
+        
+<script>
         
   const confirmationContainer = document.getElementById('confirmationContainer');
 
   let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-
   function removeFromCart(index) {
     const confirmDelete = confirm('Are you sure you want to remove this item from your cart?');
     if (confirmDelete) {
@@ -746,7 +744,6 @@ $('#proceedBtn').on('click', function() {
     }
   }
 
-
   function renderCart(cartItems) {
     const totalPriceElement = document.getElementById('totalPrice');
     const finalTotal = document.getElementById('finalTotal');
@@ -758,7 +755,6 @@ $('#proceedBtn').on('click', function() {
     
      var scheduledDateTime = localStorage.getItem('scheduledDateTime');
    
-
     // Update the delivery time div
     document.getElementById('scheduledDeli').textContent = 'Scheduled On: ' + scheduledDateTime;
     document.getElementById('finishtime').textContent = 'Order Made On: ' + scheduledDateTime;
@@ -799,8 +795,6 @@ cartItems.forEach((item, index) => {
          
       `;
       order.appendChild(itemDiv);
-
-      
       
     });
     var localTotalPrice = localStorage.getItem('totalPrice');
@@ -809,7 +803,6 @@ cartItems.forEach((item, index) => {
     totalPriceElement.textContent = `Total Price: BND $` + localTotalPrice;
     finalTotal.textContent =  `Total Price: BND $` + localTotalPrice;
     finishTotal.textContent = `Total Spent: BND $` + localTotalPay;
-
 
   }
 
@@ -825,16 +818,12 @@ const currentMinutes = currentDate.getMinutes().toString().padStart(2, '0');
 
 const formattedDate = `${currentYear}-${currentMonth}-${currentDay}`;
 
-
 const formattedTime = `${currentHours}:${currentMinutes}`;
-
 
 document.getElementById('date1').value = formattedDate;
 document.getElementById('time').value = formattedTime;
 
-
 document.getElementById('date1').min = formattedDate;
-
 
 document.getElementById('time').min = formattedTime;
 
@@ -849,106 +838,8 @@ function calculateTotalAmount(cartItems) {
 function calculateTotalPrice(item) {
   return item.price * item.quantity;
 }
-14/11/2023
-</script> -->
-
-        <script>
-  const confirmationContainer = document.getElementById('confirmationContainer');
-  const order = document.getElementById('order');
-  let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-
-  function removeFromCart(index) {
-    const confirmDelete = confirm('Are you sure you want to remove this item from your cart?');
-    if (confirmDelete) {
-      cartItems = cartItems.filter((_, i) => i !== index);
-      localStorage.setItem('cartItems', JSON.stringify(cartItems));
-      renderCart(cartItems);
-      updateTotalPriceAndDeliveryFee();
-    }
-  }
-
-  function incrementQuantity(index) {
-    cartItems[index].quantity++;
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    renderCart(cartItems);
-    updateTotalPriceAndDeliveryFee();
-  }
-
-  function decrementQuantity(index) {
-    if (cartItems[index].quantity > 1) {
-      cartItems[index].quantity--;
-      localStorage.setItem('cartItems', JSON.stringify(cartItems));
-      renderCart(cartItems);
-    } else {
-      const confirmDelete = confirm('Are you sure you want to remove this item from your cart?');
-      if (confirmDelete) {
-        cartItems = cartItems.filter((_, i) => i !== index);
-        localStorage.setItem('cartItems', JSON.stringify(cartItems));
-        renderCart(cartItems);
-        updateTotalPriceAndDeliveryFee();
-      }
-    }
-  }
-
-  function renderCart(cartItems) {
-    const totalPriceElement = document.getElementById('totalPrice');
-    const finalTotal = document.getElementById('finalTotal');
-    let total = 0;
-
-    var scheduledDateTime = localStorage.getItem('scheduledDateTime');
-
-    document.getElementById('scheduledDeli').textContent = 'Scheduled On: ' + scheduledDateTime;
-    document.getElementById('finishtime').textContent = 'Order Made On: ' + scheduledDateTime;
-
-    confirmationContainer.innerHTML = ''; // Clear previous items
-    order.innerHTML = ''; // Clear previous items
-
-    cartItems.forEach((item, index) => {
-      const itemDiv = document.createElement('div');
-      itemDiv.classList.add('cartItems');
-      itemDiv.innerHTML = `
-        <div class="top">
-          <img src="image/${item.image}" alt="${item.name}">
-          <div class="item-name">${item.name}</div>
-          <div class="item-price">BND ${calculateTotalPrice(item).toLocaleString()}</div>
-          <div class="item-quantity">
-            <button class="quantity-btn" onclick="decrementQuantity(${index})">-</button>
-            <span>${item.quantity}</span>
-            <button class="quantity-btn" onclick="incrementQuantity(${index})">+</button>
-          </div>
-        </div>
-      `;
-      confirmationContainer.appendChild(itemDiv);
-
-      const itemDivOrder = document.createElement('div');
-      itemDivOrder.classList.add('cartItems');
-      itemDivOrder.innerHTML = `
-        <div class="top">
-          <img src="image/${item.image}" alt="${item.name}">
-          <div class="item-name">${item.name}</div>
-          <div class="item-price">BND ${calculateTotalPrice(item).toLocaleString()}</div>
-          <div class="item-quantity">${item.quantity}</div>
-        </div>
-      `;
-      order.appendChild(itemDivOrder);
-
-      total += calculateTotalPrice(item);
-    });
-
-    var localTotalPrice = localStorage.getItem('totalPrice');
-    var localTotalPay = localStorage.getItem('finalPay');
-    totalPriceElement.textContent = `Total Price: BND $${localTotalPrice}`;
-    finalTotal.textContent = `Total Price: BND $${localTotalPrice}`;
-    finishTotal.textContent = `Total Spent: BND $${localTotalPay}`;
-  }
-
-  function calculateTotalPrice(item) {
-    return item.price * item.quantity;
-  }
-
-  renderCart(cartItems);
+        
 </script>
-
 
 <script>
     $('#proceedBtn').on('click', function() {
@@ -970,8 +861,6 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
             coupon_point: couponPointsGained, 
         },
         success: function (response) {
-            
-            
             
             axios.post('/place-order', {
                 cart_items: cartItems,
@@ -998,8 +887,7 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
 
         
   isPayPalTransactionComplete = true;
-        
-     
+           
     
   });
     
@@ -1022,10 +910,7 @@ paypal.Buttons({
       
       
 var button = document.getElementById("nextBtn");
-    button.disabled = false;
-
-
-        
+    button.disabled = false;       
 
 var couponPointsGained = localStorage.getItem('loyaltytest');
 
@@ -1065,8 +950,7 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
     
     alert('Coupon point value not found in local storage');
 }
-
-        
+    
   isPayPalTransactionComplete = true;
         
     
@@ -1074,12 +958,7 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
   },
 }).render('#paypal-button-container');
 
-
-
-
 </script>
-
-
 
 <script>
 
