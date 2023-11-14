@@ -51,7 +51,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 });
 
 Route::get('/', function () {
-    return auth()->check() ? redirect()->route('dashboard.admins') : redirect()->route('dashboard.user');
+    return redirect()->route('dashboard');
 });
 
 
