@@ -308,7 +308,30 @@ header a ion-icon {
         <div class="logo" id="storeName" data-value="7"><a href="{{ url('admin/adminDashboard') }}">Bruzone</a></div>
         <button class="view-button" onclick="togglePopup2()">ORDERS</button>
         <button class="edit-button" onclick="togglePopup()">EDIT</button>
-        <!-- Add your other header elements here -->
+
+         <!-- Popup -->
+ <div id="popup" class="popup" style="display: none;">
+  <button class="close-button" onclick="togglePopup()">&#10006;</button>
+  <div class="option-container">
+    <h2>Customisation</h2>
+    <br>
+    <button class="option">Users</button>
+  </div>
+  <div class="option-container">
+    <button class="option">Stores</button>
+  </div>
+    <div class="option-container">
+    <button class="option">Products</button>
+  </div>
+</div>
+
+
+  <!-- Popup -->
+ <div id="popup2" class="popup2" style="display: none;">
+  <button class="close-button" onclick="togglePopup2()">&#10006;</button>
+  <div class="option-container">
+
+</div>
 
         <a href="{{ url('Dashboard-adm') }}" class="nav-link">HOME</a>
         <a href="{{ url('profiletest') }}" class="nav-link">MY ACCOUNT</a>
