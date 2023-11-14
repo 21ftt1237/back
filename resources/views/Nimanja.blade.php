@@ -3,6 +3,7 @@
     $storehere = 'true';
     $storenumber = '7';
     $carts = 'true';
+    $storeNumber = 2;
 @endphp
 @auth
     @php
