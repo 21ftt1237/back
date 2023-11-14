@@ -242,6 +242,18 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
 require __DIR__.'/auth.php';
 
-Auth::routes();
+// Authenticate login
+Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Dashboard route for regular users
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard.user');
+
+// Dashboard route for admins
+Route::middleware(['auth', 'verified', 'admin'])->group(function () {
+    Route::get('/admin/dashboard', function () {
+        return view('admin.auth.adminDashboard');
+    })->name('dashboard.admin');
+});
+
