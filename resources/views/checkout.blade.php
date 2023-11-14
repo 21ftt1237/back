@@ -993,21 +993,21 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
 const storeNumber = 1; // Replace this with the appropriate store number
 const storeNumber = 2; // Replace this with the appropriate store number
 
-// Retrieving the delivery fee and store name based on the store number
-const deliveryFee = localStorage.getItem(`delivery${storeNumber}`);
-const storeName = localStorage.getItem(`storename${storeNumber}`);
+// Get the delivery fee and store name based on the store number
+const deliveryFee = localStorage.getItem(delivery${storeNumber});
+const storeName = localStorage.getItem(storename${storeNumber});
 
+// Get the feeDiv element
+const feeDiv = document.getElementById('fee');
 
- 
-  const feeDiv = document.getElementById('fee');
-
-  if (deliveryFee) {
-
-    feeDiv.innerHTML = `<h4>Delivery Fee: BND ${deliveryFee}</h4>`;
-  } else {
-   
-    feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
-  }
+// Check if deliveryFee is available for the selected store
+if (deliveryFee) {
+  // Update the feeDiv content
+  feeDiv.innerHTML = <h4>Delivery Fee (${storeName}): BND ${deliveryFee}</h4>;
+} else {
+  // Display a message if deliveryFee is not found
+  feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
+}
 
 
   function updateTotalPriceAndDeliveryFee() {
