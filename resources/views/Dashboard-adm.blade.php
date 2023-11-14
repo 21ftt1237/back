@@ -1,3 +1,9 @@
+@php
+    $pageName = 'Bruzone - admin';
+@endphp
+
+@include('admin-header')
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,25 +40,6 @@ header {
   background: black;
 }
 
-
-  header .wishlist img{
-    width: 40px;
-  }
-
-  header .wishlist{
-    position: relative;
-
-  }
-
-  header .wishlist span{
-    background: red;
-    border-radius: 50%;
-    color: #fff;
-    position: absolute;
-    top: -5px;
-    left: 80%;
-    padding: 3px 10px;
-  }
 
 
 
@@ -128,16 +115,6 @@ header {
     color: #F6E71D;
     text-decoration: none;
   }
-
-
-
-
-
-.shopping img:hover,
-.wishlist img:hover {
-    color: red;
-    transform: translateY(5px);
-}
 
 
 
@@ -495,18 +472,6 @@ header a ion-icon {
         <button class="view-button" onclick="togglePopup2()">ORDERS</button>
          <button class="edit-button" onclick="togglePopup()">EDIT</button>
 
-         <div class="shopping">
-                <img src="image/shoppingCart.png">
-                <span class="quantity">0</span>
-            </div>
-
-          <div class="wishlist">
-            <a href="wishlist/Bruzone Wishlist.html">
-                <img src="image/wishlist.png">
-                <span class="quantity">0</span>
-            </a>
-        </div>
-
 
 
             <a href="dashboard.html" class="nav-link">HOME</a>
@@ -557,49 +522,6 @@ header a ion-icon {
 
 
   </section>
-  <footer class="footer-distributed">
-
-      <div class="footer-left">
-
-        <h3>Bru<span>zone</span></h3>
-
-        <p class="footer-links">
-          <a href="dashboard.html" class="link">HOME</a>
-          
-          <a href="#" class="link">ABOUT US</a>
-        
-          <a href="profiletest.html" class="link">MY ACCOUNT</a>
-          
-          <a href="Help/help.html" class="link">HELP</a>
-          
-        </p>
-
-        <p class="footer-company-name">Bruzone © 2023</p>
-      </div>
-
-
-      <div class="footer-right">
-
-        <p class="footer-company-about">
-          <span></span>
-          Life is short, so why not buy more.
-        </p>
-
-        <div class="footer-icons">
-
-          <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-          <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
-          <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
-          <a href="#"><ion-icon name="mail"></ion-icon></a>
-          <a href="https://www.paypal.com/bn/signin"><i class="fab fa-paypal fa-2x"></i></a>
-
-
-
-        </div>
-
-      </div>
-
-    </footer>
   <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
   <script src="./ecommerce.js"></script>
 
@@ -629,3 +551,4 @@ function togglePopup2() {
 
 </body>
 </html>
+@include('layouts.footer')
