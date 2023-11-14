@@ -704,13 +704,17 @@ $('#proceedBtn').on('click', function() {
   });
 });
 
+
+
 </script>
-        
 <script>
-        
+
+
+    
   const confirmationContainer = document.getElementById('confirmationContainer');
 
   let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
   function removeFromCart(index) {
     const confirmDelete = confirm('Are you sure you want to remove this item from your cart?');
     if (confirmDelete) {
@@ -744,6 +748,7 @@ $('#proceedBtn').on('click', function() {
     }
   }
 
+
   function renderCart(cartItems) {
     const totalPriceElement = document.getElementById('totalPrice');
     const finalTotal = document.getElementById('finalTotal');
@@ -755,6 +760,7 @@ $('#proceedBtn').on('click', function() {
     
      var scheduledDateTime = localStorage.getItem('scheduledDateTime');
    
+
     // Update the delivery time div
     document.getElementById('scheduledDeli').textContent = 'Scheduled On: ' + scheduledDateTime;
     document.getElementById('finishtime').textContent = 'Order Made On: ' + scheduledDateTime;
@@ -795,18 +801,23 @@ cartItems.forEach((item, index) => {
          
       `;
       order.appendChild(itemDiv);
+
+      
       
     });
     var localTotalPrice = localStorage.getItem('totalPrice');
     var localTotalPay = localStorage.getItem('finalPay');
     // Display the total price
-    totalPriceElement.textContent = `Total Price: BND $` + localTotalPrice;
-    finalTotal.textContent =  `Total Price: BND $` + localTotalPrice;
-    finishTotal.textContent = `Total Spent: BND $` + localTotalPay;
+    totalPriceElement.textContent = Total Price: BND $ + localTotalPrice;
+    finalTotal.textContent =  Total Price: BND $ + localTotalPrice;
+    finishTotal.textContent = Total Spent: BND $ + localTotalPay;
+
 
   }
 
   renderCart(cartItems);
+
+
 
 const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
@@ -816,14 +827,18 @@ const currentHours = currentDate.getHours().toString().padStart(2, '0');
 const currentMinutes = currentDate.getMinutes().toString().padStart(2, '0');
 
 
-const formattedDate = `${currentYear}-${currentMonth}-${currentDay}`;
+const formattedDate = ${currentYear}-${currentMonth}-${currentDay};
 
-const formattedTime = `${currentHours}:${currentMinutes}`;
+
+const formattedTime = ${currentHours}:${currentMinutes};
+
 
 document.getElementById('date1').value = formattedDate;
 document.getElementById('time').value = formattedTime;
 
+
 document.getElementById('date1').min = formattedDate;
+
 
 document.getElementById('time').min = formattedTime;
 
@@ -838,7 +853,8 @@ function calculateTotalAmount(cartItems) {
 function calculateTotalPrice(item) {
   return item.price * item.quantity;
 }
-        
+
+
 </script>
 
 <script>
@@ -861,6 +877,8 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
             coupon_point: couponPointsGained, 
         },
         success: function (response) {
+            
+            
             
             axios.post('/place-order', {
                 cart_items: cartItems,
@@ -887,7 +905,8 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
 
         
   isPayPalTransactionComplete = true;
-           
+        
+     
     
   });
     
@@ -910,7 +929,10 @@ paypal.Buttons({
       
       
 var button = document.getElementById("nextBtn");
-    button.disabled = false;       
+    button.disabled = false;
+
+
+        
 
 var couponPointsGained = localStorage.getItem('loyaltytest');
 
@@ -950,7 +972,8 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
     
     alert('Coupon point value not found in local storage');
 }
-    
+
+        
   isPayPalTransactionComplete = true;
         
     
@@ -958,60 +981,78 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
   },
 }).render('#paypal-button-container');
 
+
+
+
 </script>
 
+
+
 <script>
+  const deliveryFee = localStorage.getItem('delivery');
+  const storeName = localStorage.getItem('storename');
 
-const deliveryFee = parseFloat(localStorage.getItem('delivery')) || 0;
+ 
+  const feeDiv = document.getElementById('fee');
 
-const storeName = localStorage.getItem('storename');
+  if (deliveryFee) {
 
-const feeDiv = document.getElementById('fee');
+    feeDiv.innerHTML = <h4>Delivery Fee: BND ${deliveryFee}</h4>;
+  } else {
+   
+    feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
+  }
 
-if (deliveryFee) {
-  feeDiv.innerHTML = <h4>Delivery Fee for ${storeName}: BND ${deliveryFee}</h4>;
-} else {
-  feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
+
+  function updateTotalPriceAndDeliveryFee() {
+  
+  
+const totalAmount = parseFloat(localStorage.getItem('totalPrice')) 
+   
+  const deliveryFee = parseFloat(localStorage.getItem('delivery')) || 0;
+
+      const testPay = totalAmount + deliveryFee;
+ 
+  const finalPay = totalAmount + deliveryFee - {{ auth()->user()->redeem_coupon }};
+
+  
+  document.getElementById('pay').innerHTML = <h4>Final Total: BND ${finalPay.toFixed(2)};
+  
+
+  
+  localStorage.setItem('finalPay', finalPay.toFixed(2));
 }
 
-function updateTotalPriceAndDeliveryFee() {
-  const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
-  const couponDiscount = parseFloat({{ auth()->user()->redeem_coupon }}) || 0;
-
-  const finalPay = totalAmount + deliveryFee - couponDiscount;
-
-  document.getElementById('pay').innerHTML = <h4>Final Total for ${storeName}: BND ${finalPay.toFixed(2)}</h4>;
-    localStorage.setItem('finalPay', finalPay.toFixed(2));
-}
 
 updateTotalPriceAndDeliveryFee();
 
-$(document).ready(function () {
-    $('#update-loyalty-points-form').submit(function (e) {
-        e.preventDefault();
+ $(document).ready(function () {
+        $('#update-loyalty-points-form').submit(function (e) {
+            e.preventDefault();
 
-        const loyaltyPoints = $('#loyalty-points-input').val(); 
+            const loyaltyPoints = $('#loyalty-points-input').val(); 
 
-        $.ajax({
-            type: 'POST',
-            url: '/update-loyalty-points',
-            data: {
-                _token: '{{ csrf_token() }}', 
-                loyaltyPoints: loyaltyPoints
-            },
-            success: function (response) {
-                
-                alert(response.message);
-            },
-            error: function (error) {
-                
-                alert('Error updating coupon points');
-            }
+            $.ajax({
+                type: 'POST',
+                url: '/update-loyalty-points',
+                data: {
+                    _token: '{{ csrf_token() }}', 
+                    loyaltyPoints: loyaltyPoints
+                },
+                success: function (response) {
+                    
+                    alert(response.message);
+                },
+                error: function (error) {
+                    
+                    alert('Error updating coupon points');
+                }
+            });
         });
     });
-});
-</script>
+   
 
+</script>
  <script>
         
         var map = L.map('map').setView([0, 0], 13);
@@ -1031,8 +1072,6 @@ $(document).ready(function () {
 
         
         map.setView([lat, lon], 13);
-
-     
     </script>
 
 
