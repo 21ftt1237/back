@@ -61,7 +61,7 @@ header {
 
 .logo {
     margin-left: 10px;
-    margin-right: 20px;
+    margin-right: 50px;
 }
 
 .logo a {
