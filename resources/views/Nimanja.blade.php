@@ -1541,8 +1541,10 @@ function ReviewContentContainer(name, createdAt, review) {
   }
 }
 
-localStorage.setItem('delivery', '2');
-localStorage.setItem('storename', 'Nimanja (Bandar)');
+
+// Storing values for the first store
+localStorage.setItem('delivery2', '2');
+localStorage.setItem('storename2', 'Nimanja (Bandar)');
 
 var storeId = 5;
 var previousStore = localStorage.getItem('storeId');
