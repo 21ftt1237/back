@@ -17,9 +17,7 @@
         <!-- Add your other header elements here -->
 
         <a href="{{ url('Dashboard-adm') }}" class="nav-link">HOME</a>
-        <a href="#" class="nav-link">ABOUT US</a>
         <a href="{{ url('profiletest') }}" class="nav-link">MY ACCOUNT</a>
-        <a href="{{ url('Help/help') }}" class="nav-link-last">HELP</a>
         
 	@if($loggedIn)
             <form method="post" action="{{ route('logout') }}">
