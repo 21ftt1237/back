@@ -309,6 +309,22 @@ header a ion-icon {
         <button class="view-button" onclick="togglePopup2()">ORDERS</button>
         <button class="edit-button" onclick="togglePopup()">EDIT</button>
 
+
+        <a href="{{ url('Dashboard-adm') }}" class="nav-link">HOME</a>
+        <a href="{{ url('profiletest') }}" class="nav-link">MY ACCOUNT</a>
+        
+	@if($loggedIn)
+            <form method="post" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="btn-sign-up" id="sub">Logout</button>
+            </form>
+        @endif
+
+        
+    </div>
+    </div>
+
+    
          <!-- Popup -->
  <div id="popup" class="popup" style="display: none;">
   <button class="close-button" onclick="togglePopup()">&#10006;</button>
@@ -332,20 +348,6 @@ header a ion-icon {
   <div class="option-container">
 
 </div>
-
-        <a href="{{ url('Dashboard-adm') }}" class="nav-link">HOME</a>
-        <a href="{{ url('profiletest') }}" class="nav-link">MY ACCOUNT</a>
-        
-	@if($loggedIn)
-            <form method="post" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit" class="btn-sign-up" id="sub">Logout</button>
-            </form>
-        @endif
-
-        
-    </div>
-    </div>
     
     <script src="app.js">
     </script>
