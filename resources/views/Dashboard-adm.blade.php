@@ -64,7 +64,6 @@ header {
 
 .logo {
     margin-left: 10px;
-      margin-right: 40px;
 }
 
 .logo a {
@@ -73,6 +72,7 @@ header {
     font-size: 35px;
     font-weight: 500;
     text-decoration: none;
+     margin-right: 40px;
 }
 
 .nav-links {
