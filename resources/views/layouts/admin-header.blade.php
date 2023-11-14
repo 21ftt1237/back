@@ -335,10 +335,6 @@ header a ion-icon {
   </div>
   <div class="option-container">
     <button class="option">Stores</button>
-  </div>
-    <div class="option-container">
-    <button class="option">Products</button>
-  </div>
 </div>
 
 
