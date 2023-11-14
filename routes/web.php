@@ -38,7 +38,7 @@ Route::get('/dashboard', function () {
 
 // Dashboard route for admins
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
-    Route::get('/admin/dashboard', function () {
+    Route::get('/admin/adminDashboard', function () {
         return view('admin.auth.adminDashboard');
     })->name('dashboard.admin');
 });
