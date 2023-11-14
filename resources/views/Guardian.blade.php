@@ -1559,21 +1559,30 @@ function ReviewContentContainer(name, createdAt, review) {
 //     document.body.classList.remove("active");
 // })
 
-var storeId = 6; // Replace with your logic to determine the store ID
-var deliveryFee = 5; // Set the fixed delivery fee value
+    
+ function confirmAction() {
+  var confirmation = confirm("You have changed Stores, confirm to clear cart items?");
+  if (confirmation) {
+    
+    localStorage.setItem('storeId', '6');
+    localStorage.removeItem('cartItems');
+  } else {
+    
+    window.location.href = '{{ route('dashboard') }}';
+  }
+}
 
-localStorage.setItem('delivery', deliveryFee);
+localStorage.setItem('delivery', '5');
 localStorage.setItem('storename', 'Guardian (Sengkurong)');
 
+var storeId = 6;
 var previousStore = localStorage.getItem('storeId');
 var parseVal = parseInt(previousStore);
 
-if (localStorage.getItem("cartItems") !== null) {
-  if (storeId !== parseVal) {
-    confirmAction();
-  }
-}
-    
+if(localStorage.getItem("cartItems") !== null){
+if (storeId !== parseVal) {
+  confirmAction();
+}}
 </script>
 
 </body>
