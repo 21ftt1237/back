@@ -1000,7 +1000,6 @@ const storeName = localStorage.getItem(storename${storeNumber});
 // Get the feeDiv element
 const feeDiv = document.getElementById('fee');
 
-// Check if deliveryFee is available for the selected store
 if (deliveryFee) {
   // Update the feeDiv content
   feeDiv.innerHTML = <h4>Delivery Fee (${storeName}): BND ${deliveryFee}</h4>;
