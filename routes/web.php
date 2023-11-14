@@ -28,7 +28,7 @@ use App\Http\Controllers\ReviewController;
 //})->middleware(['auth','verified'])->name('dashboard');
 
 // Authenticate login
-Auth::routes();
+Auth::routes(['verify' => true, 'name' => 'auth.', 'password.reset' => 'password.reset']);
 
 // Dashboard route for regular users
 Route::get('/dashboard', function () {
