@@ -60,7 +60,7 @@ header {
 }
 
 .logo {
-    margin-left: 10px;
+    margin-left: 30px;
     margin-right: 200px;
 }
 
