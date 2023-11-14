@@ -12,7 +12,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-
+    
+.wp {
+    padding: 10px;
+    font-size: 10px;
+}
+    
 * {
   margin: 0;
   padding: 0;
@@ -526,7 +531,7 @@ body {
     </div>
 
     <div class="wishlist-line-blw2btn"></div> -->
-<h3>Dream Cache: Your Personal Wishlist Sanctuary</h3>
+<div class="wp">Dream Cache: Your Personal Wishlist Sanctuary</div>
 
 <div class="wishlist-items list-container">
     
