@@ -962,36 +962,26 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
 
 <script>
 
-const deliveryFee = {
-    'Netcom (Kiulap)': 2,
-    'Game Central (Bandar)': 3,
-    '88th Avenue': 3,
-    'Guardian (Sengkurong)': 5,
-    'Nimanja (Bandar)': 2,
-    'Digital World (Bandar)': 2,
-};
+const deliveryFee = parseFloat(localStorage.getItem('delivery')) || 0;
 
-const storeNames = localStorage.getItem('storenames').split(','); // assuming 'storenames' is a comma-separated string
-let totalDeliveryFee = 0;
-
-for (let i = 0; i < storeNames.length; i++) {
-    const storeName = storeNames[i];
-    if (deliveryFee[storeName]) {
-        totalDeliveryFee += deliveryFee[storeName];
-    }
-}
+const storeName = localStorage.getItem('storename');
 
 const feeDiv = document.getElementById('fee');
-feeDiv.innerHTML = `<h4>Total Delivery Fee: BND ${totalDeliveryFee}</h4>`;
+
+if (deliveryFee) {
+  feeDiv.innerHTML = <h4>Delivery Fee for ${storeName}: BND ${deliveryFee}</h4>;
+} else {
+  feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
+}
 
 function updateTotalPriceAndDeliveryFee() {
   const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
   const couponDiscount = parseFloat({{ auth()->user()->redeem_coupon }}) || 0;
 
-  const finalPay = totalAmount + totalDeliveryFee - couponDiscount;
+  const finalPay = totalAmount + deliveryFee - couponDiscount;
 
-  document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}</h4>`;
-  localStorage.setItem('finalPay', finalPay.toFixed(2));
+  document.getElementById('pay').innerHTML = <h4>Final Total for ${storeName}: BND ${finalPay.toFixed(2)}</h4>;
+    localStorage.setItem('finalPay', finalPay.toFixed(2));
 }
 
 updateTotalPriceAndDeliveryFee();
