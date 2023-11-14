@@ -603,6 +603,29 @@ header a ion-icon {
   <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
   <script src="./ecommerce.js"></script>
 
+<script type="text/javascript">
+    //POPUP
+  function togglePopup() {
+    const popup = document.getElementById("popup");
+    if (popup.style.display === "block") {
+        popup.style.display = "none";
+    } else {
+        popup.style.display = "block";
+    }
+}
+
+
+function togglePopup2() {
+    const popup = document.getElementById("popup2");
+    if (popup.style.display === "block") {
+        popup.style.display = "none";
+    } else {
+        popup.style.display = "block";
+    }
+}
+
+</script>
+
 
 </body>
 </html>
