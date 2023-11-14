@@ -14,8 +14,8 @@
 <style>
     
 .wp {
-    padding: 10px;
-    font-size: 15px;
+    padding: 20px;
+    font-size: 20px;
 }
     
 * {
