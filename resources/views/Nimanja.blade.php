@@ -1529,21 +1529,29 @@ function ReviewContentContainer(name, createdAt, review) {
 //     document.body.classList.remove("active");
 // })
     
-var storeId = 5; // Replace with your logic to determine the store ID
-var deliveryFee = 2; // Set the fixed delivery fee value
+  function confirmAction() {
+  var confirmation = confirm("You have changed Stores, confirm to clear cart items?");
+  if (confirmation) {
+    
+    localStorage.setItem('storeId', '5');
+    localStorage.removeItem('cartItems');
+  } else {
+    
+    window.location.href = '{{ route('dashboard') }}';
+  }
+}
 
-localStorage.setItem('delivery', deliveryFee);
-localStorage.setItem('storename', 'Nimanja(Bandar)');
+localStorage.setItem('delivery', '2');
+localStorage.setItem('storename', 'Nimanja (Bandar)');
 
+var storeId = 5;
 var previousStore = localStorage.getItem('storeId');
 var parseVal = parseInt(previousStore);
 
-if (localStorage.getItem("cartItems") !== null) {
-  if (storeId !== parseVal) {
-    confirmAction();
-  }
-}
-    
+if(localStorage.getItem("cartItems") !== null){
+if (storeId !== parseVal) {
+  confirmAction();
+}}
 </script>
 
 </body>
