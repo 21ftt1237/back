@@ -323,6 +323,11 @@ header a ion-icon {
         
     </div>
     </div>
+    
+    <script src="app.js">
+    </script>
+         
+     </div>
 </header>
   <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
   <script src="./ecommerce.js"></script>
