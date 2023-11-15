@@ -988,7 +988,7 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
 
 
 
-<script>
+<!-- <script>
   // Getting the store number from the URL or another source
 const storeNumber = 1; // Replace this with the appropriate store number
 const storeNumber = 2; // Replace this with the appropriate store number
@@ -1008,7 +1008,6 @@ if (deliveryFee) {
   feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
 }
 
-
  function updateTotalPriceAndDeliveryFee() {
   const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
   const deliveryFee = parseFloat(localStorage.getItem('delivery')) || 0;
@@ -1022,6 +1021,78 @@ if (deliveryFee) {
   localStorage.setItem('finalPay', finalPay.toFixed(2));
 }
 
+updateTotalPriceAndDeliveryFee();
+
+ $(document).ready(function () {
+        $('#update-loyalty-points-form').submit(function (e) {
+            e.preventDefault();
+
+            const loyaltyPoints = $('#loyalty-points-input').val(); 
+
+            $.ajax({
+                type: 'POST',
+                url: '/update-loyalty-points',
+                data: {
+                    _token: '{{ csrf_token() }}', 
+                    loyaltyPoints: loyaltyPoints
+                },
+                success: function (response) {
+                    
+                    alert(response.message);
+                },
+                error: function (error) {
+                    
+                    alert('Error updating coupon points');
+                }
+            });
+        });
+    }); code ori sebelum b tukar
+</script> --> 
+
+<script>
+// Getting the store numbers from the URL or another source
+const storeNumber = [1, 2, 3, 4, 5, 6]; // Replace this with the appropriate store numbers
+
+let totalDeliveryFee = 0;
+let storeNames = [];
+
+// Loop through each store number
+for (let i = 0; i < storeNumbers.length; i++) {
+  const storeNumber = storeNumbers[i];
+
+  // Get the delivery fee and store name based on the store number
+  const deliveryFee = parseFloat(localStorage.getItem(`delivery${storeNumber}`)) || 0;
+  const storeName = localStorage.getItem(`storename${storeNumber}`);
+
+  if (deliveryFee) {
+    // Add the delivery fee to the total
+    totalDeliveryFee += deliveryFee;
+    storeNames.push(storeName);
+  }
+}
+
+// Get the feeDiv element
+const feeDiv = document.getElementById('fee');
+
+if (totalDeliveryFee > 0) {
+  // Update the feeDiv content
+  feeDiv.innerHTML = `<h4>Total Delivery Fee for ${storeNames.join(', ')}: BND ${totalDeliveryFee}</h4>`;
+} else {
+  // Display a message if deliveryFee is not found
+  feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
+}
+
+function updateTotalPriceAndDeliveryFee() {
+  const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
+  const redeem_coupon = 0; // replace this with the actual coupon value
+
+  const finalPay = totalAmount + totalDeliveryFee - redeem_coupon;
+
+  document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}</h4>`;
+  document.getElementById('deliveryFee').textContent = totalDeliveryFee.toFixed(2);
+  
+  localStorage.setItem('finalPay', finalPay.toFixed(2));
+}
 
 updateTotalPriceAndDeliveryFee();
 
@@ -1049,9 +1120,9 @@ updateTotalPriceAndDeliveryFee();
             });
         });
     });
-   
-
+    
 </script>
+        
  <script>
         
         var map = L.map('map').setView([0, 0], 13);
