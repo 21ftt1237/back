@@ -287,7 +287,24 @@ header a ion-icon {
 }
 
 
+.option-users{
+  background: #F6E71D;
+  color: black;
+  font-size: 24px;
+  width: 80%;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center; /* Center the text horizontally */
+  text-decoration: none; /* Remove default underline */
+  display: inline-block; /* Make it an inline-block element */
 
+}
+
+.option-users:hover {
+  background: #D5C106; /* Change the background color on hover */
+}
         
     </style>
 </head>
