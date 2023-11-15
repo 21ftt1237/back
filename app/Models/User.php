@@ -52,5 +52,5 @@ public function isAdmin()
     }
 }    
 
-}
+
 
