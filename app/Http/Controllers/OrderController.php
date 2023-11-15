@@ -167,7 +167,7 @@ public function showOrderDetails($created_at)
 public function AdminOrder()
 {
     // Retrieve orders from the database
-    $orders = OrderList::all();
+    $orders = OrderList::with('order')->get();
 
     dd($orders); // Dump and die for debugging
 
