@@ -1051,7 +1051,7 @@ updateTotalPriceAndDeliveryFee();
 
 <script>
 // Getting the store numbers from the URL or another source
-const storeId = [1, 2, 3, 4, 5, 6]; 
+const storeId = [1, 2, 3, 4, 5, 6]; // Replace this with the appropriate store numbers
 
 let totalDeliveryFee = 0;
 let storeNames = [];
@@ -1076,8 +1076,7 @@ const feeDiv = document.getElementById('fee');
 
 if (totalDeliveryFee > 0) {
   // Update the feeDiv content
-  // feeDiv.innerHTML = `<h4>Total Delivery Fee for ${storeNames.join(', ')}: BND ${totalDeliveryFee}</h4>`;
-    feeDiv.innerHTML = `<h4>Total Delivery Fee for ${storeNames.join(', ')}: BND ${totalDeliveryFee}</h4>`;
+  feeDiv.innerHTML = `<h4>Total Delivery Fee for ${storeNames.join(', ')}: BND ${totalDeliveryFee}</h4>`;
 } else {
   // Display a message if deliveryFee is not found
   feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
