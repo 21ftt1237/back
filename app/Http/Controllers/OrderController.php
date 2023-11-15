@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use App\Models\Order;
+use App\Models\User;
 use App\Models\OrderList;
 use App\Models\Product;
 use Illuminate\Support\Facades\dd;
@@ -164,6 +165,11 @@ public function showOrderDetails($created_at)
     ]);
 }
 
+public function showAllOrderLists()
+    {
+        $orderLists = OrderList::all();
+        return view('AdminOrder', ['orderLists' => $orderLists]);
+    }
 
 
     
