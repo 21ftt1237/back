@@ -256,6 +256,10 @@ Route::get('/order-details/{created_at}', [OrderController::class, 'showOrderDet
 
 Route::get('/order-list/{orderStatus}', [OrderController::class, 'showOrderList']);
 
+//Admin Order
+
+Route::get('/orders', [OrderController::class, 'AdminOrder']);
+
 //ETC
 
 Route::get('/email', [EmailController::class, 'index']);
