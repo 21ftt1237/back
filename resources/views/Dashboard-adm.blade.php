@@ -435,6 +435,7 @@ table {
 <script type="text/javascript">
   	 
 //USER TABLE DATA PAGES
+// Update the code for fetching and displaying data
 app.controller('myCtrl', function($scope, $http) {
   $scope.people = [];
   $scope.currentPage = 1;
@@ -444,7 +445,8 @@ app.controller('myCtrl', function($scope, $http) {
     $http.get('/api/users', { params: { group: group } })
       .then(function(response) {
         $scope.people = response.data;
-        $scope.updateTable(); // Call the updateTable function after fetching data
+        // Call the updateTable function after fetching data
+        $scope.updateTable();
       })
       .catch(function(error) {
         console.error('Error:', error);
@@ -458,7 +460,8 @@ app.controller('myCtrl', function($scope, $http) {
     var begin = (($scope.currentPage - 1) * $scope.numPerPage),
       end = begin + $scope.numPerPage;
     $scope.displayedPeople = $scope.people.slice(begin, end);
-  })
+  });
+
 
     //POPUP ADD NEW
 function togglePopupAdm() {
