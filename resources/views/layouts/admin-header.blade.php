@@ -102,18 +102,7 @@ header {
     font-weight: 600;
 }
 
-.btn-sign-up {
-    color: darkblue;
-    font-size: 12px;
-    font-weight: bolder;
-    width: 30%;
-    padding: 5px;
-    background-color: darkblue;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    margin-right: 20px;
-}
+
 
 .btn-sign-up:hover {
     background-color: #555;
