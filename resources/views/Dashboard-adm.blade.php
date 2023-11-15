@@ -410,11 +410,11 @@ table {
   </tr>
   @foreach($users as $user)
   <tr data-ng-repeat="user in people | filter: table">
-    <td>{{ user.id }}</td>
-    <td>{{ user.name }}</td>
-    <td>{{ user.email }}</td>
-    <td>{{ user.password }}</td>
-    <td>{{ user.role_id }}</td>
+   <td>{{ $user->id }}</td>
+    <td>{{ $user->name }}</td>
+    <td>{{ $user->email }}</td>
+    <td>{{ $user->password }}</td>
+    <td>{{ $user->role_id }}</td>
   </tr>
   @endforeach    
 </table>
