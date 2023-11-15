@@ -39,4 +39,13 @@ class VerificationController extends Controller
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
+
+    protected function verified(Request $request, $user)
+    {
+        if ($user->isAdmin()) {
+            return redirect()->route('dashboard.admin');
+        }
+
+        return redirect()->route('dashboard.user');
+    }
 }
