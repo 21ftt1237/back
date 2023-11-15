@@ -1135,7 +1135,10 @@ updateTotalPriceAndDeliveryFee();
 const storeId = [1, 2, 3, 4, 5, 6]; 
 
 let totalDeliveryFee = 0;
-let storeNames = ["Netcom (Kiulap)", "Game Central (Bandar)", "88th Avenue", "Guardian (Sengkurong)", "Nimanja (Bandar)", "Digital World (Bandar)"];
+let storeNames = [];
+
+// Define the selected stores
+let selectedStores = ["Netcom (Kiulap)", "Game Central (Bandar)", "88th Avenue", "Guardian (Sengkurong)", "Nimanja (Bandar)", "Digital World (Bandar)"];
 
 // Loop through each store number
 for (let i = 0; i < storeId.length; i++) {
@@ -1145,7 +1148,7 @@ for (let i = 0; i < storeId.length; i++) {
   const deliveryFee = parseFloat(localStorage.getItem(`delivery${storeNumber}`)) || 0;
   const storeName = localStorage.getItem(`storename${storeNumber}`);
 
-  if (deliveryFee) {
+  if (deliveryFee && selectedStores.includes(storeName)) {
     // Add the delivery fee to the total
     totalDeliveryFee += deliveryFee;
     storeNames.push(storeName);
@@ -1157,9 +1160,7 @@ const feeDiv = document.getElementById('fee');
 
 if (totalDeliveryFee > 0) {
   // Update the feeDiv content
-  // Here you can modify the storeNames array to only include the selected stores
-  let selectedStores = storeNames.filter(name => ["Netcom (Kiulap)", "Game Central (Bandar)", "88th Avenue", "Guardian (Sengkurong)", "Nimanja (Bandar)", "Digital World (Bandar)"].includes(name));
-  feeDiv.innerHTML = `<h4>Total Delivery Fee for ${selectedStores.join(', ')}: BND ${totalDeliveryFee}</h4>`;
+  feeDiv.innerHTML = `<h4>Total Delivery Fee for ${storeNames.join(', ')}: BND ${totalDeliveryFee}</h4>`;
 } else {
   // Display a message if deliveryFee is not found
   feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
