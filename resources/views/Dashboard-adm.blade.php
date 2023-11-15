@@ -44,7 +44,7 @@ main {
             flex: 1; /* This makes the main content area expand to fill the available space. */
         }
 
-    *USER TABLE DATA*/
+   / *USER TABLE DATA*/
 table {
 
     		    font-family: arial, sans-serif;
@@ -409,11 +409,11 @@ table {
     <th>Role</th>
   </tr>
   <tr data-ng-repeat="user in people | filter: table">
-    <td>{{ users.id }}</td>
-    <td>{{ users.name }}</td>
-    <td>{{ users.email }}</td>
-    <td>{{ users.password }}</td>
-    <td>{{ users.role_id }}</td>
+    <td>{{ user.id }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.password }}</td>
+    <td>{{ user.role_id }}</td>
   </tr>
 </table>
 
