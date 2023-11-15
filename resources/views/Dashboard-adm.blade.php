@@ -469,9 +469,7 @@ table {
         </tr>
         <tr data-ng-repeat="customer in people | filter: table">
             
-        <td>
-            <button class="delete-button" ng-click="deleteCustomer(customer.id)">Delete</button>
-        </td>
+
     </tr>
     </table>
 <div data-pagination=""
