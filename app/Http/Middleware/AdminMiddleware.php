@@ -9,24 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminMiddleware
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
-    public function handle(Request $request, Closure $next): Response
-    {
-
-if(Auth::check()) {
-    if(Auth::guard('admin')->check() && Auth::guard('admin')->admins()->role_id == '1'){
-        return $next($request);
-            } else {
-                return redirect('/dashboard')->with('message', 'Access denied as you are not an admin');
-            }
-        } else {
-                return redirect('/login')->with('message', 'Login to access the website info');
-        }
-
+    
+public function handle($request, Closure $next)
+{
+    if ($request->user() && $request->user()->isAdmin()) {
         return $next($request);
     }
+
+    abort(403, 'Unauthorized access');
+}
 }
