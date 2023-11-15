@@ -82,41 +82,9 @@ table {
     background-color: #555;
 }
 
-.addStore {
-  color: black;
-    font-size: 14px;
-    font-weight: bolder;
-    margin-left: 20px;
-    width: 10%;
-    padding: 5px;
-    background-color: #F6E71D;
-    border: 2px;
-    border-radius: 2px;
-    cursor: pointer;
-    
-}
 
-.addStore:hover {
-    background-color: #555;
-}
 
-.addDriver {
-  color: black;
-    font-size: 14px;
-    font-weight: bolder;
-    margin-left: 20px;
-    width: 10%;
-    padding: 5px;
-    background-color: #F6E71D;
-    border: 2px;
-    border-radius: 2px;
-    cursor: pointer;
-    
-}
 
-.addDriver:hover {
-    background-color: #555;
-}
 
 
 .deleteButton {
@@ -147,7 +115,7 @@ table {
     font-weight: bolder;
     margin-top: 20px;
     margin-left: 6px;
-    width: 5%;
+    width: 6%;
     padding: 5px;
     border: 2px;
     border-radius: 2px;
@@ -176,35 +144,9 @@ table {
 
 }
 
-.popup-store {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 40%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  z-index: 1000;
-  text-align: center;
 
-}
 
-.popup-driver {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 40%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  z-index: 1000;
-  text-align: center;
 
-}
 
 /* Styles for the registration form */
 #registerForm {
