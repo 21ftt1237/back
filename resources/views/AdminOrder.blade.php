@@ -76,7 +76,9 @@
                     <th>User ID</th>
                     <th>Total Price</th>
                     <th>Created At</th>
-                    <th>Actions</th>
+                    <th class="sortable">Status</th>
+                    <th class="sortable">Action</th> 
+                    <th>view</th>
                 </tr>
             </thead>
             <tbody>
@@ -86,6 +88,8 @@
                         <td>{{ $orderList->user_id }}</td>
                         <td>{{ $orderList->Total_price }}</td>
                         <td>{{ $orderList->created_at }}</td>
+                        <td class="status-cell">Pending</td>
+                        <td><button class="edit-button">Edit</button></td>
                         <td>
                             <a href="{{ route('AdminOrder', $orderList->created_at) }}">View Details</a>
                         </td>
