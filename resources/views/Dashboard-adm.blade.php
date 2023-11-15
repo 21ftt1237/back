@@ -44,7 +44,7 @@ main {
             flex: 1; /* This makes the main content area expand to fill the available space. */
         }
 
-   / *USER TABLE DATA*/
+  /*USER TABLE DATA*/
 table {
 
     		    font-family: arial, sans-serif;
