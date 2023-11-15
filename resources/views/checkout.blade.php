@@ -1051,13 +1051,13 @@ updateTotalPriceAndDeliveryFee();
 
 <script>
 // Getting the store numbers from the URL or another source
-const storeId = [1, 2, 3, 4, 5, 6]; // Replace this with the appropriate store numbers
+const storeId = [1, 2, 3, 4, 5, 6]; 
 
 let totalDeliveryFee = 0;
 let storeNames = [];
 
 // Loop through each store number
-for (let i = 0; i < storeNumbers.length; i++) {
+for (let i = 0; i < storeId.length; i++) {
   const storeNumber = storeId[i];
 
   // Get the delivery fee and store name based on the store number
