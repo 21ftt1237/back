@@ -1529,7 +1529,7 @@ function ReviewContentContainer(name, createdAt, review) {
   }
 }
 
-localStorage.setItem('delivery3', '3');
+localStorage.setItem('delivery4', '3');
 localStorage.setItem('storename', '88th Avenue (Bandar)');
 
 var storeId = 4;
