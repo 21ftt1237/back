@@ -1058,7 +1058,7 @@ let storeNames = [];
 
 // Loop through each store number
 for (let i = 0; i < storeNumbers.length; i++) {
-  const storeNumber = storeNumbers[i];
+  const storeNumber = storeId[i];
 
   // Get the delivery fee and store name based on the store number
   const deliveryFee = parseFloat(localStorage.getItem(`delivery${storeNumber}`)) || 0;
@@ -1076,7 +1076,8 @@ const feeDiv = document.getElementById('fee');
 
 if (totalDeliveryFee > 0) {
   // Update the feeDiv content
-  feeDiv.innerHTML = `<h4>Total Delivery Fee for ${storeNames.join(', ')}: BND ${totalDeliveryFee}</h4>`;
+  // feeDiv.innerHTML = `<h4>Total Delivery Fee for ${storeNames.join(', ')}: BND ${totalDeliveryFee}</h4>`;
+    feeDiv.innerHTML = `<h4>Total Delivery Fee for ${storeNames.join(', ')}: BND ${totalDeliveryFee}</h4>`;
 } else {
   // Display a message if deliveryFee is not found
   feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
