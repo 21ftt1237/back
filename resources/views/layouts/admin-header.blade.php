@@ -321,7 +321,7 @@ header a ion-icon {
   <div class="option-container">
     <h2>Customisation</h2>
     <br>
-    <button class="option">Users</button>
+    <a href="{{ route('dashboard.admin') }}" class="option-users">Users</a>
   </div>
   <div class="option-container">
     <button class="option">Stores</button>
