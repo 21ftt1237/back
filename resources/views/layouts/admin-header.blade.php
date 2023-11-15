@@ -106,7 +106,7 @@ header {
     color: darkblue;
     font-size: 12px;
     font-weight: bolder;
-    width: 10%;
+    width: 30%;
     padding: 5px;
     background-color: darkblue;
     border: none;
