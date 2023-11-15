@@ -258,8 +258,7 @@ Route::get('/order-list/{orderStatus}', [OrderController::class, 'showOrderList'
 
 //Admin Order
 
-Route::get('/admin/orders', [OrderController::class, 'AdminOrder']);
-
+Route::get('/admin/orders', [OrderController::class, 'showAllOrderLists'])->name('admin.orders.all');
 
 //ETC
 
