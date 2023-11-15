@@ -68,52 +68,33 @@
 </head>
 <body>
     <div class="container">
-        <h1>Order History</h1>
-        <table id="purchase-history-table">
+        <h1>Order List</h1>
+        <table>
             <thead>
                 <tr>
-                    <th class="sortable">Order ID#</th>
-                    <th class="sortable">User ID#</th>
-                    <th class="sortable">Customer Name</th>
-                    <th class="sortable">Order Date</th>
-                    <th class="sortable">Order Total</th>
-                    <th class="sortable">Status</th>
-                    <th class="sortable">Action</th>   
+                    <th>Order ID</th>
+                    <th>User ID</th>
+                    <th>Total Price</th>
+                    <th>Status</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
                 </tr>
             </thead>
             <tbody>
-
-                <!--inserting data starts here, below r examples-->
-                <tr data-row-id="1">
-                    <td>24</td>
-                    <td>32</td>
-                    <td>Ahmad Kimi Bin Kamal</td>
-                    <td>2023-11-06</td>
-                    <td>BND60.00</td>
-                    <td class="status-cell">Paid</td>
-                    <td><button class="edit-button">Edit</button></td>
-                </tr>
-                <tr data-row-id="2">
-                    <td>25</td>
-                    <td>33</td>
-                    <td>Hajah Siti</td>
-                    <td>2023-11-20</td>
-                    <td>BND4.00</td>
-                    <td class="status-cell">Pending</td>
-                    <td><button class="edit-button">Edit</button></td>
-                </tr>
-                <tr data-row-id="3">
-                    <td>15</td>
-                    <td>43</td>
-                    <td>Laila</td>
-                    <td>2023-11-21</td>
-                    <td>BND200.00</td>
-                    <td class="status-cell">Pending</td>
-                    <td><button class="edit-button">Edit</button></td>
-                </tr>
+                @foreach ($orders as $order)
+                    <tr>
+                        <td>{{ $order->id }}</td>
+                        <td>{{ $order->user_id }}</td>
+                        <td>{{ $order->Total_price }}</td>
+                        <td>{{ $order->status }}</td>
+                        <td>{{ $order->created_at }}</td>
+                        <td>{{ $order->updated_at }}</td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
+
 
     
 
