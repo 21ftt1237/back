@@ -169,6 +169,8 @@ public function AdminOrder()
         // Retrieve orders from the database
         $orders = Order::all();
 
+        dd($orders);
+
         // Pass the orders to the view
         return view('AdminOrder', compact('orders'));
     }
