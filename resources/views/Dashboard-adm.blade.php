@@ -64,4 +64,4 @@ main {
 
 </body>
 </html>
-@include('layouts.footer')
+
