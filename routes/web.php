@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AdminAuthController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\UserController;
 
 
 
@@ -53,6 +54,8 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 Route::get('/', function () {
     return redirect()->route('dashboard');
 });
+
+Route::get('/api/users', [UserController::class, 'getUsers']);
 
 
 Route::get('test', function () {
