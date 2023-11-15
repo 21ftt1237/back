@@ -80,7 +80,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($orderLists as $orderList)
+                @foreach ($orderLists as $order)
                     <tr>
                         <td>{{ $orderList->id }}</td>
                         <td>{{ $orderList->user_id }}</td>
