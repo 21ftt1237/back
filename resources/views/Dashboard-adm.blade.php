@@ -408,6 +408,7 @@ table {
     <th>Password</th>
     <th>Role</th>
   </tr>
+  @foreach($users as $user)
   <tr data-ng-repeat="user in people | filter: table">
     <td>{{ user.id }}</td>
     <td>{{ user.name }}</td>
@@ -415,6 +416,7 @@ table {
     <td>{{ user.password }}</td>
     <td>{{ user.role_id }}</td>
   </tr>
+  @endforeach    
 </table>
 
 <div data-pagination=""
