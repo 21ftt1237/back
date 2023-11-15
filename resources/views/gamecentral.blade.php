@@ -1567,7 +1567,7 @@ function ReviewContentContainer(name, createdAt, review) {
   }
 }
 
-localStorage.setItem('delivery', '3');
+localStorage.setItem('delivery2', '3');
 localStorage.setItem('storename', 'Game Central (Bandar)');
 
 var storeId = 2;
