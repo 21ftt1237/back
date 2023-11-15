@@ -87,7 +87,7 @@
                         <td>{{ $orderList->Total_price }}</td>
                         <td>{{ $orderList->created_at }}</td>
                         <td>
-                            <a href="{{ route('admin.orders.details', $orderList->created_at) }}">View Details</a>
+                            <a href="{{ route('AdminOrder', $orderList->created_at) }}">View Details</a>
                         </td>
                     </tr>
                 @endforeach
