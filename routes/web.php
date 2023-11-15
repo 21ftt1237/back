@@ -143,9 +143,9 @@ Route::get('storePlatform-SO', function () {
     return view('storePlatform-SO'); 
 })->name('storePlatform-SO');
 
-Route::get('AdminOrderHistory', function () {
-    return view('AdminOrderHistory'); 
-})->name('AdminOrderHistory');
+Route::get('AdminOrder', function () {
+    return view('AdminOrder'); 
+})->name('AdminOrder');
 
 Route::get('ChatboxAdmin', function () {
     return view('ChatboxAdmin'); 
