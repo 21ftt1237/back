@@ -168,6 +168,7 @@ public function showOrderDetails($created_at)
 public function showAllOrderLists()
 {
     $orderLists = OrderList::all();
+     dd($orderLists);
     return view('AdminOrder', ['orderLists' => $orderLists]);
 }
 
