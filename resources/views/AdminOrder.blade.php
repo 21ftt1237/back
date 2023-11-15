@@ -78,7 +78,7 @@
                     <th class="sortable">Order Date</th>
                     <th class="sortable">Order Total</th>
                     <th class="sortable">Status</th>
-                    <th class="sortable"></th>   
+                    <th class="sortable">Action</th>   
                 </tr>
             </thead>
             <tbody>
