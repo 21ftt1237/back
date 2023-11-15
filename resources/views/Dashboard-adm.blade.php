@@ -15,7 +15,6 @@
   <!-- Other meta tags and styles -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
@@ -428,24 +427,32 @@ table {
   <script src="./ecommerce.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
   <script src="your-angular-controller.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
 
 <script type="text/javascript">
   	 
 //USER TABLE DATA PAGES
-  	var app = angular.module('myApp', ['ui.bootstrap']);
-app.controller('myCtrl', function($scope) {
+  var app = angular.module('myApp', ['ui.bootstrap']);
+
+app.controller('myCtrl', function($scope, $http) {
   $scope.people = [];
   $scope.currentPage = 1;
-  $scope.numPerPage = 10; // Set this to the total number of data points
-  $scope.maxSize = 5;
+  $scope.numPerPage = 10;
 
-  $scope.numPages = function () {
-    // Since you're not paginating, you can return 1.
-    return 1;
+  $scope.fetchAndDisplayData = function(group) {
+    $http.get('/api/users', { params: { group: group } })
+      .then(function(response) {
+        $scope.people = response.data;
+      })
+      .catch(function(error) {
+        console.error('Error:', error);
+      });
   };
 
+  // Initial fetch when the page loads
+  $scope.fetchAndDisplayData('Users');
+
   $scope.$watch('currentPage + numPerPage', function() {
-    // Keep your existing logic for displaying data.
     var begin = (($scope.currentPage - 1) * $scope.numPerPage),
       end = begin + $scope.numPerPage;
     $scope.people = $scope.customers.slice(begin, end);
@@ -472,64 +479,62 @@ function toggleDeletePopup() {
   }
 }
 
-    /TABLE DATA
+  // TABLE DATA
 
 // Update the code for fetching and displaying data
 document.addEventListener('DOMContentLoaded', function () {
     // Select the table element
     const table = document.querySelector('table tbody');
 
-    // Function to update the table with new data
-    const updateTable = (data) => {
-        table.innerHTML = ''; // Clear the table
+   // Function to update the table with new data
+const updateTable = () => {
+    table.innerHTML = ''; // Clear the table
 
-        // Extract the header row
-        const headerRow = data[0];
-        const th = document.createElement('tr');
+    // Extract the header row
+    const headerRow = $scope.people[0];
+    const th = document.createElement('tr');
 
-        for (const header of headerRow) {
-            const cell = document.createElement('th');
-            cell.textContent = header;
-            th.appendChild(cell);
+    for (const header of headerRow) {
+        const cell = document.createElement('th');
+        cell.textContent = header;
+        th.appendChild(cell);
+    }
+
+    table.appendChild(th);
+
+    // Process data rows (skip the first row which is the header)
+    for (let i = 1; i < $scope.people.length; i++) {
+        const rowData = $scope.people[i];
+        const tr = document.createElement('tr');
+
+        for (const value of rowData) {
+            const td = document.createElement('td');
+            td.textContent = value;
+            tr.appendChild(td);
         }
 
-        table.appendChild(th);
+        table.appendChild(tr);
+    }
+};
 
-        // Process data rows (skip the first row which is the header)
-        for (let i = 1; i < data.length; i++) {
-            const rowData = data[i];
-            const tr = document.createElement('tr');
-
-            for (const value of rowData) {
-                const td = document.createElement('td');
-                td.textContent = value;
-                tr.appendChild(td);
-            }
-
-            table.appendChild(tr);
-        }
-    };
-
-    // Function to fetch data based on group
-    const fetchAndDisplayData = (group) => {
-        fetch(`admin-usersData.php?group=${group}`)
-            .then(response => response.json())
-            .then(data => {
-                updateTable(data);
-            })
-            .catch(error => console.error('Error:', error));
-    };
-
-    // Fetch the default data for "Users" (group_id 2) when the page loads
-    fetchAndDisplayData('Users');
-
-    // Add event listeners to the tab buttons
-    const tabButtons = document.querySelectorAll('.tabBtn');
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const selectedGroup = button.getAttribute('data-group');
-            fetchAndDisplayData(selectedGroup);
+// Function to fetch data from Laravel backend
+const fetchAndDisplayData = (group) => {
+    $http.get('/api/users', { params: { group: group } })
+        .then(function (response) {
+            $scope.people = response.data;
+            updateTable(); // Call the updateTable function after fetching data
+        })
+        .catch(function (error) {
+            console.error('Error:', error);
         });
+};
+
+// Add event listeners to the tab buttons
+const tabButtons = document.querySelectorAll('.tabBtn');
+tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const selectedGroup = button.getAttribute('data-group');
+        fetchAndDisplayData(selectedGroup);
     });
 });
 </script>
