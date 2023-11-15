@@ -1051,7 +1051,7 @@ updateTotalPriceAndDeliveryFee();
 
 <script>
 // Getting the store numbers from the URL or another source
-const storeNumber = [1, 2, 3, 4, 5, 6]; // Replace this with the appropriate store numbers
+const storeId = [1, 2, 3, 4, 5, 6]; // Replace this with the appropriate store numbers
 
 let totalDeliveryFee = 0;
 let storeNames = [];
