@@ -166,11 +166,10 @@ public function showOrderDetails($created_at)
 }
 
 public function showAllOrderLists()
-    {
-        $orderLists = OrderList::all();
-        return view('AdminOrder', ['orderLists' => $orderLists]);
-    }
-
+{
+    $orderLists = OrderList::all();
+    return view('AdminOrder', ['orderLists' => $orderLists]);
+}
 
     
 }
