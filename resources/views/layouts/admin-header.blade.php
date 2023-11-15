@@ -103,7 +103,7 @@ header {
 }
 
 .btn-sign-up {
-    color: black;
+    color: darkblue;
     font-size: 12px;
     font-weight: bolder;
     width: 4%;
