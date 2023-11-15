@@ -37,4 +37,14 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    protected function authenticated(Request $request, $user)
+    {
+        if (!$user->hasVerifiedEmail() && !$user->isAdmin()) {
+            $this->guard()->logout();
+            return redirect('/login')->with('warning', 'You need to verify your email address before you can access the admin dashboard.');
+        }
+
+        return redirect()->intended($this->redirectPath());
+    }
 }
