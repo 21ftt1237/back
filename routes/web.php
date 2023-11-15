@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\AdminAuthController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminDashboardController;
 
 
 
@@ -49,6 +50,11 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('admin/adminDashboard', function () {
         return view('admin.adminDashboard');
     })->name('dashboard.admins');
+});
+
+Route::middleware(['auth', 'verified', 'admin'])->group(function () {
+    Route::get('/Dashboard-adm', [AdminDashboardController::class, 'index'])
+        ->name('dashboard.admin');
 });
 
 Route::get('/', function () {
