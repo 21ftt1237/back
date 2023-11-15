@@ -106,9 +106,9 @@ header {
     color: darkblue;
     font-size: 12px;
     font-weight: bolder;
-    width: 4%;
+    width: 10%;
     padding: 5px;
-    background-color: #F6E71D;
+    background-color: darkblue;
     border: none;
     border-radius: 2px;
     cursor: pointer;
