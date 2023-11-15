@@ -400,19 +400,23 @@ table {
         </div>
     </div>
     <br/>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Password</th>
-            <th>Role</th>
-        </tr>
-        <tr data-ng-repeat="customer in people | filter: table">
-            
+  <table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Password</th>
+    <th>Role</th>
+  </tr>
+  <tr data-ng-repeat="user in people | filter: table">
+    <td>{{ user.id }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.password }}</td>
+    <td>{{ user.role_id }}</td>
+  </tr>
+</table>
 
-    </tr>
-    </table>
 <div data-pagination=""
      data-num-pages="numPages()"
      data-current-page="currentPage"
@@ -426,14 +430,11 @@ table {
  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
   <script src="./ecommerce.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-  <script src="your-angular-controller.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
 
 <script type="text/javascript">
   	 
 //USER TABLE DATA PAGES
-  var app = angular.module('myApp', ['ui.bootstrap']);
-
 app.controller('myCtrl', function($scope, $http) {
   $scope.people = [];
   $scope.currentPage = 1;
@@ -443,6 +444,7 @@ app.controller('myCtrl', function($scope, $http) {
     $http.get('/api/users', { params: { group: group } })
       .then(function(response) {
         $scope.people = response.data;
+        $scope.updateTable(); // Call the updateTable function after fetching data
       })
       .catch(function(error) {
         console.error('Error:', error);
@@ -455,9 +457,8 @@ app.controller('myCtrl', function($scope, $http) {
   $scope.$watch('currentPage + numPerPage', function() {
     var begin = (($scope.currentPage - 1) * $scope.numPerPage),
       end = begin + $scope.numPerPage;
-    $scope.people = $scope.customers.slice(begin, end);
-  });
-});
+    $scope.displayedPeople = $scope.people.slice(begin, end);
+  })
 
     //POPUP ADD NEW
 function togglePopupAdm() {
@@ -486,35 +487,33 @@ document.addEventListener('DOMContentLoaded', function () {
     // Select the table element
     const table = document.querySelector('table tbody');
 
-   // Function to update the table with new data
+  // Function to update the table with new data
 const updateTable = () => {
-    table.innerHTML = ''; // Clear the table
-
-    // Extract the header row
     const headerRow = $scope.people[0];
-    const th = document.createElement('tr');
+    const dataRows = $scope.people.slice(1);
 
-    for (const header of headerRow) {
+    // Clear the table
+    table.innerHTML = '';
+
+    // Create header row
+    const th = document.createElement('tr');
+    headerRow.forEach(header => {
         const cell = document.createElement('th');
         cell.textContent = header;
         th.appendChild(cell);
-    }
-
+    });
     table.appendChild(th);
 
-    // Process data rows (skip the first row which is the header)
-    for (let i = 1; i < $scope.people.length; i++) {
-        const rowData = $scope.people[i];
+    // Process data rows
+    dataRows.forEach(rowData => {
         const tr = document.createElement('tr');
-
-        for (const value of rowData) {
+        rowData.forEach(value => {
             const td = document.createElement('td');
             td.textContent = value;
             tr.appendChild(td);
-        }
-
+        });
         table.appendChild(tr);
-    }
+    });
 };
 
 // Function to fetch data from Laravel backend
