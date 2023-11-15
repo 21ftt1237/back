@@ -172,7 +172,7 @@ public function AdminOrder()
         dd($orders);
 
         // Pass the orders to the view
-        return view('AdminOrder', compact('orders'));
+       return view('AdminOrder', ['allOrders' => $orders]);
     }
 
     
