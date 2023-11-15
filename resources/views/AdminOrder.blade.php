@@ -67,28 +67,28 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Order List</h1>
-        <table>
+ <div class="container">
+        <h1>Admin Order List</h1>
+        <table id="order-table" class="display">
             <thead>
                 <tr>
                     <th>Order ID</th>
                     <th>User ID</th>
                     <th>Total Price</th>
-                    <th>Status</th>
                     <th>Created At</th>
-                    <th>Updated At</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($orders as $order)
+                @foreach ($orderLists as $orderList)
                     <tr>
-                        <td>{{ $order->id }}</td>
-                        <td>{{ $order->user_id }}</td>
-                        <td>{{ $order->Total_price }}</td>
-                        <td>{{ $order->status }}</td>
-                        <td>{{ $order->created_at }}</td>
-                        <td>{{ $order->updated_at }}</td>
+                        <td>{{ $orderList->id }}</td>
+                        <td>{{ $orderList->user_id }}</td>
+                        <td>{{ $orderList->Total_price }}</td>
+                        <td>{{ $orderList->created_at }}</td>
+                        <td>
+                            <a href="{{ route('admin.orders.details', $orderList->created_at) }}">View Details</a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
