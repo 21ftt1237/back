@@ -1092,10 +1092,33 @@ updateTotalPriceAndDeliveryFee();
         
 <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script >
+    function getCartItemsAsString(cartItems) {
+  let cartItemsString = '';
+  cartItems.forEach((item, index) => {
+    cartItemsString += `
+      Item ${index + 1}:
+      - Name: ${item.name}
+      - Price: ${item.price}
+      - Quantity: ${item.quantity}
+      -------------------------
+    `;
+  });
+  return cartItemsString;
+}
 
+        
     var userEmail = "{{ $userEmail }}";
         
-    function sendEmail(){
+    function sendEmail(cartItems){
+    const cartItemsString = getCartItemsAsString(cartItems);
+  const emailBody = `
+    Thank you for your order! Here are your cart items:
+
+    ${cartItemsString}
+
+    Total Price: [Insert Total Price]
+  `;
+        
         Email.send({
             Host : "smtp.elasticemail.com",
             Username : "info@domain.com",
@@ -1103,8 +1126,7 @@ updateTotalPriceAndDeliveryFee();
             To : 'userEmail',
             From : 'bruzonestore@gmail.com',
             Subject : "<b>BRUZONE PURCHASE RECEIPT</b>",
-            Body : "<b>THANK YOU FOR YOUR PURCHASE</b>" +
-                "<b>ORDER DETAILS:</b>" ,
+            Body : 'emailBody',
             Port: 2525,
         }).then(
       message => alert(message)
