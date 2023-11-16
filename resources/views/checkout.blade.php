@@ -1034,12 +1034,12 @@ if (Object.keys(storeDeliveryFees).length > 0) {
 
 
 function updateTotalPriceAndDeliveryFee() {
-  // Calculate total delivery fee for all stores
-  // const totalDeliveryFee = Object.values(storeDeliveryFees).reduce((total, fee) => total + fee, 0);
+  // Calculate total delivery fee for all stores    
+const totalDeliveryFee = Object.values(storeDeliveryFees).reduce((total, fee) => total + fee, 0);
+    
 
-
-  const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
-  const redeem_coupon = 0; // replace this with the actual coupon value
+const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
+const redeem_coupon = 0; // replace this with the actual coupon value
 
   const finalPay = totalAmount  - {{ auth()->user()->redeem_coupon }};
 console.log("finalPay:", finalPay);
