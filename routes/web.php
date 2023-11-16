@@ -45,6 +45,13 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     })->name('dashboard.admin');
 });
 
+//Dashboard for store owner
+Route::middleware(['auth', 'verified', 'isStoreOwner'])->group(function () {
+    Route::get('/product', function () {
+        return view('product');
+    })->name('dashboard.storeOwner');
+});
+
 // Dashboard route for admins
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('admin/adminDashboard', function () {
