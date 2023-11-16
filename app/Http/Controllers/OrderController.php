@@ -189,6 +189,9 @@ public function showAllOrderLists()
 
 public function updateStatus(Request $request)
 {
+    \Log::info('rowId: ' . $request->input('rowId'));
+    \Log::info('editedStatus: ' . $request->input('editedStatus'));
+    
     try {
         $orderId = $request->input('rowId');
         $newStatus = $request->input('editedStatus');
