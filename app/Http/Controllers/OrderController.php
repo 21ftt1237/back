@@ -189,19 +189,26 @@ public function showAllOrderLists()
 
 public function updateStatus(Request $request)
 {
-    $orderId = $request->input('rowId');
-    $newStatus = $request->input('editedStatus');
+    try {
+        $orderId = $request->input('rowId');
+        $newStatus = $request->input('editedStatus');
 
-    $order = Order::find($orderId);
+        $order = Order::find($orderId);
 
-    if ($order) {
-        // Update the status and save the order
-        $order->status = $newStatus;
-        $order->save();
+        if ($order) {
+            // Update the status and save the order
+            $order->status = $newStatus;
+            $order->save();
 
-        return response()->json(['success' => true]);
-    } else {
-        return response()->json(['error' => 'Order not found'], 404);
+            return response()->json(['success' => true]);
+        } else {
+            return response()->json(['error' => 'Order not found'], 404);
+        }
+    } catch (\Exception $e) {
+        // Log the error for debugging
+        \Log::error('Error updating order status: ' . $e->getMessage());
+
+        return response()->json(['error' => 'Internal Server Error'], 500);
     }
 }
     
