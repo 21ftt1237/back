@@ -1085,12 +1085,15 @@ updateTotalPriceAndDeliveryFee();
         
 <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script >
+
+    var userEmail = "{{ $userEmail }}";
+        
     function sendEmail(){
         Email.send({
             Host : "smtp.elasticemail.com",
             Username : "info@domain.com",
             Password : "8BDBCCE722F4D1FE27FE0A4E963416C82F49",
-            To : 'hafiysyahrulnizam@gmail.com',
+            To : 'userEmail',
             From : 'bruzonestore@gmail.com',
             Subject : "BRUZONE PURCHASE RECEIPT",
             Body : "Thank You For Your Purchase",
