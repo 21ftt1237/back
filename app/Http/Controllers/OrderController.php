@@ -43,7 +43,7 @@ public function placeOrder(Request $request)
 {
    
     $user = auth()->user();
-    $userEmail = $user->email;
+    
   
     $cartItems = $user->cart;
 
@@ -71,7 +71,7 @@ public function placeOrder(Request $request)
 
            
             $order->save();
-            $userEmail = $user->email;
+            
            
             $createdAtKey = $order->created_at->format('Y-m-d H:i:s');
             $consolidatedOrders[$createdAtKey][] = [
@@ -104,7 +104,7 @@ public function placeOrder(Request $request)
        
         $user->cart()->detach($cartItems);
 
-        $userEmail = $user->email;
+       
         DB::commit();
         
         
