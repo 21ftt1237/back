@@ -52,5 +52,10 @@ public function isAdmin()
     }
 }    
 
+public function isStoreOwner()
+{
+    return $this->role_id === 2;
+}
+
 
 
