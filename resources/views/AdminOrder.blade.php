@@ -71,7 +71,7 @@
         <h1>Admin Order List</h1>
         <table id="order-table" class="display">
             <thead>
-                <tr data-row-id="{{ $orderList->id }}">
+                <tr>
                     <th>Order ID</th>
                     <th>User ID</th>
                     <th>User Name</th>
@@ -84,7 +84,7 @@
             </thead>
             <tbody>
                 @foreach ($orderLists as $orderList)
-                    <tr>
+                    <tr  data-row-id="{{ $orderList->id }}">
                         <td>{{ $orderList->id }}</td>
                         <td>{{ $orderList->user_id }}</td>
                         <td>{{ $orderList->user_name }}</td>
