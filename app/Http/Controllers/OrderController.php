@@ -117,7 +117,11 @@ public function placeOrder(Request $request)
         
         Log::info('Orders created from cart for user ' . $user->id);
 
-      return view('checkout', compact('userEmail'));
+        // Retrieve the user's email directly
+        $userEmail = $user->email;
+
+        // Render the 'checkout' view and pass the user email
+        return view('checkout', compact('userEmail'));
         
         return response()->json(['message' => 'Orders created successfully.']);
     } catch (\Exception $e) {
