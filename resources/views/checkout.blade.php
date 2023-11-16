@@ -1040,7 +1040,6 @@ function updateTotalPriceAndDeliveryFee() {
 
   localStorage.setItem('finalPay', finalPay.toFixed(2));
 console.log("totalAmount:", totalAmount);
-console.log("totalDeliveryFee:", totalDeliveryFee);
 console.log("redeem_coupon:", redeem_coupon);
 }
 
