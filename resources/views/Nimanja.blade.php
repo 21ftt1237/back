@@ -1543,7 +1543,8 @@ function ReviewContentContainer(name, createdAt, review) {
 
 
 // Storing values for the first store
-localStorage.setItem('delivery5', '2');
+// localStorage.setItem('delivery5', '2');
+    localStorage.setItem('delivery', '2');
 localStorage.setItem('storename', 'Nimanja (Bandar)');
 
 var storeId = 5;
