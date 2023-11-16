@@ -1573,9 +1573,9 @@ function ReviewContentContainer(name, createdAt, review) {
 }
 
 // Storing values for the first store
-localStorage.setItem('delivery', '5');
+localStorage.setItem('delivery6', '5');
 // localStorage.setItem('storename1', 'Guardian (Sengkurong)');
-localStorage.setItem('storename', 'Guardian (Sengkurong)');
+localStorage.setItem('storename6', 'Guardian (Sengkurong)');
 
 var storeId = 6;
 var previousStore = localStorage.getItem('storeId');
