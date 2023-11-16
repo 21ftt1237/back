@@ -1107,7 +1107,7 @@ updateTotalPriceAndDeliveryFee();
 }
 
         
-    var userEmail = "{{ $userEmail }}";
+   
         
     function sendEmail(cartItems){
     const cartItemsString = getCartItemsAsString(cartItems);
@@ -1123,7 +1123,7 @@ updateTotalPriceAndDeliveryFee();
             Host : "smtp.elasticemail.com",
             Username : "info@domain.com",
             Password : "8BDBCCE722F4D1FE27FE0A4E963416C82F49",
-            To : 'userEmail',
+            To : 'hafiysyahrulnizam@gmail.com',
             From : 'bruzonestore@gmail.com',
             Subject : "<b>BRUZONE PURCHASE RECEIPT</b>",
             Body : 'emailBody',
