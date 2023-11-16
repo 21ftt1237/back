@@ -43,7 +43,7 @@ public function placeOrder(Request $request)
 {
    
     $user = auth()->user();
-
+    $userEmail = $user->email;
   
     $cartItems = $user->cart;
 
