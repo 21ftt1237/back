@@ -132,7 +132,7 @@
                 $.ajax({
                 url: '/update-order-status/' + rowId,
                 type: 'POST',
-                data: { status: editedStatus },
+                data: { status: editedStatus,  _token: '{{ csrf_token() }}' },
                 success: function (response) {
                     console.log(response.message);
                 },
