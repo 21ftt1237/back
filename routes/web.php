@@ -64,6 +64,9 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
         ->name('dashboard.admin');
 });
 
+//add new admin
+Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store');
+
 Route::get('/', function () {
     return redirect()->route('dashboard');
 });
