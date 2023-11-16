@@ -129,17 +129,20 @@
                     localStorage.setItem("editedStatus_" + rowId, editedStatus);
 
                 // Send an AJAX request to update the status in the backend
-                $.ajax({
-                url: '/update-order-status/' + rowId,
-                type: 'POST',
-                data: { status: editedStatus,  _token: '{{ csrf_token() }}' },
-                success: function (response) {
+                   $.ajax({
+                   url: '/update-order-status/' + rowId,
+                   type: 'POST',
+                   data: {
+                   status: editedStatus,
+                   _token: '{{ csrf_token() }}'
+                       },
+                    success: function (response) {
                     console.log(response.message);
-                },
-                error: function (error) {
+                     },
+                    error: function (error) {
                     console.error(error);
-                }
-            });
+                      }
+                      });
 
                     // Change the button text back to "Edit"
                     $editButton.text("Edit").removeClass("editing");
