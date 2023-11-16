@@ -116,21 +116,42 @@
                 ],
             });
 
-            // Add edit functionality
             $(".edit-button").click(function () {
-                var $row = $(this).closest("tr");
-                var rowId = $row.data("row-id");
-                var $statusCell = $row.find(".status-cell");
-                var $editButton = $row.find(".edit-button");
+    var $row = $(this).closest("tr");
+    var rowId = $row.data("row-id");
+    var $statusCell = $row.find(".status-cell");
+    var $editButton = $row.find(".edit-button");
 
-                if ($editButton.hasClass("editing")) {
-                    // Save the edited status to local storage with a unique key
-                    var editedStatus = $statusCell.find("select").val();
-                    localStorage.setItem("editedStatus_" + rowId, editedStatus);
+    if ($editButton.hasClass("editing")) {
+        // Save the edited status to local storage with a unique key
+        var editedStatus = $statusCell.find("select").val();
 
-               
-                    // Change the button text back to "Edit"
-                    $editButton.text("Edit").removeClass("editing");
+        // Make an AJAX request to update the status in the database
+        $.ajax({
+            url: "/update-status", // Replace with your Laravel route
+            method: "POST",
+            data: {
+                rowId: rowId,
+                editedStatus: editedStatus
+            },
+            success: function (response) {
+                // Update the UI with the new status
+                $statusCell.text(editedStatus);
+
+                // Add or remove the "red" class based on status
+                if (editedStatus === "Cancelled") {
+                    $statusCell.addClass("red");
+                } else {
+                    $statusCell.removeClass("red");
+                }
+            },
+            error: function (error) {
+                console.error("Error updating status:", error);
+            }
+        });
+
+        // Change the button text back to "Edit"
+        $editButton.text("Edit").removeClass("editing");
 
                     // Replace the status cell content with the selected value
                     $statusCell.text(editedStatus);
