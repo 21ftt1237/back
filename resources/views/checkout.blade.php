@@ -1096,18 +1096,23 @@ updateTotalPriceAndDeliveryFee();
     let cartItemsString = '';
     let totalPrice = 0; // Initialize total price
 
-    cartItems.forEach((item, index) => {
-      cartItemsString += `
+ 
+       @foreach ($cart as $cartItem)
+                @php
+                $productPrice = $cartItem->product->price;
+                $product = $cartItem->product;
+                $newQuantity = $cartItem->quantity;
+                $productPrice = $productPrice * $newQuantity;
+
+                @endphp
+            cartItemsString += `
         Item ${index + 1}:
         - Name: ${item.name}
         - Price: ${item.price}
         - Quantity: ${item.quantity}
         -------------------------
       `;
-
-      // Calculate total price for each item
-      totalPrice += item.price * item.quantity;
-    });
+                @endforeach
 
     return { cartItemsString, totalPrice };
   }
