@@ -175,21 +175,19 @@ public function showAllOrderLists()
 }
 
 public function updateOrderStatus($orderId, Request $request)
-    {
-         dd($orderId);
-        $request->validate([
-            'status' => 'required|in:Processing,Picked Up,Delivered,Completed,Cancelled',
-        ]);
+{
+    $request->validate([
+        'status' => 'required|in:Processing,Picked Up,Delivered,Completed,Cancelled',
+    ]);
 
-        try {
-            $orderList = OrderList::findOrFail($orderId);
-            $orderList->update(['status' => $request->status]);
+    try {
+        $orderList = OrderList::findOrFail($orderId);
+        $orderList->update(['status' => $request->status]);
 
-            return response()->json(['message' => 'Order status updated successfully']);
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Error updating order status'], 500);
-        }
+        return response()->json(['message' => 'Order status updated successfully']);
+    } catch (\Exception $e) {
+        return response()->json(['message' => 'Error updating order status'], 500);
     }
-
+}
     
 }
