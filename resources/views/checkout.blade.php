@@ -1041,21 +1041,20 @@ const totalDeliveryFee = Object.values(storeDeliveryFees).reduce((total, fee) =>
 const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
 const redeem_coupon = 0; // replace this with the actual coupon value
 
-  const finalPay = totalAmount  - {{ auth()->user()->redeem_coupon }};
+const finalPay = totalAmount  - {{ auth()->user()->redeem_coupon }};
 console.log("finalPay:", finalPay);
 
-  document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}</h4>`;
-  // document.getElementById('deliveryFee').textContent = totalDeliveryFee.toFixed(2);
+document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}</h4>`;
+// document.getElementById('deliveryFee').textContent = totalDeliveryFee.toFixed(2);
 
-    console.log("Updating local storage with finalPay:", finalPay.toFixed(2));
-  localStorage.setItem('finalPay', finalPay.toFixed(2));
+console.log("Updating local storage with finalPay:", finalPay.toFixed(2));
+localStorage.setItem('finalPay', finalPay.toFixed(2));
     
 console.log("totalAmount:", totalAmount);
 console.log("redeem_coupon:", redeem_coupon);
 }
 
 updateTotalPriceAndDeliveryFee();
-
 
  $(document).ready(function () {
         $('#update-loyalty-points-form').submit(function (e) {
