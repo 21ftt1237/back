@@ -192,7 +192,7 @@ public function updateStatus(Request $request)
     \Log::info('rowId: ' . $request->input('rowId'));
     \Log::info('editedStatus: ' . $request->input('editedStatus'));
     
-    try {
+   try {
         $orderId = $request->input('rowId');
         $newStatus = $request->input('editedStatus');
 
@@ -203,14 +203,15 @@ public function updateStatus(Request $request)
             $order->status = $newStatus;
             $order->save();
 
+            \Log::info('Order status updated successfully.');
+
             return response()->json(['success' => true]);
         } else {
+            \Log::error('Order not found for ID: ' . $orderId);
             return response()->json(['error' => 'Order not found'], 404);
         }
     } catch (\Exception $e) {
-        // Log the error for debugging
         \Log::error('Error updating order status: ' . $e->getMessage());
-
         return response()->json(['error' => 'Internal Server Error'], 500);
     }
 }
