@@ -1121,9 +1121,11 @@ updateTotalPriceAndDeliveryFee();
 
     const emailBody = `
       Thank you for your order! Here are your cart items:
-
+      
+        <br>
       ${cartItemsString}
 
+        <br>
       Total Price: ${totalPrice} 
     `;
 
