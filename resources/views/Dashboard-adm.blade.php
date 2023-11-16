@@ -464,32 +464,40 @@ app.controller('myCtrl', function($scope, $http) {
     $scope.displayedPeople = $scope.people.slice(begin, end);
   });
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Add event listener for the "Add new admin" button
-    const addAdmButton = document.querySelector('.addAdm');
-    if (addAdmButton) {
-        addAdmButton.addEventListener('click', togglePopupAdm);
-    }
 
-    // Add event listener for the "Delete User" button
-    const deleteButton = document.querySelector('.deleteButton');
-    if (deleteButton) {
-        deleteButton.addEventListener('click', toggleDeletePopup);
-    }
-});
-
-
-    //POPUP ADD NEW
+   //POPUP ADD NEW
 function togglePopupAdm() {
     const popup = document.getElementById("popup-adm");
-popup.classList.toggle('show-popup');
+    if (popup.style.display === "block") {
+        popup.style.display = "none";
+    } else {
+        popup.style.display = "block";
+    }
 }
 
     // Function to toggle the delete user popup
 function toggleDeletePopup() {
   const popup = document.getElementById("popup-delete");
-popup.classList.toggle('show-popup');
+  if (popup.style.display === "block") {
+    popup.style.display = "none";
+  } else {
+    popup.style.display = "block";
+  }
 }
+
+        document.addEventListener('DOMContentLoaded', function () {
+        // Add event listener for the "Add new admin" button
+        const addAdmButton = document.querySelector('.addAdm');
+        if (addAdmButton) {
+            addAdmButton.addEventListener('click', togglePopupAdm);
+        }
+
+        // Add event listener for the "Delete User" button
+        const deleteButton = document.querySelector('.deleteButton');
+        if (deleteButton) {
+            deleteButton.addEventListener('click', toggleDeletePopup);
+        }
+
 
   // TABLE DATA
 
