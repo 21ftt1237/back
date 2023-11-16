@@ -87,7 +87,7 @@
                     <tr>
                         <td>{{ $orderList->id }}</td>
                         <td>{{ $orderList->user_id }}</td>
-                        <td>{{ $order->user_name }}</td>
+                        <td>{{ $orderList->user_name }}</td>
                         <td>{{ $orderList->Total_price }}</td>
                         <td>{{ $orderList->created_at }}</td>
                         <td class="status-cell">Pending</td>
