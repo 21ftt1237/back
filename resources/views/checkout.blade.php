@@ -1130,8 +1130,7 @@ updateTotalPriceAndDeliveryFee();
     
 </script> -->
 
-<!-- <script> 
-izzat
+<script> 
 const storeId = [1, 2, 3, 4, 5, 6]; 
 
 let totalDeliveryFee = 0;
@@ -1205,62 +1204,8 @@ updateTotalPriceAndDeliveryFee();
         });
     });
     
-</script> -->
-
-    <script>
-  const deliveryFee = localStorage.getItem('delivery');
-  const storeName = localStorage.getItem('storename');
- 
-  const feeDiv = document.getElementById('fee');
-  if (deliveryFee) {
-    feeDiv.innerHTML = `<h4>Delivery Fee: BND ${deliveryFee}</h4>`;
-  } else {
-   
-    feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
-  }
-  function updateTotalPriceAndDeliveryFee() {
-  
-  
-const totalAmount = parseFloat(localStorage.getItem('totalPrice')) 
-            
-    
-  function updateTotalPriceAndDeliveryFee() {
-  
-const deliveryFee = parseFloat(localStorage.getItem('delivery')) || 0;
-const testPay = totalAmount + deliveryFee;
- 
-  const finalPay = totalAmount + deliveryFee - {{ auth()->user()->redeem_coupon }};
-  
-  document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}`;
-  
-  
-localStorage.setItem('finalPay', finalPay.toFixed(2));
-}
-updateTotalPriceAndDeliveryFee();
- $(document).ready(function () {
-        $('#update-loyalty-points-form').submit(function (e) {
-            e.preventDefault();
-            const loyaltyPoints = $('#loyalty-points-input').val(); 
-            $.ajax({
-                type: 'POST',
-                url: '/update-loyalty-points',
-                data: {
-                    _token: '{{ csrf_token() }}', 
-                    loyaltyPoints: loyaltyPoints
-                },
-                success: function (response) {
-                    
-                    alert(response.message);
-                },
-                error: function (error) {
-                    
-                    alert('Error updating coupon points');
-                }
-            });
-        });
-    });
-   
 </script>
+
         
 <script>
         
