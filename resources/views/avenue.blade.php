@@ -1529,9 +1529,9 @@ function ReviewContentContainer(name, createdAt, review) {
   }
 }
 
-// localStorage.setItem('delivery4', '3');
-    localStorage.setItem('delivery', '3');
-localStorage.setItem('storename', '88th Avenue (Bandar)');
+localStorage.setItem('delivery4', '3');
+    // localStorage.setItem('delivery', '3');
+localStorage.setItem('storename4', '88th Avenue (Bandar)');
 
 var storeId = 4;
 var previousStore = localStorage.getItem('storeId');
