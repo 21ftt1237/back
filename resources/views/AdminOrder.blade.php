@@ -106,14 +106,7 @@
     
 
      <script>
-        $(document).ready(function () {
-             $.ajaxSetup({
-               headers: {
-               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
-
-            
+        $(document).ready(function () {          
             $('#order-table').DataTable({
                 "order": [],
                 "columnDefs": [
@@ -124,7 +117,7 @@
                 ],
             });
 
-                $(".edit-button").click(function () {
+$(".edit-button").click(function () {
         var $row = $(this).closest("tr");
         var rowId = $row.data("row-id");
         var $statusCell = $row.find(".status-cell");
@@ -156,13 +149,16 @@
                     } else {
                         $statusCell.removeClass("red");
                     }
+
+                    // Hide the dropdown and show the saved status
+                    $statusCell.find("select").remove();
+                    $statusCell.text(editedStatus);
+
+                    // Change the button text back to "Edit"
+                    $editButton.text("Edit").removeClass("editing");
                 },
                 error: function (error) {
                     console.error("Error updating status:", error);
-                },
-                complete: function () {
-                    // Change the button text back to "Edit"
-                    $editButton.text("Edit").removeClass("editing");
                 }
             });
         } else {
