@@ -63,6 +63,10 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\AdminMiddleware::class,
             'guard:admin', 
         ],
+
+        'isStoreOwner' => [
+        \App\Http\Middleware\StoreOwnerMiddleware::class,
+    ],
     
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
