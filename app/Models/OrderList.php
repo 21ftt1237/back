@@ -12,6 +12,8 @@ class OrderList extends Model
     use HasFactory;
 
     protected $table = 'orders_list';
+    protected $primaryKey = 'id';
+    protected $fillable = ['user_id', 'Total_price', 'status', 'created_at', 'updated_at'];
 
     public function order()
     {
