@@ -174,17 +174,21 @@ public function showAllOrderLists()
     return view('AdminOrder', ['orderLists' => $orderLists]);
 }
 
-    public function updateOrderStatus($orderId, Request $request)
-{
-    $status = $request->input('status');
+public function updateOrderStatus($orderId, Request $request)
+    {
+        $request->validate([
+            'status' => 'required|in:Processing,Picked Up,Delivered,Completed,Cancelled',
+        ]);
 
-    // Update the status in the database
-    $orderList = OrderList::find($orderId);
-    $orderList->status = $status;
-    $orderList->save();
+        try {
+            $orderList = OrderList::findOrFail($orderId);
+            $orderList->update(['status' => $request->status]);
 
-    return response()->json(['message' => 'Order status updated successfully']);
-}
+            return response()->json(['message' => 'Order status updated successfully']);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error updating order status'], 500);
+        }
+    }
 
     
 }
