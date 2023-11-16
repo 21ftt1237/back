@@ -1106,7 +1106,6 @@ updateTotalPriceAndDeliveryFee();
 
                 @endphp
             cartItemsString += `
-        Item ${index + 1}:
         - Name: ${item.name}
         - Price: ${item.price}
         - Quantity: ${item.quantity}
