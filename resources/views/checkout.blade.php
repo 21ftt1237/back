@@ -1033,25 +1033,45 @@ if (Object.keys(storeDeliveryFees).length > 0) {
 }
 
 
+// function updateTotalPriceAndDeliveryFee() {
+//   // Calculate total delivery fee for all stores    
+// const totalDeliveryFee = Object.values(storeDeliveryFees).reduce((total, fee) => total + fee, 0);
+    
+
+// const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
+// const redeem_coupon = 0; // replace this with the actual coupon value
+
+// const finalPay = totalAmount  - {{ auth()->user()->redeem_coupon }};
+// console.log("finalPay:", finalPay);
+
+// document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}</h4>`;
+// // document.getElementById('deliveryFee').textContent = totalDeliveryFee.toFixed(2);
+
+// console.log("Updating local storage with finalPay:", finalPay.toFixed(2));
+// localStorage.setItem('finalPay', finalPay.toFixed(2));
+    
+// console.log("totalAmount:", totalAmount);
+// console.log("redeem_coupon:", redeem_coupon);
+// }
+
 function updateTotalPriceAndDeliveryFee() {
   // Calculate total delivery fee for all stores    
-const totalDeliveryFee = Object.values(storeDeliveryFees).reduce((total, fee) => total + fee, 0);
-    
+  const totalDeliveryFee = Object.values(storeDeliveryFees).reduce((total, fee) => total + fee, 0);
+  
+  const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
+  const redeem_coupon = 0; // Replace this with the actual coupon value
 
-const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
-const redeem_coupon = 0; // replace this with the actual coupon value
+  const finalPay = totalAmount + totalDeliveryFee - redeem_coupon;
+  console.log("finalPay:", finalPay);
 
-const finalPay = totalAmount  - {{ auth()->user()->redeem_coupon }};
-console.log("finalPay:", finalPay);
+  document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}</h4>`;
 
-document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}</h4>`;
-// document.getElementById('deliveryFee').textContent = totalDeliveryFee.toFixed(2);
+  console.log("Updating local storage with finalPay:", finalPay.toFixed(2));
+  localStorage.setItem('finalPay', finalPay.toFixed(2));
 
-console.log("Updating local storage with finalPay:", finalPay.toFixed(2));
-localStorage.setItem('finalPay', finalPay.toFixed(2));
-    
-console.log("totalAmount:", totalAmount);
-console.log("redeem_coupon:", redeem_coupon);
+  console.log("totalAmount:", totalAmount);
+  console.log("totalDeliveryFee:", totalDeliveryFee);
+  console.log("redeem_coupon:", redeem_coupon);
 }
 
 updateTotalPriceAndDeliveryFee();
