@@ -1565,8 +1565,8 @@ function ReviewContentContainer(name, createdAt, review) {
   }
 }
 
-// localStorage.setItem('delivery', '2'); change 
-localStorage.setItem('delivery3', '2');    
+localStorage.setItem('delivery', '2');
+// localStorage.setItem('delivery3', '2');    
 localStorage.setItem('storename', 'Digital World (Bandar)');
 
 var storeId = 3;
