@@ -1143,6 +1143,7 @@ updateTotalPriceAndDeliveryFee();
       Total Price: ${totalPrice} 
     `;
 
+     const userEmail = "{{ $userEmail }}";
     Email.send({
       Host: "smtp.elasticemail.com",
       Username: "info@domain.com",
