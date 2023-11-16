@@ -104,9 +104,9 @@ public function placeOrder(Request $request)
        
         $user->cart()->detach($cartItems);
 
-        
+        $userEmail = $user->email;
         DB::commit();
-
+        
         
         Log::info('Orders created from cart for user ' . $user->id);
 
