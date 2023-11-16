@@ -49,13 +49,15 @@ public function reviews()
 public function isAdmin()
     {
         return $this->role_id === 1;
-    }
-}    
 
-public function isStoreOwner()
+    }
+
+    public function isStoreOwner()
 {
     return $this->role_id === 2;
 }
+}    
+
 
 
 
