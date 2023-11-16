@@ -1054,7 +1054,8 @@ if (Object.keys(storeDeliveryFees).length > 0) {
 // console.log("redeem_coupon:", redeem_coupon);
 // }
 
-function updateTotalPriceAndDeliveryFee() {
+// Function to update total price and delivery fee
+function updateTotalPriceAndDeliveryFee(selectedStores) {
   // Calculate total delivery fee for selected stores
   const selectedStoresDeliveryFee = Object.entries(storeDeliveryFees)
     .filter(([storeName]) => selectedStores.includes(storeName))
@@ -1076,7 +1077,8 @@ function updateTotalPriceAndDeliveryFee() {
   console.log("redeem_coupon:", redeem_coupon);
 }
 
-updateTotalPriceAndDeliveryFee();
+// Call the function with the selectedStores array
+updateTotalPriceAndDeliveryFee(selectedStores);
 
  $(document).ready(function () {
         $('#update-loyalty-points-form').submit(function (e) {
