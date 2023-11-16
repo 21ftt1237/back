@@ -1106,10 +1106,14 @@ updateTotalPriceAndDeliveryFee();
 
                 @endphp
             cartItemsString += `
+            -------------------------
             <br>
         - Name: {{ $cartItem->product->name }}
+        <br>
         - Price: {{ $productPrice }}
+        <br>
         - Quantity: {{ $cartItem->quantity }}
+        <br>
         -------------------------
         <br>
       `;
