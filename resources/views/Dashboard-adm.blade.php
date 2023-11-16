@@ -419,11 +419,8 @@ table {
   @endforeach    
 </table>
 
-<div data-pagination=""
-     data-num-pages="numPages()"
-     data-current-page="currentPage"
-     data-max-size="maxSize"
-     data-boundary-links="true">
+<div class="pagination">
+    {{ $users->links() }}
 </div>
 
 
