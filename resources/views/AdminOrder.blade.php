@@ -74,6 +74,7 @@
                 <tr>
                     <th>Order ID</th>
                     <th>User ID</th>
+                    <th>User Name</th>
                     <th>Total Price</th>
                     <th>Created At</th>
                     <th class="sortable">Status</th>
@@ -86,6 +87,7 @@
                     <tr>
                         <td>{{ $orderList->id }}</td>
                         <td>{{ $orderList->user_id }}</td>
+                        <td>{{ $order->user_name }}</td>
                         <td>{{ $orderList->Total_price }}</td>
                         <td>{{ $orderList->created_at }}</td>
                         <td class="status-cell">Pending</td>
