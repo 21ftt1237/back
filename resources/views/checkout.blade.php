@@ -591,7 +591,6 @@ $('.next-btn').on('click', function(e) {
 $('#proceedBtn').on('click', function() {
 
 
-
     
     localStorage.removeItem('cartItems');
 
