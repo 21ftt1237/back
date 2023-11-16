@@ -192,11 +192,11 @@ public function updateStatus(Request $request)
     \Log::info('rowId: ' . $request->input('rowId'));
     \Log::info('editedStatus: ' . $request->input('editedStatus'));
     
-   try {
+  try {
         $orderId = $request->input('rowId');
         $newStatus = $request->input('editedStatus');
 
-        $order = Order::find($orderId);
+        $order = OrderList::find($orderId);
 
         if ($order) {
             // Update the status and save the order
