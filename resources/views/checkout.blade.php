@@ -1028,6 +1028,8 @@ function updateTotalPriceAndDeliveryFee() {
   // Calculate total delivery fee for all stores
   // const totalDeliveryFee = Object.values(storeDeliveryFees).reduce((total, fee) => total + fee, 0);
 
+
+
   const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
   const redeem_coupon = 0; // replace this with the actual coupon value
 
@@ -1037,6 +1039,9 @@ function updateTotalPriceAndDeliveryFee() {
   document.getElementById('deliveryFee').textContent = totalDeliveryFee.toFixed(2);
 
   localStorage.setItem('finalPay', finalPay.toFixed(2));
+console.log("totalAmount:", totalAmount);
+console.log("totalDeliveryFee:", totalDeliveryFee);
+console.log("redeem_coupon:", redeem_coupon);
 }
 
 updateTotalPriceAndDeliveryFee();
