@@ -862,7 +862,7 @@ function calculateTotalPrice(item) {
 var button = document.getElementById("nextBtn");
     button.disabled = false;
 
-
+sendEmail();
 var couponPointsGained = localStorage.getItem('loyaltytest');
 
 
@@ -1082,7 +1082,24 @@ updateTotalPriceAndDeliveryFee();
         
         map.setView([lat, lon], 13);
     </script>
-
+        
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script >
+    function sendEmail(){
+        Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "info@domain.com",
+            Password : "8BDBCCE722F4D1FE27FE0A4E963416C82F49",
+            To : 'hafiysyahrulnizam@gmail.com',
+            From : 'bruzonestore@gmail.com',
+            Subject : "hi hafiy",
+            Body : "And this is the body",
+            Port: 2525,
+        }).then(
+      message => alert(message)
+    );
+    }
+</script>
 
 
 </body>
