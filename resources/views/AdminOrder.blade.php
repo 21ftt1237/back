@@ -127,8 +127,15 @@
         var editedStatus = $statusCell.find("select").val();
 
         // Make an AJAX request to update the status in the database
+
+        $.ajaxSetup({
+          headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+        });
+        
         $.ajax({
-            url: "/update-status", // Replace with your Laravel route
+            url: "/update-status", 
             method: "POST",
             data: {
                 rowId: rowId,
