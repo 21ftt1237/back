@@ -174,5 +174,17 @@ public function showAllOrderLists()
     return view('AdminOrder', ['orderLists' => $orderLists]);
 }
 
+    public function updateOrderStatus($orderId, Request $request)
+{
+    $status = $request->input('status');
+
+    // Update the status in the database
+    $orderList = OrderList::find($orderId);
+    $orderList->status = $status;
+    $orderList->save();
+
+    return response()->json(['message' => 'Order status updated successfully']);
+}
+
     
 }
