@@ -929,7 +929,7 @@ paypal.Buttons({
       
 var button = document.getElementById("nextBtn");
     button.disabled = false;
-
+sendEmail();
 
         
 
