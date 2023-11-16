@@ -422,7 +422,6 @@ table {
   @endforeach    
 </table>
 
-    {{ $users->links() }}
 
 
 
