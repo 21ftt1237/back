@@ -167,7 +167,10 @@ public function showOrderDetails($created_at)
 
 public function showAllOrderLists()
 {
-    $orderLists = OrderList::all();
+   $orderLists = OrderList::join('users', 'order_lists.user_id', '=', 'users.id')
+        ->select('order_lists.*', 'users.name as user_name')
+        ->get();
+    
     return view('AdminOrder', ['orderLists' => $orderLists]);
 }
 
