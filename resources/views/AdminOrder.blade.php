@@ -71,7 +71,7 @@
         <h1>Admin Order List</h1>
         <table id="order-table" class="display">
             <thead>
-                <tr>
+                <tr data-row-id="{{ $orderList->id }}">
                     <th>Order ID</th>
                     <th>User ID</th>
                     <th>User Name</th>
