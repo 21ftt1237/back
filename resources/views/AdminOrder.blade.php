@@ -107,6 +107,13 @@
 
      <script>
         $(document).ready(function () {
+             $.ajaxSetup({
+               headers: {
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+
+            
             $('#order-table').DataTable({
                 "order": [],
                 "columnDefs": [
@@ -126,11 +133,7 @@
                 if ($editButton.hasClass("editing")) {
                     var editedStatus = $statusCell.find("select").val();
 
-                    $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
+                   
 
                     $.ajax({
                         url: "/update-status",
