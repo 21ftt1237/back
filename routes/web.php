@@ -260,7 +260,7 @@ Route::get('/order-list/{orderStatus}', [OrderController::class, 'showOrderList'
 
 Route::get('AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('AdminOrder');
 
-Route::post('/update-order-status/{orderId}', [OrderController::class, 'updateOrderStatus']);
+Route::post('/update-order-status/{orderId}', [OrderController::class, 'updateOrderStatus'])->name('update-order-status');
 
 //ETC
 
