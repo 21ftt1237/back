@@ -71,7 +71,7 @@ public function placeOrder(Request $request)
 
            
             $order->save();
-
+            $userEmail = $user->email;
            
             $createdAtKey = $order->created_at->format('Y-m-d H:i:s');
             $consolidatedOrders[$createdAtKey][] = [
