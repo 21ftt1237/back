@@ -130,7 +130,7 @@
 
                 // Send an AJAX request to update the status in the backend
                    $.ajax({
-                   url: '/update-order-status/' + rowId,
+                   url: '{{ route("update-order-status", ["orderId" => ":orderId"]) }}'.replace(':orderId', rowId),
                    type: 'POST',
                    data: {
                    status: editedStatus,
