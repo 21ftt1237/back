@@ -1000,8 +1000,8 @@ for (let i = 0; i < storeId.length; i++) {
   const storeNumber = storeId[i];
 
   // Get the delivery fee and store name based on the store number
-  const deliveryFee = parseFloat(localStorage.getItem(delivery${storeNumber})) || 0;
-  const storeName = localStorage.getItem(storename${storeNumber});
+  const deliveryFee = parseFloat(localStorage.getItem(`delivery${storeNumber}`)) || 0;
+  const storeName = localStorage.getItem(`storename${storeNumber}`);
 
   if (deliveryFee && selectedStores.includes(storeName)) {
     // Store the delivery fee for each store
@@ -1015,10 +1015,10 @@ const feeDiv = document.getElementById('fee');
 
 if (storeNames.length > 0) {
   // Generate total delivery fee message for each store
-  const totalDeliveryMessages = storeNames.map(storeName => ${storeName}: BND ${storeDeliveryFees[storeName].toFixed(2)});
+  const totalDeliveryMessages = storeNames.map(storeName => `${storeName}: BND ${storeDeliveryFees[storeName].toFixed(2)}`);
 
   // Update the feeDiv content
-  feeDiv.innerHTML = <h4>Total Delivery Fee:<br/>${totalDeliveryMessages.join('<br/>')}</h4>;
+  feeDiv.innerHTML = `<h4>Total Delivery Fee:<br/>${totalDeliveryMessages.join('<br/>')}</h4>`;
 } else {
   // Display a message if deliveryFee is not found
   feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
@@ -1033,13 +1033,14 @@ function updateTotalPriceAndDeliveryFee() {
 
   const finalPay = totalAmount + totalDeliveryFee - redeem_coupon;
 
-  document.getElementById('pay').innerHTML = <h4>Final Total: BND ${finalPay.toFixed(2)}</h4>;
+  document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}</h4>`;
   document.getElementById('deliveryFee').textContent = totalDeliveryFee.toFixed(2);
 
   localStorage.setItem('finalPay', finalPay.toFixed(2));
 }
 
 updateTotalPriceAndDeliveryFee();
+
 
  $(document).ready(function () {
         $('#update-loyalty-points-form').submit(function (e) {
