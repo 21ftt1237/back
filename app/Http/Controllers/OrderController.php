@@ -179,7 +179,7 @@ public function updateOrderStatus($orderId, Request $request)
     $request->validate([
         'status' => 'required|in:Processing,Picked Up,Delivered,Completed,Cancelled',
     ]);
-
+    dd($request->all());
     try {
         $orderList = OrderList::findOrFail($orderId);
         $orderList->update(['status' => $request->status]);
