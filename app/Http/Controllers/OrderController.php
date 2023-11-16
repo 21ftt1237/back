@@ -176,6 +176,7 @@ public function showAllOrderLists()
 
 public function updateOrderStatus($orderId, Request $request)
     {
+         dd($orderId);
         $request->validate([
             'status' => 'required|in:Processing,Picked Up,Delivered,Completed,Cancelled',
         ]);
