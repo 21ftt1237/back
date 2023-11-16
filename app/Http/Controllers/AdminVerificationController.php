@@ -26,7 +26,7 @@ class AdminVerificationController extends Controller
             // User role
             return $request->user()->hasVerifiedEmail()
                 ? redirect($this->redirectPath())
-                : view('auth.verify');
+                : view('dashboard.user');
         } elseif ($role === 1) {
             // Admin role
             return $request->user()->hasVerifiedEmail()
