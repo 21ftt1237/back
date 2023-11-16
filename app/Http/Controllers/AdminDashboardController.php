@@ -9,7 +9,7 @@ class AdminDashboardController extends Controller
 {
     public function index()
     {
-        $users = User::paginate(10);
+        $users = User::select('id', 'name', 'email', 'role_id')->paginate(10);
 
         return view('Dashboard-adm', ['users' => $users]);
     }
