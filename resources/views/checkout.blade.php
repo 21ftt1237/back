@@ -380,7 +380,6 @@ input[type='password']:focus {
 
        <div class="delivery-info valid">
 
-
        <div id="map"></div>
 
        <!-- <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3975.229542262243!2d114.92832122588206!3d4.901205939884869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x3222f549ae428df9%3A0x2899e46367ef25a9!2sNetcom%20Computer%20House%2C%20Kiulap%2C%20Setia%20Kenangan%20Complex%2C%20Bandar%20Seri%20Begawan!3m2!1d4.90083!2d114.9255384!4m5!1s0x3222f53a5d975483%3A0xb7537ecd6404fef7!2sPoliteknik%20Brunei%20(Main%20Campus)%2C%20Ong%20Sum%20Ping%20Apartment%20Complex%2C%20Bandar%20Seri%20Begawan!3m2!1d4.9047737!2d114.9330335!5e0!3m2!1sen!2sbn!4v1698162740543!5m2!1sen!2sbn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
@@ -472,7 +471,6 @@ input[type='password']:focus {
  <div class="purchase-complete-message">
     <h2>Purchase Completed</h2>
     <p>Your order has been successfully processed.</p>
-    
 
     <p id="finishtime">Order Made on: </p>
 
@@ -590,11 +588,8 @@ $('.next-btn').on('click', function(e) {
 
 $('#proceedBtn').on('click', function() {
 
-
-    
     localStorage.removeItem('cartItems');
 
-    
   });
     
  $('.next-btn, #proceedBtn').on('click', function(e) {
@@ -627,18 +622,13 @@ $('#proceedBtn').on('click', function() {
           updateFormVisibility();
 
            var totalPrice = calculateTotalAmount(cartItems);
-
-
         
         } else {
           
-         
         }
       } else {
         alert('Please select a valid date and time.');
       }
-
-
 
   } else if (currentStep === 2) {
    
@@ -825,19 +815,14 @@ const currentDay = currentDate.getDate().toString().padStart(2, '0');
 const currentHours = currentDate.getHours().toString().padStart(2, '0');
 const currentMinutes = currentDate.getMinutes().toString().padStart(2, '0');
 
-
 const formattedDate = `${currentYear}-${currentMonth}-${currentDay}`;
 
-
 const formattedTime = `${currentHours}:${currentMinutes}`;
-
 
 document.getElementById('date1').value = formattedDate;
 document.getElementById('time').value = formattedTime;
 
-
 document.getElementById('date1').min = formattedDate;
-
 
 document.getElementById('time').min = formattedTime;
 
@@ -852,7 +837,6 @@ function calculateTotalAmount(cartItems) {
 function calculateTotalPrice(item) {
   return item.price * item.quantity;
 }
-
 
 </script>
 
@@ -893,19 +877,15 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
             });
         },
         error: function (error) {
-           
-            
+
         }
     });
 } else {
    
     alert('Coupon point value not found in local storage');
 }
-
-        
+   
   isPayPalTransactionComplete = true;
-        
-     
     
   });
     
@@ -932,9 +912,7 @@ var button = document.getElementById("nextBtn");
 sendEmail();
 
         
-
 var couponPointsGained = localStorage.getItem('loyaltytest');
-
 
 if (couponPointsGained !== null && couponPointsGained !== undefined) {
     
@@ -971,17 +949,12 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
     
     alert('Coupon point value not found in local storage');
 }
-
-        
+   
   isPayPalTransactionComplete = true;
         
-    
     });
   },
 }).render('#paypal-button-container');
-
-
-
 
 </script>
 
@@ -1024,10 +997,46 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
 //   feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
 // }
 
+const storeId = [1, 2, 3, 4, 5, 6];
+
+let totalDeliveryFee = 0;
+let storeNames = [];
+
+// Define the selected stores
+let selectedStores = ["Netcom (Kiulap)", "Game Central (Bandar)", "88th Avenue", "Guardian (Sengkurong)", "Nimanja (Bandar)", "Digital World (Bandar)"];
+
+// Loop through each store number
+for (let i = 0; i < storeId.length; i++) {
+  const storeNumber = storeId[i];
+
+  // Get the delivery fee and store name based on the store number
+  const deliveryFee = parseFloat(localStorage.getItem(`delivery${storeNumber}`)) || 0;
+  const storeName = localStorage.getItem(`storename${storeNumber}`);
+
+  if (deliveryFee && selectedStores.includes(storeName)) {
+    // Add the delivery fee to the total
+    totalDeliveryFee += deliveryFee;
+    storeNames.push(storeName);
+  }
+}
+
+// Get the feeDiv element
+const feeDiv = document.getElementById('fee');
+
+if (totalDeliveryFee > 0) {
+  // Update the feeDiv content
+  feeDiv.innerHTML = `<h4>Total Delivery Fee for ${storeNames.join(', ')}: BND ${totalDeliveryFee}</h4>`;
+} else {
+  // Display a message if deliveryFee is not found
+  feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
+}
+
+
+
+
 function updateTotalPriceAndDeliveryFee() {
   // Calculate total delivery fee for all stores
-  // const totalDeliveryFee = Object.values(storeDeliveryFees).reduce((total, fee) => total + fee, 0);
-
+  const totalDeliveryFee = Object.values(storeDeliveryFees).reduce((total, fee) => total + fee, 0);
 
 
   const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
