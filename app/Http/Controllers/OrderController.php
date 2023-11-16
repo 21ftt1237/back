@@ -27,6 +27,7 @@ class OrderController extends Controller
 
         
         $user = Auth::user();
+        $userEmail = $user->email;
 
         $couponPoint = floatval($request->coupon_point);
         Log::info('Coupon Points: ' . $couponPoint);
