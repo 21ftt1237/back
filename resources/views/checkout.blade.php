@@ -997,46 +997,45 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
 //   feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
 // }
 
-const storeId = [1, 2, 3, 4, 5, 6];
+const storeIds = [1, 2, 3, 4, 5, 6];
 
-let totalDeliveryFee = 0;
-let storeNames = [];
+// Create an object to store delivery fees for each store
+const storeDeliveryFees = {};
+const selectedStores = ["Netcom (Kiulap)", "Game Central (Bandar)", "88th Avenue", "Guardian (Sengkurong)", "Nimanja (Bandar)", "Digital World (Bandar)"];
 
-// Define the selected stores
-let selectedStores = ["Netcom (Kiulap)", "Game Central (Bandar)", "88th Avenue", "Guardian (Sengkurong)", "Nimanja (Bandar)", "Digital World (Bandar)"];
-
-// Loop through each store number
-for (let i = 0; i < storeId.length; i++) {
-  const storeNumber = storeId[i];
+// Loop through each store ID
+for (const storeId of storeIds) {
+  const storeNumber = storeId;
 
   // Get the delivery fee and store name based on the store number
   const deliveryFee = parseFloat(localStorage.getItem(`delivery${storeNumber}`)) || 0;
   const storeName = localStorage.getItem(`storename${storeNumber}`);
 
   if (deliveryFee && selectedStores.includes(storeName)) {
-    // Add the delivery fee to the total
-    totalDeliveryFee += deliveryFee;
-    storeNames.push(storeName);
+    // Store the delivery fee for each store
+    storeDeliveryFees[storeName] = (storeDeliveryFees[storeName] || 0) + deliveryFee;
   }
 }
 
 // Get the feeDiv element
 const feeDiv = document.getElementById('fee');
 
-if (totalDeliveryFee > 0) {
+if (Object.keys(storeDeliveryFees).length > 0) {
+  // Generate total delivery fee message for each store
+  const totalDeliveryMessages = Object.entries(storeDeliveryFees)
+    .map(([storeName, fee]) => `${storeName}: BND ${fee.toFixed(2)}`);
+
   // Update the feeDiv content
-  feeDiv.innerHTML = `<h4>Total Delivery Fee for ${storeNames.join(', ')}: BND ${totalDeliveryFee}</h4>`;
+  feeDiv.innerHTML = `<h4>Total Delivery Fee:<br/>${totalDeliveryMessages.join('<br/>')}</h4>`;
 } else {
   // Display a message if deliveryFee is not found
   feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
 }
 
 
-
-
 function updateTotalPriceAndDeliveryFee() {
   // Calculate total delivery fee for all stores
-  const totalDeliveryFee = Object.values(storeDeliveryFees).reduce((total, fee) => total + fee, 0);
+  // const totalDeliveryFee = Object.values(storeDeliveryFees).reduce((total, fee) => total + fee, 0);
 
 
   const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
