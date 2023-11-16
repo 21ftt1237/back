@@ -1091,47 +1091,51 @@ updateTotalPriceAndDeliveryFee();
     </script>
         
 <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script >
-    function getCartItemsAsString(cartItems) {
-  let cartItemsString = '';
-  cartItems.forEach((item, index) => {
-    cartItemsString += `
-      Item ${index + 1}:
-      - Name: ${item.name}
-      - Price: ${item.price}
-      - Quantity: ${item.quantity}
-      -------------------------
+ <script>
+  function getCartItemsAsString(cartItems) {
+    let cartItemsString = '';
+    let totalPrice = 0; // Initialize total price
+
+    cartItems.forEach((item, index) => {
+      cartItemsString += `
+        Item ${index + 1}:
+        - Name: ${item.name}
+        - Price: ${item.price}
+        - Quantity: ${item.quantity}
+        -------------------------
+      `;
+
+      // Calculate total price for each item
+      totalPrice += item.price * item.quantity;
+    });
+
+    return { cartItemsString, totalPrice };
+  }
+
+  function sendEmail(cartItems) {
+    const { cartItemsString, totalPrice } = getCartItemsAsString(cartItems);
+
+    const emailBody = `
+      Thank you for your order! Here are your cart items:
+
+      ${cartItemsString}
+
+      Total Price: ${totalPrice} 
     `;
-  });
-  return cartItemsString;
-}
 
-        
-   
-        
-    function sendEmail(cartItems){
-    const cartItemsString = getCartItemsAsString(cartItems);
-  const emailBody = `
-    Thank you for your order! Here are your cart items:
-
-    ${cartItemsString}
-
-    Total Price: [Insert Total Price]
-  `;
-        
-        Email.send({
-            Host : "smtp.elasticemail.com",
-            Username : "info@domain.com",
-            Password : "8BDBCCE722F4D1FE27FE0A4E963416C82F49",
-            To : 'hafiysyahrulnizam@gmail.com',
-            From : 'bruzonestore@gmail.com',
-            Subject : "<b>BRUZONE PURCHASE RECEIPT</b>",
-            Body : 'emailBody',
-            Port: 2525,
-        }).then(
+    Email.send({
+      Host: "smtp.elasticemail.com",
+      Username: "info@domain.com",
+      Password: "8BDBCCE722F4D1FE27FE0A4E963416C82F49",
+      To: 'hafiysyahrulnizam@gmail.com',
+      From: 'bruzonestore@gmail.com',
+      Subject: "<b>BRUZONE PURCHASE RECEIPT</b>",
+      Body: emailBody, // Remove the quotes around 'emailBody'
+      Port: 2525,
+    }).then(
       message => alert(message)
     );
-    }
+  }
 </script>
 
 
