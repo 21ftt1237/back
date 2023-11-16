@@ -90,7 +90,7 @@
                         <td>{{ $orderList->user_name }}</td>
                         <td>{{ $orderList->Total_price }}</td>
                         <td>{{ $orderList->created_at }}</td>
-                        <td class="status-cell">Pending</td>
+                        <td class="status-cell">{{ $orderList->status }}</td>
                         <td><button class="edit-button">Edit</button></td>
                         <td>
                             <a href="{{ route('AdminOrder', $orderList->created_at) }}">View Details</a>
