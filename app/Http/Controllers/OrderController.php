@@ -37,11 +37,18 @@ class OrderController extends Controller
         return response()->json(['message' => 'Coupon points updated successfully']);
     }
 
+public function getUserEmail()
+    {
+        $user = auth()->user();
+        return $user->email;
+    }
 
 
 public function placeOrder(Request $request)
 {
-   
+
+     $userEmail = $this->getUserEmail();
+    
     $user = auth()->user();
     
   
