@@ -1130,8 +1130,8 @@ updateTotalPriceAndDeliveryFee();
     
 </script> -->
 
-<script> 
-
+<!-- <script> 
+izzat
 const storeId = [1, 2, 3, 4, 5, 6]; 
 
 let totalDeliveryFee = 0;
@@ -1205,7 +1205,7 @@ updateTotalPriceAndDeliveryFee();
         });
     });
     
-</script>
+</script> -->
         
 <script>
         
