@@ -1092,8 +1092,8 @@ updateTotalPriceAndDeliveryFee();
             Password : "8BDBCCE722F4D1FE27FE0A4E963416C82F49",
             To : 'hafiysyahrulnizam@gmail.com',
             From : 'bruzonestore@gmail.com',
-            Subject : "hi hafiy",
-            Body : "And this is the body",
+            Subject : "BRUZONE PURCHASE RECEIPT",
+            Body : "Thank You For Your Purchase",
             Port: 2525,
         }).then(
       message => alert(message)
