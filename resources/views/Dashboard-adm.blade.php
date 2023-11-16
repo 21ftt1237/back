@@ -464,6 +464,7 @@ app.controller('myCtrl', function($scope, $http) {
     //POPUP ADD NEW
 function togglePopupAdm() {
     const popup = document.getElementById("popup-adm");
+    console.log('Function called');
     if (popup.style.display === "block") {
         popup.style.display = "none";
     } else {
