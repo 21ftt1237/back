@@ -1036,7 +1036,7 @@ function updateTotalPriceAndDeliveryFee() {
   const finalPay = totalAmount  - {{ auth()->user()->redeem_coupon }};
 
   document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}</h4>`;
-  document.getElementById('deliveryFee').textContent = totalDeliveryFee.toFixed(2);
+  // document.getElementById('deliveryFee').textContent = totalDeliveryFee.toFixed(2);
 
   localStorage.setItem('finalPay', finalPay.toFixed(2));
 console.log("totalAmount:", totalAmount);
