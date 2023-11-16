@@ -124,62 +124,67 @@
                 ],
             });
 
-            $(".edit-button").click(function () {
-                var $row = $(this).closest("tr");
-                var rowId = $row.data("row-id");
-                var $statusCell = $row.find(".status-cell");
-                var $editButton = $row.find(".edit-button");
+                $(".edit-button").click(function () {
+        var $row = $(this).closest("tr");
+        var rowId = $row.data("row-id");
+        var $statusCell = $row.find(".status-cell");
+        var $editButton = $row.find(".edit-button");
 
-                if ($editButton.hasClass("editing")) {
-                    var editedStatus = $statusCell.find("select").val();
+        if ($editButton.hasClass("editing")) {
+            var editedStatus = $statusCell.find("select").val();
 
-                   
-
-                    $.ajax({
-                        url: "/update-status",
-                        method: "POST",
-                        data: {
-                            rowId: rowId,
-                            editedStatus: editedStatus
-                        },
-                        success: function (response) {
-                            // Update the UI with the new status
-                            $statusCell.text(editedStatus);
-
-                            // Add or remove the "red" class based on status
-                            if (editedStatus === "Cancelled") {
-                                $statusCell.addClass("red");
-                            } else {
-                                $statusCell.removeClass("red");
-                            }
-
-                            // Change the button text back to "Edit"
-                            $editButton.text("Edit").removeClass("editing");
-                        },
-                        error: function (error) {
-                            console.error("Error updating status:", error);
-                        }
-                    });
-                } else {
-                    var statusOptions = ["Processing", "Picked Up", "Delivered", "Completed"];
-                    var $select = $("<select></select>");
-                    for (var i = 0; i < statusOptions.length; i++) {
-                        var option = statusOptions[i];
-                        var $option = $("<option></option>").text(option);
-                        $select.append($option);
-                    }
-
-                    var currentStatus = localStorage.getItem("editedStatus_" + rowId);
-                    $select.val(currentStatus || $statusCell.text());
-
-                    $statusCell.empty().append($select);
-                    $editButton.text("Save").addClass("editing");
-
-                    if (currentStatus === "Cancelled") {
-                        $statusCell.addClass("red");
-                    }
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
+
+            $.ajax({
+                url: "/update-status",
+                method: "POST",
+                data: {
+                    rowId: rowId,
+                    editedStatus: editedStatus
+                },
+                success: function (response) {
+                    // Update the UI with the new status
+                    $statusCell.text(editedStatus);
+
+                    // Add or remove the "red" class based on status
+                    if (editedStatus === "Cancelled") {
+                        $statusCell.addClass("red");
+                    } else {
+                        $statusCell.removeClass("red");
+                    }
+                },
+                error: function (error) {
+                    console.error("Error updating status:", error);
+                },
+                complete: function () {
+                    // Change the button text back to "Edit"
+                    $editButton.text("Edit").removeClass("editing");
+                }
+            });
+        } else {
+            var statusOptions = ["Processing", "Picked Up", "Delivered", "Completed"];
+            var $select = $("<select></select>");
+            for (var i = 0; i < statusOptions.length; i++) {
+                var option = statusOptions[i];
+                var $option = $("<option></option>").text(option);
+                $select.append($option);
+            }
+
+            var currentStatus = localStorage.getItem("editedStatus_" + rowId);
+            $select.val(currentStatus || $statusCell.text());
+
+            $statusCell.empty().append($select);
+            $editButton.text("Save").addClass("editing");
+
+            if (currentStatus === "Cancelled") {
+                $statusCell.addClass("red");
+            }
+        }
+    });
 
             $("tr[data-row-id]").each(function () {
                 var $row = $(this);
