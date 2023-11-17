@@ -59,10 +59,12 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 });
 
 //add new admin
-Route::post('/Dashboard-adm', [AdminController::class, 'store'])->name('admin.store');
+//Route::post('/Dashboard-adm', [AdminController::class, 'store'])->name('admin.store');
 
 //add new admin
-Route::post('/Dashboard-adm', [UserController::class, 'store'])->name('user.delete');
+//Route::post('/Dashboard-adm', [UserController::class, 'store'])->name('user.delete');
+
+Route::post('/Dashboard-adm/{action}', [AdminController::class, 'handleForm'])->name('admin.handleForm');
 
 Route::get('/', function () {
     return redirect()->route('dashboard');
