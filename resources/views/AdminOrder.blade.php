@@ -106,18 +106,19 @@
     
 
      <script>
-        $(document).ready(function () {          
-            $('#order-table').DataTable({
-                "order": [],
-                "columnDefs": [
-                    {
-                        "targets": 'sortable',
-                        "orderable": true,
-                    }
-                ],
-            });
+       $(document).ready(function () {          
+    $('#order-table').DataTable({
+        "order": [],
+        "columnDefs": [
+            {
+                "targets": 'sortable',
+                "orderable": true,
+            }
+        ],
+    });
 
-$(".edit-button").click(function () {
+    // Use event delegation for dynamically added elements
+    $("#order-table").on("click", ".edit-button", function () {
         var $row = $(this).closest("tr");
         var rowId = $row.data("row-id");
         var $statusCell = $row.find(".status-cell");
@@ -140,6 +141,9 @@ $(".edit-button").click(function () {
                     editedStatus: editedStatus
                 },
                 success: function (response) {
+                    // Update local storage with the new status
+                    localStorage.setItem("editedStatus_" + rowId, editedStatus);
+
                     // Update the UI with the new status
                     $statusCell.text(editedStatus);
 
@@ -157,8 +161,11 @@ $(".edit-button").click(function () {
                     // Change the button text back to "Edit"
                     $editButton.text("Edit").removeClass("editing");
                 },
-                error: function (error) {
+                error: function (xhr, status, error) {
                     console.error("Error updating status:", error);
+
+                    // Handle the error appropriately, e.g., show a message to the user
+                    alert("Error updating status. Please try again.");
                 }
             });
         } else {
@@ -182,21 +189,21 @@ $(".edit-button").click(function () {
         }
     });
 
-            $("tr[data-row-id]").each(function () {
-                var $row = $(this);
-                var rowId = $row.data("row-id");
-                var $statusCell = $row.find(".status-cell");
-                var currentStatus = localStorage.getItem("editedStatus_" + rowId);
-                if (currentStatus) {
-                    $statusCell.text(currentStatus);
-                    if (currentStatus === "Cancelled") {
-                        $statusCell.addClass("red");
-                    } else {
-                        $statusCell.removeClass("red");
-                    }
-                }
-            });
-        });
+    $("tr[data-row-id]").each(function () {
+        var $row = $(this);
+        var rowId = $row.data("row-id");
+        var $statusCell = $row.find(".status-cell");
+        var currentStatus = localStorage.getItem("editedStatus_" + rowId);
+        if (currentStatus) {
+            $statusCell.text(currentStatus);
+            if (currentStatus === "Cancelled") {
+                $statusCell.addClass("red");
+            } else {
+                $statusCell.removeClass("red");
+            }
+        }
+    });
+});
     </script>
 </body>
 </html>
