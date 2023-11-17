@@ -15,7 +15,7 @@ class Admin extends Model
         'name',
         'email',
         'password',
-        'role_id',
+       // 'role_id',
     ];
   
     public function role()
