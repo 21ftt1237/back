@@ -52,15 +52,20 @@ class UserController extends Controller
         return response()->json($user);
     }
 
-    public function destroy($id)
+public function delete(Request $request)
     {
-        // Fetch the user
-        $user = User::findOrFail($id);
+        $request->validate([
+            'userId' => 'required|exists:users,id',
+        ]);
 
-    
-        // Delete the user
-        $user->delete();
+        $userId = $request->input('userId');
+        $user = User::find($userId);
 
-        return response()->json(['message' => 'User deleted successfully']);
+        if ($user) {
+            $user->delete();
+            return redirect()->back()->with('success', 'User deleted successfully');
+        }
+
+        return redirect()->back()->with('error', 'User not found');
     }
 }
