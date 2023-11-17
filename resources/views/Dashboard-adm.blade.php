@@ -542,9 +542,14 @@ tabButtons.forEach(button => {
     button.addEventListener('click', () => {
         const selectedGroup = button.getAttribute('data-group');
         fetchAndDisplayData(selectedGroup);
+        });
     });
 });
+
+    
 </script>
 </body>
 </html>
+
+<script type="text/javascript"></script>
 
