@@ -52,12 +52,6 @@ Route::middleware(['auth', 'verified', 'isStoreOwner'])->group(function () {
     })->name('dashboard.storeOwner');
 });
 
-// Dashboard route for admins
-Route::middleware(['auth', 'verified', 'admin'])->group(function () {
-    Route::get('admin/adminDashboard', function () {
-        return view('admin.adminDashboard');
-    })->name('dashboard.admins');
-});
 
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/Dashboard-adm', [AdminDashboardController::class, 'index'])
@@ -65,7 +59,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 });
 
 //add new admin
-Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store');
+Route::post('/Dashboard-adm', [AdminController::class, 'store'])->name('admin.store');
 
 Route::get('/', function () {
     return redirect()->route('dashboard');
