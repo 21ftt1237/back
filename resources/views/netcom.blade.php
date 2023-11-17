@@ -1223,6 +1223,7 @@ box-shadow:0px 2px 7px 1px grey;
     })
     .catch(error => {
         console.error('Error:', error);
+         window.location.reload();
         
     });
     
