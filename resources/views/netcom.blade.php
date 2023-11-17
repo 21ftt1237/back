@@ -1218,7 +1218,8 @@ box-shadow:0px 2px 7px 1px grey;
     .then(response => response.json())
     .then(data => {
         console.log(data);
-         window.location.reload();
+        window.location.reload();
+        console.log('After reload'); 
     })
     .catch(error => {
         console.error('Error:', error);
