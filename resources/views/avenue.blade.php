@@ -1266,11 +1266,11 @@ height: 1600px
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        // Handle the response as needed (e.g., display a success message)
+        window.location.reload();
     })
     .catch(error => {
         console.error('Error:', error);
-        // Handle errors if any
+        window.location.reload();
     });
     // Additional logic can be added here if needed
 });
@@ -1281,7 +1281,7 @@ window.addEventListener('load', function () {
     .then(response => response.json())
     .then(data => {
       console.log(data);
-
+       
       if (data.debug) {
         console.log(data.debug);
       }
