@@ -364,7 +364,8 @@ table {
 <div>
 
 <form method="post" action="{{ route('admin.store') }}" id="form">
-  <input type="text" name="name" id="name" placeholder="name">
+@csrf
+<input type="text" name="name" id="name" placeholder="name">
 <input type="email" name="email" placeholder="Email Address" id="email">
 <input type="password" name="password" placeholder="Password" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
 <input type="password" name="" placeholder="Reenter Password" id="confirmpass" onblur="validate()">
