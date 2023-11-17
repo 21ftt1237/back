@@ -30,6 +30,9 @@ public function store(Request $request)
 
         $defaultRoleId = 1;
         $admin = Admin::create($validatedData + ['role_id' => $defaultRoleId]);
+if ($request->fails()) {
+    return redirect()->back()->withErrors($request->validator())->withInput();
+}
         return redirect()->route('dashboard.admin')->with('success', 'Admin added successfully');
     }
 
