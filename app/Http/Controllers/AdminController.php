@@ -30,7 +30,9 @@ public function store(Request $request)
             'email' => 'required|email|unique:admins|max:255',
             'password' => 'required|string|min:8',
         ]);   
-        $admin = Admin::create($validatedData);
+
+        $defaultRoleId = 1;
+        $admin = Admin::create($validatedData + ['role_id' => $defaultRoleId]);
         return redirect()->route('dashboard.admin')->with('success', 'Admin added successfully');
     }
 
