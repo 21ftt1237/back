@@ -429,10 +429,9 @@ table {
 
 </div>
 
- <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-  <script src="./ecommerce.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+
 
 <script type="text/javascript">
   	 
@@ -484,19 +483,6 @@ function toggleDeletePopup() {
     popup.style.display = "block";
   }
 }
-
-        document.addEventListener('DOMContentLoaded', function () {
-        // Add event listener for the "Add new admin" button
-        const addAdmButton = document.querySelector('.addAdm');
-        if (addAdmButton) {
-            addAdmButton.addEventListener('click', togglePopupAdm);
-        }
-
-        // Add event listener for the "Delete User" button
-        const deleteButton = document.querySelector('.deleteButton');
-        if (deleteButton) {
-            deleteButton.addEventListener('click', toggleDeletePopup);
-        }
 
 
   // TABLE DATA
