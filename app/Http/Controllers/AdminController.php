@@ -11,14 +11,11 @@ class AdminController extends Controller
     
     {
        
-        $admins = Admin::with('role_id')->get();
-
-      
+        $admins = Admin::all();
         return view('Dashboard-adm', compact('admins'));
     }
 
     public function ChangeStatuss (Request $request){
-
 
 }
 
