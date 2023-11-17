@@ -1017,18 +1017,16 @@ for (const storeId of storeIds) {
   }
 }
 
-// Get the feeDiv and pay elements
+// Get the feeDiv element
 const feeDiv = document.getElementById('fee');
-const payDiv = document.getElementById('pay');
 
-// Display total delivery fee for selected stores
 if (Object.keys(storeDeliveryFees).length > 0) {
   // Generate total delivery fee message for each store
   const totalDeliveryMessages = Object.entries(storeDeliveryFees)
     .map(([storeName, fee]) => `${storeName}: BND ${fee.toFixed(2)}`);
 
   // Update the feeDiv content
-  feeDiv.innerHTML = `<h4>Total Delivery Fee: BND ${totalDeliveryMessages.join(', ')}</h4>`;
+  feeDiv.innerHTML = `<h4>Total Delivery Fee:<br/>${totalDeliveryMessages.join('<br/>')}</h4>`;
 } else {
   // Display a message if deliveryFee is not found
   feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
@@ -1069,8 +1067,7 @@ function updateTotalPriceAndDeliveryFee(selectedStores) {
   const finalPay = totalAmount + selectedStoresDeliveryFee - redeem_coupon;
   console.log("finalPay:", finalPay);
 
-  // Update the payDiv content
-  payDiv.innerHTML = `<h4>Total Price: BND ${totalAmount.toFixed(2)} + Total Delivery Fee: BND ${selectedStoresDeliveryFee.toFixed(2)} = Final Total: BND ${finalPay.toFixed(2)}</h4>`;
+  document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}</h4>`;
 
   console.log("Updating local storage with finalPay:", finalPay.toFixed(2));
   localStorage.setItem('finalPay', finalPay.toFixed(2));
@@ -1082,6 +1079,31 @@ function updateTotalPriceAndDeliveryFee(selectedStores) {
 
 // Call the function with the selectedStores array
 updateTotalPriceAndDeliveryFee(selectedStores);
+
+ $(document).ready(function () {
+        $('#update-loyalty-points-form').submit(function (e) {
+            e.preventDefault();
+
+            const loyaltyPoints = $('#loyalty-points-input').val(); 
+
+            $.ajax({
+                type: 'POST',
+                url: '/update-loyalty-points',
+                data: {
+                    _token: '{{ csrf_token() }}', 
+                    loyaltyPoints: loyaltyPoints
+                },
+                success: function (response) {
+                    
+                    alert(response.message);
+                },
+                error: function (error) {
+                    
+                    alert('Error updating coupon points');
+                }
+            });
+        });
+    });
 
  $(document).ready(function () {
         $('#update-loyalty-points-form').submit(function (e) {
