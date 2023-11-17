@@ -384,6 +384,7 @@ table {
   <div>
     <form method="post" action="{{ route('user.delete') }}" id="deleteUserForm">
       @csrf
+       @method('DELETE') 
       <input type="text" name="userId" id="userId" placeholder="User ID">
       <input type="submit" name="submit" value="Delete">
     </form>
