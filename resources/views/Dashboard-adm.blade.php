@@ -363,7 +363,7 @@ table {
   </div>
 <div>
 
-<form method="post" action="{{ route('admin.store') }}" id="form">
+<form method="post" action="" id="form">
 @csrf
 <input type="text" name="name" id="name" placeholder="name">
 <input type="email" name="email" placeholder="Email Address" id="email">
@@ -382,7 +382,7 @@ table {
     <h2 class="dlt">Delete User</h2>
   </div>
   <div>
-    <form method="post" action="{{ route('user.delete') }}" id="deleteUserForm">
+    <form method="post" action="" id="deleteUserForm">
       <input type="text" name="userId" id="userId" placeholder="User ID">
       <input type="submit" name="submit" value="Delete">
     </form>
