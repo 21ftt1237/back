@@ -1278,11 +1278,12 @@ height: 1600px
     .then(response => response.json())
     .then(data => {
         console.log(data);
+        window.location.reload();
 
     })
     .catch(error => {
         console.error('Error:', error);
-        // Handle errors if any
+        window.location.reload();
     });
    
 });
