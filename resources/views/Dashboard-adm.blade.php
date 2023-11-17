@@ -382,7 +382,7 @@ table {
     <h2 class="dlt">Delete User</h2>
   </div>
   <div>
-    <form method="post" action="delete-user.php" id="deleteUserForm">
+    <form method="post" action="{{ route('user.delete') }}" id="deleteUserForm">
       <input type="text" name="userId" id="userId" placeholder="User ID">
       <input type="submit" name="submit" value="Delete">
     </form>
