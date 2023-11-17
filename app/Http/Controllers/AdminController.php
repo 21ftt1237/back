@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $admins = User::where('role_id', 1)->get(); /
+        $admins = User::where('role_id', 1)->get(); 
         return view('Dashboard-adm', compact('admins'));
     }
 
