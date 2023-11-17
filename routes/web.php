@@ -61,6 +61,9 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 //add new admin
 Route::post('/Dashboard-adm', [AdminController::class, 'store'])->name('admin.store');
 
+//delete user
+Route::post('/Dashboard-adm', [UserController::class, 'delete'])->name('user.delete');
+
 Route::get('/', function () {
     return redirect()->route('dashboard');
 });
