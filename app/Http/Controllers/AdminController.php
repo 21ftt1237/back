@@ -31,7 +31,7 @@ public function store(Request $request)
             'password' => 'required|string|min:8',
         ]);   
         $admin = Admin::create($validatedData);
-        return redirect()->route('admin.dashboard')->with('success', 'Admin added successfully');
+        return redirect()->route('dashboard.admin')->with('success', 'Admin added successfully');
     }
 
 }
