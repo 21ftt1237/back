@@ -467,25 +467,25 @@ app.controller('myCtrl', function($scope, $http) {
   });
 
 
-   //POPUP ADD NEW
-function togglePopupAdm() {
+  //POPUP ADD NEW
+  function togglePopupAdm() {
     const popup = document.getElementById("popup-adm");
     if (popup.style.display === "block") {
-        popup.style.display = "none";
+      popup.style.display = "none";
     } else {
-        popup.style.display = "block";
+      popup.style.display = "block";
     }
-}
-
-    // Function to toggle the delete user popup
-function toggleDeletePopup() {
-  const popup = document.getElementById("popup-delete");
-  if (popup.style.display === "block") {
-    popup.style.display = "none";
-  } else {
-    popup.style.display = "block";
   }
-}
+
+  // Function to toggle the delete user popup
+  function toggleDeletePopup() {
+    const popup = document.getElementById("popup-delete");
+    if (popup.style.display === "block") {
+      popup.style.display = "none";
+    } else {
+      popup.style.display = "block";
+    }
+  }
 
 
   // TABLE DATA
