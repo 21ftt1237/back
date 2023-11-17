@@ -363,7 +363,7 @@ table {
   </div>
 <div>
 
-<form method="post" action="" id="form">
+<form method="post" action="{{ route('admin.store') }}" id="form">
 @csrf
 <input type="text" name="name" id="name" placeholder="name">
 <input type="email" name="email" placeholder="Email Address" id="email">
