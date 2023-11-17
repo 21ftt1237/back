@@ -382,7 +382,8 @@ table {
     <h2 class="dlt">Delete User</h2>
   </div>
   <div>
-    <form method="post" action="" id="deleteUserForm">
+    <form method="post" action="{{ route('user.delete') }}" id="deleteUserForm">
+      @csrf
       <input type="text" name="userId" id="userId" placeholder="User ID">
       <input type="submit" name="submit" value="Delete">
     </form>
@@ -544,6 +545,26 @@ tabButtons.forEach(button => {
         const selectedGroup = button.getAttribute('data-group');
         fetchAndDisplayData(selectedGroup);
         });
+    });
+});
+
+
+// submission form add new admin and delte users
+$(document).ready(function () {
+    $('form').submit(function (e) {
+        e.preventDefault();
+
+        var formId = $(this).attr('id');
+
+        if (formId === 'adminForm') {
+            // Handle admin form submission
+            // Send an AJAX request or perform other actions
+            console.log('Admin form submitted');
+        } else if (formId === 'deleteUserForm') {
+            // Handle delete user form submission
+            // Send an AJAX request or perform other actions
+            console.log('Delete user form submitted');
+        }
     });
 });
 
