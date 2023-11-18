@@ -1008,16 +1008,16 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
                     $storeValue = 3;
                     break;
                 case 3:
-                    $storeValue = 4;
+                    $storeValue = 3;
                     break;
                 case 4:
                     $storeValue = 5;
                     break;
                 case 5:
-                    $storeValue = 6;
+                    $storeValue = 2;
                     break;
                 case 6:
-                    $storeValue = 7;
+                    $storeValue = 2;
                     break;
                 default:
                     $storeValue = 0; // Set a default value for unknown store_ids
