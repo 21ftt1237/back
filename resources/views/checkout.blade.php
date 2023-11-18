@@ -1125,7 +1125,7 @@ updateTotalPriceAndDeliveryFee();
 
     // Store the total sum in the local storage
    
-        localStorage.setItem('totalSum', {{ $totalSum }});
+        localStorage.setItem('deliveryTotal', {{ $totalSum }});
     
 </script>
 
