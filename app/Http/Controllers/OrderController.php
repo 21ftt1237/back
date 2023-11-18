@@ -177,7 +177,7 @@ public function showOrderDetails($created_at)   {
     }
 
  }
-}
+
 public function showAllOrderLists()
 {
     $orderLists = OrderList::join('users', 'orders_list.user_id', '=', 'users.id')
