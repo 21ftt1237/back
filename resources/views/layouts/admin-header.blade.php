@@ -193,7 +193,7 @@ header a ion-icon {
     background-color: #555;
 }
 
-.edit-button {
+.edit-btn {
   color: black;
     font-size: 24px;
     
@@ -207,7 +207,7 @@ header a ion-icon {
     
 }
 
-.edit-button:hover {
+.edit-btn:hover {
     background-color: #555;
 }
 
@@ -314,7 +314,7 @@ header a ion-icon {
     <div class="navbar">
         <div class="logo" id="storeName" data-value="7"><a href="{{ url('admin/adminDashboard') }}">Bruzone</a></div>
         <button class="view-button" onclick="togglePopup2()">ORDERS</button>
-        <button class="edit-button" onclick="togglePopup()">EDIT</button>
+        <button class="edit-btn" onclick="togglePopup()">EDIT</button>
 
 
         <a href="{{ url('Dashboard-adm') }}" class="nav-link">HOME</a>
