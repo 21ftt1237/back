@@ -314,7 +314,7 @@ header a ion-icon {
     <div class="navbar">
         <div class="logo" id="storeName" data-value="7"><a href="{{ url('admin/adminDashboard') }}">Bruzone</a></div>
         <!--<button class="view-button" onclick="togglePopup2()">ORDERS</button>-->
-         <a id="popup2" class="view-button" style="display: none;" href="{{ route('AdminOrder') }}">ORDERS</a>
+         <a id="view-button" class="view-button" style="display: none;" href="{{ route('AdminOrder') }}">ORDERS</a>
         <button class="edit-btn" onclick="togglePopup()">EDIT</button>
 
 
