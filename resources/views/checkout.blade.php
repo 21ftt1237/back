@@ -1074,7 +1074,12 @@ updateTotalPriceAndDeliveryFee();
         map.setView([lat, lon], 13);
     </script>
 
+<script>
+    @foreach ($cart as $cartItem)
+              console.log({{ $cartItem->product->store_id }})
+                @endforeach
 
+</script>
 
 </body>
 </html>
