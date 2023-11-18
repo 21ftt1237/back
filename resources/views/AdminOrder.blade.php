@@ -74,13 +74,13 @@
 
         .edit-button.editing {
             background-color: #f1c40f;
-            color: black;
+/*             color: black;
             font-size: 24px;
             font-weight: bolder;
             width: 10%;
             padding: 5px;
-            border: none;
-            border-radius: 2px;
+            border: none; */
+            border-radius: 5px;
             cursor: pointer;
         }
 
