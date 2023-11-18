@@ -986,7 +986,60 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
 
 </script>
 
+<script>
+    @php
+        // Initialize an associative array to store unique storeValues for each storeId
+        $uniqueStoreValues = [];
+        // Initialize a variable to store the total sum
+        $totalSum = 0;
+    @endphp
 
+    @foreach ($cart as $cartItem)
+        @php
+            // Get the current store_id
+            $storeId = $cartItem->product->store_id;
+
+            // Define values based on store_id using a switch statement
+            switch ($storeId) {
+                case 1:
+                    $storeValue = 2;
+                    break;
+                case 2:
+                    $storeValue = 3;
+                    break;
+                case 3:
+                    $storeValue = 4;
+                    break;
+                case 4:
+                    $storeValue = 5;
+                    break;
+                case 5:
+                    $storeValue = 6;
+                    break;
+                case 6:
+                    $storeValue = 7;
+                    break;
+                default:
+                    $storeValue = 0; // Set a default value for unknown store_ids
+            }
+
+            // Add the current storeValue to the total sum only if it's not already added
+            if (!isset($uniqueStoreValues[$storeId])) {
+                $totalSum += $storeValue;
+                // Mark the storeValue as added in the associative array
+                $uniqueStoreValues[$storeId] = true;
+            }
+        @endphp
+
+        console.log('{{ $storeValue }}');
+        console.log('{{ $totalSum }}');
+    @endforeach
+
+    // Store the total sum in the local storage
+   
+        localStorage.setItem('deliveryTotal', {{ $totalSum }});
+    
+</script>
 
 <script>
   const deliveryFee = localStorage.getItem('deliveryTotal');
@@ -1074,60 +1127,7 @@ updateTotalPriceAndDeliveryFee();
         map.setView([lat, lon], 13);
     </script>
 
-<script>
-    @php
-        // Initialize an associative array to store unique storeValues for each storeId
-        $uniqueStoreValues = [];
-        // Initialize a variable to store the total sum
-        $totalSum = 0;
-    @endphp
 
-    @foreach ($cart as $cartItem)
-        @php
-            // Get the current store_id
-            $storeId = $cartItem->product->store_id;
-
-            // Define values based on store_id using a switch statement
-            switch ($storeId) {
-                case 1:
-                    $storeValue = 2;
-                    break;
-                case 2:
-                    $storeValue = 3;
-                    break;
-                case 3:
-                    $storeValue = 4;
-                    break;
-                case 4:
-                    $storeValue = 5;
-                    break;
-                case 5:
-                    $storeValue = 6;
-                    break;
-                case 6:
-                    $storeValue = 7;
-                    break;
-                default:
-                    $storeValue = 0; // Set a default value for unknown store_ids
-            }
-
-            // Add the current storeValue to the total sum only if it's not already added
-            if (!isset($uniqueStoreValues[$storeId])) {
-                $totalSum += $storeValue;
-                // Mark the storeValue as added in the associative array
-                $uniqueStoreValues[$storeId] = true;
-            }
-        @endphp
-
-        console.log('{{ $storeValue }}');
-        console.log('{{ $totalSum }}');
-    @endforeach
-
-    // Store the total sum in the local storage
-   
-        localStorage.setItem('deliveryTotal', {{ $totalSum }});
-    
-</script>
 
 
 
