@@ -191,46 +191,44 @@ public function showAllOrderLists()
     return view('AdminOrder', ['orderLists' => $orderLists]);
 }
 
-public function updateStatus(Request $request)
-{
-    \Log::info('rowId: ' . $request->input('rowId'));
-    \Log::info('editedStatus: ' . $request->input('editedStatus'));
+ public function updateStatus(Request $request)
+    {
+        \Log::info('rowId: ' . $request->input('rowId'));
+        \Log::info('editedStatus: ' . $request->input('editedStatus'));
     
-  try {
-        $orderId = $request->input('rowId');
-        $newStatus = $request->input('editedStatus');
+        try {
+            $orderId = $request->input('rowId');
+            $newStatus = $request->input('editedStatus');
 
-        $order = OrderList::find($orderId);
+            $order = OrderList::find($orderId);
 
-        if ($order) {
-            // Update the status and save the order
-            $order->status = $newStatus;
-            $order->save();
+            if ($order) {
+                // Update the status and save the order
+                $order->status = $newStatus;
+                $order->save();
 
-            \Log::info('Order status updated successfully.');
+                \Log::info('Order status updated successfully.');
 
-            return response()->json(['success' => true]);
-        } else {
-            \Log::error('Order not found for ID: ' . $orderId);
-            return response()->json(['error' => 'Order not found'], 404);
+                // Fetch the user's email based on the order
+                $user = User::find($order->user_id);
+
+                // Send the email
+                Mail::to($user->email)->send(new OrderStatusUpdated());
+
+                \Log::info('Email sent to user: ' . $user->email);
+
+                return response()->json(['success' => true]);
+            } else {
+                \Log::error('Order not found for ID: ' . $orderId);
+                return response()->json(['error' => 'Order not found'], 404);
+            }
+        } catch (\Exception $e) {
+            \Log::error('Error updating order status: ' . $e->getMessage());
+            return response()->json(['error' => 'Internal Server Error'], 500);
         }
-    } catch (\Exception $e) {
-        \Log::error('Error updating order status: ' . $e->getMessage());
-        return response()->json(['error' => 'Internal Server Error'], 500);
     }
 }
 
-    public function updateStatusAndSendEmail(Request $request)
-{
-    // Perform the order status update based on $request->rowId
-    
-    // Fetch the user's email based on $request->userId
-    $user = User::find($request->userId);
 
-    // Send the email
-    Mail::to($user->email)->send(new OrderStatusUpdated());
-
-    return response()->json(['message' => 'Status updated and email sent successfully']);
-}
     
 }
