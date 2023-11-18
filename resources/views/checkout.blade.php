@@ -988,8 +988,8 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
 
 <script>
     @php
-        // Initialize an associative array to store unique storeValues for each storeId
-        $uniqueStoreValues = [];
+        // Initialize an array to store unique store IDs
+        $uniqueStoreIds = [];
         // Initialize a variable to store the total sum
         $totalSum = 0;
     @endphp
@@ -1023,11 +1023,11 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
                     $storeValue = 0; // Set a default value for unknown store_ids
             }
 
-            // Add the current storeValue to the total sum only if it's not already added
-            if (!isset($uniqueStoreValues[$storeId])) {
+            // Check if the current store ID is not in the array, then add its value to the total sum
+            if (!in_array($storeId, $uniqueStoreIds)) {
                 $totalSum += $storeValue;
-                // Mark the storeValue as added in the associative array
-                $uniqueStoreValues[$storeId] = true;
+                // Add the current store ID to the array
+                $uniqueStoreIds[] = $storeId;
             }
         @endphp
 
@@ -1036,10 +1036,9 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
     @endforeach
 
     // Store the total sum in the local storage
-   
-        localStorage.setItem('deliveryTotal', {{ $totalSum }});
-    
+    localStorage.setItem('deliveryTotal', {{ $totalSum }});
 </script>
+
 
 <script>
   const deliveryFee = localStorage.getItem('deliveryTotal');
