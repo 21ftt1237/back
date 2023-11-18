@@ -291,7 +291,6 @@ Route::get('AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('A
 
 Route::post('/update-status', [OrderController::class, 'updateStatus']);
 
-Route::post('/update-status-and-send-email', [OrderController::class, 'updateStatusAndSendEmail']);
 
 //ETC
 
