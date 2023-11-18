@@ -347,7 +347,7 @@ header a ion-icon {
 
 
   <!-- Popup -->
- <a id="popup2" class="popup2" style="display: none;" href="{{ route('AdminOrder') }}"
+ <a id="popup2" class="popup2" style="display: none;" href="{{ route('AdminOrder') }}">
   <button class="close-button" onclick="togglePopup2()">&#10006;</button>
   <div class="option-container">
     <h2>View</h2>
