@@ -18,7 +18,7 @@ class OrderStatusUpdated extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($orderId)
     {
         $this->orderId = $orderId;
         $this->subject('Order Status Updated');
