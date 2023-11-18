@@ -45,6 +45,18 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     })->name('dashboard.admin');
 });
 
+// Route for viewing orders (admin)
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('AdminOrder');
+    Route::post('/update-status', [OrderController::class, 'updateStatus']);
+});
+
+//Admin Order
+
+//Route::get('AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('AdminOrder');
+
+//Route::post('/update-status', [OrderController::class, 'updateStatus']);
+
 //Dashboard for store owner
 Route::middleware(['auth', 'verified', 'isStoreOwner'])->group(function () {
     Route::get('/product', function () {
@@ -265,11 +277,6 @@ Route::get('/order-details/{created_at}', [OrderController::class, 'showOrderDet
 
 Route::get('/order-list/{orderStatus}', [OrderController::class, 'showOrderList']);
 
-//Admin Order
-
-Route::get('AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('AdminOrder');
-
-Route::post('/update-status', [OrderController::class, 'updateStatus']);
 
 //ETC
 
