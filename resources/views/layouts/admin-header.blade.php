@@ -200,7 +200,7 @@ header a ion-icon {
     font-weight: bolder;
     width: 10%;
     padding: 5px;
-    background-color: darkyellow;
+    background-color: #8B8000;
     border: none;
     border-radius: 2px;
     cursor: pointer;
@@ -217,7 +217,7 @@ header a ion-icon {
 }
 
 .orderbtn {
-  background: darkyellow;
+  background: #8B8000;
   color: black;
   width: 180%; 
   font-size: 24px;
