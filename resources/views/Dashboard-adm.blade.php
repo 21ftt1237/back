@@ -97,7 +97,7 @@ table {
     margin-left: 20px;
     width: 10%;
     padding: 5px;
-    background-color: #A91B0D;
+    background-color: #B90E0A;
     border: 2px;
     border-radius: 2px;
     cursor: pointer;
