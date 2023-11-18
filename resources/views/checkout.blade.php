@@ -1075,43 +1075,51 @@ updateTotalPriceAndDeliveryFee();
     </script>
 
 <script>
-   @foreach ($cart as $cartItem)
     @php
-        // Get the current store_id
-        $storeId = $cartItem->product->store_id;
-
-        // Define values based on store_id using a switch statement
-        switch ($storeId) {
-            case 1:
-                $storeValue = 'Value1';
-                break;
-            case 2:
-                $storeValue = 'Value2';
-                break;
-            case 3:
-                $storeValue = 'Value3';
-                break;
-            case 4:
-                $storeValue = 'Value4';
-                break;
-            case 5:
-                $storeValue = 'Value5';
-                break;
-            case 6:
-                $storeValue = 'Value6';
-                break;
-            default:
-                $storeValue = 'Default';
-        }
+        // Initialize a variable to store the total sum
+        $totalSum = 0;
     @endphp
 
-   
-    console.log('{{ $storeValue }}')
+    @foreach ($cart as $cartItem)
+        @php
+            // Get the current store_id
+            $storeId = $cartItem->product->store_id;
 
-@endforeach
+            // Define values based on store_id using a switch statement
+            switch ($storeId) {
+                case 1:
+                    $storeValue = 2;
+                    break;
+                case 2:
+                    $storeValue = 3;
+                    break;
+                case 3:
+                    $storeValue = 4;
+                    break;
+                case 4:
+                    $storeValue = 5;
+                    break;
+                case 5:
+                    $storeValue = 6;
+                    break;
+                case 6:
+                    $storeValue = 7;
+                    break;
+                default:
+                    $storeValue = 0; // Set a default value for unknown store_ids
+            }
 
+            // Add the current storeValue to the total sum
+            $totalSum += $storeValue;
+        @endphp
 
+        console.log('{{ $storeValue }}');
+    @endforeach
+
+    
+    console.log('Total Sum: {{ $totalSum }}');
 </script>
+
 
 </body>
 </html>
