@@ -149,7 +149,7 @@ public function showOrderList()
   return view('My order.order', ['orderLists' => $orderLists,'orderStatus' => $orderStatus]);
 }
     
-public function showOrderDetails($created_at)   
+public function showOrderDetails($created_at)   {
     $user = Auth::user();
     $orderDetails = Order::where('user_id', $user->id)
                          ->where('created_at', $created_at)
