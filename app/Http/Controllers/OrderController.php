@@ -180,7 +180,7 @@ public function showOrderDetails($created_at)
     else {
         return redirect()->route('login')->with('error', 'Please log in to view order details.');
     }
-
+}
 public function showAllOrderLists()
 {
     $orderLists = OrderList::join('users', 'orders_list.user_id', '=', 'users.id')
