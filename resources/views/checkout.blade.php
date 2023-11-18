@@ -1076,6 +1076,8 @@ updateTotalPriceAndDeliveryFee();
 
 <script>
     @php
+        // Initialize an associative array to store unique storeValues for each storeId
+        $uniqueStoreValues = [];
         // Initialize a variable to store the total sum
         $totalSum = 0;
     @endphp
@@ -1109,18 +1111,23 @@ updateTotalPriceAndDeliveryFee();
                     $storeValue = 0; // Set a default value for unknown store_ids
             }
 
-            // Add the current storeValue to the total sum
-            $totalSum += $storeValue;
+            // Add the current storeValue to the total sum only if it's not already added
+            if (!isset($uniqueStoreValues[$storeId])) {
+                $totalSum += $storeValue;
+                // Mark the storeValue as added in the associative array
+                $uniqueStoreValues[$storeId] = true;
+            }
         @endphp
 
         console.log('{{ $storeValue }}');
     @endforeach
 
-    
-    console.log('Total Sum: {{ $totalSum }}');
-    localStorage.setItem('deliveryTotal', {{ $totalSum }});
-   
+    // Store the total sum in the local storage
+    <script>
+        localStorage.setItem('totalSum', {{ $totalSum }});
+    </script>
 </script>
+
 
 
 </body>
