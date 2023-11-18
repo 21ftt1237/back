@@ -12,6 +12,9 @@ use App\Models\User;
 use App\Models\OrderList;
 use App\Models\Product;
 use Illuminate\Support\Facades\dd;
+use App\Mail\OrderStatusUpdated;
+use Illuminate\Support\Facades\Mail;
+
 
 
 
@@ -215,6 +218,19 @@ public function updateStatus(Request $request)
         \Log::error('Error updating order status: ' . $e->getMessage());
         return response()->json(['error' => 'Internal Server Error'], 500);
     }
+}
+
+    public function updateStatusAndSendEmail(Request $request)
+{
+    // Perform the order status update based on $request->rowId
+    
+    // Fetch the user's email based on $request->userId
+    $user = User::find($request->userId);
+
+    // Send the email
+    Mail::to($user->email)->send(new OrderStatusUpdated());
+
+    return response()->json(['message' => 'Status updated and email sent successfully']);
 }
     
 }
