@@ -1198,8 +1198,8 @@ updateTotalPriceAndDeliveryFee(selectedStores);
 
     return { cartItemsString, totalPrice };
   }
-
-  function sendEmail(cartItems) {
+  const userEmail = "{{ auth()->user()->email }}";
+  function sendEmail(cartItems, userEmail) {
     const { cartItemsString, totalPrice } = getCartItemsAsString(cartItems);
 
     const emailBody = `
