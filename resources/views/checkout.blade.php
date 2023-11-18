@@ -1120,6 +1120,7 @@ updateTotalPriceAndDeliveryFee();
         @endphp
 
         console.log('{{ $storeValue }}');
+        console.log('{{ $totalSum }}');
     @endforeach
 
     // Store the total sum in the local storage
