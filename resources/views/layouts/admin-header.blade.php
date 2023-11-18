@@ -214,25 +214,25 @@ header a ion-icon {
 .view-button {
   text-align: center;
   margin: 30px 0;
-    
 }
 
-    .orderbtn {
+.orderbtn {
   background: #F6E71D;
   color: black;
   font-size: 24px;
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 2px; /* Adjusted to match edit-btn */
   cursor: pointer;
-  text-align: center; /* Center the text horizontally */
-  text-decoration: none; /* Remove default underline */
-  display: inline-block; /* Make it an inline-block element */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .orderbtn:hover {
-    background-color: #555;
+  background-color: #555;
 }
+
 
 .popup {
   display: none;
