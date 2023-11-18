@@ -1567,7 +1567,7 @@ function ReviewContentContainer(name, createdAt, review) {
 
 // localStorage.setItem('delivery', '2');
 localStorage.setItem('delivery3', '2');    
-localStorage.setItem('storename3', 'Digital World (Bandar)');
+localStorage.setItem('storename3', 'Digital Universe (Bandar)');
 
 var storeId = 3;
 var previousStore = localStorage.getItem('storeId');
