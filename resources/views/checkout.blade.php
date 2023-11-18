@@ -989,7 +989,7 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
 
 
 <script>
-  const deliveryFee = localStorage.getItem('delivery');
+  const deliveryFee = localStorage.getItem('deliveryTotal');
   const storeName = localStorage.getItem('storename');
 
  
@@ -1118,6 +1118,7 @@ updateTotalPriceAndDeliveryFee();
 
     
     console.log('Total Sum: {{ $totalSum }}');
+    localStorage.setItem('deliveryTotal', {{ $totalSum }});
    
 </script>
 
