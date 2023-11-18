@@ -170,9 +170,9 @@ Route::get('storePlatform-SO', function () {
     return view('storePlatform-SO'); 
 })->name('storePlatform-SO');
 
-//Route::get('AdminOrder', function () {
-//    return view('AdminOrder'); 
-//})->name('AdminOrder');
+Route::get('AdminOrder', function () {
+    return view('AdminOrder'); 
+})->name('AdminOrder');
 
 Route::get('ChatboxAdmin', function () {
     return view('ChatboxAdmin'); 
