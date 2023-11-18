@@ -174,8 +174,9 @@ public function showOrderDetails($created_at)   {
         'orderDetails' => $orderDetails,
         'orderStatus' => $orderStatus,
     ]);
-}
+    }
 
+ }
 }
 public function showAllOrderLists()
 {
