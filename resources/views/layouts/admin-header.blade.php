@@ -198,7 +198,7 @@ header a ion-icon {
     font-size: 24px;
     
     font-weight: bolder;
-    width: 20%;
+    width: 10%;
     padding: 5px;
     background-color: #F6E71D;
     border: none;
