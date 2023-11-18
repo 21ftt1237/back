@@ -213,7 +213,7 @@ public function showAllOrderLists()
                 $user = User::find($order->user_id);
 
                 // Send the email
-                Mail::to($user->email)->send(new OrderStatusUpdated());
+                Mail::to($user->email)->send(new OrderStatusUpdated($rowId));
 
                 \Log::info('Email sent to user: ' . $user->email);
 
