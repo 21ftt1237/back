@@ -18,17 +18,7 @@ class OrderStatusUpdated extends Mailable
      */
     public function __construct()
     {
-        //
-    }
-
-    /**
-     * Get the message envelope.
-     */
-    public function envelope(): Envelope
-    {
-        return new Envelope(
-            subject: 'Order Status Updated',
-        );
+        $this->subject('Order Status Updated');
     }
 
     /**
@@ -37,7 +27,7 @@ class OrderStatusUpdated extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.order-status-updated', // Update with the correct view name
         );
     }
 
