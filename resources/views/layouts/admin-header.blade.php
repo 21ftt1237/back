@@ -213,14 +213,14 @@ header a ion-icon {
 
 .view-button {
   text-align: center;
-  margin: 30px 0;
 }
 
 .orderbtn {
   background: #F6E71D;
   color: black;
   font-size: 24px;
-  padding: 10px 20px;
+  font-weight: bolder; 
+  padding: 5px;
   border: none;
   border-radius: 2px; /* Adjusted to match edit-btn */
   cursor: pointer;
@@ -294,6 +294,7 @@ header a ion-icon {
 
 .option-users{
   background: #F6E71D;
+  width: 80%;  
   color: black;
   font-size: 24px;
   padding: 10px 20px;
