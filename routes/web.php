@@ -63,6 +63,8 @@ Route::get('AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('A
 
 Route::post('/update-status', [OrderController::class, 'updateStatus']);
 
+Route::get('/order-list/{orderStatus}', [OrderController::class, 'showOrderList']);
+
 //Dashboard for store owner
 Route::middleware(['auth', 'verified', 'isStoreOwner'])->group(function () {
     Route::get('/product', function () {
