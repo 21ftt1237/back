@@ -59,11 +59,11 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 
 //Admin Order
 
-Route::get('AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('AdminOrder');
+//Route::get('AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('AdminOrder');
 
-Route::post('/update-status', [OrderController::class, 'updateStatus']);
+//Route::post('/update-status', [OrderController::class, 'updateStatus']);
 
-Route::get('/order-list/{orderStatus}', [OrderController::class, 'showOrderList']);
+//Route::get('/order-list/{orderStatus}', [OrderController::class, 'showOrderList']);
 
 //Dashboard for store owner
 Route::middleware(['auth', 'verified', 'isStoreOwner'])->group(function () {
@@ -285,6 +285,11 @@ Route::get('/order-details/{created_at}', [OrderController::class, 'showOrderDet
 
 Route::get('/order-list/{orderStatus}', [OrderController::class, 'showOrderList']);
 
+//Admin Order
+
+Route::get('AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('AdminOrder');
+
+Route::post('/update-status', [OrderController::class, 'updateStatus']);
 
 //ETC
 
