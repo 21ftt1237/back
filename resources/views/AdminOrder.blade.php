@@ -29,10 +29,10 @@
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
     
     <style>
-        body {
+/*       body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
-        }
+        } */
 
         .container {
             max-width: 2000px;
@@ -63,14 +63,14 @@
             background-color: #f2f2f2;
         }
 
-        .edit-button {
+   /*     .edit-button {
             background-color: #4CAF50;
             color: white;
             border: none;
             padding: 5px 10px;
             cursor: pointer;
             border-radius: 5px;
-        }
+        } */
 
         .edit-button.editing {
             background-color: #f1c40f;
