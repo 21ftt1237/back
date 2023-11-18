@@ -74,7 +74,7 @@ table {
     margin-left: 20px;
     width: 10%;
     padding: 5px;
-    background-color: #F6E71D;
+    background-color: #FEBE00;
     border: 2px;
     border-radius: 2px;
     cursor: pointer;
@@ -97,7 +97,7 @@ table {
     margin-left: 20px;
     width: 10%;
     padding: 5px;
-    background-color: red;
+    background-color: darkred;
     border: 2px;
     border-radius: 2px;
     cursor: pointer;
