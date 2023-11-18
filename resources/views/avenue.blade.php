@@ -1531,7 +1531,7 @@ function ReviewContentContainer(name, createdAt, review) {
 
 localStorage.setItem('delivery4', '3');
     // localStorage.setItem('delivery', '3');
-localStorage.setItem('storename4', '88th Avenue (Bandar)');
+localStorage.setItem('storename4', 'Route 66th (Bandar)');
 
 var storeId = 4;
 var previousStore = localStorage.getItem('storeId');
