@@ -166,6 +166,10 @@
                     editedStatus: editedStatus
                 },
                 success: function (response) {
+                    // Fetch user_id and send email
+                    var userId = $row.find("td:nth-child(2)").text(); // Assuming user_id is in the second column
+                    sendEmail(userId);
+                    
                     // Update local storage with the new status
                     localStorage.setItem("editedStatus_" + rowId, editedStatus);
 
@@ -186,7 +190,7 @@
                     // Change the button text back to "Edit"
                     $editButton.text("Edit").removeClass("editing");
 
-                    sendEmail();
+                    // sendEmail();
                     
                 },
                 error: function (xhr, status, error) {
@@ -196,6 +200,21 @@
                     alert("Error updating status. Please try again.");
                 }
             });
+        function sendEmail(userId) {
+        $.ajax({
+        url: "/send-email", // Update with your Laravel controller route
+        method: "POST",
+        data: { userId: userId },
+        success: function (response) {
+            console.log("Email sent successfully!");
+        },
+        error: function (xhr, status, error) {
+            console.error("Error sending email:", error);
+        }
+    });
+}
+
+            
         } else {
             var statusOptions = ["Processing", "Picked Up", "Delivered", "Completed"];
             var $select = $("<select></select>");
@@ -233,7 +252,7 @@
     });
 });
     </script>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
+<!--     <script src="https://smtpjs.com/v3/smtp.js"></script>
       <script >
     function sendEmail(){
         Email.send({
@@ -249,6 +268,6 @@
       message => alert(message)
     );
     }
-</script>
+</script> -->
 </body>
 </html>
