@@ -380,6 +380,7 @@ input[type='password']:focus {
 
        <div class="delivery-info valid">
 
+
        <div id="map"></div>
 
        <!-- <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3975.229542262243!2d114.92832122588206!3d4.901205939884869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x3222f549ae428df9%3A0x2899e46367ef25a9!2sNetcom%20Computer%20House%2C%20Kiulap%2C%20Setia%20Kenangan%20Complex%2C%20Bandar%20Seri%20Begawan!3m2!1d4.90083!2d114.9255384!4m5!1s0x3222f53a5d975483%3A0xb7537ecd6404fef7!2sPoliteknik%20Brunei%20(Main%20Campus)%2C%20Ong%20Sum%20Ping%20Apartment%20Complex%2C%20Bandar%20Seri%20Begawan!3m2!1d4.9047737!2d114.9330335!5e0!3m2!1sen!2sbn!4v1698162740543!5m2!1sen!2sbn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
@@ -429,7 +430,7 @@ input[type='password']:focus {
 
         <div class="rightside">
       <h4><div id="finalTotal"></div>  </h4>
-     <div id="fee"><h4>Delivery Fee: BND <span id="deliveryFee"></span></div>
+     <div id="fee"><h4>Delivery Fee: BND 5</div>  
      <div id="coupon"><h4>Coupon: ${{ auth()->user()->redeem_coupon}} off</div>  
 
     <div id="pay"><h4>Final Total: </div>  
@@ -471,6 +472,7 @@ input[type='password']:focus {
  <div class="purchase-complete-message">
     <h2>Purchase Completed</h2>
     <p>Your order has been successfully processed.</p>
+    
 
     <p id="finishtime">Order Made on: </p>
 
@@ -588,8 +590,12 @@ $('.next-btn').on('click', function(e) {
 
 $('#proceedBtn').on('click', function() {
 
+
+
+    
     localStorage.removeItem('cartItems');
 
+    
   });
     
  $('.next-btn, #proceedBtn').on('click', function(e) {
@@ -622,13 +628,18 @@ $('#proceedBtn').on('click', function() {
           updateFormVisibility();
 
            var totalPrice = calculateTotalAmount(cartItems);
+
+
         
         } else {
           
+         
         }
       } else {
         alert('Please select a valid date and time.');
       }
+
+
 
   } else if (currentStep === 2) {
    
@@ -815,14 +826,19 @@ const currentDay = currentDate.getDate().toString().padStart(2, '0');
 const currentHours = currentDate.getHours().toString().padStart(2, '0');
 const currentMinutes = currentDate.getMinutes().toString().padStart(2, '0');
 
+
 const formattedDate = `${currentYear}-${currentMonth}-${currentDay}`;
 
+
 const formattedTime = `${currentHours}:${currentMinutes}`;
+
 
 document.getElementById('date1').value = formattedDate;
 document.getElementById('time').value = formattedTime;
 
+
 document.getElementById('date1').min = formattedDate;
+
 
 document.getElementById('time').min = formattedTime;
 
@@ -838,6 +854,7 @@ function calculateTotalPrice(item) {
   return item.price * item.quantity;
 }
 
+
 </script>
 
 <script>
@@ -846,7 +863,7 @@ function calculateTotalPrice(item) {
 var button = document.getElementById("nextBtn");
     button.disabled = false;
 
-sendEmail();
+
 var couponPointsGained = localStorage.getItem('loyaltytest');
 
 
@@ -877,15 +894,19 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
             });
         },
         error: function (error) {
-
+           
+            
         }
     });
 } else {
    
     alert('Coupon point value not found in local storage');
 }
-   
+
+        
   isPayPalTransactionComplete = true;
+        
+     
     
   });
     
@@ -909,10 +930,12 @@ paypal.Buttons({
       
 var button = document.getElementById("nextBtn");
     button.disabled = false;
-sendEmail();
+
 
         
+
 var couponPointsGained = localStorage.getItem('loyaltytest');
+
 
 if (couponPointsGained !== null && couponPointsGained !== undefined) {
     
@@ -949,174 +972,59 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
     
     alert('Coupon point value not found in local storage');
 }
-   
+
+        
   isPayPalTransactionComplete = true;
         
+    
     });
   },
 }).render('#paypal-button-container');
 
+
+
+
 </script>
 
-<script> 
-// const storeId = [1, 2, 3, 4, 5, 6];
 
-// // Create an object to store delivery fees for each store
-// let storeDeliveryFees = {};
-// let storeNames = [];
 
-// // Define the selected stores
-// let selectedStores = ["Netcom (Kiulap)", "Game Central (Bandar)", "88th Avenue", "Guardian (Sengkurong)", "Nimanja (Bandar)", "Digital World (Bandar)"];
+<script>
+  const deliveryFee = localStorage.getItem('delivery');
+  const storeName = localStorage.getItem('storename');
 
-// // Loop through each store number
-// for (let i = 0; i < storeId.length; i++) {
-//   const storeNumber = storeId[i];
+ 
+  const feeDiv = document.getElementById('fee');
 
-//   // Get the delivery fee and store name based on the store number
-//   const deliveryFee = parseFloat(localStorage.getItem(`delivery${storeNumber}`)) || 0;
-//   const storeName = localStorage.getItem(`storename${storeNumber}`);
+  if (deliveryFee) {
 
-//   if (deliveryFee && selectedStores.includes(storeName)) {
-//     // Store the delivery fee for each store
-//     storeDeliveryFees[storeName] = (storeDeliveryFees[storeName] || 0) + deliveryFee;
-//     storeNames.push(storeName);
-//   }
-// }
-
-// // Get the feeDiv element
-// const feeDiv = document.getElementById('fee');
-
-// if (storeNames.length > 0) {
-//   // Generate total delivery fee message for each store
-//   const totalDeliveryMessages = storeNames.map(storeName => `${storeName}: BND ${storeDeliveryFees[storeName].toFixed(2)}`);
-
-//   // Update the feeDiv content
-//   feeDiv.innerHTML = `<h4>Total Delivery Fee:<br/>${totalDeliveryMessages.join('<br/>')}</h4>`;
-// } else {
-//   // Display a message if deliveryFee is not found
-//   feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
-// }
-
-const storeIds = [1, 2, 3, 4, 5, 6];
-
-// Create an object to store delivery fees for each store
-const storeDeliveryFees = {};
-const selectedStores = ["Comnet (Kiulap)", "Game Side (Bandar)", "Route 66th (Bandar)", "Defender (Sengkurong)", "Simanja (Bandar)", "Digital Universe (Bandar)"];
-
-// Loop through each selected store
-for (const storeName of selectedStores) {
-  // Get the store ID based on the store name
-  const storeId = storeIds.find(id => localStorage.getItem(`storename${id}`) === storeName);
-
-  if (storeId) {
-    // Get the delivery fee based on the store ID
-    const deliveryFee = parseFloat(localStorage.getItem(`delivery${storeId}`)) || 0;
-
-    if (deliveryFee) {
-      // Store the delivery fee for each store
-      storeDeliveryFees[storeName] = (storeDeliveryFees[storeName] || 0) + deliveryFee;
-    }
+    feeDiv.innerHTML = `<h4>Delivery Fee: BND ${deliveryFee}</h4>`;
   } else {
-    // If store is not found, skip the rest of the loop
-    continue;
+   
+    feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
   }
-}
-
-// Get the feeDiv element
-const feeDiv = document.getElementById('fee');
-
-if (Object.keys(storeDeliveryFees).length > 0) {
-  // Generate total delivery fee message for each store
-  const totalDeliveryMessages = Object.entries(storeDeliveryFees)
-    .map(([storeName, fee]) => `${storeName}: BND ${fee.toFixed(2)}`);
-
-  // Update the feeDiv content
-  feeDiv.innerHTML = `<h4>Total Delivery Fee:<br/>${totalDeliveryMessages.join('<br/>')}</h4>`;
-} else {
-  // Display a message if deliveryFee is not found
-  feeDiv.innerHTML = "<h4>Delivery Fee not found</h4>";
-}
 
 
-// function updateTotalPriceAndDeliveryFee() {
-//   // Calculate total delivery fee for all stores    
-// const totalDeliveryFee = Object.values(storeDeliveryFees).reduce((total, fee) => total + fee, 0);
-    
+  function updateTotalPriceAndDeliveryFee() {
+  
+  
+const totalAmount = parseFloat(localStorage.getItem('totalPrice')) 
+   
+  const deliveryFee = parseFloat(localStorage.getItem('delivery')) || 0;
 
-// const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
-// const redeem_coupon = 0; // replace this with the actual coupon value
+      const testPay = totalAmount + deliveryFee;
+ 
+  const finalPay = totalAmount + deliveryFee - {{ auth()->user()->redeem_coupon }};
 
-// const finalPay = totalAmount  - {{ auth()->user()->redeem_coupon }};
-// console.log("finalPay:", finalPay);
+  
+  document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}`;
+  
 
-// document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}</h4>`;
-// // document.getElementById('deliveryFee').textContent = totalDeliveryFee.toFixed(2);
-
-// console.log("Updating local storage with finalPay:", finalPay.toFixed(2));
-// localStorage.setItem('finalPay', finalPay.toFixed(2));
-    
-// console.log("totalAmount:", totalAmount);
-// console.log("redeem_coupon:", redeem_coupon);
-// }
-
-function updateTotalPriceAndDeliveryFee(selectedStores) {
-  // Calculate total delivery fee for selected stores
-  const selectedStoresDeliveryFee = Object.entries(storeDeliveryFees)
-    .filter(([storeName]) => selectedStores.includes(storeName))
-    .reduce((total, [, fee]) => total + fee, 0);
-
-  const totalAmount = parseFloat(localStorage.getItem('totalPrice')) || 0;
-  const redeem_coupon = 0; // Replace this with the actual coupon value
-
-  const finalPay = totalAmount + selectedStoresDeliveryFee - redeem_coupon;
-
-  // Display details for each selected store
-  const storeDetails = selectedStores.map(storeName => {
-    const storeFee = storeDeliveryFees[storeName] || 0;
-    return `${storeName}: BND ${storeFee.toFixed(2)}`;
-  });
-
-  // Update HTML with detailed store delivery fees
-  document.getElementById('fee').innerHTML = `<h4>Delivery Fees:<br/>${storeDetails.join('<br/>')}</h4>`;
-
-  // Update HTML with total delivery fee
-  document.getElementById('deliveryFee').textContent = `BND ${selectedStoresDeliveryFee.toFixed(2)}`;
-
-  // Update HTML with final total
-  document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}</h4>`;
-
-  // Update local storage with finalPay
+  
   localStorage.setItem('finalPay', finalPay.toFixed(2));
 }
 
-// Call the function with the selectedStores array
-updateTotalPriceAndDeliveryFee(selectedStores);
 
-
- $(document).ready(function () {
-        $('#update-loyalty-points-form').submit(function (e) {
-            e.preventDefault();
-
-            const loyaltyPoints = $('#loyalty-points-input').val(); 
-
-            $.ajax({
-                type: 'POST',
-                url: '/update-loyalty-points',
-                data: {
-                    _token: '{{ csrf_token() }}', 
-                    loyaltyPoints: loyaltyPoints
-                },
-                success: function (response) {
-                    
-                    alert(response.message);
-                },
-                error: function (error) {
-                    
-                    alert('Error updating coupon points');
-                }
-            });
-        });
-    });
+updateTotalPriceAndDeliveryFee();
 
  $(document).ready(function () {
         $('#update-loyalty-points-form').submit(function (e) {
@@ -1142,11 +1050,10 @@ updateTotalPriceAndDeliveryFee(selectedStores);
             });
         });
     });
-    
+   
+
 </script>
-
-        
-<script>
+ <script>
         
         var map = L.map('map').setView([0, 0], 13);
 
@@ -1166,66 +1073,7 @@ updateTotalPriceAndDeliveryFee(selectedStores);
         
         map.setView([lat, lon], 13);
     </script>
-        
-<script src="https://smtpjs.com/v3/smtp.js"></script>
- <script>
-  function getCartItemsAsString(cartItems) {
-    let cartItemsString = '';
-    let totalPrice = 0; // Initialize total price
 
- 
-       @foreach ($cart as $cartItem)
-                @php
-                $productPrice = $cartItem->product->price;
-                $product = $cartItem->product;
-                $newQuantity = $cartItem->quantity;
-                $productPrice = $productPrice * $newQuantity;
-
-                @endphp
-            cartItemsString += `
-            -------------------------
-            <br>
-        - Name: {{ $cartItem->product->name }}
-        <br>
-        - Price: {{ $productPrice }}
-        <br>
-        - Quantity: {{ $cartItem->quantity }}
-        <br>
-        -------------------------
-        <br>
-      `;
-                @endforeach
-
-    return { cartItemsString, totalPrice };
-  }
-  const userEmail = "{{ auth()->user()->email }}";
-  function sendEmail(cartItems, userEmail) {
-    const { cartItemsString, totalPrice } = getCartItemsAsString(cartItems);
-
-    const emailBody = `
-      Thank you for your order! Here are your cart items:
-      
-        <br>
-      ${cartItemsString}
-
-        <br>
-      Total Price: ${totalPrice} 
-    `;
-
-    Email.send({
-      Host: "smtp.elasticemail.com",
-      Username: "info@domain.com",
-      Password: "8BDBCCE722F4D1FE27FE0A4E963416C82F49",
-      To: 'hafiysyahrulnizam@gmail.com',
-      From: 'bruzonestore@gmail.com',
-      Subject: "<b>BRUZONE PURCHASE RECEIPT</b>",
-      Body: emailBody, // Remove the quotes around 'emailBody'
-      Port: 2525,
-    }).then(
-      message => alert(message)
-    );
-  }
-</script>
 
 
 </body>
