@@ -218,7 +218,8 @@ header a ion-icon {
 .orderbtn {
   background: #F6E71D;
   color: black;
-  width: 160%;
+  width: 180%;
+  margin-right:10px ;  
   font-size: 24px;
   font-weight: bolder; 
   padding: 5px;
