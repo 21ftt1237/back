@@ -29,9 +29,7 @@ class OrderStatusUpdated extends Mailable
      */
     public function content(): Content
     {
-        return new Content(
-            view: 'emails.order-status-updated', // Update with the correct view name
-            data: ['orderId' => $this->orderId]
+       return new Content('emails.order-status-updated', ['orderId' => $this->orderId]
         );
     }
 
