@@ -371,14 +371,14 @@ header a ion-icon {
 }
 
 
-function togglePopup2() {
-    const popup = document.getElementById("popup2");
-    if (popup.style.display === "block") {
-        popup.style.display = "none";
-    } else {
-        popup.style.display = "block";
-    }
-}
+//function togglePopup2() {
+//    const popup = document.getElementById("popup2");
+//    if (popup.style.display === "block") {
+//        popup.style.display = "none";
+//    } else {
+//        popup.style.display = "block";
+//    }
+//}
 
       //POPUP ADD NEW
   function togglePopupAdm() {
