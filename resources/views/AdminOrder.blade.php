@@ -1,4 +1,8 @@
+@php
+    $pageName = 'Bruzone - admin';
+@endphp
 
+@include('layouts.admin-header')
 <!DOCTYPE html>
 <html lang="en">
 <head>
