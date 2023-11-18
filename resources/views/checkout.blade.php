@@ -1123,9 +1123,9 @@ updateTotalPriceAndDeliveryFee();
     @endforeach
 
     // Store the total sum in the local storage
-    <script>
+   
         localStorage.setItem('totalSum', {{ $totalSum }});
-    </script>
+    
 </script>
 
 
