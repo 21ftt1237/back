@@ -1061,7 +1061,7 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
   
 const totalAmount = parseFloat(localStorage.getItem('totalPrice')) 
    
-  const deliveryFee = parseFloat(localStorage.getItem('delivery')) || 0;
+  const deliveryFee = parseFloat(localStorage.getItem('deliveryTotal')) || 0;
 
       const testPay = totalAmount + deliveryFee;
  
