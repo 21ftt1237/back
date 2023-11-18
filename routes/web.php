@@ -46,9 +46,9 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 
 });
 
-    Route::get('AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('AdminOrder');
+ //   Route::get('AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('AdminOrder');
 
-    Route::post('/update-status', [OrderController::class, 'updateStatus']);
+ //   Route::post('/update-status', [OrderController::class, 'updateStatus']);
 
 //Route::middleware(['auth', 'verified', 'admin'])->group(function () {
   //  Route::get('/Dashboard-adm', [OrderController::class, 'dashboardAdmin'])->name('dashboard.admin');
@@ -59,9 +59,9 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 
 //Admin Order
 
-//Route::get('AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('AdminOrder');
+Route::get('AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('AdminOrder');
 
-//Route::post('/update-status', [OrderController::class, 'updateStatus']);
+Route::post('/update-status', [OrderController::class, 'updateStatus']);
 
 //Dashboard for store owner
 Route::middleware(['auth', 'verified', 'isStoreOwner'])->group(function () {
