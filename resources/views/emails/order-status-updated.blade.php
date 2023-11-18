@@ -40,7 +40,7 @@
         </div>
 
         <div class="content">
-            <p>Your order with ID {{ $rowId }} status has been updated. Thank you for choosing our services.</p>
+            <p>Your order with ID {{  $orderId }} status has been updated. Thank you for choosing our services.</p>
         </div>
 
         <div class="footer">
