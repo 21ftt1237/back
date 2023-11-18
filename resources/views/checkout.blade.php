@@ -557,16 +557,16 @@ input[type='password']:focus {
         $('#proceed').hide();
       }
     });
- var localTotalPay = localStorage.getItem('finalPay');
-  function calculateLoyaltyPoints(localTotalPay) {
+ var localTotalPrice = localStorage.getItem('totalPrice');
+  function calculateLoyaltyPoints(localTotalPrice) {
     
     
-    var loyaltyGain =  (localTotalPay * 0.1).toFixed(2);
+    var loyaltyGain =  (localTotalPrice * 0.1).toFixed(2);
     console.log(loyaltyGain);
     localStorage.setItem('loyaltytest', loyaltyGain);
       
   }
-      calculateLoyaltyPoints(localTotalPay)
+      calculateLoyaltyPoints(localTotalPrice)
 
 $('.next-btn').on('click', function(e) {
   e.preventDefault();
