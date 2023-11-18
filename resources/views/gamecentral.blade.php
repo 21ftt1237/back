@@ -1567,9 +1567,9 @@ function ReviewContentContainer(name, createdAt, review) {
   }
 }
 
-localStorage.setItem('delivery2', '2');
-    // localStorage.setItem('delivery', '2');
-localStorage.setItem('storename2', 'Game Side (Bandar)');
+localStorage.setItem('delivery', '2');
+
+localStorage.setItem('storename', 'Game Side (Bandar)');
 
 var storeId = 2;
 var previousStore = localStorage.getItem('storeId');
