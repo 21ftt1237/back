@@ -47,7 +47,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 
 // Route for viewing orders (admin)
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
-    Route::get('AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('AdminOrder');
+    Route::get('/AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('AdminOrder');
     Route::post('/update-status', [OrderController::class, 'updateStatus']);
 });
 
