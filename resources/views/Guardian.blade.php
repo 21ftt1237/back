@@ -1587,11 +1587,15 @@ if (storeId !== parseVal) {
   confirmAction();
 }}
 
- document.getElementById('addFee').addEventListener('click', function (e) {
-localStorage.setItem('deliverytest', '5');
+  $('#addFee').on('click', function() {
+ localStorage.setItem('deliverytest', '5');
      console.log("test");
+
+  });
+
+
     
-});
+
 </script>
 
 </body>
