@@ -1569,7 +1569,7 @@ function ReviewContentContainer(name, createdAt, review) {
 
 localStorage.setItem('delivery2', '2');
     // localStorage.setItem('delivery', '2');
-localStorage.setItem('storename2', 'Game Central (Bandar)');
+localStorage.setItem('storename2', 'Game side (Bandar)');
 
 var storeId = 2;
 var previousStore = localStorage.getItem('storeId');
