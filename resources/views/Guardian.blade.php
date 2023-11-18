@@ -1308,11 +1308,11 @@ display: block; /* Change display to block to stack elements vertically */
     .then(response => response.json())
     .then(data => {
         console.log(data);
-         window.location.reload();
+        
     })
     .catch(error => {
         console.error('Error:', error);
-         window.location.reload();
+        
     });
     
 });
@@ -1572,10 +1572,8 @@ function ReviewContentContainer(name, createdAt, review) {
   }
 }
 
-// Storing values for the first store
-localStorage.setItem('delivery6', '5');
-// localStorage.setItem('storename1', 'Guardian (Sengkurong)');
-localStorage.setItem('storename6', 'Defender (Sengkurong)');
+localStorage.setItem('delivery', '5');
+localStorage.setItem('storename', 'Guardian (Sengkurong)');
 
 var storeId = 6;
 var previousStore = localStorage.getItem('storeId');
