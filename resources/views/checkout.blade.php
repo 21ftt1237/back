@@ -1059,7 +1059,6 @@ if (Object.keys(storeDeliveryFees).length > 0) {
 // console.log("redeem_coupon:", redeem_coupon);
 // }
 
-// Function to update total price and delivery fee
 function updateTotalPriceAndDeliveryFee(selectedStores) {
   // Calculate total delivery fee for selected stores
   const selectedStoresDeliveryFee = Object.entries(storeDeliveryFees)
@@ -1070,20 +1069,29 @@ function updateTotalPriceAndDeliveryFee(selectedStores) {
   const redeem_coupon = 0; // Replace this with the actual coupon value
 
   const finalPay = totalAmount + selectedStoresDeliveryFee - redeem_coupon;
-  console.log("finalPay:", finalPay);
 
+  // Display details for each selected store
+  const storeDetails = selectedStores.map(storeName => {
+    const storeFee = storeDeliveryFees[storeName] || 0;
+    return `${storeName}: BND ${storeFee.toFixed(2)}`;
+  });
+
+  // Update HTML with detailed store delivery fees
+  document.getElementById('fee').innerHTML = `<h4>Delivery Fees:<br/>${storeDetails.join('<br/>')}</h4>`;
+
+  // Update HTML with total delivery fee
+  document.getElementById('deliveryFee').textContent = `BND ${selectedStoresDeliveryFee.toFixed(2)}`;
+
+  // Update HTML with final total
   document.getElementById('pay').innerHTML = `<h4>Final Total: BND ${finalPay.toFixed(2)}</h4>`;
 
-  console.log("Updating local storage with finalPay:", finalPay.toFixed(2));
+  // Update local storage with finalPay
   localStorage.setItem('finalPay', finalPay.toFixed(2));
-
-  console.log("totalAmount:", totalAmount);
-  console.log("selectedStoresDeliveryFee:", selectedStoresDeliveryFee);
-  console.log("redeem_coupon:", redeem_coupon);
 }
 
 // Call the function with the selectedStores array
 updateTotalPriceAndDeliveryFee(selectedStores);
+
 
  $(document).ready(function () {
         $('#update-loyalty-points-form').submit(function (e) {
