@@ -1464,8 +1464,8 @@ function ReviewContentContainer(name, createdAt, review) {
 // })
 localStorage.setItem('delivery1', '2');
 // localStorage.setItem('delivery', '2');
-// localStorage.setItem('storename', 'Netcom (Kiulap)');
-localStorage.setItem('storename1', 'Netcom (Kiulap)');
+// localStorage.setItem('storename', 'Comnet (Kiulap)');
+localStorage.setItem('storename1', 'Comnet (Kiulap)');
 var storeId = 1;
 var previousStore = localStorage.getItem('storeId');
 var parseVal = parseInt(previousStore);
