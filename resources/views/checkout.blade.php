@@ -1003,17 +1003,19 @@ const storeIds = [1, 2, 3, 4, 5, 6];
 const storeDeliveryFees = {};
 const selectedStores = ["Comnet (Kiulap)", "Game Side (Bandar)", "Route 66th (Bandar)", "Defender (Sengkurong)", "Simanja (Bandar)", "Digital Universe (Bandar)"];
 
-// Loop through each store ID
-for (const storeId of storeIds) {
-  const storeNumber = storeId;
+// Loop through each selected store
+for (const storeName of selectedStores) {
+  // Get the store ID based on the store name
+  const storeId = storeIds.find(id => localStorage.getItem(`storename${id}`) === storeName);
 
-  // Get the delivery fee and store name based on the store number
-  const deliveryFee = parseFloat(localStorage.getItem(`delivery${storeNumber}`)) || 0;
-  const storeName = localStorage.getItem(`storename${storeNumber}`);
+  if (storeId) {
+    // Get the delivery fee based on the store ID
+    const deliveryFee = parseFloat(localStorage.getItem(`delivery${storeId}`)) || 0;
 
-  if (deliveryFee && selectedStores.includes(storeName)) {
-    // Store the delivery fee for each store
-    storeDeliveryFees[storeName] = (storeDeliveryFees[storeName] || 0) + deliveryFee;
+    if (deliveryFee) {
+      // Store the delivery fee for each store
+      storeDeliveryFees[storeName] = (storeDeliveryFees[storeName] || 0) + deliveryFee;
+    }
   }
 }
 
