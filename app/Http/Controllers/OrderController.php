@@ -138,7 +138,7 @@ public function placeOrder(Request $request)
     
 public function showOrderList()
 {
-   
+
     $user = Auth::user();
 
     
@@ -151,7 +151,7 @@ public function showOrderList()
     
 public function showOrderDetails($created_at)
 {
-    
+ if (Auth::check()) {      
     $user = Auth::user();
     $orderDetails = Order::where('user_id', $user->id)
                          ->where('created_at', $created_at)
@@ -177,6 +177,9 @@ public function showOrderDetails($created_at)
         'orderStatus' => $orderStatus,
     ]);
 }
+    else {
+        return redirect()->route('login')->with('error', 'Please log in to view order details.');
+    }
 
 public function showAllOrderLists()
 {
