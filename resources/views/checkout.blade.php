@@ -1016,6 +1016,9 @@ for (const storeName of selectedStores) {
       // Store the delivery fee for each store
       storeDeliveryFees[storeName] = (storeDeliveryFees[storeName] || 0) + deliveryFee;
     }
+  } else {
+    // If store is not found, skip the rest of the loop
+    continue;
   }
 }
 
