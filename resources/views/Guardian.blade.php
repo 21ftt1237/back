@@ -1426,6 +1426,9 @@ function ReviewContentContainer(name, createdAt, review) {
     newReview.appendChild(contentContainer);
     reviewContainer.appendChild(newReview);
   }
+
+
+
 </script>
 </div>
 </div>
@@ -1494,7 +1497,7 @@ function ReviewContentContainer(name, createdAt, review) {
                                 @if($loggedIn)
                                  <form action="{{ route('cart.add', ['product' => $product]) }}" method="POST">
                                     @csrf
-                                    <button>Add To Cart</button>
+                                    <button id="addFee">Add To Cart</button>
                                  </form>
                                 @else 
                                  <form action="{{ route('BruzoneLogin') }}">
@@ -1583,6 +1586,11 @@ if(localStorage.getItem("cartItems") !== null){
 if (storeId !== parseVal) {
   confirmAction();
 }}
+
+ document.getElementById('addFee').addEventListener('click', function (e) {
+localStorage.setItem('deliverytest', '5');
+    
+});
 </script>
 
 </body>
