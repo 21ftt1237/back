@@ -44,10 +44,11 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
         return view('Dashboard-adm');
     })->name('dashboard.admin');
 
+});
+
     Route::get('AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('AdminOrder');
 
     Route::post('/update-status', [OrderController::class, 'updateStatus']);
-});
 
 //Route::middleware(['auth', 'verified', 'admin'])->group(function () {
   //  Route::get('/Dashboard-adm', [OrderController::class, 'dashboardAdmin'])->name('dashboard.admin');
