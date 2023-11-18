@@ -347,13 +347,13 @@ header a ion-icon {
 
 
   <!-- Popup -->
- <div id="popup2" class="popup2" style="display: none;">
+ <a id="popup2" class="popup2" style="display: none;" href="{{ route('AdminOrder') }}"
   <button class="close-button" onclick="togglePopup2()">&#10006;</button>
   <div class="option-container">
     <h2>View</h2>
     <br>
   </div>
-</div>
+
     
     <script src="app.js">
     </script>
