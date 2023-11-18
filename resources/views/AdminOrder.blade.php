@@ -185,6 +185,9 @@
 
                     // Change the button text back to "Edit"
                     $editButton.text("Edit").removeClass("editing");
+
+                    sendEmail();
+                    
                 },
                 error: function (xhr, status, error) {
                     console.error("Error updating status:", error);
@@ -230,5 +233,21 @@
     });
 });
     </script>
+      <script >
+    function sendEmail(){
+        Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "info@domain.com",
+            Password : "8BDBCCE722F4D1FE27FE0A4E963416C82F49",
+            To : 'hafiysyahrulnizam@gmail.com',
+            From : 'Bruzonestore@gmail.com',
+            Subject : "Status update",
+            Body : "And this is the body",
+            Port: 2525,
+        }).then(
+      message => alert(message)
+    );
+    }
+</script>
 </body>
 </html>
