@@ -810,7 +810,7 @@ cartItems.forEach((item, index) => {
     // Display the total price
     totalPriceElement.textContent = `Total Price: BND $` + localTotalPrice;
     finalTotal.textContent =  `Total Price: BND $` + localTotalPrice;
-    finishTotal.textContent = `Total Spent: BND $` + localTotalPay;
+    finishTotal.textContent = `Total Spent: BND $` + localTotalPrice;
 
 
   }
