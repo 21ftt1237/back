@@ -212,26 +212,25 @@ header a ion-icon {
 }
 
 .view-button {
-  color: black;
-    font-size: 24px;
-    
-    font-weight: bolder;
-    width: 10%;
-    padding: 5px;
-    background-color: #F6E71D;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
+  text-align: center;
+  margin: 30px 0;
     
 }
 
     .orderbtn {
-    color: black
-    font-size: 24px;
-    font-weight: bolder;
+  background: #F6E71D;
+  color: black;
+  font-size: 24px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center; /* Center the text horizontally */
+  text-decoration: none; /* Remove default underline */
+  display: inline-block; /* Make it an inline-block element */
 }
 
-.view-button:hover {
+.orderbtn:hover {
     background-color: #555;
 }
 
@@ -297,7 +296,6 @@ header a ion-icon {
   background: #F6E71D;
   color: black;
   font-size: 24px;
-  width: 80%;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
