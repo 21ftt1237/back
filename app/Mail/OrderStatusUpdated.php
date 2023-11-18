@@ -13,11 +13,14 @@ class OrderStatusUpdated extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $rowId;
+    
     /**
      * Create a new message instance.
      */
     public function __construct()
     {
+        $this->rowId = $rowId;
         $this->subject('Order Status Updated');
     }
 
@@ -28,6 +31,7 @@ class OrderStatusUpdated extends Mailable
     {
         return new Content(
             view: 'emails.order-status-updated', // Update with the correct view name
+            data: ['rowId' => $this->rowId]
         );
     }
 
