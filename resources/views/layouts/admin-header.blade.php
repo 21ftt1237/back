@@ -225,6 +225,12 @@ header a ion-icon {
     
 }
 
+    .orderbtn {
+    color: black
+    font-size: 24px;
+    font-weight: bolder;
+}
+
 .view-button:hover {
     background-color: #555;
 }
