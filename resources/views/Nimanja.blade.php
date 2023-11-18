@@ -18,10 +18,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="stylesheet" href="./ecommerce.css">
+  <link rel="stylesheet" href="./ecommerce.css">
   <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 
   <!-- Other meta tags and styles -->
@@ -32,7 +32,7 @@
 
 
 
-	<title></title>
+  <title></title>
 </head>
 
 <style type="text/css">
@@ -1278,12 +1278,11 @@ height: 1600px
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        window.location.reload();
 
     })
     .catch(error => {
         console.error('Error:', error);
-        window.location.reload();
+        // Handle errors if any
     });
    
 });
@@ -1542,11 +1541,8 @@ function ReviewContentContainer(name, createdAt, review) {
   }
 }
 
-
-// Storing values for the first store
-localStorage.setItem('delivery5', '2');
-    // localStorage.setItem('delivery', '2');
-localStorage.setItem('storename5', 'Simanja (Bandar)');
+localStorage.setItem('delivery', '2');
+localStorage.setItem('storename', 'Nimanja (Bandar)');
 
 var storeId = 5;
 var previousStore = localStorage.getItem('storeId');
