@@ -347,8 +347,9 @@ header a ion-icon {
 
 
   <!-- Popup -->
-<!-- <a id="popup2" class="popup2" style="display: none;" href="{{ route('AdminOrder') }}"> -->
-
+    <div>
+ <a id="popup2" class="popup2" style="display: none;" href="{{ route('AdminOrder') }}"> 
+    </div>
     
     <script src="app.js">
     </script>
