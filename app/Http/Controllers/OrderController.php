@@ -191,25 +191,32 @@ public function showAllOrderLists()
     return view('AdminOrder', ['orderLists' => $orderLists]);
 }
 
-public function updateStatus(Request $request)
+    public function updateStatus(Request $request)
     {
         \Log::info('rowId: ' . $request->input('rowId'));
         \Log::info('editedStatus: ' . $request->input('editedStatus'));
-    
+
         try {
             $orderId = $request->input('rowId');
             $newStatus = $request->input('editedStatus');
+
             $order = OrderList::find($orderId);
+
             if ($order) {
                 // Update the status and save the order
                 $order->status = $newStatus;
                 $order->save();
+
                 \Log::info('Order status updated successfully.');
+
                 // Fetch the user's email based on the order
                 $user = User::find($order->user_id);
-                // Send the email
-                Mail::to($user->email)->send(new OrderStatusUpdated());
+
+                // Send the email with the correct variable ($orderId)
+                Mail::to($user->email)->send(new OrderStatusUpdated($orderId));
+
                 \Log::info('Email sent to user: ' . $user->email);
+
                 return response()->json(['success' => true]);
             } else {
                 \Log::error('Order not found for ID: ' . $orderId);
