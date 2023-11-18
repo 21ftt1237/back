@@ -184,7 +184,6 @@ public function showAllOrderLists()
         ->select('orders_list.*', 'users.name as user_name')
         ->get();
 
-    dd($orderLists);
     
     return view('AdminOrder', ['orderLists' => $orderLists]);
 }
