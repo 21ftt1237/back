@@ -1075,9 +1075,41 @@ updateTotalPriceAndDeliveryFee();
     </script>
 
 <script>
-    @foreach ($cart as $cartItem)
-              console.log({{ $cartItem->product->store_id }})
-                @endforeach
+   @foreach ($cart as $cartItem)
+    @php
+        // Get the current store_id
+        $storeId = $cartItem->product->store_id;
+
+        // Define values based on store_id using a switch statement
+        switch ($storeId) {
+            case 1:
+                $storeValue = 'Value1';
+                break;
+            case 2:
+                $storeValue = 'Value2';
+                break;
+            case 3:
+                $storeValue = 'Value3';
+                break;
+            case 4:
+                $storeValue = 'Value4';
+                break;
+            case 5:
+                $storeValue = 'Value5';
+                break;
+            case 6:
+                $storeValue = 'Value6';
+                break;
+            default:
+                $storeValue = 'Default';
+        }
+    @endphp
+
+   
+    console.log('{{ $storeValue }}')
+
+@endforeach
+
 
 </script>
 
