@@ -59,7 +59,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 
 //Admin Order
 
-Route::get('AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('AdminOrder');
+Route::get('/AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('AdminOrder');
 
 Route::post('/update-status', [OrderController::class, 'updateStatus']);
 
