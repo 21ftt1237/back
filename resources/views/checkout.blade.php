@@ -1001,7 +1001,7 @@ const storeIds = [1, 2, 3, 4, 5, 6];
 
 // Create an object to store delivery fees for each store
 const storeDeliveryFees = {};
-const selectedStores = ["Netcom (Kiulap)", "Game Central (Bandar)", "88th Avenue", "Guardian (Sengkurong)", "Nimanja (Bandar)", "Digital World (Bandar)"];
+const selectedStores = ["Comnet (Kiulap)", "Game Side (Bandar)", "Route 66th (Bandar)", "Defender (Sengkurong)", "Simanja (Bandar)", "Digital Universe (Bandar)"];
 
 // Loop through each store ID
 for (const storeId of storeIds) {
