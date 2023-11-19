@@ -90,6 +90,17 @@ Route::get('/', function () {
     return redirect()->route('dashboard');
 });
 
+
+//route for each stores
+Route::namespace('Owner')->prefix('owner')->group(function () {
+    Route::get('comnet', 'ProductController@index1')->name('comnet.index');
+    Route::get('gameside', 'ProductController@index1')->name('gameside.index');
+    Route::get('digitaluniverse', 'ProductController@index1')->name('digitaluniverse.index');
+    Route::get('route66', 'ProductController@index1')->name('route66.index');
+    Route::get('defender', 'ProductController@index1')->name('defender.index');
+    Route::get('simanja', 'ProductController@index1')->name('simanja.index');
+
+
 Route::get('/api/users', [UserController::class, 'getUsers']);
 
 
