@@ -50,7 +50,7 @@ class ProductController extends Controller
     }
 
     
-    public function index($storeId)
+    public function index1($storeId)
     {
         // Find the store based on the provided ID
         $store = Store::findOrFail($storeId);
