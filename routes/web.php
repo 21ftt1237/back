@@ -298,6 +298,8 @@ Route::get('/email', [EmailController::class, 'index']);
 
 // Route::post('/email/send', [EmailController::class, sendEmail'])->name('send.email');
 
+Route::post('/send-order-email', [OrderController::class, 'sendOrderEmail']);
+
 //ADMIN
 
 
