@@ -50,7 +50,7 @@ class ProductController extends Controller
     }
 
     
-    public function index1($viewName)
+    public function index1($storeId)
     {
         $store = DB::table('stores')->where('id', $storeId)->first();
         
