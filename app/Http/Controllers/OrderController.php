@@ -230,18 +230,21 @@ public function showAllOrderLists()
     }
 
    public function sendOrderEmail(Request $request)
-    {
-        // Get order details from the request
-        $orderDetails = $request->input('order_details');
+{
+    // Get order details from the request
+    $orderDetails = $request->input('order_details');
 
-        // Get the authenticated user's email
-        $userEmail = auth()->user()->email;
+    // Get the authenticated user's email
+    $userEmail = auth()->user()->email;
 
-        // Send email
-        Mail::to($userEmail)->send(new OrderPlaced($orderDetails));
+    // Debugging: Dump and die to inspect $orderDetails
+    dd($orderDetails);
 
-        // Pass order details to the view
-        dd($orderDetails);
-        return view('emails.order-placed', ['orderDetails' => $orderDetails]);
-    }
+    // Send email
+    Mail::to($userEmail)->send(new OrderPlaced($orderDetails));
+
+    // Pass order details to the view
+    return view('emails.order-placed', ['orderDetails' => $orderDetails]);
+}
+
 }
