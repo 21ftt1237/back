@@ -9,27 +9,18 @@ use Illuminate\Queue\SerializesModels;
 
 class OrderPlaced extends Mailable
 {
-    use Queueable, SerializesModels;
-
     public $userEmail;
     public $orderDetails;
 
-    /**
-     * Create a new message instance.
-     */
     public function __construct($userEmail, $orderDetails)
     {
         $this->userEmail = $userEmail;
         $this->orderDetails = $orderDetails;
     }
 
-    /**
-     * Build the message.
-     */
-public function build()
-{
-    return $this->view('emails.order-placed')->with([
-        'consolidatedOrder' => $this->orderDetails, // Assuming orderDetails is the variable you want to pass
-    ])->subject('Order Placed');
-}
+    public function build()
+    {
+        return $this->view('emails.order-placed')
+            ->subject('Order Placed - Invoice');
+    }
 }
