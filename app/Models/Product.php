@@ -25,4 +25,10 @@ public function wishlists(): BelongsToMany
         return $this->belongsToMany(User::class, 'cart')->withTimestamps();
     }
 
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+
 }
