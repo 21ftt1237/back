@@ -6,17 +6,17 @@
 <body>
     <h1>Order Placed Successfully</h1>
 
-<p>Thank you for your order!</p>
+    <p>Thank you for your order!</p>
 
-<p>User Email: {{ $userEmail }}</p>
+    <p>User Email: {{ $userEmail }}</p>
 
-@foreach ($orderDetails as $order)
-    <p>Product: {{ $order['product_name'] }}</p>
-    <p>Price: ${{ $order['price'] }}</p>
-    <p>Quantity: {{ $order['quantity'] }}</p>
-    <p>Total Price: ${{ $order['total_price'] }}</p>
-    <hr>
-@endforeach
+    @foreach ($orderDetails as $order)
+        <p>Product: {{ $order->product->name }}</p>
+        <p>Price: ${{ $order->product->price }}</p>
+        <p>Quantity: {{ $order->quantity }}</p>
+        <p>Total Price: ${{ $order->product->price * $order->quantity }}</p>
+        <hr>
+    @endforeach
 
     <p>Thank you for choosing our services.</p>
 
