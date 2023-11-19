@@ -1,25 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Order Placed</title>
+    <title>Checkout</title>
 </head>
 <body>
-    <h1>Order Placed Successfully</h1>
 
-    <p>Thank you for your order!</p>
+    <!-- Your existing code -->
 
-    <p>User Email: {{ $userEmail }}</p>
+    @if(isset($cart) && $cart->isNotEmpty()) <!-- Check if $cart is set and not empty -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($cart as $cartItem)
+                    <tr>
+                        <td>{{ $cartItem['product_name'] }}</td>
+                        <td>${{ $cartItem['price'] }}</td>
+                        <td>{{ $cartItem['quantity'] }}</td>
+                        <td>${{ $cartItem['total_price'] }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    @else
+        <p>No items in the cart.</p>
+    @endif
 
-    @foreach ($orderDetails as $order)
-        <p>Product: {{ $order->product->name }}</p>
-        <p>Price: ${{ $order->product->price }}</p>
-        <p>Quantity: {{ $order->quantity }}</p>
-        <p>Total Price: ${{ $order->product->price * $order->quantity }}</p>
-        <hr>
-    @endforeach
+    <!-- Your existing code -->
 
-    <p>Thank you for choosing our services.</p>
-
-    <p>Best regards,<br> Your Company Name</p>
 </body>
 </html>
+
