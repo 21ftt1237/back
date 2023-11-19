@@ -99,7 +99,7 @@ Route::namespace('Owner')->prefix('owner')->group(function () {
     Route::get('route66', 'ProductController@index1')->name('route66.index');
     Route::get('defender', 'ProductController@index1')->name('defender.index');
     Route::get('simanja', 'ProductController@index1')->name('simanja.index');
-
+});
 
 Route::get('/api/users', [UserController::class, 'getUsers']);
 
