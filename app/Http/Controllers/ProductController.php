@@ -52,14 +52,17 @@ class ProductController extends Controller
     
     public function index1($storeId)
     {
-   
-        $store = Store::findOrFail($storeId);
-
-        $products = $store->products;
+        $store = DB::table('stores')->where('id', $storeId)->first();
         
-        $viewName = 'owner.' . strtolower($store->name);
+        if (!$store) {
+            abort(404);
+        }
 
+        $products = DB::table('products')->where('store_id', $storeId)->get();
+
+        $viewName = 'owner.' . strtolower($store->name);
         return view($viewName, compact('products', 'store'));
+    }
     }
 
 
