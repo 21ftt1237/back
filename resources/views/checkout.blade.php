@@ -1176,8 +1176,8 @@ function sendEmail(cartItems) {
             Port: 2525,
         }).then(
       message => alert(message)
-}
-
+);
+    }
 </script>
 
 
