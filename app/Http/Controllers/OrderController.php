@@ -237,6 +237,9 @@ public function showAllOrderLists()
 public function sendOrderEmail($userEmail, $orderDetails)
 {
     try {
+        // Log the order details for debugging
+        Log::info('Order details for email: ' . json_encode($orderDetails));
+
         // Send email with the OrderPlaced Mailable
         Mail::to($userEmail)->send(new OrderPlaced($userEmail, $orderDetails));
 
@@ -251,5 +254,6 @@ public function sendOrderEmail($userEmail, $orderDetails)
         return false; // or handle the error accordingly
     }
 }
+
 
 }
