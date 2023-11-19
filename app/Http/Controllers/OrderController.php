@@ -232,18 +232,18 @@ public function showAllOrderLists()
         }
     }
 
-     public function sendOrderEmail($userEmail, $orderDetails)
-    {
-        try {
-            // Send email
-            Mail::to($userEmail)->send(new OrderPlaced($orderDetails));
+    public function sendOrderEmail($userEmail, $orderDetails)
+{
+    try {
+        // Send email
+        Mail::to($userEmail)->send(new OrderPlaced($userEmail, $orderDetails));
 
-            // Log success or handle as needed
-            Log::info('Order email sent successfully.');
-        } catch (\Exception $e) {
-            // Log error or handle as needed
-            Log::error('Error sending order email: ' . $e->getMessage());
-        }
+        // Log success or handle as needed
+        Log::info('Order email sent successfully.');
+    } catch (\Exception $e) {
+        // Log error or handle as needed
+        Log::error('Error sending order email: ' . $e->getMessage());
     }
+}
 
 }
