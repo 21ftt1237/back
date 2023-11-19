@@ -3,6 +3,7 @@
     $storehere = 'true';
     $storenumber = '1';
     $carts = 'true';
+    $storeLink = route('store.index', ['store' => 'comnet']);
 @endphp
 @auth
     @php
