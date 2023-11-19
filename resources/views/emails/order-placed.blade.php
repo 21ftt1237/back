@@ -5,10 +5,10 @@
 </head>
 <body>
     @foreach ($orderDetails as $order)
-    <p>Product: {{ $order['product_name'] }}</p>
+    <p>Product: {{ $order['name'] }}</p>
     <p>Price: ${{ $order['price'] }}</p>
     <p>Quantity: {{ $order['quantity'] }}</p>
-    <p>Total Price: ${{ $order['total_price'] }}</p>
+    <p>Total Price: ${{ $order['price'] }}</p>
     <hr>
 @endforeach
 
