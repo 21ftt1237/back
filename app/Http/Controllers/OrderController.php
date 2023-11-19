@@ -200,18 +200,22 @@ public function showAllOrderLists()
         }
     }
 
-public function sendOrderEmail($userEmail, $consolidatedOrder)
-{
-    try {
-        // Send email with data
-        Mail::to($userEmail)->send(new OrderPlaced($userEmail, $consolidatedOrder));
+ public function sendOrderEmail($userEmail, $orderDetails)
+    {
+        try {
+            // Send email with the OrderPlaced Mailable
+            Mail::to($userEmail)->send(new OrderPlaced($userEmail, $orderDetails));
 
-        // Log success or handle as needed
-        Log::info('Order email sent successfully.');
-    } catch (\Exception $e) {
-        // Log error or handle as needed
-        Log::error('Error sending order email: ' . $e->getMessage());
+            // Log success or any additional information
+            Log::info('Order email sent to ' . $userEmail);
+
+            return true; // or any success indication
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error('Error sending order email to ' . $userEmail . ': ' . $e->getMessage());
+
+            return false; // or handle the error accordingly
+        }
     }
-}
 
 }
