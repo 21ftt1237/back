@@ -241,6 +241,7 @@ public function showAllOrderLists()
         Mail::to($userEmail)->send(new OrderPlaced($orderDetails));
 
         // Pass order details to the view
+        dd($orderDetails);
         return view('emails.order-placed', ['orderDetails' => $orderDetails]);
     }
 }
