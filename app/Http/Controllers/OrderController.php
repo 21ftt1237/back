@@ -13,6 +13,7 @@ use App\Models\OrderList;
 use App\Models\Product;
 use Illuminate\Support\Facades\dd;
 use App\Mail\OrderStatusUpdated;
+use App\Mail\OrderPlaced;
 use Illuminate\Support\Facades\Mail;
 
 
@@ -226,5 +227,19 @@ public function showAllOrderLists()
             \Log::error('Error updating order status: ' . $e->getMessage());
             return response()->json(['error' => 'Internal Server Error'], 500);
         }
+    }
+
+    public function sendOrderEmail(Request $request)
+    {
+        // Get order details from the request
+        $orderDetails = $request->input('order_details');
+
+        // Get the authenticated user's email
+        $userEmail = auth()->user()->email;
+
+        // Send email
+        Mail::to($userEmail)->send(new OrderPlaced($orderDetails));
+
+        return response()->json(['message' => 'Order confirmation email sent']);
     }
 }
