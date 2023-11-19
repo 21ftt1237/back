@@ -15,8 +15,7 @@
         <li>
             <ul>
                 <li>
-                    <strong>Created At:</strong> {{ $consolidatedOrder['created_at'] }} -
-                    <strong>Total Price:</strong> ${{ $consolidatedOrder['total_price'] }}
+                    <strong>Created At:</strong> {{ $consolidatedOrder['created_at'] }}
                 </li>
             </ul>
         </li>
