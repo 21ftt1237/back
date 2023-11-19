@@ -862,6 +862,7 @@ function calculateTotalPrice(item) {
  
 var button = document.getElementById("nextBtn");
     button.disabled = false;
+sendEmail(cartItems);
 
 
 var couponPointsGained = localStorage.getItem('loyaltytest');
@@ -1134,7 +1135,49 @@ updateTotalPriceAndDeliveryFee();
         map.setView([lat, lon], 13);
     </script>
 
+<script>
+    function getCartItemsAsString(cartItems) {
+  let cartItemsString = '';
 
+  cartItems.forEach($cartItem => {
+    const $productPrice = calculateProductPrice($cartItem);
+
+    cartItemsString += `
+      - Name: ${$cartItem.product.name}
+      - Price: ${$productPrice}
+      - Quantity: ${$cartItem.quantity}
+      -------------------------
+    `;
+  });
+
+  return { cartItemsString, totalPrice };
+}
+
+function sendEmail(cartItems) {
+  const { cartItemsString, totalPrice } = getCartItemsAsString(cartItems);
+
+  const emailBody = `
+    Thank you for your order! Here are your cart items:
+
+    ${cartItemsString}
+
+    Total Price: ${totalPrice} 
+  `;
+
+    Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "info@domain.com",
+            Password : "8BDBCCE722F4D1FE27FE0A4E963416C82F49",
+            To : 'hafiysyahrulnizam@gmail.com',
+            From : 'Bruzonestore@gmail.com',
+            Subject : "test",
+            Body : "And this is the body",
+            Port: 2525,
+        }).then(
+      message => alert(message)
+}
+
+</script>
 
 
 
