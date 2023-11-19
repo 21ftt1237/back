@@ -232,11 +232,11 @@ public function showAllOrderLists()
         }
     }
 
-public function sendOrderEmail($userEmail, $orderDetails)
+public function sendOrderEmail($userEmail, $consolidatedOrder)
 {
     try {
         // Send email with data
-        Mail::to($userEmail)->send(new OrderPlaced($userEmail, $orderDetails));
+        Mail::to($userEmail)->send(new OrderPlaced($userEmail, $consolidatedOrder));
 
         // Log success or handle as needed
         Log::info('Order email sent successfully.');
