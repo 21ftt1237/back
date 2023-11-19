@@ -50,40 +50,24 @@ public function getUserEmail()
 
 public function placeOrder(Request $request)
 {
-
      $userEmail = $this->getUserEmail();
-
     $user = auth()->user();
-
-
     $cartItems = $user->cart;
-
     try {
         // Start a database transaction for atomicity
         DB::beginTransaction();
-
-
         $consolidatedOrders = [];
-
         foreach ($cartItems as $cartItem) {
             $product_id = $cartItem->pivot->product_id;
             $quantity = $cartItem->pivot->quantity;
             $product = Product::find($product_id); 
             $totalPrice = $product->price * $quantity;
-
-
             $order = new Order();
             $order->user_id = $user->id;
             $order->product_id = $product_id;
             $order->quantity = $quantity;
-
-
             Log::info('Order Data Before Saving: ' . json_encode($order->toArray()));
-
-
             $order->save();
-
-
             $createdAtKey = $order->created_at->format('Y-m-d H:i:s');
             $consolidatedOrders[$createdAtKey][] = [
             'user_id' => $user->id,
@@ -91,13 +75,10 @@ public function placeOrder(Request $request)
             'created_at' => $createdAtKey,
              ];
         }
-
-
         foreach ($consolidatedOrders as $createdAt => $ordersData) {
             $existingOrderList = OrderList::where('user_id', $user->id)
                 ->where('created_at', $createdAt)
                 ->first();
-
             if ($existingOrderList) {
                 // Update the existing order_list record
                 $existingOrderList->Total_price += array_sum(array_column($ordersData, 'Total_price'));
@@ -111,26 +92,24 @@ public function placeOrder(Request $request)
                 $orderList->save();
             }
         }
-
-
         $user->cart()->detach($cartItems);
-
-
         DB::commit();
-
-
         Log::info('Orders created from cart for user ' . $user->id);
-
         // Retrieve the user's email directly
         $userEmail = $user->email;
-
         // Send email
         $this->sendOrderEmail($userEmail, $consolidatedOrders);
-
         return view('checkout', [
     'userEmail' => $userEmail,
     'cart' => $cartItems, 
 ]);
+        return response()->json(['message' => 'Orders created successfully.']);
+    } catch (\Exception $e) {
+        DB::rollBack();
+        Log::error('Error creating orders from cart for user ' . $user->id . ': ' . $e->getMessage());
+        return response()->json(['message' => 'Error creating orders.']);
+    }
+}
     
 public function showOrderList()
 {
