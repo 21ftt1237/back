@@ -229,7 +229,7 @@ public function showAllOrderLists()
         }
     }
 
-    public function sendOrderEmail(Request $request)
+   public function sendOrderEmail(Request $request)
     {
         // Get order details from the request
         $orderDetails = $request->input('order_details');
@@ -240,6 +240,7 @@ public function showAllOrderLists()
         // Send email
         Mail::to($userEmail)->send(new OrderPlaced($orderDetails));
 
-        return response()->json(['message' => 'Order confirmation email sent']);
+        // Pass order details to the view
+        return view('emails.order-placed', ['orderDetails' => $orderDetails]);
     }
 }
