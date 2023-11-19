@@ -125,7 +125,7 @@ public function placeOrder(Request $request)
         $userEmail = $user->email;
 
         // Send email
-        Mail::to($userEmail)->send(new OrderPlaced(['user' => $user, 'orders' => $consolidatedOrders]));
+        $this->sendOrderEmail($userEmail, $consolidatedOrders);
 
         // Render the 'checkout' view and pass the user email
         return view('checkout', compact('userEmail'));
