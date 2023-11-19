@@ -50,18 +50,18 @@ class ProductController extends Controller
     }
 
     
-    public function index1($storeId)
+    public function index1($storeName)
     {
-        $store = DB::table('stores')->where('id', $storeId)->first();
-        
-        if (!$store) {
-            abort(404);
-        }
+    $store = DB::table('stores')->where('name', $storeName)->first();
+    
+    if (!$store) {
+        abort(404);
+    }
 
-        $products = DB::table('products')->where('store_id', $storeId)->get();
+    $products = DB::table('products')->where('store_id', $store->id)->get();
 
-        $viewName = 'owner.' . strtolower($store->name);
-        return view($viewName, compact('products', 'store'));
+    $viewName = 'owner.' . strtolower($store->name);
+    return view($viewName, compact('products', 'store'));
     }
     
 
