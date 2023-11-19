@@ -50,87 +50,73 @@ public function getUserEmail()
 
 public function placeOrder(Request $request)
 {
-
-     $userEmail = $this->getUserEmail();
-
+    $userEmail = $this->getUserEmail();
     $user = auth()->user();
-
-
     $cartItems = $user->cart;
 
     try {
         // Start a database transaction for atomicity
         DB::beginTransaction();
 
-
         $consolidatedOrders = [];
+        $productDetails = [];
 
         foreach ($cartItems as $cartItem) {
             $product_id = $cartItem->pivot->product_id;
             $quantity = $cartItem->pivot->quantity;
-            $product = Product::find($product_id); 
-            $totalPrice = $product->price * $quantity;
+            $product = Product::find($product_id);
 
+            // Fetch additional details
+            $productName = $product->name;
+            $productPrice = $product->price;
+            $productImage = $product->image; // Adjust this according to your actual column name
+
+            $totalPrice = $productPrice * $quantity;
 
             $order = new Order();
             $order->user_id = $user->id;
             $order->product_id = $product_id;
             $order->quantity = $quantity;
 
-
-            Log::info('Order Data Before Saving: ' . json_encode($order->toArray()));
-
-
             $order->save();
 
-
             $createdAtKey = $order->created_at->format('Y-m-d H:i:s');
+
+            // Store product details in a separate array
+            $productDetails[] = [
+                'product_name' => $productName,
+                'price' => $productPrice,
+                'image' => $productImage,
+                'quantity' => $quantity,
+                'total_price' => $totalPrice,
+            ];
+
             $consolidatedOrders[$createdAtKey][] = [
-            'user_id' => $user->id,
-            'Total_price' => $totalPrice,
-            'created_at' => $createdAtKey,
-             ];
+                'user_id' => $user->id,
+                'created_at' => $createdAtKey,
+            ];
         }
 
+        // Fetch the cart items again (including product details)
+        $cartItemsWithDetails = $user->cart()->with('product')->get();
 
-        foreach ($consolidatedOrders as $createdAt => $ordersData) {
-            $existingOrderList = OrderList::where('user_id', $user->id)
-                ->where('created_at', $createdAt)
-                ->first();
-
-            if ($existingOrderList) {
-                // Update the existing order_list record
-                $existingOrderList->Total_price += array_sum(array_column($ordersData, 'Total_price'));
-                $existingOrderList->save();
-            } else {
-                // Create a new order_list record
-                $orderList = new OrderList();
-                $orderList->user_id = $user->id;
-                $orderList->Total_price = array_sum(array_column($ordersData, 'Total_price'));
-                $orderList->created_at = $createdAt;
-                $orderList->save();
-            }
-        }
-
-
+        // Detach cart items
         $user->cart()->detach($cartItems);
 
+        // Rest of your code...
 
         DB::commit();
-
-
-        Log::info('Orders created from cart for user ' . $user->id);
 
         // Retrieve the user's email directly
         $userEmail = $user->email;
 
-        // Send email
-        $this->sendOrderEmail($userEmail, $consolidatedOrders);
+        // Send email with both consolidatedOrders and productDetails
+        $this->sendOrderEmail($userEmail, $consolidatedOrders, $cartItemsWithDetails);
 
         return view('checkout', [
-    'userEmail' => $userEmail,
-    'cart' => $cartItems, 
-]);
+            'userEmail' => $userEmail,
+            'cart' => $cartItemsWithDetails,
+        ]);
 
         return response()->json(['message' => 'Orders created successfully.']);
     } catch (\Exception $e) {
