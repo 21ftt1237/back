@@ -242,7 +242,7 @@ th, td {
                 <tbody>
                     @foreach ($orderLists as $orderList)
                         <tr>
-                        <td>{{ $orderList->ID }}</td>
+                        <td>{{ $orderList->id }}</td>
                         <td>{{ $orderList->created_at }}</td>
                         <td>${{ number_format($orderList->Total_price, 2) }}</td>
                         <td>{{ $orderList->status }}</td>
