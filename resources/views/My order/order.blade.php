@@ -232,6 +232,7 @@ th, td {
             <table class="table">
                 <thead>
                 <tr>
+                <th>Order ID</th>
                 <th>Order Date</th>
                 <th>Total Price</th>
                 <th>Status</th>
@@ -241,6 +242,7 @@ th, td {
                 <tbody>
                     @foreach ($orderLists as $orderList)
                         <tr>
+                        <td>{{ $orderList->ID }}</td>
                         <td>{{ $orderList->created_at }}</td>
                         <td>${{ number_format($orderList->Total_price, 2) }}</td>
                         <td>{{ $orderList->status }}</td>
