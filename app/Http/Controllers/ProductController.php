@@ -11,6 +11,73 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
+
+//Store Owner
+ public function indexComnet()
+    {
+        $products = Product::all();
+        return view('comnet', compact('products'));
+    }
+
+    public function indexGameside()
+    {
+        $products = Product::all();
+        return view('gameside', compact('products'));
+    }
+
+    public function indexDigitalUniverse()
+    {
+        $products = Product::all();
+        return view('digitaluniverse', compact('products'));
+    }
+
+    public function indexRoute66()
+    {
+        $products = Product::all();
+        return view('route66', compact('products'));
+    }
+
+    public function indexDefender()
+    {
+        $products = Product::all();
+        return view('defender', compact('products'));
+    }
+
+    public function indexSimanja()
+    {
+        $products = Product::all();
+        return view('simanja', compact('products'));
+    }
+
+    
+    public function index($storeId)
+    {
+        // Find the store based on the provided ID
+        $store = Store::findOrFail($storeId);
+
+        // Retrieve products for the specified store
+        $products = $store->products;
+
+        // Determine the view name based on the store name
+        $viewName = 'owner.' . strtolower($store->name);
+
+        // Pass the products and store to the determined view
+        return view($viewName, compact('products', 'store'));
+    }
+
+
+
+
+
+    
+
+
+
+
+
+
+
+    
   public function index()
 {
     $products = Product::all();
