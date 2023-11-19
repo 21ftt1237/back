@@ -9,16 +9,18 @@
     <p>Thank you for placing your order. Here are the details:</p>
 
     <ul>
-        <li><strong>Order ID:</strong> {{ $orderDetails['order_id'] }}</li>
-        <li><strong>Product(s):</strong>
+        <li><strong>User ID:</strong> {{ $userData['user']->id }}</li>
+        <li><strong>User Email:</strong> {{ $userData['user']->email }}</li>
+        <li><strong>Orders:</strong>
             <ul>
-                @foreach ($orderDetails['products'] as $product)
-                    <li>{{ $product['name'] }} - Quantity: {{ $product['quantity'] }}</li>
+                @foreach ($ordersData as $createdAt => $orders)
+                    <li>
+                        <strong>Created At:</strong> {{ $createdAt }} -
+                        <strong>Total Price:</strong> ${{ array_sum(array_column($orders, 'Total_price')) }}
+                    </li>
                 @endforeach
             </ul>
         </li>
-        <li><strong>Total Amount:</strong> ${{ $orderDetails['total_amount'] }}</li>
-        <!-- Add more details as needed -->
     </ul>
 
     <p>Thank you for choosing our services.</p>
