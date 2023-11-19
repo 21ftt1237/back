@@ -235,7 +235,7 @@ public function showAllOrderLists()
 public function sendOrderEmail($userEmail, $orderDetails)
 {
     try {
-        // Send email
+        // Send email with data
         Mail::to($userEmail)->send(new OrderPlaced($userEmail, $orderDetails));
 
         // Log success or handle as needed
