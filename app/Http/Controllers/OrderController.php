@@ -125,7 +125,7 @@ public function placeOrder(Request $request)
         $userEmail = $user->email;
 
         // Send email
-        $this->sendOrderEmail($userEmail, $orderDetails);
+        $this->sendOrderEmail($userEmail, $consolidatedOrders);
 
         return view('checkout', [
     'userEmail' => $userEmail,
