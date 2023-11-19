@@ -26,8 +26,11 @@ class OrderPlaced extends Mailable
     /**
      * Build the message.
      */
-    public function build()
-    {
-        return $this->subject('Order Placed')->view('emails.order-placed');
-    }
+  public function build()
+{
+    return $this->view('emails.order-placed', [
+        'userEmail' => $this->userEmail,
+        'orderDetails' => $this->orderDetails,
+    ])->subject('Order Placed');
+}
 }
