@@ -92,7 +92,7 @@ Route::get('/', function () {
 
 
 //route for each stores
-Route::namespace('Controllers')->prefix('owner')->group(function () {
+Route::namespace('App\Http\Controllers')->prefix('owner')->group(function () {
     Route::get('comnet', 'ProductController@index1')->name('comnet.index');
     Route::get('gameside', 'ProductController@index1')->name('gameside.index');
     Route::get('digitaluniverse', 'ProductController@index1')->name('digitaluniverse.index');
