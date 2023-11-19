@@ -29,7 +29,7 @@ class OrderPlaced extends Mailable
 public function build()
 {
     return $this->view('emails.order-placed')->with([
-        'consolidatedOrder' => $this->consolidatedOrder,
+        'consolidatedOrder' => $this->orderDetails, // Assuming orderDetails is the variable you want to pass
     ])->subject('Order Placed');
 }
 }
