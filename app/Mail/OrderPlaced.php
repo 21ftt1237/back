@@ -16,11 +16,10 @@ class OrderPlaced extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($orderDetails)
     {
-        //
+        $this->orderDetails = $orderDetails;
     }
-
     /**
      * Get the message envelope.
      */
@@ -34,11 +33,9 @@ class OrderPlaced extends Mailable
     /**
      * Get the message content definition.
      */
-    public function content(): Content
+    public function build()
     {
-        return new Content(
-            view: 'view.name',
-        );
+        return $this->view('emails.order-placed');
     }
 
     /**
