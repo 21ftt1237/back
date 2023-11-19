@@ -124,6 +124,9 @@ public function placeOrder(Request $request)
         // Retrieve the user's email directly
         $userEmail = $user->email;
 
+        // Send email
+        Mail::to($userEmail)->send(new OrderPlaced(['user' => $user, 'orders' => $consolidatedOrders]));
+
         // Render the 'checkout' view and pass the user email
         return view('checkout', compact('userEmail'));
         
@@ -228,23 +231,5 @@ public function showAllOrderLists()
             return response()->json(['error' => 'Internal Server Error'], 500);
         }
     }
-
-   public function sendOrderEmail(Request $request)
-{
-    // Get order details from the request
-    $orderDetails = $request->input('order_details');
-
-    // Get the authenticated user's email
-    $userEmail = auth()->user()->email;
-
-    // Debugging: Dump and die to inspect $orderDetails
-    dd($orderDetails);
-
-    // Send email
-    Mail::to($userEmail)->send(new OrderPlaced($orderDetails));
-
-    // Pass order details to the view
-    return view('emails.order-placed', ['orderDetails' => $orderDetails]);
-}
 
 }
