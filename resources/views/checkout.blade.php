@@ -864,7 +864,7 @@ function calculateTotalPrice(item) {
 var button = document.getElementById("nextBtn");
     button.disabled = false;
         
-
+sendEmail(cartItems);
 
 
 var couponPointsGained = localStorage.getItem('loyaltytest');
