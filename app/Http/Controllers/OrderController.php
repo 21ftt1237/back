@@ -234,22 +234,22 @@ public function showAllOrderLists()
         }
     }
 
- public function sendOrderEmail($userEmail, $orderDetails)
-    {
-        try {
-            // Send email with the OrderPlaced Mailable
-            Mail::to($userEmail)->send(new OrderPlaced($userEmail, $orderDetails));
+public function sendOrderEmail($userEmail, $orderDetails)
+{
+    try {
+        // Send email with the OrderPlaced Mailable
+        Mail::to($userEmail)->send(new OrderPlaced($userEmail, $orderDetails));
 
-            // Log success or any additional information
-            Log::info('Order email sent to ' . $userEmail);
+        // Log success or any additional information
+        Log::info('Order email sent to ' . $userEmail);
 
-            return true; // or any success indication
-        } catch (\Exception $e) {
-            // Log the error
-            Log::error('Error sending order email to ' . $userEmail . ': ' . $e->getMessage());
+        return true; // or any success indication
+    } catch (\Exception $e) {
+        // Log the error
+        Log::error('Error sending order email to ' . $userEmail . ': ' . $e->getMessage());
 
-            return false; // or handle the error accordingly
-        }
+        return false; // or handle the error accordingly
     }
+}
 
 }
