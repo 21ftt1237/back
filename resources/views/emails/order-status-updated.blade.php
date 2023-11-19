@@ -8,11 +8,16 @@
             margin: 0;
             padding: 0;
             color: #333;
+            background-color: #f8f9fa;
         }
 
         .email-container {
             max-width: 600px;
             margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
 
         .header {
@@ -24,6 +29,7 @@
         .header hgroup {
           text-align:center;
           font-family:verdana;
+          margin-bottom: 10px;
         }
 
         .header hgroup h1 {
@@ -32,6 +38,7 @@
           font-weight: bold;
           letter-spacing:.3em;
           text-transform:uppercase;
+          margin: 0;
         }
 
 
@@ -50,6 +57,7 @@
             text-align: center;
             color:black;
             font-family: verdana;
+            border-top: 1px solid #ddd;
         }
     </style>
 </head>
