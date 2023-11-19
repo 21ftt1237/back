@@ -1349,11 +1349,11 @@ function ReviewContentContainer(name, createdAt, review) {
     <div class="section">
       <div class="section1">
         <div class="img-slider">
-          <img src="image/razerstrider.png" alt="" class="img">
-          <img src="image/g203.png" alt="" class="img">
-          <img src="image/anker.png" alt="" class="img">
-          <img src="image/razerkraken.png" alt="" class="img">
-          <img src="image/corsairstand.png" alt="" class="img">
+        <img src="{{ asset('image/razerstrider.png') }}" alt="" class="img">
+        <img src="{{ asset('image/g203.png') }}" alt="" class="img">
+        <img src="{{ asset('image/anker.png') }}" alt="" class="img">
+        <img src="{{ asset('image/razerkraken.png') }}" alt="" class="img">
+        <img src="{{ asset('image/corsairstand.png') }}" alt="" class="img">
         </div>
       </div>
       <div class="section2">
