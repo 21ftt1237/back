@@ -11,16 +11,16 @@ class OrderPlaced extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $userData;
-    public $ordersData;
+    public $userEmail;
+    public $orderDetails;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($userData, $ordersData)
+    public function __construct($userEmail, $orderDetails)
     {
-        $this->userData = $userData;
-        $this->ordersData = $ordersData;
+        $this->userEmail = $userEmail;
+        $this->orderDetails = $orderDetails;
     }
 
     /**
