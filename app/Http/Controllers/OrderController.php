@@ -232,7 +232,7 @@ public function showAllOrderLists()
         }
     }
 
-    public function sendOrderEmail($userEmail, $orderDetails)
+public function sendOrderEmail($userEmail, $orderDetails)
 {
     try {
         // Send email
