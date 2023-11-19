@@ -2,8 +2,6 @@
 
 namespace App\Mail;
 
-// OrderStatusUpdated.php
-
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -29,7 +27,7 @@ class OrderStatusUpdated extends Mailable
     /**
      * Get the message content definition.
      */
-    public function content(): Content
+    public function build()
     {
         return $this->view('emails.order-status-updated')->with(['orderId' => $this->orderId]);
     }
@@ -44,4 +42,3 @@ class OrderStatusUpdated extends Mailable
         return [];
     }
 }
-
