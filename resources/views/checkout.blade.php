@@ -862,7 +862,8 @@ function calculateTotalPrice(item) {
  
 var button = document.getElementById("nextBtn");
     button.disabled = false;
-sendEmail(cartItems);
+        
+
 
 
 var couponPointsGained = localStorage.getItem('loyaltytest');
@@ -1171,7 +1172,7 @@ function sendEmail(cartItems) {
             To : 'hafiysyahrulnizam@gmail.com',
             From : 'Bruzonestore@gmail.com',
             Subject : "test",
-            Body : "And this is the body",
+            Body : 'emailBody',
             Port: 2525,
         }).then(
       message => alert(message)
