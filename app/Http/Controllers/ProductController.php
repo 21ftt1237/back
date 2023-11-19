@@ -52,16 +52,13 @@ class ProductController extends Controller
     
     public function index1($storeId)
     {
-        // Find the store based on the provided ID
+   
         $store = Store::findOrFail($storeId);
 
-        // Retrieve products for the specified store
         $products = $store->products;
-
-        // Determine the view name based on the store name
+        
         $viewName = 'owner.' . strtolower($store->name);
 
-        // Pass the products and store to the determined view
         return view($viewName, compact('products', 'store'));
     }
 
