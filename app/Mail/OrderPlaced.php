@@ -11,14 +11,16 @@ class OrderPlaced extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $orderDetails;
+    public $userData;
+    public $ordersData;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($orderDetails)
+    public function __construct($userData, $ordersData)
     {
-        $this->orderDetails = $orderDetails;
+        $this->userData = $userData;
+        $this->ordersData = $ordersData;
     }
 
     /**
@@ -26,7 +28,6 @@ class OrderPlaced extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.order-placed')
-            ->subject('Order Placed');
+        return $this->subject('Order Placed')->view('emails.order-placed');
     }
 }
