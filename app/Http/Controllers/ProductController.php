@@ -63,7 +63,7 @@ class ProductController extends Controller
         $viewName = 'owner.' . strtolower($store->name);
         return view($viewName, compact('products', 'store'));
     }
-    }
+    
 
 
 
