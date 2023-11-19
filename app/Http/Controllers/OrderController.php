@@ -220,14 +220,11 @@ public function showAllOrderLists()
         }
     }
 
-public function sendOrderEmail($userEmail, $orderDetails)
+public function sendOrderEmail($userEmail, $consolidatedOrders, $productDetails)
 {
     try {
-        // Log the order details for debugging
-        Log::info('Order details for email: ' . json_encode($orderDetails));
-
         // Send email with the OrderPlaced Mailable
-        Mail::to($userEmail)->send(new OrderPlaced($userEmail, $orderDetails));
+        Mail::to($userEmail)->send(new OrderPlaced($userEmail, $consolidatedOrders, $productDetails));
 
         // Log success or any additional information
         Log::info('Order email sent to ' . $userEmail);
