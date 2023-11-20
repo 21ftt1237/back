@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Order Placed</title>
 </head>
+
 <body>
     <h1>Order Placed Successfully</h1>
 
@@ -11,14 +13,19 @@
     <p>User Email: {{ $userEmail }}</p>
 
     @foreach ($orderDetails as $createdAt => $orders)
-    @foreach ($orders as $order)
-        <p>Product: {{ $order['product_name'] }}</p> {{-- Update this line --}}
-        <!-- ... other fields ... -->
+        @foreach ($orders as $order)
+            <p>Product: {{ $order['product_name'] }}</p>
+            <p>Price: ${{ $order['product_price'] }}</p>
+            <p>Quantity: {{ $order['quantity'] }}</p>
+            <p>Total Price: ${{ $order['Total_price'] }}</p>
+            <!-- Add other fields as needed -->
+
+        @endforeach
     @endforeach
-@endforeach
 
     <p>Thank you for choosing our services.</p>
 
     <p>Best regards,<br> Your Company Name</p>
 </body>
+
 </html>
