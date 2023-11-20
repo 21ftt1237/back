@@ -65,12 +65,6 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 
 //Route::get('/order-list/{orderStatus}', [OrderController::class, 'showOrderList']);
 
-//Dashboard for store owner
-Route::middleware(['auth', 'verified', 'isStoreOwner'])->group(function () {
-    Route::get('/product', function () {
-        return view('product');
-    })->name('dashboard.storeOwner');
-});
 
 
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
@@ -95,6 +89,9 @@ Route::get('/', function () {
 Route::namespace('App\Http\Controllers')->prefix('owner')->group(function () {
 Route::get('{store}', 'ProductController@index1')->name('store.index');
 });
+
+
+
 
 Route::get('/api/users', [UserController::class, 'getUsers']);
 
@@ -306,18 +303,10 @@ Route::get('/email', [EmailController::class, 'index']);
 
 Route::post('/send-order-email', [OrderController::class, 'sendOrderEmail']);
 
-//ADMIN
 
 
-Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
-    Route::get('/adminDashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
-    //login and logout
-    Route::get('/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
-    Route::post('/login', [AdminAuthController::class, 'login']);
-    Route::post('/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
-});
 
 
 
