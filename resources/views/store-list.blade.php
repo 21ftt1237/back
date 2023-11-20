@@ -28,33 +28,35 @@
 </head>
 
 <style type="text/css">
-  
-/* store-list.css */
 
-#store-list {
-    margin-top: 20px;
+        #store-list {
+            margin-top: 20px;
+        }
 
-}
+        #store-list table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-#store-list ul {
-    list-style-type: none;
-    padding: 0;
-}
+        #store-list th, #store-list td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
 
-#store-list li {
-    margin-bottom: 10px;
-}
+        #store-list th {
+            background-color: #f2f2f2;
+        }
 
-#store-list a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-}
+        #store-list a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
 
-#store-list a:hover {
-    color: #007bff; /* Change the color on hover to your preference */
-}
-
+        #store-list a:hover {
+            color: #007bff; 
+        }
 
 </style>
 <body>
@@ -66,7 +68,6 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
