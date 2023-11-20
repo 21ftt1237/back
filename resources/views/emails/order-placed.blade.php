@@ -51,6 +51,11 @@
             text-align: center;
             color: #777;
         }
+
+        img{
+            width: 50px;
+            height: 50px;
+        }
     </style>
 </head>
 
@@ -64,7 +69,7 @@
 
          <table>
                         <tr>
-                            <th>img</th>
+                            <th></th>
                             <th>Product</th>
                             <th>Price</th>
                             <th>Quantity</th>
