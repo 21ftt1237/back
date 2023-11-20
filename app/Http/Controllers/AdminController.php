@@ -14,61 +14,82 @@ class AdminController extends Controller
         return view('Dashboard-adm', compact('admins', 'products'));
     }
 
-    public function createProduct(Request $request)
-    {
-        // Validate product creation form
-        $validatedData = $request->validate([
-            'store_id' => 'required|exists:stores,id',
-            'name' => 'required|string|max:255',
-            'price' => 'required|numeric',
-            'description' => 'required|string',
-            'image_link' => 'nullable|string',
-        ]);
+   public function createProduct(Request $request, $storeName)
+{
+    // Get the store by name
+    $store = Store::where('name', $storeName)->first();
 
-        // Create the product
-        Product::create($validatedData);
-
-        return redirect()->route('dashboard.admin')->with('success', 'Product added successfully');
+    if (!$store) {
+        return redirect()->back()->with('error', 'Store not found');
     }
 
-    public function editProduct(Request $request, $productId)
-    {
-        $product = Product::find($productId);
+    // Validate product creation form
+    $validatedData = $request->validate([
+        'name' => 'required|string|max:255',
+        'price' => 'required|numeric',
+        'description' => 'required|string',
+        'image_link' => 'nullable|string',
+    ]);
 
-        if (!$product) {
-            return redirect()->back()->with('error', 'Product not found');
-        }
+    // Create the product
+    $store->products()->create($validatedData);
 
-        // Validate product update form
-        $validatedData = $request->validate([
-            'store_id' => 'required|exists:stores,id',
-            'name' => 'required|string|max:255',
-            'price' => 'required|numeric',
-            'description' => 'required|string',
-            'image_link' => 'nullable|string',
-        ]);
+    return redirect()->route('dashboard.admin')->with('success', 'Product added successfully');
+}
 
-        // Update the product
-        $product->update($validatedData);
+public function editProduct(Request $request, $storeName, $productName)
+{
+    // Get the store by name
+    $store = Store::where('name', $storeName)->first();
 
-        return redirect()->route('dashboard.admin')->with('success', 'Product updated successfully');
+    if (!$store) {
+        return redirect()->back()->with('error', 'Store not found');
     }
 
-    public function deleteProduct($productId)
-    {
-        $product = Product::find($productId);
+    // Get the product by name
+    $product = $store->products()->where('name', $productName)->first();
 
-        if (!$product) {
-            return redirect()->back()->with('error', 'Product not found');
-        }
-
-        // Delete the product
-        $product->delete();
-
-        return redirect()->back()->with('success', 'Product deleted successfully');
+    if (!$product) {
+        return redirect()->back()->with('error', 'Product not found');
     }
 
-    
+    // Validate product update form
+    $validatedData = $request->validate([
+        'name' => 'required|string|max:255',
+        'price' => 'required|numeric',
+        'description' => 'required|string',
+        'image_link' => 'nullable|string',
+    ]);
+
+    // Update the product
+    $product->update($validatedData);
+
+    return redirect()->route('dashboard.admin')->with('success', 'Product updated successfully');
+}
+
+public function deleteProduct($storeName, $productName)
+{
+    // Get the store by name
+    $store = Store::where('name', $storeName)->first();
+
+    if (!$store) {
+        return redirect()->back()->with('error', 'Store not found');
+    }
+
+    // Get the product by name
+    $product = $store->products()->where('name', $productName)->first();
+
+    if (!$product) {
+        return redirect()->back()->with('error', 'Product not found');
+    }
+
+    // Delete the product
+    $product->delete();
+
+    return redirect()->back()->with('success', 'Product deleted successfully');
+}
+
+
 
     public function ChangeStatuss(Request $request)
     {
