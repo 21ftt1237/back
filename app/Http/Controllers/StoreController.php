@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class StoreController extends Controller
 {
+
+        public function storeList()
+    {
+        return view('store-list'); 
+    }
     // Show a list of stores
     public function index()
     {
