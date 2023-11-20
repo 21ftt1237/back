@@ -72,12 +72,14 @@
                @if (isset($order['product_name']) && isset($order['product_price']))
                     <table>
                         <tr>
+                            <th>img</th>
                             <th>Product</th>
                             <th>Price</th>
                             <th>Quantity</th>
                             <th>Total Price</th>
                         </tr>
                         <tr>
+                            <td>Image: <img src="{{ $order['product_image'] }}" alt="{{ $order['product_name'] }}"></td>
                             <td>{{ $order['product_name'] }}</td>
                             <td>${{ $order['product_price'] }}</td>
                             <td>{{ $order['quantity'] }}</td>
