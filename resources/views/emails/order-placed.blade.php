@@ -20,15 +20,22 @@
             margin: 10px 0;
         }
 
-        .order-details {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin: 10px 0;
-            background-color: #fff;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
         }
 
-        .order-details p {
-            margin: 5px 0;
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .order-details {
+            margin: 20px 0;
+            background-color: #fff;
+            padding: 20px;
         }
 
         .thank-you {
@@ -62,14 +69,22 @@
                     Log::info('Order Details: ' . json_encode($order));
                 @endphp
 
-              @if (isset($order['product_name']) && isset($order['product_price']))
-                    <div class="product-details">
-                         <p>Product: {{ $order['product_name'] }}</p>
-                         <p>Price: ${{ $order['product_price'] }}</p>
-                         <p>Quantity: {{ $order['quantity'] }}</p>
-                         <p>Total Price: ${{ $order['Total_price'] }}</p>
+                @if ($order['product']) {{-- Check if product is not null --}}
+                    <table>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total Price</th>
+                        </tr>
+                        <tr>
+                            <td>{{ $order['product_name'] }}</td>
+                            <td>${{ $order['product_price'] }}</td>
+                            <td>{{ $order['quantity'] }}</td>
+                            <td>${{ $order['Total_price'] }}</td>
+                        </tr>
                         <!-- Add other fields as needed -->
-                    </div>
+                    </table>
                 @endif
             @endforeach
         @endforeach
