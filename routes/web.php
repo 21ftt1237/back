@@ -62,8 +62,8 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     // Store-related routes
     Route::prefix('stores')->group(function () {
 
-        Route::get('/Dashboard-adm/stores', [App\Http\Controllers\StoreController::class, 'index'])->name('dashboard.admin.stores');
-        Route::get('/', [App\Http\Controllers\StoreController::class, 'index'])->name('store.index');
+        Route::get('/', [App\Http\Controllers\StoreController::class, 'index'])->name('dashboard.admin.stores');
+        Route::get('/netcom', [App\Http\Controllers\StoreController::class, 'index'])->name('store.index');
         Route::get('/game-central', [StoreController::class, 'indexGameCentral'])->name('store.indexGameCentral');
         Route::get('/wishlist', [StoreController::class, 'indexWishlist'])->name('store.indexWishlist');
         Route::get('/digital', [StoreController::class, 'indexDigital'])->name('store.indexDigital');
