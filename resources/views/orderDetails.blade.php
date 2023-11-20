@@ -1,25 +1,18 @@
-<div class="container">
-    <h1>Order Details</h1>
+ <div class="container">
+        <h1>Order Details</h1>
 
-    @if($order)
-        <p>Order ID: {{ $order->id }}</p>
-        <p>Order Date: {{ $order->created_at }}</p>
-        <!-- Add more details as needed -->
+        @if($orderDetails)
+            <p>Order ID: {{ $orderDetails->id }}</p>
+            <p>Order Date: {{ $orderDetails->created_at }}</p>
+            <!-- Add more details as needed -->
 
-        <!-- Display associated products -->
-        @if($products !== null && $products->isNotEmpty())
-            <h2>Associated Products:</h2>
-            @foreach($products as $product)
-                <p>Product Name: {{ $product->name }}</p>
-                <p>Product Price: {{ $product->price }}</p>
-                <img src="{{ $product->image }}" alt="Product Image">
-                <!-- Add more fields based on your actual product schema -->
-                <hr>
-            @endforeach
+            <!-- Example: Display other order details -->
+            <p>Customer Name: {{ $orderDetails->customer_name }}</p>
+            <p>Product: {{ $orderDetails->product_name }}</p>
+            <p>Quantity: {{ $orderDetails->quantity }}</p>
+            <!-- Add more fields based on your actual database schema -->
+
         @else
-            <p>No associated products found.</p>
+            <p>Order not found.</p>
         @endif
-    @else
-        <p>Order not found.</p>
-    @endif
-</div>
+    </div>
