@@ -59,8 +59,13 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/Dashboard-adm', [AdminDashboardController::class, 'index'])
         ->name('dashboard.admin');
 
-    Route::get('/Dashboard-adm/store-list', [StoreController::class, 'storeList'])
+    // Move this outside of the 'stores' group
+    Route::get('/Dashboard-adm/store-list', [StoreController::class, 'storeList']) {
+                $storeId = 1; // Replace with your actual store ID
+        $controller = new \App\Http\Controllers\StoreController();
+        $url = $controller->generateStoreShowUrl($storeId);
         ->name('store.list');
+});
 
     // Store-related routes
     Route::prefix('stores')->group(function () {
@@ -76,11 +81,13 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 
         Route::get('/create', [StoreController::class, 'create'])->name('stores.create');
         Route::post('/', [StoreController::class, 'store'])->name('stores.store');
-        Route::get('/{store}', [StoreController::class, 'show'])->name('stores.show');
+        Route::get('/{store}', [StoreController::class, 'show'])->name('store.show');
         Route::get('/{store}/edit', [StoreController::class, 'edit'])->name('stores.edit');
         Route::put('/{store}', [StoreController::class, 'update'])->name('stores.update');
         Route::delete('/{store}', [StoreController::class, 'destroy'])->name('stores.destroy');
     });
+});
+
 
     Route::post('/products/{storeName}', [AdminController::class, 'createProduct'])->name('products.create');
     Route::get('/products//{storeName}/edit', [AdminController::class, 'editProduct'])->name('products.edit');
