@@ -61,7 +61,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 
     Route::get('/Dashboard-adm/store-list', [StoreController::class, 'storeList']) {
         ->name('store.list');
-});
+
 
 
     // Store-related routes
