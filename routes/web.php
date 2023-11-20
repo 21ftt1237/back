@@ -304,7 +304,7 @@ Route::get('AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('A
 
 Route::post('/update-status', [OrderController::class, 'updateStatus']);
 
-Route::get('/admin/order/{created_at}', [OrderController::class, showAdminOrderDetails'])->name('naenae');
+Route::get('/admin/order/{created_at}', [OrderController::class, 'showAdminOrderDetails'])->name('naenae');
 
 
 //ETC
