@@ -66,12 +66,6 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 //Route::get('/order-list/{orderStatus}', [OrderController::class, 'showOrderList']);
 
 
-
-Route::middleware(['auth', 'verified', 'admin'])->group(function () {
-    Route::get('/Dashboard-adm', [AdminDashboardController::class, 'index'])
-        ->name('dashboard.admin');
-});
-
 //add new admin
 //Route::post('/Dashboard-adm', [AdminController::class, 'store'])->name('admin.store');
 
