@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
 
+    public $product;
+    public $store;
+
 //Store Owner
  public function indexComnet()
     {
@@ -49,16 +52,22 @@ class ProductController extends Controller
         return view('simanja', compact('products'));
     }
 
+    public function __construct(IProductRepository $product, IStoreRepository $store)
+    {
+        $this->product = $product;
+        $this->store = $store;
+    }
+
     
     public function index1($storeName)
     {
-    $store = DB::table('stores')->where('name', $storeName)->first();
-    
+     $store = $this->store->getSingleStoreByName($storeName);
+
     if (!$store) {
         abort(404);
     }
 
-    $products = DB::table('products')->where('store_id', $store->id)->get();
+    $products = $this->product->getProductsByStoreId($store->id);
 
     $viewName = 'owner.' . strtolower($store->name);
     return view($viewName, compact('products', 'store'));
