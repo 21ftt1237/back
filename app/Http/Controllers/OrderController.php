@@ -53,6 +53,9 @@ public function placeOrder(Request $request)
      $userEmail = $this->getUserEmail();
     $user = auth()->user();
     $cartItems = $user->cart;
+    if ($cartItems->isEmpty()) {
+    return response()->json(['message' => 'Cart is empty.']);
+}
     try {
         // Start a database transaction for atomicity
         DB::beginTransaction();
