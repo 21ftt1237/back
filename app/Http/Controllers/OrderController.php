@@ -193,7 +193,7 @@ public function showAllOrderLists()
                 $user = User::find($order->user_id);
 
                 // Send the email with the correct variable ($orderId)
-                Mail::to($user->email)->send(new OrderStatusUpdated($orderId));
+               Mail::to($user->email)->send(new OrderStatusUpdated($orderId, $newStatus));
 
                 \Log::info('Email sent to user: ' . $user->email);
 
