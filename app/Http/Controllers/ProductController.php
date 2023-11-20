@@ -79,6 +79,20 @@ class ProductController extends Controller
         ]);
     }
 
+    public function deleteProduct($id)
+{
+    $product = Product::find($id);
+
+    if (!$product) {
+        abort(404);
+    }
+
+    $product->delete();
+
+    // You might want to redirect to a different page or return a response here
+    return redirect()->back()->with('success', 'Product deleted successfully');
+}
+
     
 
 
