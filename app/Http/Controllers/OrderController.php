@@ -251,7 +251,7 @@ public function sendOrderEmail($userEmail, $orderDetails)
 public function showAdminOrderDetails($created_at)
 {
     // Fetch order details based on the created_at parameter
-    $order = Order::where('created_at', $created_at)->first();
+    $order = Order::with('products')->where('created_at', $created_at)->first();
 
     // Log order details
     info('Order Details:', ['order' => $order]);
@@ -277,6 +277,7 @@ public function showAdminOrderDetails($created_at)
         return redirect()->route('some_route'); // Adjust 'some_route' accordingly
     }
 }
+
 
 
 }
