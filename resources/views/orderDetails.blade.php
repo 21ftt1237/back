@@ -2,7 +2,10 @@
     <h1>Order Details</h1>
 
     @forelse($orderDetails as $order)
-       
+        <div class="order-details">
+            <p>Order ID: {{ $order->id }}</p>
+            <p>Order Date: {{ $order->created_at }}</p>
+            <!-- Add more details as needed -->
 
             <!-- Fetch and display product details for each order -->
             @foreach($order->products as $product)
