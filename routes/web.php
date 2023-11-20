@@ -88,6 +88,22 @@ Route::get('/', function () {
 //route for each stores
 Route::namespace('App\Http\Controllers')->prefix('owner')->group(function () {
 Route::get('{store}', 'ProductController@index1')->name('store.index');
+    
+// Routes for products specific to a store
+    Route::prefix('products/{store}')->group(function () {
+        // Create a product
+        Route::post('/', 'ProductController@createProduct')->name('products.create');
+
+        // Edit a product
+        Route::get('{id}/edit', 'ProductController@editProduct')->name('products.edit');
+
+        // Update a product
+        Route::put('{id}', 'ProductController@updateProduct')->name('products.update');
+
+        // Delete a product
+        Route::delete('{id}', 'ProductController@deleteProduct')->name('products.delete');
+    });
+    
 });
 
 
