@@ -13,43 +13,6 @@ use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
 
-//Store Owner
- public function indexComnet()
-    {
-        $products = Product::all();
-        return view('comnet', compact('products'));
-    }
-
-    public function indexGameside()
-    {
-        $products = Product::all();
-        return view('gameside', compact('products'));
-    }
-
-    public function indexDigitalUniverse()
-    {
-        $products = Product::all();
-        return view('digitaluniverse', compact('products'));
-    }
-
-    public function indexRoute66()
-    {
-        $products = Product::all();
-        return view('route66', compact('products'));
-    }
-
-    public function indexDefender()
-    {
-        $products = Product::all();
-        return view('defender', compact('products'));
-    }
-
-    public function indexSimanja()
-    {
-        $products = Product::all();
-        return view('simanja', compact('products'));
-    }
-
 
     
     public function index1($storeName)
@@ -210,13 +173,14 @@ public function indexGuardian()
     return $this->indexUser('Guardian');
 }
 
-public function cart()
-{
-    $user = Auth::user();
-    $cart = $user->cart; 
-    return view('netcom', compact('cart'));
-}
+// User views
+    public function indexUser($storeName)
+    {
+        $user = Auth::user();
+        $cart = $user->cart;
 
+        return view($storeName, compact('cart'));
+    }
 
 
     
