@@ -10,8 +10,65 @@ class AdminController extends Controller
     public function index()
     {
         $admins = User::where('role_id', 1)->get(); 
-        return view('Dashboard-adm', compact('admins'));
+        $products = Product::all();
+        return view('Dashboard-adm', compact('admins', 'products'));
     }
+
+    public function createProduct(Request $request)
+    {
+        // Validate product creation form
+        $validatedData = $request->validate([
+            'store_id' => 'required|exists:stores,id',
+            'name' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'description' => 'required|string',
+            'image_link' => 'nullable|string',
+        ]);
+
+        // Create the product
+        Product::create($validatedData);
+
+        return redirect()->route('dashboard.admin')->with('success', 'Product added successfully');
+    }
+
+    public function editProduct(Request $request, $productId)
+    {
+        $product = Product::find($productId);
+
+        if (!$product) {
+            return redirect()->back()->with('error', 'Product not found');
+        }
+
+        // Validate product update form
+        $validatedData = $request->validate([
+            'store_id' => 'required|exists:stores,id',
+            'name' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'description' => 'required|string',
+            'image_link' => 'nullable|string',
+        ]);
+
+        // Update the product
+        $product->update($validatedData);
+
+        return redirect()->route('dashboard.admin')->with('success', 'Product updated successfully');
+    }
+
+    public function deleteProduct($productId)
+    {
+        $product = Product::find($productId);
+
+        if (!$product) {
+            return redirect()->back()->with('error', 'Product not found');
+        }
+
+        // Delete the product
+        $product->delete();
+
+        return redirect()->back()->with('success', 'Product deleted successfully');
+    }
+
+    
 
     public function ChangeStatuss(Request $request)
     {
