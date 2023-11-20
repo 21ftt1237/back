@@ -429,6 +429,19 @@ table {
   @endforeach    
 </table>
 
+<!--TAB store owner: -->
+<div id="store-list" style="display: none;">
+    <ul>
+        <li><a href="{{ route('store.index') }}">Netcom</a></li>
+        <li><a href="{{ route('store.indexGameCentral') }}">Game Central</a></li>
+        <li><a href="{{ route('store.indexWishlist') }}">Wishlist</a></li>
+        <li><a href="{{ route('store.indexDigital') }}">Digital</a></li>
+        <li><a href="{{ route('store.indexAvenue') }}">Avenue</a></li>
+        <li><a href="{{ route('store.indexNimanja') }}">Nimanja</a></li>
+        <li><a href="{{ route('store.indexGuardian') }}">Guardian</a></li>
+    </ul>
+</div>   
+
 
 
 
@@ -547,6 +560,22 @@ tabButtons.forEach(button => {
         });
     });
 });
+
+document.addEventListener('keydown', function(event) {
+    // Check if the pressed key is the "Tab" key (keyCode 9)
+    if (event.keyCode === 9) {
+        // Toggle the display of the list of stores
+        toggleStoreList();
+    }
+});
+
+function toggleStoreList() {
+    // Assuming 'store-list' is the ID of the element containing the list of stores
+    const storeList = document.getElementById('store-list');
+
+    // Toggle the display style between 'block' and 'none'
+    storeList.style.display = (storeList.style.display === 'block') ? 'none' : 'block';
+} 
 
 
 // submission form add new admin and delte users
