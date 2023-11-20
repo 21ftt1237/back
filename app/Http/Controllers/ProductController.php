@@ -73,6 +73,21 @@ class ProductController extends Controller
         return view($storeName, compact('cart'));
     }
 
+
+    // User view
+    public function index($storeName)
+    {
+        // Logic for user view
+        return $this->indexUser($storeName);
+    }
+
+    // Owner view
+    public function indexOwner($storeName)
+    {
+        // Logic for owner view
+        return $this->index1($storeName);
+    }
+
     public function addToWishlist(Request $request, Product $product)
     {
         $user = $request->user();
