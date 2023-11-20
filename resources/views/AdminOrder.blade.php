@@ -119,7 +119,7 @@
                         <td class="status-cell">{{ $orderList->status }}</td>
                         <td><button class="edit-button">Edit</button></td>
                         <td>
-                            <a href="{{ route('AdminOrder', $orderList->created_at) }}">View Details</a>
+                            <a href="{{ route('naenae', $orderList->created_at) }}">View Details</a>
                         </td>
                     </tr>
                 @endforeach
