@@ -19,9 +19,10 @@
                 Log::info('Order Details: ' . json_encode($order));
             @endphp
 
-            @if ($order['product']) {{-- Check if product is not null --}}
-                <p>Product: {{ $order['product']['name'] }}</p>
-                <p>Price: ${{ $order['product']['price'] }}</p>
+            {{-- Check if the expected keys exist --}}
+            @if (isset($order['product_name']) && isset($order['product_price']))
+                <p>Product: {{ $order['product_name'] }}</p>
+                <p>Price: ${{ $order['product_price'] }}</p>
                 <p>Quantity: {{ $order['quantity'] }}</p>
                 <p>Total Price: ${{ $order['Total_price'] }}</p>
                 <!-- Add other fields as needed -->
