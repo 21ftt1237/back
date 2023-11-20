@@ -62,6 +62,10 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/Dashboard-adm', [AdminDashboardController::class, 'index'])
         ->name('dashboard.admin');
+
+        Route::post('/products/{storeName}', [AdminController::class, 'createProduct'])->name('products.create');
+    Route::get('/products//{storeName}/edit', [AdminController::class, 'editProduct'])->name('products.edit');
+    Route::delete('/products//{storeName}/{productName}', [AdminController::class, 'deleteProduct'])->name('products.delete');
 });
 //add new admin
 //Route::post('/Dashboard-adm', [AdminController::class, 'store'])->name('admin.store');
@@ -79,10 +83,6 @@ Route::get('/', function () {
 //route for each stores
 Route::namespace('App\Http\Controllers')->prefix('owner')->group(function () {
 Route::get('{store}', 'ProductController@index1')->name('store.index');
-    
-    Route::post('/products/{storeName}', [AdminController::class, 'createProduct'])->name('products.create');
-    Route::get('/products//{storeName}/edit', [AdminController::class, 'editProduct'])->name('products.edit');
-    Route::delete('/products//{storeName}/{productName}', [AdminController::class, 'deleteProduct'])->name('products.delete');
     
 });
 
