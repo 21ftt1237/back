@@ -3,7 +3,7 @@ namespace App\Repository;
 
 use Illuminate\Support\Facades\DB;
 
-class StoreRepository implements IStoreRepository
+interface IStoreRepository
 {
     public function getSingleStoreByName($storeName)
     {
