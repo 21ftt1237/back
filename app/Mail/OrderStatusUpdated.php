@@ -14,6 +14,7 @@ class OrderStatusUpdated extends Mailable
     use Queueable, SerializesModels;
 
     public $orderId;
+    public $newStatus;
 
     /**
      * Create a new message instance.
@@ -21,6 +22,7 @@ class OrderStatusUpdated extends Mailable
     public function __construct($orderId)
     {
         $this->orderId = $orderId;
+        $this->newStatus = $newStatus;
         $this->subject('Order Status Updated');
     }
 
