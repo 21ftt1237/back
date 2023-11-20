@@ -78,7 +78,7 @@ public function placeOrder(Request $request)
             'quantity' => $quantity,
             'Total_price' => $totalPrice,
             'created_at' => $createdAtKey,
-            'product_image' => asset('images/' . $product->image),
+            'product_image' => asset('image/' . $product->image),
              ];
         }
         foreach ($consolidatedOrders as $createdAt => $ordersData) {
