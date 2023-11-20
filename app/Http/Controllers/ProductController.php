@@ -79,61 +79,135 @@ class ProductController extends Controller
     return view($viewName, compact('products', 'store'));
     
     }
+
+    public function getAllProducts()
+    {
+        return Product::all();
+    }
+
+    public function getSingleProduct($id)
+    {
+        return Product::find($id);
+    }
+
+    public function createProduct(array $data)
+    {
+        $product = new Product();
+        $product->store_id = $data['store_id'];
+        $product->name = $data['name'];
+        $product->price = $data['price'];
+        $product->description = $data['description'];
+        $product->image_link = $data['image_link'];
+
+        $product->save();
+    }
+
+    public function editProduct($id)
+    {
+        return Product::find($id);
+    }
+
+    public function updateProduct($id, array $data)
+    {
+        Product::find($id)->update([
+            'store_id' => $data['store_id'],
+            'name' => $data['name'],
+            'price' => $data['price'],
+            'description' => $data['description'],
+            'image_link' => $data['image_link'],
+        ]);
+    }
+}
+    
+
+
+
+
+
     
 
 
 
 
 
+
+//USERS VIEW
     
-
-
-
-
-
-
-
+//  public function index()
+//{
+//    $products = Product::all();
+//    return view('netcom', compact('products'));
+//}
     
-  public function index()
+//  public function indexGameCentral()
+//{
+//    $products = Product::all();
+//    return view('gamecentral', compact('products'));
+//}
+
+  //    public function indexWishlist()
+//{
+  //  $products = Product::all();
+    //return view('Wishlist.BruZoneWishlist', compact('products'));
+//}
+
+//       public function indexDigital()
+//{
+//    $products = Product::all();
+//    return view('digital', compact('products'));
+//}
+
+  //         public function indexAvenue()
+//{
+ //   $products = Product::all();
+  //  return view('avenue', compact('products'));
+//}
+
+//               public function indexNimanja()
+//{
+//    $products = Product::all();
+//    return view('Nimanja', compact('products'));
+//}
+
+ //          public function indexGuardian()
+//{
+//    $products = Product::all();
+//    return view('Guardian', compact('products'));
+//}
+
+public function index()
 {
-    $products = Product::all();
-    return view('netcom', compact('products'));
-}
-    
-  public function indexGameCentral()
-{
-    $products = Product::all();
-    return view('gamecentral', compact('products'));
+    return $this->indexUser('netcom');
 }
 
-      public function indexWishlist()
+public function indexGameCentral()
 {
-    $products = Product::all();
-    return view('Wishlist.BruZoneWishlist', compact('products'));
+    return $this->indexUser('gamecentral');
 }
 
-       public function indexDigital()
+public function indexWishlist()
 {
-    $products = Product::all();
-    return view('digital', compact('products'));
+    return $this->indexUser('Wishlist.BruZoneWishlist');
 }
 
-           public function indexAvenue()
+public function indexDigital()
 {
-    $products = Product::all();
-    return view('avenue', compact('products'));
+    return $this->indexUser('digital');
 }
 
-               public function indexNimanja()
+public function indexAvenue()
 {
-    $products = Product::all();
-    return view('Nimanja', compact('products'));
+    return $this->indexUser('avenue');
 }
 
-           public function indexGuardian()
+public function indexNimanja()
 {
-    $products = Product::all();
-    return view('Guardian', compact('products'));
+    return $this->indexUser('Nimanja');
+}
+
+public function indexGuardian()
+{
+    return $this->indexUser('Guardian');
 }
 
 public function cart()
