@@ -253,14 +253,20 @@ public function showAdminOrderDetails($created_at)
     // Fetch order details based on the created_at parameter
     $orderDetails = Order::where('created_at', $created_at)->first();
 
-    // Fetch product details related to the order
-    $productDetails = Product::where('id', $orderDetails->product_id)->first();
+    // Check if order details are found
+    if ($orderDetails) {
+        // Fetch product details related to the order
+        $productDetails = Product::find($orderDetails->product_id);
 
-    // Pass both order and product details to the view
-    return view('orderDetails', [
-        'orderDetails' => $orderDetails,
-        'productDetails' => $productDetails,
-    ]);
+        // Pass both order and product details to the view
+        return view('orderDetails', [
+            'orderDetails' => $orderDetails,
+            'productDetails' => $productDetails,
+        ]);
+    } else {
+        // Order not found, handle accordingly (e.g., redirect or display an error)
+        return redirect()->route('some_route'); // Adjust 'some_route' accordingly
+    }
 }
 
 }
