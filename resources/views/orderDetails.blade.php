@@ -7,7 +7,7 @@
     <!-- Add your CSS links or styles here -->
 </head>
 <body>
-    <div class="container">
+   <div class="container">
         <h1>Order Details</h1>
 
         @if($orderDetails)
@@ -15,17 +15,19 @@
             <p>Order Date: {{ $orderDetails->created_at }}</p>
             <!-- Add more details as needed -->
 
-            <!-- Example: Display other order details -->
-            <p>Customer Name: {{ $orderDetails->customer_name }}</p>
-            <p>Product: {{ $orderDetails->product_name }}</p>
-            <p>Quantity: {{ $orderDetails->quantity }}</p>
-            <!-- Add more fields based on your actual database schema -->
+            <!-- Display product details -->
+            @if($productDetails)
+                <p>Product Name: {{ $productDetails->name }}</p>
+                <p>Product Price: {{ $productDetails->price }}</p>
+                <img src="{{ $productDetails->image }}" alt="Product Image">
+                <!-- Add more fields based on your actual product schema -->
+            @else
+                <p>Product not found.</p>
+            @endif
 
         @else
             <p>Order not found.</p>
         @endif
     </div>
-
-    <!-- Add your JavaScript links or scripts here -->
 </body>
 </html>
