@@ -62,12 +62,12 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     // Store-related routes
     Route::prefix('stores')->group(function () {
         Route::get('/', [App\Http\Controllers\StoreController::class, 'index'])->name('store.index');
-        Route::get('/create', [StoreController::class, 'create'])->name('stores.create');
-        Route::post('/', [StoreController::class, 'store'])->name('stores.store');
-        Route::get('/{store}', [StoreController::class, 'show'])->name('stores.show');
-        Route::get('/{store}/edit', [StoreController::class, 'edit'])->name('stores.edit');
-        Route::put('/{store}', [StoreController::class, 'update'])->name('stores.update');
-        Route::delete('/{store}', [StoreController::class, 'destroy'])->name('stores.destroy');
+        Route::get('/create', [App\Http\Controllers\StoreController::class, 'create'])->name('stores.create');
+        Route::post('/', [App\Http\Controllers\StoreController::class, 'store'])->name('stores.store');
+        Route::get('/{store}', [App\Http\Controllers\StoreController::class, 'show'])->name('stores.show');
+        Route::get('/{store}/edit', [App\Http\Controllers\StoreController::class, 'edit'])->name('stores.edit');
+        Route::put('/{store}', [App\Http\Controllers\StoreController::class, 'update'])->name('stores.update');
+        Route::delete('/{store}', [App\Http\Controllers\StoreController::class, 'destroy'])->name('stores.destroy');
     });
 
     Route::post('/products/{storeName}', [AdminController::class, 'createProduct'])->name('products.create');
