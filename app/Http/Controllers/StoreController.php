@@ -13,6 +13,11 @@ public function storeList()
     $stores = Store::all(); // Fetch all stores from the database
     return view('store-list', compact('stores'));
 }
+
+    public function generateStoreShowUrl($storeId)
+    {
+        return route('stores.show', ['store' => $storeId]);
+    }
     // Show a list of stores
     public function index()
     {
