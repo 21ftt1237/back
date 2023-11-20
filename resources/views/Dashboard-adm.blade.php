@@ -556,26 +556,25 @@ const tabButtons = document.querySelectorAll('.tabBtn');
 tabButtons.forEach(button => {
     button.addEventListener('click', () => {
         const selectedGroup = button.getAttribute('data-group');
-        fetchAndDisplayData(selectedGroup);
-        });
+        if (selectedGroup === 'Store') {
+            // If the selected tab is "Store Owner", toggle the display of the list of stores
+            toggleStoreList();
+        } else {
+            // For other tabs, fetch and display data as usual
+            fetchAndDisplayData(selectedGroup);
+        }
     });
 });
 
-document.addEventListener('keydown', function(event) {
-    // Check if the pressed key is the "Tab" key (keyCode 9)
-    if (event.keyCode === 9) {
-        // Toggle the display of the list of stores
-        toggleStoreList();
-    }
-});
-
+// Function to toggle the display of the list of stores
 function toggleStoreList() {
-    // Assuming 'store-list' is the ID of the element containing the list of stores
-    const storeList = document.getElementById('store-list');
-
-    // Toggle the display style between 'block' and 'none'
-    storeList.style.display = (storeList.style.display === 'block') ? 'none' : 'block';
-} 
+    const storeList = document.getElementById('storeList'); // Add an ID to the element containing the list of stores
+    if (storeList.style.display === "block") {
+        storeList.style.display = "none";
+    } else {
+        storeList.style.display = "block";
+    }
+}
 
 
 // submission form add new admin and delte users
