@@ -79,7 +79,7 @@
                             <th>Total Price</th>
                         </tr>
                         <tr>
-                            <td><img src="{{ $order['product_image'] }}" alt="{{ $order['product_name'] }}"></td>
+                            <td><img src="{{ $order['public/image/product_image'] }}" alt="{{ $order['product_name'] }}"></td>
                             <td>{{ $order['product_name'] }}</td>
                             <td>${{ $order['product_price'] }}</td>
                             <td>{{ $order['quantity'] }}</td>
