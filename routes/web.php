@@ -61,7 +61,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 
     // Store-related routes
     Route::prefix('stores')->group(function () {
-        Route::get('/', [StoreController::class, 'index'])->name('stores.index');
+        Route::get('/', [App\Http\Controllers\StoreController::class, 'index'])->name('store.index');
         Route::get('/create', [StoreController::class, 'create'])->name('stores.create');
         Route::post('/', [StoreController::class, 'store'])->name('stores.store');
         Route::get('/{store}', [StoreController::class, 'show'])->name('stores.show');
