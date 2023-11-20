@@ -19,7 +19,7 @@ class OrderStatusUpdated extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct($orderId)
+    public function __construct($orderId, $newStatus)
     {
         $this->orderId = $orderId;
         $this->newStatus = $newStatus;
