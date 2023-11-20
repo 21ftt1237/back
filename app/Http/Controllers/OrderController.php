@@ -210,18 +210,29 @@ public function showAllOrderLists()
 public function sendOrderEmail($userEmail, $orderDetails)
 {
     try {
+        // Validate the structure of $orderDetails
+        if (!is_array($orderDetails)) {
+            throw new \Exception('Invalid orderDetails structure');
+        }
+
         // Fetch product information for each order
         foreach ($orderDetails as $createdAt => &$orders) {
             foreach ($orders as &$order) {
-                $product = Product::find($order['product_id']);
-                if ($product) {
-                    $order['product_name'] = $product->name;
-                    $order['product_price'] = $product->price;
-                    // Add other product details as needed
+                // Check if 'product_id' key exists
+                if (isset($order['product_id'])) {
+                    $product = Product::find($order['product_id']);
+                    if ($product) {
+                        $order['product_name'] = $product->name;
+                        $order['product_price'] = $product->price;
+                        // Add other product details as needed
+                    } else {
+                        // Handle the case where the product is not found
+                        $order['product_name'] = 'Product Not Found';
+                        $order['product_price'] = 0;
+                    }
                 } else {
-                    // Handle the case where the product is not found
-                    $order['product_name'] = 'Product Not Found';
-                    $order['product_price'] = 0;
+                    // Handle the case where 'product_id' key is missing
+                    throw new \Exception('Missing product_id key in order data');
                 }
             }
         }
