@@ -568,6 +568,7 @@ tabButtons.forEach(button => {
 
 // Function to toggle the display of the list of stores
 function toggleStoreList() {
+    console.log('Toggling store list');
     const storeList = document.getElementById('store-list');
     if (storeList.style.display === "block") {
         storeList.style.display = "none";
