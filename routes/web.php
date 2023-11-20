@@ -61,7 +61,6 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 
     // Move this outside of the 'stores' group
     Route::get('/Dashboard-adm/store-list', [StoreController::class, 'storeList']) {
-                $storeId = 1; // Replace with your actual store ID
         $controller = new \App\Http\Controllers\StoreController();
         $url = $controller->generateStoreShowUrl($storeId);
         ->name('store.list');
