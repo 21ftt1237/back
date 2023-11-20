@@ -14,6 +14,11 @@
 
     @foreach ($orderDetails as $createdAt => $orders)
         @foreach ($orders as $order)
+            {{-- Log order information for debugging --}}
+            @php
+                Log::info('Order Details: ' . json_encode($order));
+            @endphp
+
             @if ($order['product']) {{-- Check if product is not null --}}
                 <p>Product: {{ $order['product']['name'] }}</p>
                 <p>Price: ${{ $order['product']['price'] }}</p>
