@@ -557,8 +557,8 @@ tabButtons.forEach(button => {
     button.addEventListener('click', () => {
         const selectedGroup = button.getAttribute('data-group');
         if (selectedGroup === 'Store') {
-            // If the selected tab is "Store Owner", toggle the display of the list of stores
-            toggleStoreList();
+            // If the selected tab is "Store Owner", navigate to the link for the list of stores
+            window.location.href = "{{ route('store.index') }}"; // Update with the correct route
         } else {
             // For other tabs, fetch and display data as usual
             fetchAndDisplayData(selectedGroup);
@@ -568,7 +568,7 @@ tabButtons.forEach(button => {
 
 // Function to toggle the display of the list of stores
 function toggleStoreList() {
-    const storeList = document.getElementById('store-list'); // Corrected ID to match the HTML
+    const storeList = document.getElementById('store-list');
     if (storeList.style.display === "block") {
         storeList.style.display = "none";
     } else {
