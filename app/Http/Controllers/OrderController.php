@@ -107,7 +107,7 @@ public function placeOrder(Request $request)
         // Send email
         $this->sendOrderEmail($userEmail, $consolidatedOrders);
        
-]);
+
         return response()->json(['message' => 'Orders created successfully.']);
     } catch (\Exception $e) {
         DB::rollBack();
