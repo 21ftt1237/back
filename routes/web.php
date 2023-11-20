@@ -67,6 +67,9 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     // Store-related routes
     Route::prefix('stores')->group(function () {
 
+        Route::get('/stores/{store}', [StoreController::class, 'show'])
+        ->name('store.show');
+
         Route::get('/', [App\Http\Controllers\StoreController::class, 'index'])->name('dashboard.admin.stores');
         Route::get('/netcom', [App\Http\Controllers\StoreController::class, 'index'])->name('store.index');
         Route::get('/game-central', [StoreController::class, 'indexGameCentral'])->name('store.indexGameCentral');
@@ -78,7 +81,6 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 
         Route::get('/create', [StoreController::class, 'create'])->name('stores.create');
         Route::post('/', [StoreController::class, 'store'])->name('stores.store');
-        Route::get('/{store}', [StoreController::class, 'show'])->name('store.show');
         Route::get('/{store}/edit', [StoreController::class, 'edit'])->name('stores.edit');
         Route::put('/{store}', [StoreController::class, 'update'])->name('stores.update');
         Route::delete('/{store}', [StoreController::class, 'destroy'])->name('stores.destroy');
