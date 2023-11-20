@@ -406,7 +406,7 @@ table {
         <div class="Tab">
             <button class="tabBtn" data-group="Users">Users</button>
             <button class="tabBtn" data-group="Staff">Admin</button>
-           <button class="tabBtn" data-group="Store">Store Owner</button> 
+           <button class="tabBtn" data-group="Store">Stores</button> 
         </div>
     </div>
     <br/>
