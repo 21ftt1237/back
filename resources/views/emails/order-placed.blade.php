@@ -62,6 +62,15 @@
 
         <p>User Email: {{ $userEmail }}</p>
 
+         <table>
+                        <tr>
+                            <th>img</th>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total Price</th>
+                        </tr>
+        
         @foreach ($orderDetails as $createdAt => $orders)
             @foreach ($orders as $order)
                 {{-- Log order information for debugging --}}
@@ -70,14 +79,7 @@
                 @endphp
 
                @if (isset($order['product_name']) && isset($order['product_price']))
-                    <table>
-                        <tr>
-                            <th>img</th>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Total Price</th>
-                        </tr>
+                   
                         <tr>
                             <td><img src="{{ $order['product_image'] }}" alt="{{ $order['product_name'] }}"></td>
                             <td>{{ $order['product_name'] }}</td>
@@ -86,11 +88,11 @@
                             <td>${{ $order['Total_price'] }}</td>
                         </tr>
                         <!-- Add other fields as needed -->
-                    </table>
+                    
                 @endif
             @endforeach
         @endforeach
-
+</table>
         <div class="thank-you">
             <p>Thank you for choosing our services.</p>
         </div>
