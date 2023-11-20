@@ -558,7 +558,7 @@ tabButtons.forEach(button => {
         const selectedGroup = button.getAttribute('data-group');
         if (selectedGroup === 'Store') {
             // If the selected tab is "Store Owner", navigate to the link for the list of stores
-            window.location.href = "{{ route('store.index') }}"; // Update with the correct route
+            window.location.href = "{{ route('dashboard.admin.stores') }}"; // Update with the correct route
         } else {
             // For other tabs, fetch and display data as usual
             fetchAndDisplayData(selectedGroup);
