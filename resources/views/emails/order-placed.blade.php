@@ -10,16 +10,12 @@
 
     <p>User Email: {{ $userEmail }}</p>
 
-    @foreach ($orderDetails as $createdAt => $order)
-        <p>Order Date: {{ $createdAt }}</p>
-        @foreach ($order as $item)
-            <p>Product: {{ $item['product_name'] }}</p>
-            <p>Price: ${{ $item['price'] }}</p>
-            <p>Quantity: {{ $item['quantity'] }}</p>
-            <p>Total Price: ${{ $item['total_price'] }}</p>
-            <hr>
-        @endforeach
+    @foreach ($orderDetails as $createdAt => $orders)
+    @foreach ($orders as $order)
+        <p>Product: {{ $order['product_name'] }}</p> {{-- Update this line --}}
+        <!-- ... other fields ... -->
     @endforeach
+@endforeach
 
     <p>Thank you for choosing our services.</p>
 
