@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Repository\IStoreRepository;
+use App\Repository\IProductRepository;
 
 class ProductController extends Controller
 {
