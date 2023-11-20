@@ -81,12 +81,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     });
 });
 
-    // Move this outside of the 'stores' group
-    Route::get('/Dashboard-adm/store-list', [StoreController::class, 'storeList']) {
-        $controller = new \App\Http\Controllers\StoreController();
-        $url = $controller->generateStoreShowUrl($storeId);
-        ->name('store.list');
-});
+
 
 
     Route::post('/products/{storeName}', [AdminController::class, 'createProduct'])->name('products.create');
