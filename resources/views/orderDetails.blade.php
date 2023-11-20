@@ -10,7 +10,7 @@
    <div class="container">
         <h1>All Orders Details</h1>
 
-        @if($orderDetails->isNotEmpty())
+        @if($orderDetails->count() > 0)
             @forelse($orderDetails as $order)
                 <div class="order-details">
                     <p>Order ID: {{ $order->id }}</p>
