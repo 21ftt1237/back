@@ -8,14 +8,10 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Repository\IStoreRepository;
-use App\Repository\IProductRepository;
+
 
 class ProductController extends Controller
 {
-
-    public $product;
-    public $store;
 
 //Store Owner
  public function indexComnet()
@@ -54,11 +50,6 @@ class ProductController extends Controller
         return view('simanja', compact('products'));
     }
 
-    public function __construct(IProductRepository $product, IStoreRepository $store)
-    {
-        $this->product = $product;
-        $this->store = $store;
-    }
 
     
     public function index1($storeName)
