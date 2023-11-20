@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Checkout</title>
+    <title>Order Placed</title>
 </head>
-@foreach ($orderDetails as $order)
-    <p>Product: {{ $order->product->name }}</p>
-    <p>Price: ${{ $order->product->price }}</p>
-    <p>Quantity: {{ $order->quantity }}</p>
-    <hr>
-@endforeach
+<body>
+    <h1>Order Placed Successfully</h1>
 
+    <p>Thank you for your order!</p>
+
+    <p>User Email: {{ $userEmail }}</p>
+
+    @foreach ($orderDetails as $createdAt => $order)
+        <p>Order Date: {{ $createdAt }}</p>
+        @foreach ($order as $item)
+            <p>Product: {{ $item['product_name'] }}</p>
+            <p>Price: ${{ $item['price'] }}</p>
+            <p>Quantity: {{ $item['quantity'] }}</p>
+            <p>Total Price: ${{ $item['total_price'] }}</p>
+            <hr>
+        @endforeach
+    @endforeach
+
+    <p>Thank you for choosing our services.</p>
+
+    <p>Best regards,<br> Your Company Name</p>
 </body>
 </html>
-
