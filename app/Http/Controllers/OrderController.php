@@ -106,9 +106,7 @@ public function placeOrder(Request $request)
         
         // Send email
         $this->sendOrderEmail($userEmail, $consolidatedOrders);
-        return view('checkout', [
-    'userEmail' => $userEmail,
-    'cart' => $cartItems, 
+       
 ]);
         return response()->json(['message' => 'Orders created successfully.']);
     } catch (\Exception $e) {
