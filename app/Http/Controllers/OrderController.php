@@ -250,32 +250,14 @@ public function sendOrderEmail($userEmail, $orderDetails)
 
 public function showAdminOrderDetails($created_at)
 {
-    // Fetch order details based on the created_at parameter
-    $orderDetails = Order::with('product')->where('created_at', $created_at)->first();
+    // Fetch orders and their associated products based on the created_at parameter
+    $orders = Order::with('products')->where('created_at', $created_at)->get();
 
-    // Log order details
-    info('Order Details:', ['order' => $orderDetails]);
+    // Log orders and product details
+    info('Orders Details:', ['orders' => $orders]);
 
-    // Check if order is found
-    if ($orderDetails) {
-        // Fetch associated product
-        $productDetails = $orderDetails->product;
-
-        // Log product details
-        info('Product Details:', ['product' => $productDetails]);
-
-        // Pass both order and product details to the view
-        return view('orderDetails', [
-            'orderDetails' => $orderDetails,
-            'productDetails' => $productDetails,
-        ]);
-    } else {
-        // Order not found, log an error
-        info('Order not found for created_at: ' . $created_at);
-
-        // Handle accordingly (e.g., redirect or display an error)
-        return redirect()->route('some_route'); // Adjust 'some_route' accordingly
-    }
+    // Pass orders to the view
+    return view('orderDetails', ['orders' => $orders]);
 }
 
 
