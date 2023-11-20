@@ -87,7 +87,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::post('/products/{storeName}', [AdminController::class, 'createProduct'])->name('products.create');
     Route::get('/products//{storeName}/edit', [AdminController::class, 'editProduct'])->name('products.edit');
     Route::delete('/products//{storeName}/{productName}', [AdminController::class, 'deleteProduct'])->name('products.delete');
-});
+
 
 Route::post('/Dashboard-adm/{action}', [AdminController::class, 'handleForm'])->name('admin.handleForm');
 
