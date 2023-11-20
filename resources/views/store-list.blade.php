@@ -32,6 +32,7 @@
 /* store-list.css */
 
 #store-list {
+    margin-top: 20px;
 
 }
 
@@ -60,12 +61,25 @@
 
 <!--TAB store owner: -->
 <div id="store-list">
-    <ul>
-        @foreach($stores as $store)
-            <li><a href="{{ route('store.show', $store->id) }}">{{ $store->name }}</a></li>
-        @endforeach
-    </ul>
-</div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($stores as $store)
+                <tr>
+                    <td>{{ $store->id }}</td>
+                    <td><a href="{{ route('store.show', $store->id) }}">{{ $store->name }}</a></td>
+                    <td>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 
 
 <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
