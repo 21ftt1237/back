@@ -80,30 +80,6 @@ Route::get('/', function () {
 });
 
 
-    Route::get('netcom', 'ProductController@index')->name('store.indexNetcom');
-    Route::get('gamecentral', 'ProductController@indexGameCentral')->name('store.indexGameCentral');
-    Route::get('wishlist', 'ProductController@indexWishlist')->name('store.indexWishlist');
-    Route::get('digital', 'ProductController@indexDigital')->name('store.indexDigital');
-    Route::get('avenue', 'ProductController@indexAvenue')->name('store.indexAvenue');
-    Route::get('nimanja', 'ProductController@indexNimanja')->name('store.indexNimanja');
-    Route::get('guardian', 'ProductController@indexGuardian')->name('store.indexGuardian');
-    
-    // ... other routes
-    
-    // Create a product
-    Route::post('/products', 'ProductController@createProduct')->name('products.create');
-    
-    // Edit a product
-    Route::get('/products/{id}/edit', 'ProductController@editProduct')->name('products.edit');
-    
-    // Update a product
-    Route::put('/products/{id}', 'ProductController@updateProduct')->name('products.update');
-    
-    // Delete a product
-    Route::delete('/products/{id}', 'ProductController@deleteProduct')->name('products.delete');
-});
-
-
 
 
 
