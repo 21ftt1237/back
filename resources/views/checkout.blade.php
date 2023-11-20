@@ -962,14 +962,10 @@ if (couponPointsGained !== null && couponPointsGained !== undefined) {
             .then(function (response) {
                
                 alert(response.message);
-                axios.post('/send-order-email', {
-                order_details: response.message,
-            })
+                
             })
             .catch(function (error) {
-                      axios.post('/send-order-email', {
-                order_details: response.message,
-            })
+                     
                 alert('Error placing the order');
                
             });
