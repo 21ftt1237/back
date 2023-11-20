@@ -97,6 +97,10 @@ public function placeOrder(Request $request)
         Log::info('Orders created from cart for user ' . $user->id);
         // Retrieve the user's email directly
         $userEmail = $user->email;
+
+        Log::info('User Email: ' . $userEmail);
+        Log::info('Consolidated Orders: ' . json_encode($consolidatedOrders));
+        
         // Send email
         $this->sendOrderEmail($userEmail, $consolidatedOrders);
         return view('checkout', [
