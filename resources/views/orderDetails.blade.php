@@ -7,7 +7,7 @@
         <!-- Add more details as needed -->
 
         <!-- Display associated products -->
-        @if($products->isNotEmpty())
+        @if($products !== null && $products->isNotEmpty())
             <h2>Associated Products:</h2>
             @foreach($products as $product)
                 <p>Product Name: {{ $product->name }}</p>
