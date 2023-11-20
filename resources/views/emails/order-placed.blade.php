@@ -69,7 +69,7 @@
                     Log::info('Order Details: ' . json_encode($order));
                 @endphp
 
-                @if ($order['product']) {{-- Check if product is not null --}}
+               @if (isset($order['product_name']) && isset($order['product_price']))
                     <table>
                         <tr>
                             <th>Product</th>
