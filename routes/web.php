@@ -38,13 +38,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard.user');
 
-// Dashboard route for admins
-Route::middleware(['auth', 'verified', 'admin'])->group(function () {
-    Route::get('/Dashboard-adm', function () {
-        return view('Dashboard-adm');
-    })->name('dashboard.admin');
 
-});
 
  //   Route::get('AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('AdminOrder');
 
@@ -65,7 +59,10 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 
 //Route::get('/order-list/{orderStatus}', [OrderController::class, 'showOrderList']);
 
-
+Route::middleware(['auth', 'verified', 'admin'])->group(function () {
+    Route::get('/Dashboard-adm', [AdminDashboardController::class, 'index'])
+        ->name('dashboard.admin');
+});
 //add new admin
 //Route::post('/Dashboard-adm', [AdminController::class, 'store'])->name('admin.store');
 
