@@ -250,20 +250,15 @@ public function sendOrderEmail($userEmail, $orderDetails)
 
 public function showAdminOrderDetails($created_at)
 {
-    // Fetch orders and their associated product based on the created_at parameter
-    $orders = Order::with('user', 'product', 'orderLists')->where('created_at', $created_at)->get();
+    // Fetch orders and their associated products based on the created_at parameter
+    $orders = Order::with('products')->where('created_at', $created_at)->get();
 
-    // Log orders and related details
+    // Log orders and product details
     info('Orders Details:', ['orders' => $orders]);
 
     // Pass orders to the view
     return view('orderDetails', ['orders' => $orders]);
 }
-
-
-
-
-
 
 
 }
