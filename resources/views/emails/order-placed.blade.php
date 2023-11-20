@@ -62,7 +62,7 @@
                     Log::info('Order Details: ' . json_encode($order));
                 @endphp
 
-                @if ($order['product']) {{-- Check if product is not null --}}
+              @if (isset($order['product_name']) && isset($order['product_price']))
                     <div class="product-details">
                          <p>Product: {{ $order['product_name'] }}</p>
                          <p>Price: ${{ $order['product_price'] }}</p>
