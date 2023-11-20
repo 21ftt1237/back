@@ -12,6 +12,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\StoreController;
 
 
 
@@ -32,11 +33,6 @@ use App\Http\Controllers\AdminDashboardController;
 
 // Authenticate login
 Auth::routes(['verify' => true, 'name' => 'auth.', 'password.reset' => 'password.reset']);
-
-// Dashboard route for regular users
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard.user');
 
 
 
@@ -63,15 +59,21 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/Dashboard-adm', [AdminDashboardController::class, 'index'])
         ->name('dashboard.admin');
 
-        Route::post('/products/{storeName}', [AdminController::class, 'createProduct'])->name('products.create');
+    // Store-related routes
+    Route::prefix('stores')->group(function () {
+        Route::get('/', [StoreController::class, 'index'])->name('stores.index');
+        Route::get('/create', [StoreController::class, 'create'])->name('stores.create');
+        Route::post('/', [StoreController::class, 'store'])->name('stores.store');
+        Route::get('/{store}', [StoreController::class, 'show'])->name('stores.show');
+        Route::get('/{store}/edit', [StoreController::class, 'edit'])->name('stores.edit');
+        Route::put('/{store}', [StoreController::class, 'update'])->name('stores.update');
+        Route::delete('/{store}', [StoreController::class, 'destroy'])->name('stores.destroy');
+    });
+
+    Route::post('/products/{storeName}', [AdminController::class, 'createProduct'])->name('products.create');
     Route::get('/products//{storeName}/edit', [AdminController::class, 'editProduct'])->name('products.edit');
     Route::delete('/products//{storeName}/{productName}', [AdminController::class, 'deleteProduct'])->name('products.delete');
 });
-//add new admin
-//Route::post('/Dashboard-adm', [AdminController::class, 'store'])->name('admin.store');
-
-//add new admin
-//Route::post('/Dashboard-adm', [UserController::class, 'store'])->name('user.delete');
 
 Route::post('/Dashboard-adm/{action}', [AdminController::class, 'handleForm'])->name('admin.handleForm');
 
