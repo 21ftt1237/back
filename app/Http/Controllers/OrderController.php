@@ -248,14 +248,19 @@ public function sendOrderEmail($userEmail, $orderDetails)
     }
 }
 
-    public function showAdminOrderDetails($created_at)
+public function showAdminOrderDetails($created_at)
 {
     // Fetch order details based on the created_at parameter
     $orderDetails = Order::where('created_at', $created_at)->first();
 
-    // Pass the order details to the view
-    return view('orderDetails', ['orderDetails' => $orderDetails]);
-}
+    // Fetch product details related to the order
+    $productDetails = Product::where('id', $orderDetails->product_id)->first();
 
+    // Pass both order and product details to the view
+    return view('orderDetails', [
+        'orderDetails' => $orderDetails,
+        'productDetails' => $productDetails,
+    ]);
+}
 
 }
