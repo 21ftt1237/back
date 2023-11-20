@@ -54,16 +54,30 @@ class ProductController extends Controller
     
     public function index1($storeName)
     {
-     $store = $this->store->getSingleStoreByName($storeName);
+     //$store = $this->store->getSingleStoreByName($storeName);
+
+    //if (!$store) {
+      //  abort(404);
+    //}
+
+    //$products = $this->product->getProductsByStoreId($store->id);
+
+    //$viewName = 'owner.' . strtolower($store->name);
+    //return view($viewName, compact('products', 'store'));
+    
+    // Directly query the database
+    $store = DB::table('stores')->where('name', $storeName)->first();
 
     if (!$store) {
         abort(404);
     }
 
-    $products = $this->product->getProductsByStoreId($store->id);
+    // Directly query the database for products related to the store
+    $products = DB::table('products')->where('store_id', $store->id)->get();
 
     $viewName = 'owner.' . strtolower($store->name);
     return view($viewName, compact('products', 'store'));
+    
     }
     
 
