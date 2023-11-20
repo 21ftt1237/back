@@ -75,8 +75,7 @@
                 <tr>
                     <td>{{ $store->id }}</td>
                     <td><a href="{{ route('store.show', $store->id) }}">{{ $store->name }}</a></td>
-                    <td>
-                    </td>
+
                 </tr>
             @endforeach
         </tbody>
