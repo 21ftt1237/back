@@ -203,30 +203,15 @@ public function showAllOrderLists()
 public function sendOrderEmail($userEmail, $orderDetails)
 {
     try {
-        foreach ($orderDetails as $createdAt => $ordersData) {
-            foreach ($ordersData as $order) {
-                // Fetch additional product details for each order
-                $product = Product::find($order['product_id']);
-                $order['product_name'] = $product->name;
-                $order['price'] = $product->price;
-
-                // Other details...
-
-                // Send email with the enriched order details
-                Mail::to($userEmail)->send(new OrderPlaced($userEmail, $order));
-
-                // Log success or any additional information
-                Log::info('Order email sent to ' . $userEmail);
-            }
-        }
-
+        // Send email with the OrderPlaced Mailable
+        Mail::to($userEmail)->send(new OrderPlaced($userEmail, $orderDetails));
         return true; // or any success indication
     } catch (\Exception $e) {
         // Log the error
         Log::error('Error sending order email to ' . $userEmail . ': ' . $e->getMessage());
-
         return false; // or handle the error accordingly
     }
 }
+
 
 }
