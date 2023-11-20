@@ -32,7 +32,7 @@
 /* store-list.css */
 
 #store-list {
-    display: none;
+
 }
 
 #store-list ul {
@@ -61,13 +61,9 @@
 <!--TAB store owner: -->
 <div id="store-list">
     <ul>
-        <li><a href="{{ route('store.index') }}">Netcom</a></li>
-        <li><a href="{{ route('store.indexGameCentral') }}">Game Central</a></li>
-        <li><a href="{{ route('store.indexWishlist') }}">Wishlist</a></li>
-        <li><a href="{{ route('store.indexDigital') }}">Digital</a></li>
-        <li><a href="{{ route('store.indexAvenue') }}">Avenue</a></li>
-        <li><a href="{{ route('store.indexNimanja') }}">Nimanja</a></li>
-        <li><a href="{{ route('store.indexGuardian') }}">Guardian</a></li>
+        @foreach($stores as $store)
+            <li><a href="{{ route('store.show', $store->id) }}">{{ $store->name }}</a></li>
+        @endforeach
     </ul>
 </div>
 
