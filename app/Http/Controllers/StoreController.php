@@ -26,14 +26,9 @@ public function storeList()
     }
 
     // Show a specific store
-public function show($storeId)
+public function show($store)
 {
-    $store = Store::find($storeId);
-
-    if (!$store) {
-        abort(404, 'Store not found');
-    }
-
+    $store = Store::findOrFail($store);
     return view('stores.show', compact('store'));
 }
 
