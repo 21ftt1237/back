@@ -59,12 +59,6 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/Dashboard-adm', [AdminDashboardController::class, 'index'])
         ->name('dashboard.admin');
 
-    // Move this outside of the 'stores' group
-    Route::get('/Dashboard-adm/store-list', [StoreController::class, 'storeList']) {
-        $controller = new \App\Http\Controllers\StoreController();
-        $url = $controller->generateStoreShowUrl($storeId);
-        ->name('store.list');
-});
 
     // Store-related routes
     Route::prefix('stores')->group(function () {
@@ -85,6 +79,13 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
         Route::put('/{store}', [StoreController::class, 'update'])->name('stores.update');
         Route::delete('/{store}', [StoreController::class, 'destroy'])->name('stores.destroy');
     });
+});
+
+    // Move this outside of the 'stores' group
+    Route::get('/Dashboard-adm/store-list', [StoreController::class, 'storeList']) {
+        $controller = new \App\Http\Controllers\StoreController();
+        $url = $controller->generateStoreShowUrl($storeId);
+        ->name('store.list');
 });
 
 
