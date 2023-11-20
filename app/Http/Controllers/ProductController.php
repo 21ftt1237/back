@@ -117,7 +117,7 @@ class ProductController extends Controller
             'image_link' => $data['image_link'],
         ]);
     }
-}
+
     
 
 
