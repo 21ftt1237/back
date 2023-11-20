@@ -200,26 +200,25 @@ public function showAllOrderLists()
         }
     }
 
-public function sendOrderEmail($userEmail, $consolidatedOrders)
+public function sendOrderEmail($userEmail, $orderDetails)
 {
     try {
-        // Fetch additional product details for each order
-        foreach ($consolidatedOrders as &$ordersData) {
-            foreach ($ordersData as &$order) {
+        foreach ($orderDetails as $createdAt => $ordersData) {
+            foreach ($ordersData as $order) {
+                // Fetch additional product details for each order
                 $product = Product::find($order['product_id']);
-
-                // Include product details in the order data
                 $order['product_name'] = $product->name;
                 $order['price'] = $product->price;
-                // Add other product details as needed
+
+                // Other details...
+
+                // Send email with the enriched order details
+                Mail::to($userEmail)->send(new OrderPlaced($userEmail, $order));
+
+                // Log success or any additional information
+                Log::info('Order email sent to ' . $userEmail);
             }
         }
-
-        // Send email with the OrderPlaced Mailable
-        Mail::to($userEmail)->send(new OrderPlaced($userEmail, $consolidatedOrders));
-
-        // Log success or any additional information
-        Log::info('Order email sent to ' . $userEmail);
 
         return true; // or any success indication
     } catch (\Exception $e) {
@@ -229,6 +228,5 @@ public function sendOrderEmail($userEmail, $consolidatedOrders)
         return false; // or handle the error accordingly
     }
 }
-
 
 }
