@@ -10,7 +10,7 @@
    <div class="container">
         <h1>All Orders Details</h1>
 
-        @forelse($orders as $order)
+        @forelse($orderDetails as $order)
             <div class="order-details">
                 <p>Order ID: {{ $order->id }}</p>
                 <p>Order Date: {{ $order->created_at }}</p>
