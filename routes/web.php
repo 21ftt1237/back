@@ -67,7 +67,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     // Store-related routes
     Route::prefix('stores')->group(function () {
 
-        Route::get('/stores/{store}', [StoreController::class, 'show'])
+        Route::get('/{store}', [StoreController::class, 'show'])
         ->name('store.show');
 
         Route::get('/', [App\Http\Controllers\StoreController::class, 'index'])->name('dashboard.admin.stores');
