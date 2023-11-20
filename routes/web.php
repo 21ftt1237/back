@@ -80,8 +80,6 @@ Route::get('/', function () {
 });
 
 
-Route::namespace('App\Http\Controllers')->group(function () {
-    Route::get('{store}', 'ProductController@index1')->name('store.index');
     Route::get('netcom', 'ProductController@index')->name('store.indexNetcom');
     Route::get('gamecentral', 'ProductController@indexGameCentral')->name('store.indexGameCentral');
     Route::get('wishlist', 'ProductController@indexWishlist')->name('store.indexWishlist');
