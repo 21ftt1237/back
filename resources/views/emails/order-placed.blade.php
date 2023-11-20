@@ -64,10 +64,10 @@
 
                 @if ($order['product']) {{-- Check if product is not null --}}
                     <div class="product-details">
-                        <p>Product: {{ $order['product']['name'] }}</p>
-                        <p>Price: ${{ $order['product']['price'] }}</p>
-                        <p>Quantity: {{ $order['quantity'] }}</p>
-                        <p>Total Price: ${{ $order['Total_price'] }}</p>
+                         <p>Product: {{ $order['product_name'] }}</p>
+                         <p>Price: ${{ $order['product_price'] }}</p>
+                         <p>Quantity: {{ $order['quantity'] }}</p>
+                         <p>Total Price: ${{ $order['Total_price'] }}</p>
                         <!-- Add other fields as needed -->
                     </div>
                 @endif
