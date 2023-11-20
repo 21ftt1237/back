@@ -210,6 +210,22 @@ public function showAllOrderLists()
 public function sendOrderEmail($userEmail, $orderDetails)
 {
     try {
+        // Fetch product information for each order
+        foreach ($orderDetails as $createdAt => &$orders) {
+            foreach ($orders as &$order) {
+                $product = Product::find($order['product_id']);
+                if ($product) {
+                    $order['product_name'] = $product->name;
+                    $order['product_price'] = $product->price;
+                    // Add other product details as needed
+                } else {
+                    // Handle the case where the product is not found
+                    $order['product_name'] = 'Product Not Found';
+                    $order['product_price'] = 0;
+                }
+            }
+        }
+
         // Send email with the OrderPlaced Mailable
         Mail::to($userEmail)->send(new OrderPlaced($userEmail, $orderDetails));
         return true; // or any success indication
