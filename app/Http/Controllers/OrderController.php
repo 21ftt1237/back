@@ -75,6 +75,7 @@ public function placeOrder(Request $request)
             $consolidatedOrders[$createdAtKey][] = [
             'user_id' => $user->id,
             'product_id' => $product_id,
+            'quantity' => $quantity,
             'Total_price' => $totalPrice,
             'created_at' => $createdAtKey,
              ];
