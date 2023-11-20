@@ -1,4 +1,3 @@
-
 <?php
 
 namespace App\Http\Controllers;
@@ -13,8 +12,6 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-
-
     
     public function index1($storeName)
     {
