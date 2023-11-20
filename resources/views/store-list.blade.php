@@ -78,7 +78,14 @@
 
 <script type="text/javascript">
 
-    
+    function toggleStoreList() {
+    const storeList = document.getElementById('store-list');
+    if (storeList.style.display === 'block') {
+      storeList.style.display = 'none';
+    } else {
+      storeList.style.display = 'block';
+    }
+  }
 </script>
 </body>
 </html>
