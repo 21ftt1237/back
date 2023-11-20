@@ -8,10 +8,11 @@ use Illuminate\Http\Request;
 class StoreController extends Controller
 {
 
-        public function storeList()
-    {
-        return view('store-list'); 
-    }
+public function storeList()
+{
+    $stores = Store::all(); // Fetch all stores from the database
+    return view('store-list', compact('stores'));
+}
     // Show a list of stores
     public function index()
     {
@@ -20,16 +21,16 @@ class StoreController extends Controller
     }
 
     // Show a specific store
-    public function show($storeId)
-    {
-        $store = Store::find($storeId);
+public function show($storeId)
+{
+    $store = Store::find($storeId);
 
-        if (!$store) {
-            abort(404, 'Store not found');
-        }
-
-        return view('stores.show', compact('store'));
+    if (!$store) {
+        abort(404, 'Store not found');
     }
+
+    return view('stores.show', compact('store'));
+}
 
     // Create a new store form
     public function create()
