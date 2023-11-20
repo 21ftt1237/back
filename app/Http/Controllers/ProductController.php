@@ -75,10 +75,15 @@ class ProductController extends Controller
 
 
     // User view
-    public function index($storeName)
+     public function index($storeName = null)
     {
-        // Logic for user view
-        return $this->indexUser($storeName);
+        if ($storeName) {
+            // Logic for user view with storeName
+            return $this->indexUser($storeName);
+        } else {
+            // Default logic when no storeName is provided
+            return view('default_user_view');
+        }
     }
 
     // Owner view
