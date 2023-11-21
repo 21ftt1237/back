@@ -8,16 +8,35 @@ use Illuminate\Http\Request;
 class StoreController extends Controller
 {
 
+public function showNetcom($store)
+{
+    $store = Store::findOrFail($store);
+    return view('netcom.show', compact('store'));
+}
+
+public function showGameCentral($store)
+{
+    $store = Store::findOrFail($store);
+    return view('game-central.show', compact('store'));
+}
+    
 public function storeList()
 {
     $stores = Store::all(); // Fetch all stores from the database
     return view('store-list', compact('stores'));
 }
 
-    public function generateStoreShowUrl($storeId)
-    {
-        return route('stores.show', ['store' => $storeId]);
-    }
+public function showGameCentral($store)
+{
+    $store = Store::findOrFail($store);
+    return view('game-central.show', compact('store'));
+}
+
+public function showDigital($store)
+{
+    $store = Store::findOrFail($store);
+    return view('digital.show', compact('store'));
+}
     // Show a list of stores
     public function index()
     {
