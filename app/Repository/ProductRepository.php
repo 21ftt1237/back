@@ -14,7 +14,6 @@ class ProductRepository implements IProductRepository {
     public function getSingleProduct($id)
     {
 
-
         return  Product::find($id);
 
     }
@@ -23,8 +22,8 @@ class ProductRepository implements IProductRepository {
     {
 
         $product = new Product();
-        $product->picture = $data['picture'];
-        $product->title = $data['title'];
+        $product->picture = $data['image_link'];
+        $product->title = $data['name'];
         $product->price = $data['price'];
         $product->description = $data['description'];
 
@@ -41,10 +40,10 @@ class ProductRepository implements IProductRepository {
     public function updateProduct($id, array $data)
     {
        Product::find($id)->update([
-            'picture' => $data['picture'],
-            'title' => $data['title'],
-            'price' => $data['price'],
-            'description' => $data['description']
+        $product->picture = $data['image_link'];
+        $product->title = $data['name'];
+        $product->price = $data['price'];
+        $product->description = $data['description'];
         ]);
     }
 
