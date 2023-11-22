@@ -56,10 +56,23 @@ Auth::routes(['verify' => true, 'name' => 'auth.', 'password.reset' => 'password
 
 //Route::get('/order-list/{orderStatus}', [OrderController::class, 'showOrderList']);
 
+
+//OWNER RELATED
 Route::prefix('owner')->middleware([])->group(function () {    
     Route::get('/products', [ComnetController::class, 'comnetShowAllProduct'])->name('comnet.product.index');
     Route::delete('/products/delete/{id}', [ComnetController::class, 'comnetDeleteProduct'])->name('comnet.product.delete');
 });
+
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.show');
+Route::get('/products/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
+Route::post('/products/update/{id}', [ProductController::class, 'update'])->name('product.update');
+
+
+
+
+
+
+//ADMIN
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/Dashboard-adm', [AdminDashboardController::class, 'index'])
