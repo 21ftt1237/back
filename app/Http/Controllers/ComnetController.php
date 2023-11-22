@@ -19,7 +19,7 @@ class ComnetController extends Controller
 
     public function comnetShowAllProduct() {
         $products =  $this->comnet->comnetShowAllProduct();
-        return view('comnet.index')->with('products', $products);
+        return view('owner.comnet.index')->with('products', $products);
     }
 
 
