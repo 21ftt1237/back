@@ -27,7 +27,7 @@
                                 <td>{{ $product->price }}</td>
                                 <td>{{ $product->description }}</td>
                                 <td><a href="{{ route('product.edit', $product->id)}}" class="btn btn-primary">Edit</a></td>
-                                <td><a href="{{ route('product.show', $product->id)}}" class="btn btn-secondary">View</a></td>
+                               <!-- <td><a href="{{ route('product.show', $product->id)}}" class="btn btn-secondary">View</a></td> -->
                                 <td><a href="{{ route('product.create')}}" class="btn btn-info">Create</a></td>
                                 <td>
                                     <form action="{{ route('admin.product.delete', $product->id)}}" method="POST">
