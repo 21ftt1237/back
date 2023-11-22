@@ -8,28 +8,23 @@ class ProductRepository implements IProductRepository {
 
     public function getAllProducts()
     {
-       return Product::all();
+        return Product::all();
     }
 
     public function getSingleProduct($id)
     {
-
-        return  Product::find($id);
-
+        return Product::find($id);
     }
 
     public function createProduct(array $data)
     {
-
         $product = new Product();
         $product->picture = $data['image_link'];
         $product->title = $data['name'];
         $product->price = $data['price'];
         $product->description = $data['description'];
 
-
         $product->save();
-
     }
 
     public function editProduct($id)
@@ -39,16 +34,12 @@ class ProductRepository implements IProductRepository {
 
     public function updateProduct($id, array $data)
     {
-       Product::find($id)->update([
+        $product = Product::find($id);
         $product->picture = $data['image_link'];
         $product->title = $data['name'];
         $product->price = $data['price'];
         $product->description = $data['description'];
-        ]);
+        $product->save();
     }
-
 }
-
-
-
 ?>
