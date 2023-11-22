@@ -55,13 +55,17 @@ Auth::routes(['verify' => true, 'name' => 'auth.', 'password.reset' => 'password
 
 //Route::get('/order-list/{orderStatus}', [OrderController::class, 'showOrderList']);
 
-Route::middleware(['auth', 'verified', 'admin'])->group(function () {
+Route::prefix('owner')->middleware([])->group(function () {    
+    Route::get('/products', [OwnerController::class, 'adminShowAllProduct'])->name('owner.product.index');
+    Route::delete('/products/delete/{id}', [OwnerController::class, 'adminDeleteProduct'])->name('owner.product.delete');
+});
+
+Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/Dashboard-adm', [AdminDashboardController::class, 'index'])
         ->name('dashboard.admin');
 
     Route::get('/Dashboard-adm/store-list', [StoreController::class, 'storeList']) 
         ->name('store.list');
-
 
 
     // Store-related routes
