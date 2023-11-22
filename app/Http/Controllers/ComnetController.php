@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Repository\IAdminRepository;
+use App\Repository\IComnetRepository;
 use Illuminate\Http\Request;
 
 class ComnetController extends Controller
