@@ -2,7 +2,7 @@
 <?php
 namespace App\Repository;
 
-interface IProductRepository {
+interface IComnetRepository {
 
     public function getAllProducts();
 
