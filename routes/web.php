@@ -85,26 +85,26 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 
     // Store-related routes
-    Route::prefix('stores')->group(function () {
+//    Route::prefix('stores')->group(function () {
 
-        Route::get('/{store}', [StoreController::class, 'show'])
-        ->name('store.show');
+ //       Route::get('/{store}', [StoreController::class, 'show'])
+ //       ->name('store.show');
 
-        Route::get('/', [App\Http\Controllers\StoreController::class, 'index'])->name('dashboard.admin.stores');
-        Route::get('/netcom', [App\Http\Controllers\StoreController::class, 'index'])->name('store.index');
-        Route::get('/game-central', [StoreController::class, 'indexGameCentral'])->name('store.indexGameCentral');
-        Route::get('/wishlist', [StoreController::class, 'indexWishlist'])->name('store.indexWishlist');
-        Route::get('/digital', [StoreController::class, 'indexDigital'])->name('store.indexDigital');
-        Route::get('/avenue', [StoreController::class, 'indexAvenue'])->name('store.indexAvenue');
-        Route::get('/nimanja', [StoreController::class, 'indexNimanja'])->name('store.indexNimanja');
-        Route::get('/guardian', [StoreController::class, 'indexGuardian'])->name('store.indexGuardian');
+//        Route::get('/', [App\Http\Controllers\StoreController::class, 'index'])->name('dashboard.admin.stores');
+//        Route::get('/netcom', [App\Http\Controllers\StoreController::class, 'index'])->name('store.index');
+//        Route::get('/game-central', [StoreController::class, 'indexGameCentral'])->name('store.indexGameCentral');
+//        Route::get('/wishlist', [StoreController::class, 'indexWishlist'])->name('store.indexWishlist');
+//        Route::get('/digital', [StoreController::class, 'indexDigital'])->name('store.indexDigital');
+//        Route::get('/avenue', [StoreController::class, 'indexAvenue'])->name('store.indexAvenue');
+//        Route::get('/nimanja', [StoreController::class, 'indexNimanja'])->name('store.indexNimanja');
+//        Route::get('/guardian', [StoreController::class, 'indexGuardian'])->name('store.indexGuardian');
 
-        Route::get('/create', [StoreController::class, 'create'])->name('stores.create');
-        Route::post('/', [StoreController::class, 'store'])->name('stores.store');
-        Route::get('/{store}/edit', [StoreController::class, 'edit'])->name('stores.edit');
-        Route::put('/{store}', [StoreController::class, 'update'])->name('stores.update');
-        Route::delete('/{store}', [StoreController::class, 'destroy'])->name('stores.destroy');
-    });
+//        Route::get('/create', [StoreController::class, 'create'])->name('stores.create');
+//        Route::post('/', [StoreController::class, 'store'])->name('stores.store');
+//        Route::get('/{store}/edit', [StoreController::class, 'edit'])->name('stores.edit');
+//        Route::put('/{store}', [StoreController::class, 'update'])->name('stores.update');
+//        Route::delete('/{store}', [StoreController::class, 'destroy'])->name('stores.destroy');
+//    });
 });
 
 
