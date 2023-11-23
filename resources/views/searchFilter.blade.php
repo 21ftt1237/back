@@ -725,7 +725,7 @@ const stores = [
     location: "Brunei Muara",
     address: "Setia Kenangan Complex, Unit A1 and Unit A2, Ground Floor, Bandar Seri Begawan BE1518",
     imageUrl: "image/netcom.jpg",
-    link: "{{ route('netcom.products') }}",
+    link: "{{ route('comnet.products') }}",
   },
 
     {
@@ -734,7 +734,7 @@ const stores = [
     location: "Brunei Muara",
     address: "Setia Kenangan Complex, Unit A1 and Unit A2, Ground Floor, Bandar Seri Begawan BE1518",
     imageUrl: "image/nimanjalogo.png",
-    link: "{{ route('Nimanja') }}",
+    link: "{{ route('Simanja') }}",
   },
   
   {
@@ -743,7 +743,7 @@ const stores = [
     location: "Brunei Muara",
     address: "Setia Kenangan Complex, Unit A1 and Unit A2, Ground Floor, Bandar Seri Begawan BE1518",
     imageUrl: "image/digital.jpg",
-    link: "{{ route('digital') }}",
+    link: "{{ route('DigitalUniverse') }}",
   },
   
   {
@@ -752,7 +752,7 @@ const stores = [
     location: "Brunei Muara",
     address: "Setia Kenangan Complex, Unit A1 and Unit A2, Ground Floor, Bandar Seri Begawan BE1518",
     imageUrl: "image/guardianlogo.jpg",
-    link: "{{ route('Guardian') }}",
+    link: "{{ route('Defender') }}",
   },
   
   {
@@ -761,7 +761,7 @@ const stores = [
     location: "Brunei Muara",
     address: "Setia Kenangan Complex, Unit A1 and Unit A2, Ground Floor, Bandar Seri Begawan BE1518",
     imageUrl: "image/88avenue.jpg",
-    link: "{{ route('avenue') }}",
+    link: "{{ route('route66') }}",
   },
   
   {
@@ -770,7 +770,7 @@ const stores = [
     location: "Brunei Muara",
     address: "Setia Kenangan Complex, Unit A1 and Unit A2, Ground Floor, Bandar Seri Begawan BE1518",
     imageUrl: "image/gclogo.png",
-    link: "{{ route('gamecentral') }}",
+    link: "{{ route('GameSide') }}",
   },
   
 ];
