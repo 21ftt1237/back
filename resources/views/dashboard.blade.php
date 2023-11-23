@@ -952,7 +952,7 @@ h2 {
           <p>
             YOUR ONE-STOP T-SHIRT SHOP, we have a rare kind, vintage kind, band and even graphic tees, we have all designs you need. Find us at Route 66th in kiarong.
           </p>
-          <a href="{{ route('avenue') }}" target="_blank">explore</a>
+          <a href="{{ route('route66') }}" target="_blank">explore</a>
         </div>
       </div>
 
@@ -996,11 +996,11 @@ h2 {
         </a>
       </div>
     </div>
-    <div class="item" style="background-image: url(image/88avenue.jpg);" data-url="{{ route('avenue') }}">
+    <div class="item" style="background-image: url(image/88avenue.jpg);" data-url="{{ route('route66') }}">
       <div class="item-desc">
         <h3>Route 66th</h3>
         <p>YOUR ONE-STOP T-SHIRT SHOP, we have a rare kind, vintage kind, band and even graphic tees, we have all designs you need. Find us at Route 66th in kiarong.</p>
-              <a href="{{ route('avenue') }}">
+              <a href="{{ route('route66') }}">
         <button class="item-button">view</button>
         </a>
       </div>
