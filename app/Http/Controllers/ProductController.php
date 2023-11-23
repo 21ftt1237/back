@@ -112,57 +112,6 @@ class ProductController extends Controller
     }
 
 
-    // add to cart
-
-    public function addToCart(Product $product) {
-
-        $cart = session()->get('cart');
-
-        if(!$cart) {
-
-            $cart = [
-
-                $product->id => [
-                    'name'     => $product->name,
-                    'quantity' => 1,
-                    'price'    => $product->price,
-                    'image'    => $product->image
-                ]
-            ];
-
-            session()->put('cart', $cart);
-            return redirect()->route('product.cart')->with('success', 'Added to Cart');
-        }
-
-        // if there is cart
-
-        if(isset($cart[$product->id])) {
-            $cart[$product->id]['quantity']++;
-            session()->put('cart', $cart);
-            return redirect()->route('product.cart')->with('success', 'Added to Cart');
-        }
-
-
-        $cart[$product->id] = [
-                    'name'     => $product->name,
-                    'quantity' => 1,
-                    'price'    => $product->price,
-                    'image'    => $product->image
-        ];
-
-        session()->put('cart', $cart);
-        return redirect()->route('product.cart')->with('success', 'Added to Cart');
-    }
-
-
-
-
-
-    // remove from cart
-
-    public function deleteFromCart() {
-
-    }
 
     
 
