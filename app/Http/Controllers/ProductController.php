@@ -119,7 +119,7 @@ class ProductController extends Controller
   public function index()
 {
     $products = Product::all();
-    return view('netcom', compact('products'));
+    return view('comnet', compact('products'));
 }
     
   public function indexGameCentral()
