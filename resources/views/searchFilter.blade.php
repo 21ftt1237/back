@@ -725,7 +725,7 @@ const stores = [
     location: "Brunei Muara",
     address: "Setia Kenangan Complex, Unit A1 and Unit A2, Ground Floor, Bandar Seri Begawan BE1518",
     imageUrl: "image/netcom.jpg",
-    link: "{{ route('comnet.products') }}",
+    link: "{{ route('Comnet.products') }}",
   },
 
     {
