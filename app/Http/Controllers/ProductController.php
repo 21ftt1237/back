@@ -164,7 +164,42 @@ class ProductController extends Controller
 
     }
 
+    
 
+public function index()
+{
+    return $this->indexUser('netcom');
+}
+
+public function indexGameCentral()
+{
+    return $this->indexUser('gamecentral');
+}
+
+public function indexWishlist()
+{
+    return $this->indexUser('Wishlist.BruZoneWishlist');
+}
+
+public function indexDigital()
+{
+    return $this->indexUser('digital');
+}
+
+public function indexAvenue()
+{
+    return $this->indexUser('avenue');
+}
+
+public function indexNimanja()
+{
+    return $this->indexUser('Nimanja');
+}
+
+public function indexGuardian()
+{
+    return $this->indexUser('Guardian');
+}
 
 
 
