@@ -272,7 +272,7 @@ Route::get('Simanja', [ProductController::class, 'indexNimanja'])->name('Simanja
 
 Route::get('Defender', [ProductController::class, 'indexGuardian'])->name('Defender');
 
-Route::get('Comnet', [ProductController::class, 'index'])->name('Comnet.products');
+Route::get('store.Comnet', [ProductController::class, 'index'])->name('Comnet.products');
 
 
 //Review
