@@ -921,7 +921,7 @@ h2 {
         <div>
           <h2>Comnet</h2>
           <p>Comnet is one of the largest computer retail shop in Brunei, offering after sales service and repairs, professional resources and expertise in technology solutions, with five retail outlets and one online outlet at strategic locations nationwide</p>
-          <a href="{{ route('netcom.products') }}" target="_blank">explore</a>
+          <a href="{{ route('Comnet.products') }}" target="_blank">explore</a>
         </div>
       </div>
       <div class="swiper-slide swiper-slide--two">
@@ -941,7 +941,7 @@ h2 {
           <p>
             Defender has been around in Brunei for three decades providing high-quality products at affordable prices and became the leading health, beauty and personal care retailer. The company's 31 years of experience in the Brunei market is a testament to the company's ability to adapt to local needs.
           </p>
-          <a href="{{ route('Guardian') }}" target="_blank">explore</a>
+          <a href="{{ route('Defender') }}" target="_blank">explore</a>
         </div>
       </div>
 
@@ -978,11 +978,11 @@ h2 {
   <h2 class="line-title">POPULAR STORE TODAY</h2>
   <div class="owl-carousel custom-carousel owl-theme">
 
-    <div class="item active" style="background-image: url(image/netcom.jpg);" data-url="{{ route('netcom.products') }}">
+    <div class="item active" style="background-image: url(image/netcom.jpg);" data-url="{{ route('Comnet.products') }}">
       <div class="item-desc">
         <h3>Comnet</h3>
         <p>Comnet is one of the largest computer retail shop in Brunei, offering after sales service and repairs, professional resources and expertise in technology solutions, with five retail outlets and one online outlet at strategic locations nationwide</p>
-        <a href="{{ route('netcom.products') }}">
+        <a href="{{ route('Comnet.products') }}">
         <button class="item-button">view</button>
         </a>
       </div>
@@ -1005,11 +1005,11 @@ h2 {
         </a>
       </div>
     </div>
-    <div class="item" style="background-image: url(image/guardianlogo.jpg);" data-url="{{ route('Guardian') }}">
+    <div class="item" style="background-image: url(image/guardianlogo.jpg);" data-url="{{ route('Defender') }}">
       <div class="item-desc">
         <h3>Defender</h3>
         <p>Defender has been around in Brunei for three decades providing high-quality products at affordable prices and became the leading health, beauty and personal care retailer. The company's 31 years of experience in the Brunei market is a testament to the company's ability to adapt to local needs.</p>
-             <a href="{{ route('Guardian') }}">
+             <a href="{{ route('defender') }}">
         <button class="item-button">view</button>
         </a>
       </div>
@@ -1023,11 +1023,11 @@ h2 {
         </a>
       </div>
     </div>
-    <div class="item" style="background-image: url(image/digital.jpg);" data-url="{{ route('digital') }}">
+    <div class="item" style="background-image: url(image/digital.jpg);" data-url="{{ route('DigitalUniverse') }}">
       <div class="item-desc">
         <h3>Digital universe</h3>
         <p>Digital universe is mainly a phone shop. As their reputation arises, their shop grows as now one of the biggest company in Brunei. Alternatively, other than phones that they sell, they also have laptops, watches, gaming accessories and even other electronic devices and accessories.</p>
-              <a href="{{ route('digital') }}">
+              <a href="{{ route('DigitalUniverse') }}">
         <button class="item-button">view</button>
         </a>
       </div>
