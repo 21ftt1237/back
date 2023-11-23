@@ -177,9 +177,9 @@ Route::get('searchFilter', function () {
     return view('searchFilter');
 })->name('searchFilter');
 
-Route::get('avenue', function () {
-    return view('avenue');
-})->name('avenue');
+Route::get('route66', function () {
+    return view('route66');
+})->name('route66');
 
 Route::get('des', function () {
     return view('des');
