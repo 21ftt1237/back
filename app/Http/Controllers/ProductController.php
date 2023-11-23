@@ -125,7 +125,7 @@ class ProductController extends Controller
   public function indexGameCentral()
 {
     $products = Product::all();
-    return view('gameside', compact('products'));
+    return view('store.gameside', compact('products'));
 }
       public function indexWishlist()
 {
@@ -135,22 +135,22 @@ class ProductController extends Controller
        public function indexDigital()
 {
     $products = Product::all();
-    return view('digital', compact('products'));
+    return view('store.digital', compact('products'));
 }
            public function indexAvenue()
 {
     $products = Product::all();
-    return view('route66', compact('products'));
+    return view('store.route66', compact('products'));
 }
                public function indexNimanja()
 {
     $products = Product::all();
-    return view('simanja', compact('products'));
+    return view('store.simanja', compact('products'));
 }
            public function indexGuardian()
 {
     $products = Product::all();
-    return view('Defender', compact('products'));
+    return view('store.Defender', compact('products'));
 }
 public function cart()
 {
