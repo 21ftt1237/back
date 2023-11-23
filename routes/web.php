@@ -233,9 +233,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('gamecentral', function () {
-    return view('gamecentral');
-})->name('gamecentral');
+Route::get('Gameside', function () {
+    return view('GameSide');
+})->name('GameSide');
 
 Route::get('checkout', function () {
     return view('checkout');
