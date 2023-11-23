@@ -820,12 +820,12 @@ listItems.forEach((listItem, index) => {
   listItem.addEventListener("click", () => {
     
     const storeUrls = [
-      "{{ route('netcom.products') }}", 
-      "{{ route('Nimanja') }}", 
-      "{{ route('digital') }}",
-      "{{ route('Guardian') }}",
-      "{{ route('avenue') }}",
-      "{{ route('gamecentral') }}",
+      "{{ route('Comnet.products') }}", 
+      "{{ route('Simanja') }}", 
+      "{{ route('DigitalUniverse') }}",
+      "{{ route('Defender') }}",
+      "{{ route('route66') }}",
+      "{{ route('GameSide') }}",
      
    
     ];
