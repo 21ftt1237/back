@@ -264,7 +264,7 @@ Route::get('store2', [ProductController::class, 'yes']);
 
 Route::get('GameSide', [ProductController::class, 'indexGameCentral'])->name('GameSide');
 
-Route::get('DigitalUniverse', [ProductController::class, 'indexDigital'])->name('Digitaluniverse');
+Route::get('DigitalUniverse', [ProductController::class, 'indexDigital'])->name('DigitalUniverse');
 
 Route::get('route66', [ProductController::class, 'indexAvenue'])->name('route66');
 
