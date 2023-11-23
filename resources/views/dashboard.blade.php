@@ -930,7 +930,7 @@ h2 {
           <p>
             At Game Side, we live and breathe games. We're not just a store; we're a community of gamers dedicated to providing you with the best gaming experience possible.
           </p>
-          <a href="{{ route('gamecentral') }}" target="_blank">explore</a>
+          <a href="{{ route('GameSide') }}" target="_blank">explore</a>
         </div>
       </div>
 
@@ -987,11 +987,11 @@ h2 {
         </a>
       </div>
     </div>
-    <div class="item" style="background-image: url(image/gclogo.png);" data-url="gamecentral.blade.php">
+    <div class="item" style="background-image: url(image/gclogo.png);" data-url="GameSide.blade.php">
       <div class="item-desc">
         <h3>Game Side</h3>
         <p>At Game Side, we live and breathe games. We're not just a store; we're a community of gamers dedicated to providing you with the best gaming experience possible.</p>
-              <a href="{{ route('gamecentral') }}">
+              <a href="{{ route('GameSide') }}">
         <button class="item-button">view</button>
         </a>
       </div>
