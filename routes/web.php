@@ -185,9 +185,9 @@ Route::get('des', function () {
     return view('des');
 })->name('des');
 
-Route::get('Nimanja', function () {
-    return view('Nimanja');
-})->name('Nimanja');
+Route::get('Simanja', function () {
+    return view('Simanja');
+})->name('Simanja');
 
 Route::get('digital', function () {
     return view('digital');
