@@ -17,7 +17,7 @@ class ProductController extends Controller
 
 
 
-    public function index()
+    public function indexUser()
     {
         // return all products
 
