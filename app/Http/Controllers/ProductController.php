@@ -166,40 +166,84 @@ class ProductController extends Controller
 
     
 
-public function indexNetcom()
+    
+  public function index()
 {
-    return $this->indexUser('netcom');
+    $products = Product::all();
+    return view('netcom', compact('products'));
 }
-
-public function indexGameCentral()
+    
+  public function indexGameCentral()
 {
-    return $this->indexUser('gamecentral');
+    $products = Product::all();
+    return view('gamecentral', compact('products'));
 }
-
-public function indexWishlist()
+      public function indexWishlist()
 {
-    return $this->indexUser('Wishlist.BruZoneWishlist');
+    $products = Product::all();
+    return view('Wishlist.BruZoneWishlist', compact('products'));
 }
-
-public function indexDigital()
+       public function indexDigital()
 {
-    return $this->indexUser('digital');
+    $products = Product::all();
+    return view('digital', compact('products'));
 }
-
-public function indexAvenue()
+           public function indexAvenue()
 {
-    return $this->indexUser('avenue');
+    $products = Product::all();
+    return view('avenue', compact('products'));
 }
-
-public function indexNimanja()
+               public function indexNimanja()
 {
-    return $this->indexUser('Nimanja');
+    $products = Product::all();
+    return view('Nimanja', compact('products'));
 }
-
-public function indexGuardian()
+           public function indexGuardian()
 {
-    return $this->indexUser('Guardian');
+    $products = Product::all();
+    return view('Guardian', compact('products'));
 }
+public function cart()
+{
+    $user = Auth::user();
+    $cart = $user->cart; 
+    return view('netcom', compact('cart'));
+}
+    
+public function addToWishlist(Request $request, Product $product) {
+    $user = $request->user();
+     if ($user->wishlist()->where('product_id', $product->id)->count() >= 1) {
+    return redirect()->back()->with('error', 'You can only add a maximum of 2 instances of the same product to your wishlist.');
+    }
+    
+    $user->wishlist()->attach($product->id);
+    return redirect()->back()->with('success', 'Product added to wishlist.');
+}
+    
+public function removeFromWishlist(Request $request, Product $product) {
+    $user = $request->user();
+    $user->wishlist()->detach($product->id);
+    return redirect()->back()->with('success', 'Product removed from wishlist.');
+}
+    
+public function addToCart(Request $request, Product $product) {
+    $user = $request->user();
+    $existingCartItem = $user->cart()->where('product_id', $product->id)->first();
+    if ($existingCartItem) {
+        $existingCartItem->pivot->quantity = 1;
+        $existingCartItem->pivot->save();
+    } else {
+        $user->cart()->attach($product->id, ['quantity' => 1]);
+    }
+    return redirect()->back()->with('success', 'Product added to Cart.');
+}
+    
+    public function show($id)
+{
+    $product = Product::findOrFail($id); 
+    return view('products.show', compact('product'));
+}
+    
 
 
 
