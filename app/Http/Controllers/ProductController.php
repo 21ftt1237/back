@@ -27,13 +27,13 @@ class ProductController extends Controller
 
     }
 
-    public function show($id)
-    {
+   // public function show($id)
+    //{
         // get single product
 
-        $product = $this->product->getSingleProduct($id);
-        return view('product.show')->with('product', $product);
-    }
+      //  $product = $this->product->getSingleProduct($id);
+       // return view('product.show')->with('product', $product);
+    //}
 
 
     public function create()
