@@ -1009,7 +1009,7 @@ h2 {
       <div class="item-desc">
         <h3>Defender</h3>
         <p>Defender has been around in Brunei for three decades providing high-quality products at affordable prices and became the leading health, beauty and personal care retailer. The company's 31 years of experience in the Brunei market is a testament to the company's ability to adapt to local needs.</p>
-             <a href="{{ route('defender') }}">
+             <a href="{{ route('Defender') }}">
         <button class="item-button">view</button>
         </a>
       </div>
