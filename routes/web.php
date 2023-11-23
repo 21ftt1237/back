@@ -266,7 +266,7 @@ Route::get('gamecentral', [ProductController::class, 'indexGameCentral'])->name(
 
 Route::get('digital', [ProductController::class, 'indexDigital'])->name('digital');
 
-Route::get('avenue', [ProductController::class, 'indexAvenue'])->name('avenue');
+Route::get('avenue', [ProductController::class, 'indexAvenue'])->name('route66');
 
 Route::get('Nimanja', [ProductController::class, 'indexNimanja'])->name('Nimanja');
 
