@@ -270,7 +270,7 @@ Route::get('route66', [ProductController::class, 'indexAvenue'])->name('route66'
 
 Route::get('Simanja', [ProductController::class, 'indexNimanja'])->name('Simanja');
 
-Route::get('Defender', [ProductController::class, 'indexGuardian'])->name('Defender');
+Route::get('defender', [ProductController::class, 'indexGuardian'])->name('defender');
 
 Route::get('Comnet', [ProductController::class, 'index'])->name('Comnet.products');
 
