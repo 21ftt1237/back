@@ -166,7 +166,7 @@ class ProductController extends Controller
 
     
 
-public function index()
+public function indexNetcom()
 {
     return $this->indexUser('netcom');
 }
