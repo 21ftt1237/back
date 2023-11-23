@@ -262,17 +262,17 @@ Route::get('store2', [ProductController::class, 'yes']);
 
 //Store
 
-Route::get('gamecentral', [ProductController::class, 'indexGameCentral'])->name('gamecentral');
+Route::get('GameSide', [ProductController::class, 'indexGameCentral'])->name('GameSide');
 
-Route::get('digital', [ProductController::class, 'indexDigital'])->name('digital');
+Route::get('DigitalUniverse', [ProductController::class, 'indexDigital'])->name('Digitaluniverse');
 
-Route::get('route66', [ProductController::class, 'indexAvenue'])->name('route66');
+Route::get('route66', [ProductController::class, 'indexAvenue'])->name('Route66');
 
-Route::get('Nimanja', [ProductController::class, 'indexNimanja'])->name('Nimanja');
+Route::get('Simanja', [ProductController::class, 'indexNimanja'])->name('Simanja');
 
-Route::get('Guardian', [ProductController::class, 'indexGuardian'])->name('Guardian');
+Route::get('Defender', [ProductController::class, 'indexGuardian'])->name('Defender');
 
-Route::get('netcom', [ProductController::class, 'index'])->name('netcom.products');
+Route::get('Comnet', [ProductController::class, 'index'])->name('Comnet.products');
 
 
 //Review
