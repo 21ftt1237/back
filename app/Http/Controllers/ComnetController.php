@@ -35,4 +35,33 @@ class ComnetController extends Controller
         return view('store.CComnet');
     }
 
+    public function store(Request $request)
+    {
+
+        // validate and store data
+        $request->validate([
+            'picture' => 'required',
+            'title' => 'required',
+            'price' => 'required',
+            'description' => 'required'
+        ]);
+
+        //image upload
+
+        $data = $request->all();
+
+
+        if ($image = $request->file('picture')) {
+        $name = time() . '.' . $image->getClientOriginalName();
+        $path = $image->storeAs('images', $name, 'public');
+        $data['picture'] = '/images/' . $name;
+
+    }
+
+        $this->product->createProduct($data);
+
+        return redirect('/store/comnet');
+
+    }
+
 }
