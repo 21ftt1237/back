@@ -28,4 +28,11 @@ class ComnetController extends Controller
         return redirect('/owner/products');
     }
 
+     public function create()
+    {
+
+        // create page
+        return view('store.CComnet');
+    }
+
 }
