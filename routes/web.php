@@ -61,7 +61,7 @@ Auth::routes(['verify' => true, 'name' => 'auth.', 'password.reset' => 'password
 Route::prefix('owner')->middleware([])->group(function () {    
     Route::get('/products', [ComnetController::class, 'comnetShowAllProduct'])->name('owner.store.comnet');
     Route::get('/store/CComnet', [ComnetController::class, 'create'])->name('comnet.create');
-    Route::post('/store/CComnet', [ComnetController::class, 'store'])->name('Comnet.store');
+    Route::post('/store/CComnet', [ComnetController::class, 'store'])->name('comnet.store');
     Route::delete('/products/delete/{id}', [ComnetController::class, 'comnetDeleteProduct'])->name('owner.product.delete');
 });
 
