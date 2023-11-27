@@ -57,6 +57,10 @@ Auth::routes(['verify' => true, 'name' => 'auth.', 'password.reset' => 'password
 //Route::get('/order-list/{orderStatus}', [OrderController::class, 'showOrderList']);
 
 
+Route::get('/products', [ComnetController::class, 'comnet'])->name('comnet.comnet');
+Route::get('/products/create', [ComnetController::class, 'create'])->name('comnet.create');
+Route::post('/products/store', [ComnetController::class, 'store'])->name('comnet.store');
+
 //OWNER RELATED
 Route::prefix('owner')->middleware([])->group(function () {    
     Route::get('/products', [ComnetController::class, 'comnetShowAllProduct'])->name('owner.comnet.comnet');
