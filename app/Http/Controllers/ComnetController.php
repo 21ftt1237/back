@@ -16,6 +16,16 @@ class ComnetController extends Controller
         $this->comnet = $comnet;
     }
 
+        public function index()
+    {
+        // return all products
+
+        $products =  $this->product->getAllProducts();
+
+        return view('comnet.comnet')->with('products', $products);
+
+    }
+
 
     public function comnetShowAllProduct() {
         $products =  $this->comnet->comnetShowAllProduct();
