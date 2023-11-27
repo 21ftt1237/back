@@ -67,7 +67,7 @@ class ComnetController extends Controller
     public function index()
 {
     $products = Product::all();
-    return view('store.comnet', compact('products'));
+    return view('comnet.comnet', compact('products'));
 }
     
   public function indexGameCentral()
