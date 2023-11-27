@@ -16,7 +16,7 @@ class ComnetController extends Controller
         $this->comnet = $comnet;
     }
 
-        public function index()
+        public function indexComnet()
     {
         // return all products
 
