@@ -20,7 +20,7 @@ class ComnetController extends Controller
     {
         // return all products
 
-        $products =  $this->product->getAllProducts();
+        $products =  $this->comnet->getAllProducts();
 
         return view('comnet.comnet')->with('products', $products);
 
