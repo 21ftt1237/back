@@ -19,7 +19,7 @@ class ComnetController extends Controller
 
     public function comnetShowAllProduct() {
         $products =  $this->comnet->comnetShowAllProduct();
-        return view('store.comnet')->with('products', $products);
+        return view('comnet.comnet')->with('products', $products);
     }
 
 
@@ -32,7 +32,7 @@ class ComnetController extends Controller
     {
 
         // create page
-        return view('store.CComnet');
+        return view('comnet.create');
     }
 
     public function store(Request $request)
@@ -60,7 +60,7 @@ class ComnetController extends Controller
 
         $this->product->createProduct($data);
 
-        return redirect('/store/comnet');
+        return redirect('/comnet/comnet');
 
     }
 
