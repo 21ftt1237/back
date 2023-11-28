@@ -14,7 +14,10 @@ class ComnetController extends Controller
     public function __construct(IComnetRepository $comnet)
     {
         $this->comnet = $comnet;
+        $this->middleware('auth');
     }
+
+
 
         public function indexComnet()
     {
