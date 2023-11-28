@@ -67,8 +67,10 @@ class ComnetController extends Controller
         $data['image_link'] = '/images/' . $name;
 
     }
+        $this->comnet->comnetCreateProduct($data);
 
-        $this->product->createProduct($data);
+
+//        $this->product->createProduct($data);
 
         return redirect('/comnet/comnet');
 
