@@ -70,7 +70,7 @@ Route::prefix('owner')->middleware([])->group(function () {
 });
 
 
-Route::get('/products/create', [ProductController::class, 'create'])->name('product.create');
+
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.show');
 Route::get('/products/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
 Route::post('/products/update/{id}', [ProductController::class, 'update'])->name('product.update');
