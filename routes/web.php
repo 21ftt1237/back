@@ -58,7 +58,7 @@ Auth::routes(['verify' => true, 'name' => 'auth.', 'password.reset' => 'password
 
 
 Route::get('/products', [ComnetController::class, 'indexComnet'])->name('comnet.comnet');
-Route::get('/products/create', [ComnetController::class, 'create'])->name('comnet.create')->middleware('auth');
+Route::get('/products/create', [ComnetController::class, 'create'])->name('comnet.create');
 Route::post('/products/store', [ComnetController::class, 'store'])->name('comnet.store');
 
 
