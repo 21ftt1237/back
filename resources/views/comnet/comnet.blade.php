@@ -1399,6 +1399,13 @@ function ReviewContentContainer(name, createdAt, review) {
                                 <div class="name">{{ $product->name }}</div>
                                 <div class="price">$ {{ $product->price }}</div>
                                 <div class="info">{{ $product->description }}</div>
+
+                                <div>
+                                    <img src="images/{{ $product->image_link }}" alt="{{ $product->name }}">
+                                    <p>{{ $product->name }}</p>
+                                    <p>{{ $product->price }}</p>
+                                    <p>{{ $product->description }}</p>
+                                </div>
                                 <div class="actions">
                                 @if($loggedIn)
                                  <form action="{{ route('cart.add', ['product' => $product]) }}" method="POST">
@@ -1411,12 +1418,6 @@ function ReviewContentContainer(name, createdAt, review) {
                                     <button>Add To Cart</button>
                                  </form>
 
-        <div>
-        <img src="images/{{ $product->image_link }}" alt="{{ $product->name }}">
-        <p>{{ $product->name }}</p>
-        <p>{{ $product->price }}</p>
-        <p>{{ $product->description }}</p>
-        </div>
 
                                     
                                 @endif
