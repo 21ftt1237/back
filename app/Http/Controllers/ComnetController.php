@@ -66,7 +66,7 @@ class ComnetController extends Controller
         $data = $request->all();
 
 
-        if ($image = $request->file('picture')) {
+        if ($image = $request->file('image_link')) {
         $name = time() . '.' . $image->getClientOriginalName();
         $path = $image->storeAs('images', $name, 'public');
         $data['image_link'] = '/images/' . $name;
