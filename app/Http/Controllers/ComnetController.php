@@ -73,6 +73,10 @@ class ComnetController extends Controller
     }
         $this->comnet->comnetCreateProduct($data);
 
+        $newProduct = $this->comnet->getRecentlyCreatedProduct();
+
+         return view('comnet.create')->with('newProduct', $newProduct);
+
 
 //        $this->product->createProduct($data);
 
