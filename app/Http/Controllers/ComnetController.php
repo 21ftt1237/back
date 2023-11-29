@@ -43,8 +43,12 @@ class ComnetController extends Controller
 
      public function create()
     {
+        dd('Reached the create method');
+        
         // create page
         return view('comnet.create');
+
+        
     }
 
     public function store(Request $request)
