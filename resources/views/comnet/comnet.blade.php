@@ -1412,7 +1412,7 @@ function ReviewContentContainer(name, createdAt, review) {
                                  </form>
 
         <div>
-        <img src="{{ asset($product->image_link) }}" alt="{{ $product->name }}">
+        <img src="{{images/($product->image_link) }}" alt="{{ $product->name }}">
         <p>{{ $product->name }}</p>
         <p>{{ $product->price }}</p>
         <p>{{ $product->description }}</p>
