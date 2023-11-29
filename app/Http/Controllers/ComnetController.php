@@ -14,7 +14,7 @@ class ComnetController extends Controller
     public function __construct(IComnetRepository $comnet)
     {
         $this->comnet = $comnet;
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['create']);
     }
 
 
