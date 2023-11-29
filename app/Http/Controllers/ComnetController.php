@@ -56,6 +56,7 @@ class ComnetController extends Controller
         // validate and store data
         $request->validate([
             'image_link' => 'required',
+            'store_id' => 'required',
             'name' => 'required',
             'price' => 'required',
             'description' => 'required'
