@@ -44,6 +44,7 @@ class ComnetController extends Controller
      public function create()
     {
 
+        dd(auth()->user());
         // create page
         return view('comnet.create');
     }
