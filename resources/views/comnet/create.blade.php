@@ -21,6 +21,16 @@
     <form action="{{ route('comnet.store') }}" enctype="multipart/form-data" method="POST">
         @csrf
 
+                <div class="mb-3">
+            <label for="store_id" class="form-label">Select Store</label>
+            <select class="form-select" name="store_id" id="store_id">
+                
+                <option value="1">comnet</option>
+                <option value="2">gameside</option>
+ >
+            </select>
+        </div>
+
         <div class="mb-3">
             <label for="image_link" class="form-label">Choose Picture</label>
             <input class="form-control" type="file" name="image_link" id="image_link">
