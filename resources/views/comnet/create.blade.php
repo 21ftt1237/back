@@ -17,7 +17,7 @@
 
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" name="title" id="title" placeholder="Enter title" value="{{ old('title') }}" >
+            <input type="text" class="form-control" name="name" id="name" placeholder="Enter title" value="{{ old('name') }}" >
           </div>
 
           <div class="mb-3">
