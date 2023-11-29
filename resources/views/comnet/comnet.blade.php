@@ -1410,6 +1410,15 @@ function ReviewContentContainer(name, createdAt, review) {
                                     @csrf
                                     <button>Add To Cart</button>
                                  </form>
+
+        <div>
+        <img src="{{ asset($product->image_link) }}" alt="{{ $product->name }}">
+        <p>{{ $product->name }}</p>
+        <p>{{ $product->price }}</p>
+        <p>{{ $product->description }}</p>
+        </div>
+
+                                    
                                 @endif
                                 @if($loggedIn)
                                     <form action="{{ route('wishlist.add', ['product' => $product]) }}" method="POST">
