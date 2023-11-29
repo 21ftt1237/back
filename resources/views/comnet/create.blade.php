@@ -2,15 +2,6 @@
 
 @section('content')
 
-@if(isset($newProduct))
-    <div>
-        <img src="{{ $newProduct->image_link }}" alt="{{ $newProduct->name }}">
-        <p>New Product Name: {{ $newProduct->name }}</p>
-        <p>New Product Price: {{ $newProduct->price }}</p>
-        <p>New Product Description: {{ $newProduct->description }}</p>
-    </div>
-@endif
-
 
 
 <div class="container mt-5 mb-5">
