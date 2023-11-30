@@ -92,7 +92,7 @@ return redirect('/products');
   public function indexGameCentral()
 {
     $products = Product::all();
-    return view('store.gameside', compact('products', 'newlyAddedProducts'));
+    return view('gameside.gameside', compact('products', 'newlyAddedProducts'));
 }
       public function indexWishlist()
 {
@@ -102,22 +102,22 @@ return redirect('/products');
        public function indexDigital()
 {
     $products = Product::all();
-    return view('store.digital', compact('products', 'newlyAddedProducts'));
+    return view('digital.digital', compact('products', 'newlyAddedProducts'));
 }
            public function indexAvenue()
 {
     $products = Product::all();
-    return view('store.route66', compact('products', 'newlyAddedProducts'));
+    return view('route66.route66', compact('products', 'newlyAddedProducts'));
 }
                public function indexNimanja()
 {
     $products = Product::all();
-    return view('store.simanja', compact('products', 'newlyAddedProducts'));
+    return view('simanja.simanja', compact('products', 'newlyAddedProducts'));
 }
            public function indexGuardian()
 {
     $products = Product::all();
-    return view('store.Defender', compact('products', 'newlyAddedProducts'));
+    return view('defender.Defender', compact('products', 'newlyAddedProducts'));
 }
 public function cart()
 {
