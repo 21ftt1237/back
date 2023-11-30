@@ -1404,18 +1404,18 @@ function ReviewContentContainer(name, createdAt, review) {
 
                     <div class="list">
                         @foreach ($products as $products)
-                            @if ($newProduct->store_id == 1)
+                            @if ($product->store_id == 1)
                                 <div class="item">
                                     <div class="img">
-                                        <img src="images/{{ $newProduct->image_link }}" alt="{{ $newProduct->name }}">
+                                        <img src="images/{{ $product->image_link }}" alt="{{ $product->name }}">
                                     </div>
-                                    <div class="name">{{ $newProduct->name }}</div>
-                                    <div class="price">$ {{ $newProduct->price }}</div>
-                                    <div class="info">{{ $newProduct->description }}</div>
+                                    <div class="name">{{ $product->name }}</div>
+                                    <div class="price">$ {{ $product->price }}</div>
+                                    <div class="info">{{ $product->description }}</div>
 
                                     <div class="actions">
                                         @if($loggedIn)
-                                            <form action="{{ route('cart.add', ['product' => $newProduct]) }}" method="POST">
+                                            <form action="{{ route('cart.add', ['product' => $product]) }}" method="POST">
                                                 @csrf
                                                 <button>Add To Cart</button>
                                             </form>
@@ -1425,6 +1425,18 @@ function ReviewContentContainer(name, createdAt, review) {
                                                 <button>Add To Cart</button>
                                             </form>
                                         @endif
+                                        
+                                         @if($loggedIn)
+                                            <form action="{{ route('wishlist.add', ['product' => $product]) }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="heart-icon">❤</button>
+                                            </form> 
+                                        @else 
+                                            <form action="{{ route('BruzoneLogin') }}">
+                                                @csrf
+                                                <button type="submit" class="heart-icon">❤</button>
+                                            </form>
+                                       @endif
                                     </div>
                                 </div>
                             @endif
