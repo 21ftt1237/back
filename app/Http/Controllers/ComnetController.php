@@ -113,8 +113,7 @@ if ($image = $request->file('picture')) {
 
         $this->comnet->updateProduct($id, $data);
 
-    return redirect('/comnet');
-
+    return redirect('/owner/comnet');
     }    
 
     public function index()
