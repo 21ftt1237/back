@@ -1366,7 +1366,7 @@ function ReviewContentContainer(name, createdAt, review) {
                             <div class="item">
                                 <div class="img">
                                     <img src="{{ $product->image_link }}" alt="{{ $product->name }}">
-                                    {{ $product->image_link }}
+                                    
                                 </div>
                                 <div class="name">{{ $product->name }}</div>
                                 <div class="price">$ {{ $product->price }}</div>
