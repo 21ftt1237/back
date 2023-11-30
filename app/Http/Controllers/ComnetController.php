@@ -55,7 +55,7 @@ class ComnetController extends Controller
 
         // validate and store data
         $request->validate([
-            'image_link' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'store_id' => 'required',
             'name' => 'required',
             'price' => 'required',
@@ -66,7 +66,7 @@ class ComnetController extends Controller
 
 $data = $request->all();
 
-if ($image = $request->file('image_link')) {
+if ($image = $request->file('picture')) {
     $name = time() . '.' . $image->getClientOriginalName();
     $path = $image->storeAs('images', $name, 'public');
     $data['image_link'] = '/images/' . $name;
