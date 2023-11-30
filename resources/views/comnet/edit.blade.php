@@ -31,7 +31,7 @@
             <textarea class="form-control" name="description" id="description" placeholder="Enter Description">{{ $product->description }}</textarea>
           </div>
         
-        <input type="hidden" name="_method" value="PUT">
+   
         <button type="submit" class="btn btn-primary">Update Product</button>
 
     </form>
