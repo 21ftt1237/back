@@ -1457,7 +1457,7 @@ function ReviewContentContainer(name, createdAt, review) {
                          @if ($product->store_id == 6)
                             <div class="item">
                                 <div class="img">
-                                    <img src="image/{{ $product->image_link }}" alt="{{ $product->name }}">
+                                    <img src="{{ $product->image_link }}" alt="{{ $product->name }}">
                                 </div>
                                 <div class="name">{{ $product->name }}</div>
                                 <div class="price">$ {{ $product->price }}</div>
