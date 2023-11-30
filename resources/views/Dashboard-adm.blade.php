@@ -436,7 +436,7 @@ table {
         <li><a href="{{ route('gameside.gameside') }}">Game Central</a></li>
         <li><a href="{{ route('wishlist') }}">Wishlist</a></li>
         <li><a href="{{ route('digital.digital') }}">Digital</a></li>
-<!--         <li><a href="{{ route('route66.route66') }}">Avenue</a></li> -->
+
         <li><a href="{{ route('simanja.simanja') }}">Nimanja</a></li>
         <li><a href="{{ route('defender.defender') }}">Guardian</a></li>
     </ul>
