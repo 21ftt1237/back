@@ -88,7 +88,7 @@ return redirect('/comnet');
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $id)
     {
 
         // validate and store data
