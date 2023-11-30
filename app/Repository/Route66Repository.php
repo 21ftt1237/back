@@ -4,19 +4,15 @@ namespace App\Repository;
 
 use App\Models\Product;
 
-class ComnetRepository implements IComnetRepository {
+class Route66Repository implements IRoute66Repository {
 
-    public function comnetShowAllProduct()
+    public function route66ShowAllProduct()
     {
         return Product::all();
     }
 
-        public function indexComnet()
-    {
-        return Product::all();
-    }
 
-    public function comnetDeleteProduct($id)
+    public function route66DeleteProduct($id)
     {
         return Product::find($id)->delete();
     }
