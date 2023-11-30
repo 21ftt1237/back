@@ -46,12 +46,12 @@
 
           <div class="mb-3">
             <label for="price" class="form-label">Price</label>
-            <input type="text" class="info" name="price" id="price" placeholder="Enter price">
+            <input type="text" class="form-control" name="price" id="price" placeholder="Enter price">
           </div>
 
           <div class="mb-3">
             <label for="description" class="form-label">Description</label>
-            <textarea class="form-control" name="description" id="description" placeholder="Enter Description"></textarea>
+            <textarea class="info" name="description" id="description" placeholder="Enter Description"></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary">Create Product</button>
