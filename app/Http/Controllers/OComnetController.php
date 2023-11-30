@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Repository\IOComnetCRepository;
+use App\Repository\IOComnetRepository;
 use Illuminate\Http\Request;
 
 class OComnetController extends Controller
