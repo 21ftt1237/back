@@ -1,3 +1,5 @@
+@extends('layouts.app')
+
 @php
     $pageName = 'Bruzone (Comnet)';
     $storehere = 'true';
