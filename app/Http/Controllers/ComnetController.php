@@ -64,26 +64,18 @@ class ComnetController extends Controller
 
         //image upload
 
-        $data = $request->all();
+$data = $request->all();
 
+if ($image = $request->file('image_link')) {
+    $name = time() . '.' . $image->getClientOriginalName();
+    $path = $image->storeAs('images', $name, 'public');
+    $data['image_link'] = '/images/' . $name;
+}
 
-        if ($image = $request->file('image_link')) {
-        $name = time() . '.' . $image->getClientOriginalName();
-        //$path = $image->storeAs('image', $name, 'public');
-        $path = $image->storeAs('images', $name, 'public');
-        $data['image_link'] =  '/images/' . $name;
+$this->product->createProduct($data);
 
-    }
-        $this->comnet->comnetCreateProduct($data);
+return redirect('/products');
 
-        $newProduct = $this->comnet->getRecentlyCreatedProduct();
-
-         return view('comnet.create')->with('newProduct', $newProduct);
-
-
-//        $this->product->createProduct($data);
-
-        return redirect('/products');
 
     }
 
