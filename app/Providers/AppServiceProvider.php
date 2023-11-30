@@ -17,6 +17,9 @@ use App\Repository\IRoute66Repository;
 use App\Repository\Route66Repository;
 use App\Repository\ISimanjaRepository;
 use App\Repository\SimanjaRepository;
+use App\Repository\IOComnetRepository;
+use App\Repository\OComnetRepository;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -33,7 +36,10 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->bind(IGamesideRepository::class, GamesideRepository::class);
         $this->app->bind(IRoute66Repository::class, Route66Repository::class);
-         $this->app->bind(ISimanjaRepository::class, SimanjaRepository::class);
+        $this->app->bind(ISimanjaRepository::class, SimanjaRepository::class);
+
+
+        $this->app->bind(IOComnetRepository::class, OComnetRepository::class);
 
     }
     /**
