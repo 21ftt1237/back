@@ -12,7 +12,7 @@
     @if(isset($newProduct))
         <div class="mb-3">
             <label for="image_link" class="form-label">Image</label>
-            <img src="{{ asset($product->image_link) }}" alt="{{ $product->name }}" class="img-thumbnail">
+            <img src="{{ ($product->image_link) }}" alt="{{ $product->name }}" class="img-thumbnail">
         </div>
 
         <div class="mb-3">
