@@ -24,9 +24,9 @@ class ComnetRepository implements IComnetRepository {
     public function createProduct(array $data)
     {
         $product = new Product();
-        $product->picture = $data['image_link'];
+        $product->image_link = $data['image_link'];
         $product->store_id = $data['store_id'];
-        $product->title = $data['name'];
+        $product->name = $data['name'];
         $product->price = $data['price'];
         $product->description = $data['description'];
 
