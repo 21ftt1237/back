@@ -62,10 +62,26 @@ Route::get('/comnet/create', [ComnetController::class, 'create'])->name('comnet.
 Route::post('/comnet/store', [ComnetController::class, 'store'])->name('comnet.store');
 
 
-Route::get('/defender', [DefenderController::class, 'digitalShowAllProduct'])->name('defender.defender');
-Route::get('/defender/create', [ComnetController::class, 'create'])->name('comnet.create');
-Route::post('/defender/store', [ComnetController::class, 'store'])->name('comnet.store');
-Route::get('/create', [ComnetController::class, 'create']);
+Route::get('/defender', [DefenderController::class, 'defenderShowAllProduct'])->name('defender.defender');
+Route::get('/defender/create', [DefenderController::class, 'create'])->name('defender.create');
+Route::post('/defender/store', [DefenderController::class, 'store'])->name('defender.store');
+
+Route::get('/digital', [DigitalController::class, 'dgitalShowAllProduct'])->name('digital.digital');
+Route::get('/digital/create', [DigitalController::class, 'create'])->name('digital.create');
+Route::post('/digital/store', [DigitalController::class, 'store'])->name('digital.store');
+
+Route::get('/gameside', [GamesideController::class, 'gamesideShowAllProduct'])->name('gameside.gameside');
+Route::get('/gameside/create', [GamesideController::class, 'create'])->name('gameside.create');
+Route::post('/gameside/store', [GamesideController::class, 'store'])->name('gameside.store');
+
+Route::get('/route66', [Route66Controller::class, 'route66ShowAllProduct'])->name('route66.route66');
+Route::get('/route66/create', [Route66Controller::class, 'create'])->name('route66.create');
+Route::post('/route66/store', [Route66Controller::class, 'store'])->name('route66.store');
+
+Route::get('/simanja', [SimanjaController::class, 'simanjaShowAllProduct'])->name('simanja.simanja');
+Route::get('/simanja/create', [SimanjaController::class, 'create'])->name('simanja.create');
+Route::post('/simanja/store', [SimanjaController::class, 'store'])->name('simanja.store');
+
 
 
 
