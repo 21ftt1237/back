@@ -97,11 +97,13 @@ Route::post('/simanja/store', [SimanjaController::class, 'store'])->name('simanj
 });
 
 
-  Route::get('/comnet/edit/{id}', [OComnetController::class, 'edit'])->name('comnet.edit');
+  Route::get('/comnet/edit/{id}', [ComnetController::class, 'edit'])->name('comnet.edit');
+  Route::post('/comnet/update/{id}', [ComnetController::class, 'update'])->name('comnet.update');
 
-Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.show');
-Route::get('/products/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
-Route::post('/products/update/{id}', [ProductController::class, 'update'])->name('product.update');
+
+//oute::get('/products/{id}', [ProductController::class, 'show'])->name('product.show');
+//Route::get('/products/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
+//Route::post('/products/update/{id}', [ProductController::class, 'update'])->name('product.update');
 
 
 
