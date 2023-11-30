@@ -68,7 +68,7 @@ Route::get('/create', [ComnetController::class, 'create']);
 Route::prefix('owner')->middleware([])->group(function () {    
     Route::get('/products', [ComnetController::class, 'comnetShowAllProduct'])->name('owner.comnet.comnet');
     Route::get('/products/create', [ComnetController::class, 'create'])->name('comnet.create');
-    Route::post('/products/store', [ComnetController::class, 'store'])->name('comnet.store');
+  //  Route::post('/products/store', [ComnetController::class, 'store'])->name('comnet.store');
     Route::delete('/products/delete/{id}', [ComnetController::class, 'comnetDeleteProduct'])->name('owner.product.delete');
 });
 
