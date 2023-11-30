@@ -68,7 +68,8 @@ $data = $request->all();
 
 if ($image = $request->file('picture')) {
     $name = time() . '.' . $image->getClientOriginalName();
-    $path = $image->storeAs('public/images', $name);
+    //$path = $image->storeAs('public/images', $name);
+     $image->move(public_path('images'), $name);
     $data['image_link'] = '/images/' . $name;
 }
 
