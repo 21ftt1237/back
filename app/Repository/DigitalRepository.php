@@ -4,19 +4,15 @@ namespace App\Repository;
 
 use App\Models\Product;
 
-class ComnetRepository implements IComnetRepository {
+class digitalRepository implements IdigitalRepository {
 
-    public function comnetShowAllProduct()
+    public function digitalShowAllProduct()
     {
         return Product::all();
     }
 
-        public function indexComnet()
-    {
-        return Product::all();
-    }
 
-    public function comnetDeleteProduct($id)
+    public function digitalDeleteProduct($id)
     {
         return Product::find($id)->delete();
     }
