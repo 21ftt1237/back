@@ -32,6 +32,13 @@ class ComnetRepository implements IComnetRepository {
         return Product::latest()->first();
     }
 
+    public function getNewlyAddedProducts()
+{
+    return Product::where('created_at', '>=', now()->subDays(7)) // Adjust the timeframe as needed
+        ->orderBy('created_at', 'desc')
+        ->get();
+}
+
 }
 
 
