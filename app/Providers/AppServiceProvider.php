@@ -17,7 +17,14 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(IProductRepository::class, ProductRepository::class);
         $this->app->bind(IComnetRepository::class, ComnetRepository::class);
-    }
+
+        $this->app->bind(IDefenderRepository::class, DefenderRepository::class);
+        $this->app->bind(IDigitalRepository::class, DigitalRepository::class);
+
+        $this->app->bind(IGamesideRepository::class, GamesideRepository::class);
+        $this->app->bind(IRoute66Repository::class, Route66Repository::class);
+         $this->app->bind(ISimanjaRepository::class, SimanjaRepository::class);
+
 
     /**
      * Bootstrap any application services.
