@@ -7,7 +7,7 @@
     <h2>Create Product</h2>
     <hr>
 
-    <form action="{{ route('comnet.store') }}" enctype="multipart/form-data" method="POST">
+    <form action="{{ route('simanja.store') }}" enctype="multipart/form-data" method="POST">
         @csrf
 
         <div class="mb-3">
