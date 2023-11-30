@@ -3,49 +3,37 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Repository\IComnetRepository;
+use App\Repository\ISimanjaRepository;
 use Illuminate\Http\Request;
 
-class ComnetController extends Controller
+class SimanjaController extends Controller
 {
 
-    public $comnet;
+    public $simanja;
 
-    public function __construct(IComnetRepository $comnet)
+    public function __construct(ISimanjaRepository $comnet)
     {
-        $this->comnet = $comnet;
+        $this->simanja = $simanja;
         $this->middleware('auth')->except(['create']);
     }
 
 
-
-        public function indexComnet()
-    {
-        // return all products
-
-        $products =  $this->comnet->comnetShowAllProduct();
-
-        return view('comnet.comnet')->with('products', $products);
-
+    public function simanjaShowAllProduct() {
+        $products =  $this->simanja->simanjaShowAllProduct();
+        return view('simanja.simanja')->with('products', $products);
     }
 
 
-    public function comnetShowAllProduct() {
-        $products =  $this->comnet->comnetShowAllProduct();
-        return view('comnet.comnet')->with('products', $products);
-    }
-
-
-    public function comnetDeleteProduct($id) {
-        $this->comnet->comnetDeleteProduct($id);
-        return redirect('/products');
+    public function simanjaDeleteProduct($id) {
+        $this->simanja->simanjaDeleteProduct($id);
+        return redirect('/simanja');
     }
 
      public function create()
     {
         
         // create page
-        return view('comnet.create');
+        return view('simanja.create');
 
         
     }
@@ -73,9 +61,9 @@ if ($image = $request->file('picture')) {
     $data['image_link'] = '/images/' . $name;
 }
 
-$this->comnet->createProduct($data);
+$this->simanja->createProduct($data);
 
-return redirect('/products');
+return redirect('/simanja');
 
 
     }
