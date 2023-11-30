@@ -1346,105 +1346,117 @@ function ReviewContentContainer(name, createdAt, review) {
   </header>
   <section>
     <div class="section">
-        <div class="section1">
-            <div class="img-slider">
-                <img src="image/razerstrider.png" alt="" class="img">
-                <img src="image/g203.png" alt="" class="img">
-                <img src="image/anker.png" alt="" class="img">
-                <img src="image/razerkraken.png" alt="" class="img">
-                <img src="image/corsairstand.png" alt="" class="img">
-            </div>
+      <div class="section1">
+        <div class="img-slider">
+          <img src="image/razerstrider.png" alt="" class="img">
+          <img src="image/g203.png" alt="" class="img">
+          <img src="image/anker.png" alt="" class="img">
+          <img src="image/razerkraken.png" alt="" class="img">
+          <img src="image/corsairstand.png" alt="" class="img">
         </div>
-        <div class="section2">
-            <div class="container">
-
-                <div class="containerPage">
-                    <div class="list">
+      </div>
+      <div class="section2">
+        <div class="container">
+         <!--  <div class="items">
+            <div class="img img1"><img src="asusLaptop.jpg" alt=""></div>
+            <div class="name">Laptop</div>
+            <div class="price">$2,398.00</div>
+            <div class="info">Lorem ipsum dolor sit amet consectetur.</div>
+          </div>
+          <div class="items">
+            <div class="img img2"><img src="acerNitroMonitor.jpg" alt=""></div>
+            <div class="name">Monitor</div>
+            <div class="price">$168.00</div>
+            <div class="info">Lorem ipsum dolor sit.</div>
+          </div>
+          <div class="items">
+            <div class="img img3"><img src="razerMouse.jpg" alt=""></div>
+            <div class="name">Mouse</div>
+            <div class="price">$108.00</div>
+            <div class="info">Lorem ipsum dolor sit amet.</div>
+          </div>
+          <div class="items">
+            <div class="img img1"><img src="canonPrinter.jpg" alt=""></div>
+            <div class="name">Printer</div>
+            <div class="price">$146.00</div>
+            <div class="info">Lorem ipsum dolor sit.</div>
+          </div>
+          <div class="items">
+            <div class="img img1"><img src="havitSpeaker.jpg" alt=""></div>
+            <div class="name">Speaker</div>
+            <div class="price">$29.00</div>
+            <div class="info">Lorem ipsum dolor sit.</div>
+          </div> -->
+          
+           <div class="containerPage">
+                    <div class="list">           
                         @foreach ($products as $product)
-                            @if ($product->store_id == 1)
-                                <div class="item">
-                                    <div class="img">
-                                        <img src="image/{{ $product->image_link }}" alt="{{ $product->name }}">
-                                    </div>
-                                    <div class="name">{{ $product->name }}</div>
-                                    <div class="price">$ {{ $product->price }}</div>
-                                    <div class="info">{{ $product->description }}</div>
-
-                                    <div class="actions">
-                                        @if($loggedIn)
-                                            <form action="{{ route('cart.add', ['product' => $product]) }}" method="POST">
-                                                @csrf
-                                                <button>Add To Cart</button>
-                                            </form>
-                                        @else 
-                                            <form action="{{ route('BruzoneLogin') }}">
-                                                @csrf
-                                                <button>Add To Cart</button>
-                                            </form>
-                                        @endif
-
-                                        @if($loggedIn)
-                                            <form action="{{ route('wishlist.add', ['product' => $product]) }}" method="POST">
-                                                @csrf
-                                                <button type="submit" class="heart-icon">❤</button>
-                                            </form> 
-                                        @else 
-                                            <form action="{{ route('BruzoneLogin') }}">
-                                                @csrf
-                                                <button type="submit" class="heart-icon">❤</button>
-                                            </form>
-                                        @endif
-                                    </div>
+                         @if ($product->store_id == 1)
+                            <div class="item">
+                                <div class="img">
+                                    <img src="image/{{ $product->image_link }}" alt="{{ $product->name }}">
                                 </div>
-                            @endif
-                        @endforeach
-                    </div>
+                                <div class="name">{{ $product->name }}</div>
+                                <div class="price">$ {{ $product->price }}</div>
+                                <div class="info">{{ $product->description }}</div>
 
-<!--Added -->
-
-                    <div class="list">
-                        @foreach ($products as $products)
-                            @if ($product->store_id == 1)
-                                <div class="item">
-                                    <div class="img">
-                                        <img src="images/{{ $product->image_link }}" alt="{{ $product->name }}">
-                                    </div>
-                                    <div class="name">{{ $product->name }}</div>
-                                    <div class="price">$ {{ $product->price }}</div>
-                                    <div class="info">{{ $product->description }}</div>
-
-                                    <div class="actions">
-                                        @if($loggedIn)
-                                            <form action="{{ route('cart.add', ['product' => $product]) }}" method="POST">
-                                                @csrf
-                                                <button>Add To Cart</button>
-                                            </form>
-                                        @else 
-                                            <form action="{{ route('BruzoneLogin') }}">
-                                                @csrf
-                                                <button>Add To Cart</button>
-                                            </form>
-                                        @endif
-                                        
-                                         @if($loggedIn)
-                                            <form action="{{ route('wishlist.add', ['product' => $product]) }}" method="POST">
-                                                @csrf
-                                                <button type="submit" class="heart-icon">❤</button>
-                                            </form> 
-                                        @else 
-                                            <form action="{{ route('BruzoneLogin') }}">
-                                                @csrf
-                                                <button type="submit" class="heart-icon">❤</button>
-                                            </form>
-                                       @endif
-                                    </div>
+                                <div>
+                                    <img src="images/{{ $product->image_link }}" alt="{{ $product->name }}">
+                                    <p>{{ $product->name }}</p>
+                                    <p>{{ $product->price }}</p>
+                                    <p>{{ $product->description }}</p>
                                 </div>
-                            @endif
+                                <div class="actions">
+                                @if($loggedIn)
+                                 <form action="{{ route('cart.add', ['product' => $product]) }}" method="POST">
+                                    @csrf
+                                    <button>Add To Cart</button>
+                                 </form>
+                                @else 
+                                 <form action="{{ route('BruzoneLogin') }}">
+                                    @csrf
+                                    <button>Add To Cart</button>
+                                 </form>
+
+
+                                @endif
+                                @if($loggedIn)
+                                    <form action="{{ route('wishlist.add', ['product' => $product]) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="heart-icon">❤</button>
+                                    </form> 
+                                    @else 
+                                     <form action="{{ route('BruzoneLogin') }}">
+                                    @csrf
+                                    <button type="submit" class="heart-icon">❤</button>
+                                 </form>
+                                 @endif
+                                </div>
+                            </div>
+                        @endif
                         @endforeach
                     </div>
                 </div>
-            </div>
+        <div class="list">
+
         </div>
+    </div>
+<!--     <div class="card">
+    <h1>Your Shopping Cart</h1>
+       <ul class="listCard">
+        <ul>
+<div>yes</div>
+</ul>
+    </ul> 
+        <div class="checkOut" id="">
+            <a href="{{ route('checkout') }}">
+            <div class="total">BND 0</div></a>
+            <div class="closeShopping">Close</div>
+        </div>
+    </div> -->
+         
+        </div>
+      </div>
     </div>
   </section>
   <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
