@@ -1,13 +1,13 @@
 <?php
 namespace App\Repository;
 
-interface IComnetRepository {
+interface IDefenderRepository {
 
-    public function comnetShowAllProduct();
+    public function defenderShowAllProduct();
 
     public function indexComnet();
 
-    public function comnetDeleteProduct($id);
+    public function defenderDeleteProduct($id);
 
     public function getNewlyAddedProducts();
 
