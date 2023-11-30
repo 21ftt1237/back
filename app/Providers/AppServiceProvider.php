@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(IRoute66Repository::class, Route66Repository::class);
          $this->app->bind(ISimanjaRepository::class, SimanjaRepository::class);
 
-
+    }
     /**
      * Bootstrap any application services.
      */
