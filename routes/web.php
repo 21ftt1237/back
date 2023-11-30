@@ -98,7 +98,7 @@ Route::post('/simanja/store', [SimanjaController::class, 'store'])->name('simanj
 
 
   Route::get('/comnet/edit/{id}', [ComnetController::class, 'edit'])->name('comnet.edit');
-  Route::post('/comnet/update/{id}', [ComnetController::class, 'update'])->name('comnet.update');
+  Route::put('/comnet/update/{id}', [ComnetController::class, 'update'])->name('comnet.update');
 
 
 //oute::get('/products/{id}', [ProductController::class, 'show'])->name('product.show');
