@@ -71,7 +71,7 @@ Route::get('/defender', [DefenderController::class, 'defenderShowAllProduct'])->
 Route::get('/defender/create', [DefenderController::class, 'create'])->name('defender.create');
 Route::post('/defender/store', [DefenderController::class, 'store'])->name('defender.store');
 
-Route::get('/digital', [DigitalController::class, 'dgitalShowAllProduct'])->name('digital.digital');
+Route::get('/digital', [DigitalController::class, 'digitalShowAllProduct'])->name('digital.digital');
 Route::get('/digital/create', [DigitalController::class, 'create'])->name('digital.create');
 Route::post('/digital/store', [DigitalController::class, 'store'])->name('digital.store');
 
