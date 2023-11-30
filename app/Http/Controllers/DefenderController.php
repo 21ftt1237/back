@@ -11,7 +11,7 @@ class DefenderController extends Controller
 
     public $defender;
 
-    public function __construct(IDefenederRepository $defender)
+    public function __construct(IDefenderRepository $defender)
     {
         $this->defender = $defender;
         $this->middleware('auth')->except(['create']);
