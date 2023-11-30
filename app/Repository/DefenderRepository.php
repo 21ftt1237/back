@@ -4,9 +4,9 @@ namespace App\Repository;
 
 use App\Models\Product;
 
-class ComnetRepository implements IComnetRepository {
+class DefenderRepository implements IDefenderRepository {
 
-    public function comnetShowAllProduct()
+    public function defenderShowAllProduct()
     {
         return Product::all();
     }
@@ -16,7 +16,7 @@ class ComnetRepository implements IComnetRepository {
         return Product::all();
     }
 
-    public function comnetDeleteProduct($id)
+    public function defenderDeleteProduct($id)
     {
         return Product::find($id)->delete();
     }
