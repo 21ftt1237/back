@@ -7,7 +7,7 @@
     <h2>Update Product</h2>
     <hr>
 
-    <form action="{{ route('comnet.update', $product->id) }}" enctype="multipart/form-data" method="POST">
+    <form action="{{ route('digital.update', $product->id) }}" enctype="multipart/form-data" method="POST">
         @csrf
 
         <div class="mb-3">
