@@ -11,6 +11,7 @@
         @csrf
         @method('PUT')
 
+
         <div class="mb-3">
             <label for="picture" class="form-label">Choose Picture</label>
             <input class="form-control" type="file" name="picture" id="picture">
@@ -31,7 +32,10 @@
             <textarea class="form-control" name="description" id="description" placeholder="Enter Description">{{ $product->description }}</textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary">Update Product</button>
+        
+        <input type="hidden" name="_method" value="PUT">
+        
+        <button type="submit" class="btn btn-primary">Update Product</button>
 
     </form>
 
