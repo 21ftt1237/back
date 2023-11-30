@@ -83,8 +83,8 @@ return redirect('/comnet');
 
     public function edit($id)
     {
-        $product = $this->product->editProduct($id);
-        return view('product.edit')->with('product', $product);
+        $product = $this->comnet->editProduct($id);
+        return view('comnet.edit')->with('product', $product);
     }
 
 
