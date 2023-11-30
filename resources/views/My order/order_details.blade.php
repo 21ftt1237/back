@@ -281,7 +281,7 @@ ul li .active .uil{
         <ul>
             <li>
                 <i class="icon uil uil-capture"></i>
-                <div class="progress one @if($orderStatus == 'Processing') active @endif @if($orderStatus == 'Picked up') active @endif @if($orderStatus == 'Delivered') active @endif @if($orderStatus == 'Completed') active @endif">
+                <div class="progress one @if($orderStatus == 'Processing') active @endif @if($orderStatus == 'Picked Up') active @endif @if($orderStatus == 'Delivered') active @endif @if($orderStatus == 'Completed') active @endif">
                     <p>1</p>
                     <i class="uil uil-check"></i>
                 </div>
@@ -289,7 +289,7 @@ ul li .active .uil{
             </li>
             <li>
                 <i class="icon uil uil-clipboard-notes"></i>
-                <div class="progress two @if($orderStatus == 'Picked up') active @endif @if($orderStatus == 'Delivered') active @endif @if($orderStatus == 'Completed') active @endif">
+                <div class="progress two @if($orderStatus == 'Picked Up') active @endif @if($orderStatus == 'Delivered') active @endif @if($orderStatus == 'Completed') active @endif">
                     <p>2</p>
                     <i class="uil uil-check"></i>
                 </div>
