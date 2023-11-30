@@ -43,7 +43,7 @@
             <label for="title" class="form-label">Title</label>
             <input type="text" class="form-control" name="name" id="name" placeholder="Enter title" value="{{ old('name') }}" >
           </div>
-
+        
           <div class="mb-3">
             <label for="price" class="form-label">Price</label>
             <input type="text" class="form-control" name="price" id="price" placeholder="Enter price">
@@ -51,7 +51,7 @@
 
           <div class="mb-3">
             <label for="description" class="form-label">Description</label>
-            <textarea class="form-contol" name="description" id="description" placeholder="Enter Description"></textarea>
+            <textarea class="form-control" name="description" id="description" placeholder="Enter Description"></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary">Create Product</button>
