@@ -9,7 +9,7 @@ interface IComnetRepository {
 
     public function comnetDeleteProduct($id);
 
-    public function getNewlyAddedProducts();
+    public function createProduct(array $data);
 
      public function editProduct($id);
 
