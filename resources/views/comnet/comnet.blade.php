@@ -1403,7 +1403,7 @@ function ReviewContentContainer(name, createdAt, review) {
 <!--Added -->
 
                     <div class="list">
-                        @foreach ($newlyAddedProducts as $newProduct)
+                        @foreach ($newProducts as $products)
                             @if ($newProduct->store_id == 1)
                                 <div class="item">
                                     <div class="img">
