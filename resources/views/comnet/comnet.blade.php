@@ -1366,6 +1366,9 @@ function ReviewContentContainer(name, createdAt, review) {
                             <div class="item">
                                 <div class="img">
                                     <img src="{{ $product->image_link }}" alt="{{ $product->name }}">
+                                    <script>
+    console.log("Image URL: {{ asset($product->image_link) }}");
+        </script>
                                     
                                 </div>
                                 <div class="name">{{ $product->name }}</div>
