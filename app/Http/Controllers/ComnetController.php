@@ -72,7 +72,7 @@ if ($image = $request->file('image_link')) {
     $data['image_link'] = '/images/' . $name;
 }
 
-$this->product->createProduct($data);
+$this->comnet->createProduct($data);
 
 return redirect('/products');
 
