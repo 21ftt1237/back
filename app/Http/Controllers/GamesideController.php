@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Repository\IComnetRepository;
+use App\Repository\IGamesideRepository;
 use Illuminate\Http\Request;
 
-class ComnetController extends Controller
+class GamesideController extends Controller
 {
 
     public $gameside;
