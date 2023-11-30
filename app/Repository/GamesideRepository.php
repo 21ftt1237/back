@@ -4,19 +4,16 @@ namespace App\Repository;
 
 use App\Models\Product;
 
-class ComnetRepository implements IComnetRepository {
+class GamesideRepository implements IGamesideRepository {
 
-    public function comnetShowAllProduct()
+    public function gamesideShowAllProduct()
     {
         return Product::all();
     }
 
-        public function indexComnet()
-    {
-        return Product::all();
-    }
 
-    public function comnetDeleteProduct($id)
+
+    public function gamesideDeleteProduct($id)
     {
         return Product::find($id)->delete();
     }
