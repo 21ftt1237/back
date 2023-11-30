@@ -11,7 +11,7 @@ class DigitalController extends Controller
 
     public $digital;
 
-    public function __construct(IDigitalRepository $comnet)
+    public function __construct(IDigitalRepository $digital)
     {
         $this->digital = $digital;
         $this->middleware('auth')->except(['create']);
@@ -64,7 +64,7 @@ if ($image = $request->file('picture')) {
     $data['image_link'] = '/images/' . $name;
 }
 
-$this->comnet->createProduct($data);
+$this->digital->createProduct($data);
 
 return redirect('/digital');
 
