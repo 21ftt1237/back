@@ -7,12 +7,12 @@
     <h2>Create Product</h2>
     <hr>
 
-    <form action="{{ route('product.store') }}" enctype="multipart/form-data" method="POST">
+    <form action="{{ route('comnet.store') }}" enctype="multipart/form-data" method="POST">
         @csrf
 
         <div class="mb-3">
-            <label for="picture" class="form-label">Choose Picture</label>
-            <input class="form-control" type="file" name="picture" id="picture">
+            <label for="image_link" class="form-label">Choose Picture</label>
+            <input class="form-control" type="file" name="image_link" id="image_link">
           </div>
 
         <div class="mb-3">
