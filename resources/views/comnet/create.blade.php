@@ -9,17 +9,6 @@
     <h2>Create Product</h2>
     <hr>
 
-    @if(isset($newProduct))
-        <div class="mb-3">
-            <label for="image_link" class="form-label">Image</label>
-            <img src="{{ ($product->image_link) }}" alt="{{ $product->name }}" class="img-thumbnail">
-        </div>
-
-        <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
-            <p>{{ $product->description }}</p>
-        </div>
-    @endif
 
     <form action="{{ route('comnet.store') }}" enctype="multipart/form-data" method="POST">
         @csrf
