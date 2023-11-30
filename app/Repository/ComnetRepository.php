@@ -21,7 +21,7 @@ class ComnetRepository implements IComnetRepository {
         return Product::find($id)->delete();
     }
 
-    public function comnetCreateProduct(array $data)
+    public function createProduct(array $data)
     {
         return Product::create($data);
     }
