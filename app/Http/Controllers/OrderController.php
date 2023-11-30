@@ -269,6 +269,8 @@ public function showAdminOrderDetails($created_at)
     return view('orderDetails', [
         'orderDetails' => $orderDetails,
     ]);
+\Log::info('User Details: '.json_encode($orderDetails->user));
+\Log::info('Product Details: '.json_encode($orderDetails->product));
 }
 
 
