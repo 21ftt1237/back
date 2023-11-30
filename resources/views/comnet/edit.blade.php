@@ -17,7 +17,7 @@
 
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" name="title" id="title" value="{{ $product->title }}" placeholder="Enter title">
+            <input type="text" class="form-control" name="title" id="title" value="{{ $product->name }}" placeholder="Enter title">
           </div>
 
           <div class="mb-3">
