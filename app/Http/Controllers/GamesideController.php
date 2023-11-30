@@ -9,35 +9,23 @@ use Illuminate\Http\Request;
 class ComnetController extends Controller
 {
 
-    public $comnet;
+    public $gameside;
 
-    public function __construct(IComnetRepository $comnet)
+    public function __construct(IGamesideRepository $gameside)
     {
-        $this->comnet = $comnet;
+        $this->gameside = $gameside;
         $this->middleware('auth')->except(['create']);
     }
 
 
-
-        public function indexComnet()
-    {
-        // return all products
-
-        $products =  $this->comnet->comnetShowAllProduct();
-
-        return view('comnet.comnet')->with('products', $products);
-
+    public function gamesideShowAllProduct() {
+        $products =  $this->gameside->gamesideShowAllProduct();
+        return view('gameside.gameside')->with('products', $products);
     }
 
 
-    public function comnetShowAllProduct() {
-        $products =  $this->comnet->comnetShowAllProduct();
-        return view('comnet.comnet')->with('products', $products);
-    }
-
-
-    public function comnetDeleteProduct($id) {
-        $this->comnet->comnetDeleteProduct($id);
+    public function gamesideDeleteProduct($id) {
+        $this->gameside->gamesideDeleteProduct($id);
         return redirect('/products');
     }
 
@@ -45,7 +33,7 @@ class ComnetController extends Controller
     {
         
         // create page
-        return view('comnet.create');
+        return view('gameside.create');
 
         
     }
@@ -73,9 +61,9 @@ if ($image = $request->file('picture')) {
     $data['image_link'] = '/images/' . $name;
 }
 
-$this->comnet->createProduct($data);
+$this->gameside->createProduct($data);
 
-return redirect('/products');
+return redirect('/gameside');
 
 
     }
