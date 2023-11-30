@@ -28,4 +28,10 @@ class OComnetController extends Controller
         return redirect('/owner/comnet');
     }
 
+    public function edit($id)
+    {
+        $product = $this->ocomnet->getProductById($id);
+
+        return view('comnet.edit', compact('product'));
+
 }
