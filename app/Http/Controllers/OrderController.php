@@ -256,27 +256,21 @@ public function showAdminOrderDetails($created_at)
     });
 
     // Fetch order details based on the created_at parameter
-    $orderDetails = Order::where('created_at', $created_at)->first();
+    $orderDetails = Order::with('user', 'product')
+        ->where('created_at', $created_at)
+        ->first();
 
     if (!$orderDetails) {
         // Handle order not found, e.g., redirect or show an error message
         return redirect()->route('admin.orders.index')->with('error', 'Order not found.');
     }
 
-    // Fetch product details related to the order
-    $productDetails = Product::find($orderDetails->product_id);
-
-    if (!$productDetails) {
-        // Handle product not found, e.g., redirect or show an error message
-        return redirect()->route('admin.orders.index')->with('error', 'Product not found.');
-    }
-
-    // Pass both order and product details to the view
+    // Pass order, user, and product details to the view
     return view('orderDetails', [
         'orderDetails' => $orderDetails,
-        'productDetails' => $productDetails,
     ]);
 }
+
 
 
 
