@@ -36,18 +36,36 @@
 
     </form>
 
-    <script>
-    function submitForm() {
-        var form = document.getElementById('updateForm');
-        form.method = 'POST';
-        var methodField = document.createElement('input');
-        methodField.setAttribute('type', 'hidden');
-        methodField.setAttribute('name', '_method');
-        methodField.setAttribute('value', 'PUT');
-        form.appendChild(methodField);
-        form.submit();
-    }
-</script>
+     <script>
+        function submitForm() {
+            var form = document.getElementById('updateForm');
+            var formData = new FormData(form);
+
+            // Append the desired method
+            formData.append('_method', 'PUT');
+
+            // Make an AJAX request
+            fetch('{{ route("comnet.update", $product->id) }}', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Handle success
+                console.log(data);
+                // Optionally, redirect or update the UI
+            })
+            .catch(error => {
+                // Handle errors
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        }
+    </script>
 
 </div>
 
