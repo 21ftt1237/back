@@ -97,7 +97,7 @@ Route::post('/simanja/store', [SimanjaController::class, 'store'])->name('simanj
 });
 
 
-
+  Route::get('/comnet/edit/{id}', [OComnetController::class, 'edit'])->name('comner.edit');
 
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.show');
 Route::get('/products/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
