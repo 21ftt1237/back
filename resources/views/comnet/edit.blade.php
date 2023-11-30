@@ -9,7 +9,6 @@
 
     <form action="{{ route('comnet.update', $product->id) }}" enctype="multipart/form-data" method="POST">
         @csrf
-        @method('PUT')
 
 
         <div class="mb-3">
@@ -31,9 +30,6 @@
             <label for="description" class="form-label">Description</label>
             <textarea class="form-control" name="description" id="description" placeholder="Enter Description">{{ $product->description }}</textarea>
           </div>
-
-        
-        <input type="hidden" name="_method" value="PUT">
         
         <button type="submit" class="btn btn-primary">Update Product</button>
 
