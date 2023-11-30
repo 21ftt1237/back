@@ -224,9 +224,9 @@ Route::get('Simanja', function () {
     return view('Simanja');
 })->name('Simanja');
 
-Route::get('digital', function () {
-    return view('digital');
-})->name('digital');
+//Route::get('digital', function () {
+  //  return view('digital');
+//})->name('digital');
 
 
 Route::get('BruzoneFAQ', function () {
