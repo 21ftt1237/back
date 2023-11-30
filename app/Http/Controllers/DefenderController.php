@@ -3,49 +3,39 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Repository\IComnetRepository;
+use App\Repository\IDefenderRepository;
 use Illuminate\Http\Request;
 
-class ComnetController extends Controller
+class DefenderController extends Controller
 {
 
     public $comnet;
 
-    public function __construct(IComnetRepository $comnet)
+    public function __construct(IDefenederRepository $defender)
     {
-        $this->comnet = $comnet;
+        $this->defender = $defender;
         $this->middleware('auth')->except(['create']);
     }
 
 
 
-        public function indexComnet()
-    {
-        // return all products
 
-        $products =  $this->comnet->comnetShowAllProduct();
-
-        return view('comnet.comnet')->with('products', $products);
-
-    }
-
-
-    public function comnetShowAllProduct() {
-        $products =  $this->comnet->comnetShowAllProduct();
-        return view('comnet.comnet')->with('products', $products);
+    public function defenderShowAllProduct() {
+        $products =  $this->defender->defenderShowAllProduct();
+        return view('defender.defender')->with('products', $products);
     }
 
 
     public function comnetDeleteProduct($id) {
-        $this->comnet->comnetDeleteProduct($id);
-        return redirect('/products');
+        $this->defender->defenderDeleteProduct($id);
+        return redirect('/defender');
     }
 
      public function create()
     {
         
         // create page
-        return view('comnet.create');
+        return view('defender.create');
 
         
     }
@@ -75,7 +65,7 @@ if ($image = $request->file('picture')) {
 
 $this->comnet->createProduct($data);
 
-return redirect('/products');
+return redirect('/defender');
 
 
     }
