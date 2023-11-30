@@ -10,7 +10,7 @@
     <hr>
 
 
-    <form action="{{ route('comnet.store') }}" enctype="multipart/form-data" method="POST">
+    <form action="{{ route('route66.store') }}" enctype="multipart/form-data" method="POST">
         @csrf
 
                 <div class="mb-3">
