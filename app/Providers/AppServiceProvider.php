@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use App\Repository\IProductRepository;
 use App\Repository\ProductRepository;
 use App\Repository\IComnetRepository;
-use App\Repository\ComnetRepository
+use App\Repository\ComnetRepository;
 use App\Repository\IDefenderRepository;
 use App\Repository\DefenderRepository;
 use App\Repository\IDigitalRepository;
