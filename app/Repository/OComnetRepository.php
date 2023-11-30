@@ -9,7 +9,7 @@ class OComnetRepository implements IOComnetRepository {
 
     public function ocomnetShowAllProduct()
     {
-        return Product::all();
+        return Product::where('store_id', 1)->get();
     }
 
     public function ocomnetDeleteProduct($id)
