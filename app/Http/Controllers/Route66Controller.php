@@ -9,43 +9,31 @@ use Illuminate\Http\Request;
 class ComnetController extends Controller
 {
 
-    public $comnet;
+    public $route66;
 
-    public function __construct(IComnetRepository $comnet)
+    public function __construct(IRoute66Repository $comnet)
     {
-        $this->comnet = $comnet;
+        $this->route66 = $route66;
         $this->middleware('auth')->except(['create']);
     }
 
 
-
-        public function indexComnet()
-    {
-        // return all products
-
-        $products =  $this->comnet->comnetShowAllProduct();
-
-        return view('comnet.comnet')->with('products', $products);
-
+    public function route66ShowAllProduct() {
+        $products =  $this->route66->route66ShowAllProduct();
+        return view('comnet.route66')->with('products', $products);
     }
 
 
-    public function comnetShowAllProduct() {
-        $products =  $this->comnet->comnetShowAllProduct();
-        return view('comnet.comnet')->with('products', $products);
-    }
-
-
-    public function comnetDeleteProduct($id) {
-        $this->comnet->comnetDeleteProduct($id);
-        return redirect('/products');
+    public function route66DeleteProduct($id) {
+        $this->route66->route66DeleteProduct($id);
+        return redirect('/route66');
     }
 
      public function create()
     {
         
         // create page
-        return view('comnet.create');
+        return view('route66.create');
 
         
     }
@@ -73,9 +61,9 @@ if ($image = $request->file('picture')) {
     $data['image_link'] = '/images/' . $name;
 }
 
-$this->comnet->createProduct($data);
+$this->route66->createProduct($data);
 
-return redirect('/products');
+return redirect('/route66');
 
 
     }
