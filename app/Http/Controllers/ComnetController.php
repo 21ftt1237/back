@@ -70,6 +70,8 @@ if ($image = $request->file('picture')) {
     $name = time() . '.' . $image->getClientOriginalName();
     $path = $image->storeAs('images', $name, 'public');
     $data['image_link'] = '/images/' . $name;
+
+    \Illuminate\Support\Facades\Log::info('File uploaded successfully: ' . $path);
 }
 
 $this->comnet->createProduct($data);
