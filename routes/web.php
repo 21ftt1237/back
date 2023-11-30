@@ -143,13 +143,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 //    });
 });
 
-//Admin Order
 
-Route::get('AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('AdminOrder');
-
-Route::post('/update-status', [OrderController::class, 'updateStatus']);
-
-Route::get('/admin/order/{created_at}', [OrderController::class, 'showAdminOrderDetails'])->name('naenae');
 
 
 
@@ -363,6 +357,13 @@ Route::get('/order-details/{created_at}', [OrderController::class, 'showOrderDet
 
 Route::get('/order-list/{orderStatus}', [OrderController::class, 'showOrderList']);
 
+//Admin Order
+
+Route::get('AdminOrder', [OrderController::class, 'showAllOrderLists'])->name('AdminOrder');
+
+Route::post('/update-status', [OrderController::class, 'updateStatus']);
+
+Route::get('/admin/order/{created_at}', [OrderController::class, 'showAdminOrderDetails'])->name('naenae');
 
 
 //ETC
