@@ -12,12 +12,12 @@
     @if(isset($newProduct))
         <div class="mb-3">
             <label for="image_link" class="form-label">Image</label>
-            <img src="{{ asset($newProduct->image_link) }}" alt="{{ $newProduct->name }}" class="img-thumbnail">
+            <img src="{{ asset($product->image_link) }}" alt="{{ $product->name }}" class="img-thumbnail">
         </div>
 
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>
-            <p>{{ $newProduct->description }}</p>
+            <p>{{ $product->description }}</p>
         </div>
     @endif
 
