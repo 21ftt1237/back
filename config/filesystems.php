@@ -38,8 +38,8 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => public_path('image'),
-            'url' => env('APP_URL').'/image',
+            'root' => public_path(),
+            'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
 
@@ -54,6 +54,14 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
         ],
+
+
+        'public_image' => [
+        'driver' => 'local',
+        'root' => public_path('image'), 
+        'url' => env('APP_URL').'/image',
+        'visibility' => 'public',
+    ],
 
     ],
 
