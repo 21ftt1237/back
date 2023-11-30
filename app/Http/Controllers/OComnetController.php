@@ -23,9 +23,9 @@ class OComnetController extends Controller
     }
 
 
-    public function ownerDeleteProduct($id) {
-        $this->owner->ownerDeleteProduct($id);
-        return redirect('/owner/products');
+    public function ocomnetDeleteProduct($id) {
+        $this->ocomnet->ocomnetDeleteProduct($id);
+        return redirect('/owner/comnet');
     }
 
 }
