@@ -39,6 +39,21 @@ class ComnetRepository implements IComnetRepository {
         ->get();
 }
 
+     public function editProduct($id)
+    {
+        return Product::find($id);
+    }
+
+    public function updateProduct($id, array $data)
+    {
+       Product::find($id)->update([
+            'picture' => $data['image_link'],                   
+            'title' => $data['name'],
+            'price' => $data['price'],
+            'description' => $data['description']
+        ]);
+    }
+
 }
 
 
