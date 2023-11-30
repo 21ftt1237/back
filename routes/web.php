@@ -90,6 +90,8 @@ Route::post('/simanja/store', [SimanjaController::class, 'store'])->name('simanj
 
 
 
+ Route::delete('/comnet/delete/{id}', [OwnerController::class, 'ownerDeleteProduct'])->name('owner.comnet.delete');
+
 //OWNER RELATED
 Route::prefix('owner')->middleware([])->group(function () {    
     Route::get('/products', [ComnetController::class, 'comnetShowAllProduct'])->name('owner.comnet.comnet');
