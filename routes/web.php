@@ -57,9 +57,9 @@ Auth::routes(['verify' => true, 'name' => 'auth.', 'password.reset' => 'password
 //Route::get('/order-list/{orderStatus}', [OrderController::class, 'showOrderList']);
 
 
-Route::get('/products', [ComnetController::class, 'indexComnet'])->name('comnet.comnet');
-Route::get('/products/create', [ComnetController::class, 'create'])->name('comnet.create');
-Route::post('/products/store', [ComnetController::class, 'store'])->name('comnet.store');
+Route::get('/comnet', [ComnetController::class, 'indexComnet'])->name('comnet.comnet');
+Route::get('/comnet/create', [ComnetController::class, 'create'])->name('comnet.create');
+Route::post('/comnet/store', [ComnetController::class, 'store'])->name('comnet.store');
 Route::get('/create', [ComnetController::class, 'create']);
 
 
