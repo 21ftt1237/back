@@ -89,6 +89,7 @@ class ComnetController extends Controller
     public function index()
 {
     $products = Product::all();
+    $newlyAddedProducts = $this->comnet->getNewlyAddedProducts();
     return view('comnet.comnet', compact('products', 'newlyAddedProducts'));
 }
 
