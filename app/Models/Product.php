@@ -12,7 +12,7 @@ class Product extends Model
     use HasFactory;
 
  protected $fillable = [
-        'name', 'store_id', 'price', 'image_link', 'description',
+        'name', 'store_id', 'price', 'image_link',
     ];
 
 public function wishlists(): BelongsToMany
