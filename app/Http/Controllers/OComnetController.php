@@ -30,7 +30,7 @@ class OComnetController extends Controller
 
     public function edit($id)
     {
-        $product = $this->ocomnet->getProductById($id);
+        $product = Product::find($id);
 
         return view('comnet.edit', compact('product'));
     }
