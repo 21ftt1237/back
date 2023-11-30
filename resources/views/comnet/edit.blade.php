@@ -7,8 +7,9 @@
     <h2>Update Product</h2>
     <hr>
 
-    <form id="updateForm" action="{{ route('comnet.update', $product->id) }}" enctype="multipart/form-data" method="POST">
+    <form  action="{{ route('comnet.update', $product->id) }}" enctype="multipart/form-data" method="POST">
         @csrf
+        @method('PUT')
 
 
         <div class="mb-3">
@@ -32,40 +33,10 @@
           </div>
         
    
-        <button type="submit" class="btn btn-primary" onclick="submitForm()">Update Product</button>
+        <button type="submit" class="btn btn-primary" >Update Product</button>
 
     </form>
 
-     <script>
-        function submitForm() {
-            var form = document.getElementById('updateForm');
-            var formData = new FormData(form);
-
-            // Append the desired method
-            formData.append('_method', 'PUT');
-
-            // Make an AJAX request
-            fetch('{{ route("comnet.update", $product->id) }}', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                // Handle success
-                console.log(data);
-                // Optionally, redirect or update the UI
-            })
-            .catch(error => {
-                // Handle errors
-                console.error('There was a problem with the fetch operation:', error);
-            });
-        }
-    </script>
 
 </div>
 
