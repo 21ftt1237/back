@@ -60,6 +60,11 @@ Auth::routes(['verify' => true, 'name' => 'auth.', 'password.reset' => 'password
 Route::get('/comnet', [ComnetController::class, 'indexComnet'])->name('comnet.comnet');
 Route::get('/comnet/create', [ComnetController::class, 'create'])->name('comnet.create');
 Route::post('/comnet/store', [ComnetController::class, 'store'])->name('comnet.store');
+
+
+Route::get('/defender', [DefenderController::class, 'digitalShowAllProduct'])->name('defender.defender');
+Route::get('/defender/create', [ComnetController::class, 'create'])->name('comnet.create');
+Route::post('/defender/store', [ComnetController::class, 'store'])->name('comnet.store');
 Route::get('/create', [ComnetController::class, 'create']);
 
 
