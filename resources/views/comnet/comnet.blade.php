@@ -1417,34 +1417,6 @@ function ReviewContentContainer(name, createdAt, review) {
                                     
                                 @endif
                                     
-                             @foreach ($products as $product)
-                            @if ($product->store_id == 1)
-                        
-                        <div class="item">
-                            <div class="img">
-                                <div>
-                                    <div class="img">
-                                    <img src="images/{{ $product->image_link }}" alt="{{ $product->name }}">
-                                    </div>
-                                    <div class="name">{{ $product->name }}</div>
-                                    <div class="price">$ {{ $product->price }}</div>
-                                    <div class="info">{{ $product->description }}</div>
-
-                                </div>
-
-                                <div class="actions">
-                                @if($loggedIn)
-                                 <form action="{{ route('cart.add', ['product' => $product]) }}" method="POST">
-                                    @csrf
-                                    <button>Add To Cart</button>
-                                 </form>
-                                @else 
-                                 <form action="{{ route('BruzoneLogin') }}">
-                                    @csrf
-                                    <button>Add To Cart</button>
-                                 </form>
-
-                            @endif
                                 
                                 @if($loggedIn)
                                     <form action="{{ route('wishlist.add', ['product' => $product]) }}" method="POST">
