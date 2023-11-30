@@ -125,32 +125,32 @@ class ProductController extends Controller
 public function indexGameCentral()
 {
     $products = Product::all();
-    return view('gameside.gameside', compact('products', 'newlyAddedProducts'));
+    return view('gameside.gameside', compact('products'));
 }
       public function indexWishlist()
 {
     $products = Product::all();
-    return view('Wishlist.BruZoneWishlist', compact('products', 'newlyAddedProducts'));
+    return view('Wishlist.BruZoneWishlist', compact('products'));
 }
        public function indexDigital()
 {
     $products = Product::all();
-    return view('digital.digital', compact('products', 'newlyAddedProducts'));
+    return view('digital.digital', compact('products'));
 }
            public function indexAvenue()
 {
     $products = Product::all();
-    return view('route66.route66', compact('products', 'newlyAddedProducts'));
+    return view('route66.route66', compact('products'));
 }
                public function indexNimanja()
 {
     $products = Product::all();
-    return view('simanja.simanja', compact('products', 'newlyAddedProducts'));
+    return view('simanja.simanja', compact('products'));
 }
            public function indexGuardian()
 {
     $products = Product::all();
-    return view('defender.Defender', compact('products', 'newlyAddedProducts'));
+    return view('defender.Defender', compact('products'));
 }
 public function cart()
 {
