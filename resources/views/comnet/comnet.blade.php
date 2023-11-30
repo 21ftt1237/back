@@ -1,5 +1,3 @@
-
-
 @php
     $pageName = 'Bruzone (Comnet)';
     $storehere = 'true';
