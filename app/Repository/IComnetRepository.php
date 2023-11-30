@@ -7,6 +7,8 @@ interface IComnetRepository {
 
     public function comnetDeleteProduct($id);
 
+    public function getNewlyAddedProducts();
+
 
 }
 
