@@ -23,7 +23,15 @@ class ComnetRepository implements IComnetRepository {
 
     public function createProduct(array $data)
     {
-        return Product::create($data);
+        $product = new Product();
+        $product->picture = $data['image_link'];
+        $product->store_id = $data['store_id'];
+        $product->title = $data['name'];
+        $product->price = $data['price'];
+        $product->description = $data['description'];
+
+
+        $product->save();
     }
 
     public function getRecentlyCreatedProduct()
