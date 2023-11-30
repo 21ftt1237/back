@@ -4,19 +4,14 @@ namespace App\Repository;
 
 use App\Models\Product;
 
-class ComnetRepository implements IComnetRepository {
+class SimanjaRepository implements ISimanjaRepository {
 
-    public function comnetShowAllProduct()
+    public function simanjaShowAllProduct()
     {
         return Product::all();
     }
 
-        public function indexComnet()
-    {
-        return Product::all();
-    }
-
-    public function comnetDeleteProduct($id)
+    public function simanjaDeleteProduct($id)
     {
         return Product::find($id)->delete();
     }
