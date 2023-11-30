@@ -70,7 +70,7 @@ class ComnetController extends Controller
         if ($image = $request->file('image_link')) {
         $name = time() . '.' . $image->getClientOriginalName();
         $path = $image->storeAs('public/image', $name, 'public');
-        $data['image_link'] = 'image/' . $name;
+        $data['image_link'] =  $name;
 
     }
         $this->comnet->comnetCreateProduct($data);
