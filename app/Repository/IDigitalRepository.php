@@ -1,7 +1,7 @@
 <?php
 namespace App\Repository;
 
-interface IdigitalRepository {
+interface IDigitalRepository {
 
     public function digitalShowAllProduct();
 
