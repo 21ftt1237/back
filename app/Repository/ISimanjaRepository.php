@@ -1,13 +1,11 @@
 <?php
 namespace App\Repository;
 
-interface IComnetRepository {
+interface ISimanjaRepository {
 
-    public function comnetShowAllProduct();
+    public function simanjaShowAllProduct();
 
-    public function indexComnet();
-
-    public function comnetDeleteProduct($id);
+    public function simanjaDeleteProduct($id);
 
     public function getNewlyAddedProducts();
 
