@@ -19,6 +19,10 @@
                 
                 <option value="1">comnet</option>
                 <option value="2">gameside</option>
+                <option value="3">digital universe</option>
+              <option value="4">route66</option>
+              <option value="5">defender</option>
+              <option value="6">simanja</option>
  >
             </select>
         </div>
