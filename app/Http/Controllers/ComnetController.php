@@ -38,7 +38,7 @@ class ComnetController extends Controller
 
     public function comnetDeleteProduct($id) {
         $this->comnet->comnetDeleteProduct($id);
-        return redirect('/products');
+        return redirect('/comnet');
     }
 
      public function create()
