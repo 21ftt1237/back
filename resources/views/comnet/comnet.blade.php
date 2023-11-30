@@ -1394,7 +1394,7 @@ function ReviewContentContainer(name, createdAt, review) {
                          @if ($product->store_id == 1)
                             <div class="item">
                                 <div class="img">
-                                    <img src="{{ asset('image/' . $product->image_link) }}" alt="{{ $product->name }}">
+                                    <img src="{{ asset('storage/' . $product->image_link) }}" alt="{{ $product->name }}">
                                 </div>
                                 <div class="name">{{ $product->name }}</div>
                                 <div class="price">$ {{ $product->price }}</div>
@@ -1437,19 +1437,7 @@ function ReviewContentContainer(name, createdAt, review) {
 
         </div>
     </div>
-<!--     <div class="card">
-    <h1>Your Shopping Cart</h1>
-       <ul class="listCard">
-        <ul>
-<div>yes</div>
-</ul>
-    </ul> 
-        <div class="checkOut" id="">
-            <a href="{{ route('checkout') }}">
-            <div class="total">BND 0</div></a>
-            <div class="closeShopping">Close</div>
-        </div>
-    </div> -->
+
          
         </div>
       </div>
@@ -1459,14 +1447,7 @@ function ReviewContentContainer(name, createdAt, review) {
   <script src="./ecommerce.js"></script>
 <script>
     
-//     let openShopping = document.querySelector('.shopping');
-// let closeShopping = document.querySelector('.closeShopping');
-//     openShopping.addEventListener('click', ()=>{
-//     document.body.classList.add("active");
-// })
-// closeShopping.addEventListener('click', ()=>{
-//     document.body.classList.remove("active");
-// })
+
 localStorage.setItem('delivery', '2');
 localStorage.setItem('storename', 'Comnet (Kiulap)');
 var storeId = 1;
