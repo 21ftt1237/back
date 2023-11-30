@@ -11,6 +11,10 @@ interface IComnetRepository {
 
     public function getNewlyAddedProducts();
 
+     public function editProduct($id);
+
+     public function updateProduct($id, array $data);
+
 
 }
 
