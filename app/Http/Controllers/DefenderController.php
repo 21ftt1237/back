@@ -22,7 +22,7 @@ class DefenderController extends Controller
 
     public function defenderShowAllProduct() {
         $products =  $this->defender->defenderShowAllProduct();
-        return view('defender.defender')->with('products', $products);
+        return view('defender.Defender')->with('products', $products);
     }
 
 
