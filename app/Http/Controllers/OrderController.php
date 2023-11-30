@@ -250,6 +250,11 @@ public function sendOrderEmail($userEmail, $orderDetails)
 
 public function showAdminOrderDetails($created_at)
 {
+    // Listen for database queries and log them
+    DB::listen(function ($query) {
+        \Log::info('Query: '.$query->sql.' | Bindings: '.json_encode($query->bindings));
+    });
+
     // Fetch order details based on the created_at parameter
     $orderDetails = Order::where('created_at', $created_at)->first();
 
@@ -272,6 +277,7 @@ public function showAdminOrderDetails($created_at)
         'productDetails' => $productDetails,
     ]);
 }
+
 
 
 }
