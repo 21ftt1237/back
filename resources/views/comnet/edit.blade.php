@@ -7,9 +7,8 @@
     <h2>Update Product</h2>
     <hr>
 
-    <form action="{{ route('comnet.update', $product->id) }}" enctype="multipart/form-data" method="POST">
+    <form id="updateForm" action="{{ route('comnet.update', $product->id) }}" enctype="multipart/form-data" method="POST">
         @csrf
-        <input type="hidden" name="_method" value="PUT">
 
 
         <div class="mb-3">
@@ -33,9 +32,22 @@
           </div>
         
    
-        <button type="submit" class="btn btn-primary">Update Product</button>
+        <button type="submit" class="btn btn-primary" onclick="submitForm()">Update Product</button>
 
     </form>
+
+    <script>
+    function submitForm() {
+        var form = document.getElementById('updateForm');
+        form.method = 'POST';
+        var methodField = document.createElement('input');
+        methodField.setAttribute('type', 'hidden');
+        methodField.setAttribute('name', '_method');
+        methodField.setAttribute('value', 'PUT');
+        form.appendChild(methodField);
+        form.submit();
+    }
+</script>
 
 </div>
 
