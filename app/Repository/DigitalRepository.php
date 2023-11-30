@@ -4,7 +4,7 @@ namespace App\Repository;
 
 use App\Models\Product;
 
-class digitalRepository implements IdigitalRepository {
+class DigitalRepository implements IDigitalRepository {
 
     public function digitalShowAllProduct()
     {
