@@ -38,7 +38,7 @@ class ComnetController extends Controller
 
     public function comnetDeleteProduct($id) {
         $this->comnet->comnetDeleteProduct($id);
-      return redirect()->back();
+      return redirect('/comnet');
     }
 
      public function create()
@@ -75,7 +75,7 @@ if ($image = $request->file('picture')) {
 
 $this->comnet->createProduct($data);
 
-return redirect()->back();
+return redirect('/comnet');
 
 
     }
@@ -113,7 +113,7 @@ if ($image = $request->file('picture')) {
 
         $this->comnet->updateProduct($id, $data);
 
-      return redirect()->back();
+    return redirect('/comnet');
 
     }    
 
