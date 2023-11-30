@@ -35,8 +35,8 @@
         </div>
 
         <div class="mb-3">
-            <label for="image_link" class="form-label">Choose Picture</label>
-            <input class="form-control" type="file" name="image_link" id="image_link">
+            <label for="picture" class="form-label">Choose Picture</label>
+            <input class="form-control" type="file" name="picture" id="picture">
           </div>
 
         <div class="mb-3">
