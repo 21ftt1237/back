@@ -1429,13 +1429,6 @@ function ReviewContentContainer(name, createdAt, review) {
                                 </div>
                             </div>
 
-                                                        <div>
-                                    <img src="images/{{ $product->image_link }}" alt="{{ $product->name }}">
-                                    <p>{{ $product->name }}</p>
-                                    <p>{{ $product->price }}</p>
-                                    <p>{{ $product->description }}</p>
-                                </div>
-                        
                         @endif
                         @endforeach
                     </div>
