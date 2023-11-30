@@ -89,16 +89,12 @@ Route::post('/simanja/store', [SimanjaController::class, 'store'])->name('simanj
 
 
 
-
- Route::delete('/comnet/delete/{id}', [OwnerController::class, 'ownerDeleteProduct'])->name('owner.comnet.delete');
-
 //OWNER RELATED
-Route::prefix('owner')->middleware([])->group(function () {    
-    Route::get('/products', [ComnetController::class, 'comnetShowAllProduct'])->name('owner.comnet.comnet');
-    Route::get('/products/create', [ComnetController::class, 'create'])->name('comnet.create');
-  //  Route::post('/products/store', [ComnetController::class, 'store'])->name('comnet.store');
-    Route::delete('/products/delete/{id}', [ComnetController::class, 'comnetDeleteProduct'])->name('owner.product.delete');
+ Route::prefix('owner')->middleware([])->group(function () {    
+    Route::get('/comnet', [OComnetController::class, 'ocomnetShowAllProduct'])->name('owner.comnet');
+    Route::delete('/comnet/delete/{id}', [AdminController::class, 'ocomnetDeleteProduct'])->name('owner.comnet.delete');
 });
+
 
 
 
