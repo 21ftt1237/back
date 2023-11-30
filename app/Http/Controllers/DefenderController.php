@@ -63,7 +63,7 @@ if ($image = $request->file('picture')) {
     $data['image_link'] = '/images/' . $name;
 }
 
-$this->comnet->createProduct($data);
+$this->defender->createProduct($data);
 
 return redirect('/defender');
 
