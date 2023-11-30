@@ -1,13 +1,11 @@
 <?php
 namespace App\Repository;
 
-interface IComnetRepository {
+interface IRoute66Repository {
 
-    public function comnetShowAllProduct();
+    public function route66ShowAllProduct();
 
-    public function indexComnet();
-
-    public function comnetDeleteProduct($id);
+    public function route66DeleteProduct($id);
 
     public function getNewlyAddedProducts();
 
