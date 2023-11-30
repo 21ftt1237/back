@@ -82,7 +82,7 @@ class ComnetController extends Controller
 
 //        $this->product->createProduct($data);
 
-        return redirect('/comnet/comnet');
+        return redirect('/products');
 
     }
 
