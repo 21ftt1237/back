@@ -432,7 +432,7 @@ table {
 <!--TAB store owner: -->
 <div id="store-list" style="display: none;">
     <ul>
-        <li><a href="{{ route('comnet.index') }}">Netcom</a></li>
+        <li><a href="{{ route('comnet.comnet') }}">Netcom</a></li>
         <li><a href="{{ route('gameside.gameside') }}">Game Central</a></li>
         <li><a href="{{ route('store.indexWishlist') }}">Wishlist</a></li>
         <li><a href="{{ route('store.indexDigital') }}">Digital</a></li>
