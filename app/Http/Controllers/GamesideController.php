@@ -26,7 +26,7 @@ class ComnetController extends Controller
 
     public function gamesideDeleteProduct($id) {
         $this->gameside->gamesideDeleteProduct($id);
-        return redirect('/products');
+        return redirect('/gameside');
     }
 
      public function create()
