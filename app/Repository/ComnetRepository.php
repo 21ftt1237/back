@@ -49,7 +49,7 @@ class ComnetRepository implements IComnetRepository {
        Product::find($id)->update([
             'picture' => $data['image_link'],  
             'store_id' => $data['store_id'],                     
-            'title' => $data['name'],
+            'name' => $data['name'],
             'price' => $data['price'],
             'description' => $data['description']
         ]);
