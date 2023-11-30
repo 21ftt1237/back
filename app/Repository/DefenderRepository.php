@@ -11,10 +11,6 @@ class DefenderRepository implements IDefenderRepository {
         return Product::all();
     }
 
-        public function indexComnet()
-    {
-        return Product::all();
-    }
 
     public function defenderDeleteProduct($id)
     {
