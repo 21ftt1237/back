@@ -7,7 +7,7 @@
     <!-- Add your CSS links or styles here -->
 </head>
 <body>
-   <div class="container">
+ <div class="container">
     <h1>Order Details</h1>
 
     @if($orderDetails)
@@ -22,7 +22,9 @@
 
         @if($orderDetails->product)
             <p>Product: {{ $orderDetails->product->name }}</p>
+            <p>Price: ${{ $orderDetails->product->price }}</p>
             <p>Quantity: {{ $orderDetails->quantity }}</p>
+            <p>Total Price: ${{ $orderDetails->total_price }}</p>
             <!-- Add more product details as needed -->
         @endif
 
