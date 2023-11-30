@@ -75,7 +75,7 @@ if ($image = $request->file('picture')) {
 
 $this->comnet->createProduct($data);
 
-return redirect('/products');
+return redirect('/comnet');
 
 
     }
