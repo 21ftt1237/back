@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class DefenderController extends Controller
 {
 
-    public $comnet;
+    public $defender;
 
     public function __construct(IDefenederRepository $defender)
     {
