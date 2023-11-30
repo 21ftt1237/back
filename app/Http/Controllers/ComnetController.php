@@ -63,8 +63,7 @@ class ComnetController extends Controller
         ]);
 
         //image upload
-
-$data['description'] = $request->input('description');       
+    
 $data = $request->all();
 
 if ($image = $request->file('picture')) {
