@@ -33,5 +33,6 @@ class OComnetController extends Controller
         $product = $this->ocomnet->getProductById($id);
 
         return view('comnet.edit', compact('product'));
+    }
 
 }
