@@ -9,6 +9,7 @@
 
     <form action="{{ route('comnet.update', $product->id) }}" enctype="multipart/form-data" method="POST">
         @csrf
+        <input type="hidden" name="_method" value="PUT">
 
 
         <div class="mb-3">
