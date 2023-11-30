@@ -9,6 +9,7 @@
 
     <form action="{{ route('comnet.update', $product->id) }}" enctype="multipart/form-data" method="POST">
         @csrf
+        @method('PUT')
 
         <div class="mb-3">
             <label for="picture" class="form-label">Choose Picture</label>
