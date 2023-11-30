@@ -11,7 +11,7 @@ class SimanjaController extends Controller
 
     public $simanja;
 
-    public function __construct(ISimanjaRepository $comnet)
+    public function __construct(ISimanjaRepository $simanja)
     {
         $this->simanja = $simanja;
         $this->middleware('auth')->except(['create']);
