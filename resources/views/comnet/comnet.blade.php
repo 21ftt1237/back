@@ -1357,36 +1357,7 @@ function ReviewContentContainer(name, createdAt, review) {
       </div>
       <div class="section2">
         <div class="container">
-         <!--  <div class="items">
-            <div class="img img1"><img src="asusLaptop.jpg" alt=""></div>
-            <div class="name">Laptop</div>
-            <div class="price">$2,398.00</div>
-            <div class="info">Lorem ipsum dolor sit amet consectetur.</div>
-          </div>
-          <div class="items">
-            <div class="img img2"><img src="acerNitroMonitor.jpg" alt=""></div>
-            <div class="name">Monitor</div>
-            <div class="price">$168.00</div>
-            <div class="info">Lorem ipsum dolor sit.</div>
-          </div>
-          <div class="items">
-            <div class="img img3"><img src="razerMouse.jpg" alt=""></div>
-            <div class="name">Mouse</div>
-            <div class="price">$108.00</div>
-            <div class="info">Lorem ipsum dolor sit amet.</div>
-          </div>
-          <div class="items">
-            <div class="img img1"><img src="canonPrinter.jpg" alt=""></div>
-            <div class="name">Printer</div>
-            <div class="price">$146.00</div>
-            <div class="info">Lorem ipsum dolor sit.</div>
-          </div>
-          <div class="items">
-            <div class="img img1"><img src="havitSpeaker.jpg" alt=""></div>
-            <div class="name">Speaker</div>
-            <div class="price">$29.00</div>
-            <div class="info">Lorem ipsum dolor sit.</div>
-          </div> -->
+
           
            <div class="containerPage">
                     <div class="list">           
@@ -1394,7 +1365,7 @@ function ReviewContentContainer(name, createdAt, review) {
                          @if ($product->store_id == 1)
                             <div class="item">
                                 <div class="img">
-                                    <img src="{{ asset('storage/' . $product->image_link) }}" alt="{{ $product->name }}">
+                                    <img src="{{ asset('image/' . $product->image_link) }}" alt="{{ $product->name }}">
                                 </div>
                                 <div class="name">{{ $product->name }}</div>
                                 <div class="price">$ {{ $product->price }}</div>
