@@ -80,6 +80,43 @@ return redirect('/comnet');
 
     }
 
+
+    public function edit($id)
+    {
+        $product = $this->product->editProduct($id);
+        return view('product.edit')->with('product', $product);
+    }
+
+
+    public function update(Request $request, $id)
+    {
+
+        // validate and store data
+        $request->validate([
+            'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'store_id' => 'required',
+            'name' => 'required',
+            'price' => 'required',
+            'description' => 'required'
+        ]);
+
+        //image upload
+
+        $data = $request->all();
+
+if ($image = $request->file('picture')) {
+    $name = time() . '.' . $image->getClientOriginalName();
+    //$path = $image->storeAs('public/images', $name);
+     $image->move(public_path('images'), $name);
+    $data['image_link'] = '/images/' . $name;
+        }
+
+        $this->comnet->updateProduct($id, $data);
+
+        return redirect('/comnet');
+
+    }    
+
     public function index()
 {
     $products = Product::all();
