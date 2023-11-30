@@ -3,49 +3,40 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Repository\IComnetRepository;
+use App\Repository\IDigitalRepository;
 use Illuminate\Http\Request;
 
-class ComnetController extends Controller
+class DigitalController extends Controller
 {
 
-    public $comnet;
+    public $digital;
 
-    public function __construct(IComnetRepository $comnet)
+    public function __construct(IDigitalRepository $comnet)
     {
-        $this->comnet = $comnet;
+        $this->digital = $digital;
         $this->middleware('auth')->except(['create']);
     }
 
 
 
-        public function indexComnet()
-    {
-        // return all products
 
-        $products =  $this->comnet->comnetShowAllProduct();
 
-        return view('comnet.comnet')->with('products', $products);
-
+    public function digitalShowAllProduct() {
+        $products =  $this->digital->digitalShowAllProduct();
+        return view('digital.digital')->with('products', $products);
     }
 
 
-    public function comnetShowAllProduct() {
-        $products =  $this->comnet->comnetShowAllProduct();
-        return view('comnet.comnet')->with('products', $products);
-    }
-
-
-    public function comnetDeleteProduct($id) {
-        $this->comnet->comnetDeleteProduct($id);
-        return redirect('/products');
+    public function digitalDeleteProduct($id) {
+        $this->digital->digitalDeleteProduct($id);
+        return redirect('/digital');
     }
 
      public function create()
     {
         
         // create page
-        return view('comnet.create');
+        return view('digital.create');
 
         
     }
@@ -75,7 +66,7 @@ if ($image = $request->file('picture')) {
 
 $this->comnet->createProduct($data);
 
-return redirect('/products');
+return redirect('/digital');
 
 
     }
