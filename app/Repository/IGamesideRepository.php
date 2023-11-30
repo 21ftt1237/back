@@ -1,13 +1,11 @@
 <?php
 namespace App\Repository;
 
-interface IComnetRepository {
+interface IGamesideRepository {
 
-    public function comnetShowAllProduct();
+    public function gamesideShowAllProduct();
 
-    public function indexComnet();
-
-    public function comnetDeleteProduct($id);
+    public function gamesideDeleteProduct($id);
 
     public function getNewlyAddedProducts();
 
