@@ -99,7 +99,8 @@ return redirect('owner/comnet');
             'price' => 'required',
             'description' => 'required'
         ]);
-
+// Add this line for debugging
+dd('Validation Passed');
         //image upload
 
         $data = $request->all();
