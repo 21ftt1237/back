@@ -250,10 +250,10 @@ public function sendOrderEmail($userEmail, $orderDetails)
 
 public function showAdminOrderDetails($created_at)
 {
-    // Fetch all orders with the provided creation timestamp
-   $orders = Order::with('user', 'product', 'orderList')
-    ->where('created_at', $created_at)
-    ->get();
+    // Fetch orders from orders_list table with related data from Order and User models
+    $orders = OrderList::with('order', 'user')
+        ->where('created_at', $created_at)
+        ->get();
 
     if ($orders->isEmpty()) {
         // Handle no orders found, e.g., redirect or show an error message
