@@ -67,6 +67,8 @@ Auth::routes(['verify' => true, 'name' => 'auth.', 'password.reset' => 'password
 Route::get('/comnet', [ComnetController::class, 'indexComnet'])->name('comnet.comnet');
 Route::get('/comnet/create', [ComnetController::class, 'create'])->name('comnet.create');
 Route::post('/comnet/store', [ComnetController::class, 'store'])->name('comnet.store');
+  Route::get('/comnet/edit/{id}', [ComnetController::class, 'edit'])->name('comnet.edit');
+  Route::post('/comnet/update/{id}', [ComnetController::class, 'update'])->name('comnet.update');
 
 
 Route::get('/defender', [DefenderController::class, 'defenderShowAllProduct'])->name('defender.defender');
@@ -98,8 +100,6 @@ Route::post('/simanja/store', [SimanjaController::class, 'store'])->name('simanj
 });
 
 
-  Route::get('/comnet/edit/{id}', [ComnetController::class, 'edit'])->name('comnet.edit');
-  Route::get('/comnet/update/{id}', [ComnetController::class, 'update'])->name('comnet.update');
 
 
 //oute::get('/products/{id}', [ProductController::class, 'show'])->name('product.show');
