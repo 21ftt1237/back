@@ -33,11 +33,18 @@
         <h1>Order Details</h1>
 
         @forelse($orders as $orderDetails)
+            @if($orderDetails->user)
+                <p><strong>Customer Name:</strong> {{ $orderDetails->user->name }}</p>
+            @else
+                <p><strong>Customer Name:</strong> N/A</p>
+            @endif
+
+            <p><strong>Order List ID:</strong> {{ $orderDetails->id }}</p>
+
             <table>
                 <tr>
                     <th>Order ID</th>
                     <th>Order Date</th>
-                    <th>Customer Name</th>
                     <th>Product</th>
                     <th>Price</th>
                     <th>Quantity</th>
@@ -46,11 +53,6 @@
                 <tr>
                     <td>{{ $orderDetails->id }}</td>
                     <td>{{ $orderDetails->created_at->format('Y-m-d H:i:s') }}</td>
-                    @if($orderDetails->user)
-                        <td>{{ $orderDetails->user->name }}</td>
-                    @else
-                        <td>N/A</td>
-                    @endif
                     @if($orderDetails->product)
                         <td>{{ $orderDetails->product->name }}</td>
                         <td>${{ number_format($orderDetails->product->price, 2) }}</td>
