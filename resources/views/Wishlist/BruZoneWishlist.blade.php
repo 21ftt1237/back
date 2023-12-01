@@ -545,7 +545,7 @@ body {
           <ul>
       @foreach ($wishlistItems as $wishlistItem)
     <li class="wishlist-item">
-        <img src="image/{{ $wishlistItem->product->image_link }}">
+        <img src="{{ $wishlistItem->product->image_link }}">
         <div class="item-details">
             <div class="item-name">{{ $wishlistItem->product->name }}</div>
             <div class="item-price">BND {{ $wishlistItem->product->price }}</div>
