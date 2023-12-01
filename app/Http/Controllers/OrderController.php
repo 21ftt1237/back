@@ -250,8 +250,8 @@ public function sendOrderEmail($userEmail, $orderDetails)
 
 public function showAdminOrderDetails($created_at)
 {
-    // Fetch orders from orders_list table with related data from Order and User models
-    $orders = OrderList::with('order', 'user')
+    // Fetch all orders with the provided creation timestamp
+    $orders = Order::with('user', 'product')
         ->where('created_at', $created_at)
         ->get();
 
