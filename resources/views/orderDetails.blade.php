@@ -39,8 +39,6 @@
                 <p><strong>Customer Name:</strong> N/A</p>
             @endif
 
-           <p><strong>Order List ID:</strong> {{ $orderDetails->orderList->id }}</p>
-
             <table>
                 <tr>
                     <th>Order ID</th>
