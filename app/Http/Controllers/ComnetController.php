@@ -88,7 +88,7 @@ return redirect('owner/comnet');
     }
 
 
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
 
         // validate and store data
