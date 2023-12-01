@@ -32,7 +32,7 @@ class AdminController extends Controller
     {
         $product = Product::find($id);
 
-        return view('admin.edit', compact('product'));
+        return view('comnet.edit', compact('product'));
     }
     public function index()
     {
