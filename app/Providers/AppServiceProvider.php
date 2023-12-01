@@ -19,6 +19,8 @@ use App\Repository\ISimanjaRepository;
 use App\Repository\SimanjaRepository;
 use App\Repository\IOComnetRepository;
 use App\Repository\OComnetRepository;
+use App\Repository\IAdminRepository;
+use App\Repository\AdminRepository;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -40,6 +42,7 @@ class AppServiceProvider extends ServiceProvider
 
 
         $this->app->bind(IOComnetRepository::class, OComnetRepository::class);
+        $this->app->bind(IAdminRepository::class, AdminRepository::class);
 
     }
     /**
