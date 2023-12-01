@@ -36,37 +36,30 @@
             <table>
                 <tr>
                     <th>Order ID</th>
-                    <td>{{ $orderDetails->id }}</td>
+                    <th>Order Date</th>
+                    <th>Customer Name</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <!-- Add more headers as needed -->
                 </tr>
                 <tr>
-                    <th>Order Date</th>
+                    <td>{{ $orderDetails->id }}</td>
                     <td>{{ $orderDetails->created_at->format('Y-m-d H:i:s') }}</td>
-                </tr>
-                <!-- Add more details as needed -->
-
-                <!-- Display user and product details -->
-                @if($orderDetails->user)
-                    <tr>
-                        <th>Customer Name</th>
+                    @if($orderDetails->user)
                         <td>{{ $orderDetails->user->name }}</td>
-                    </tr>
-                @endif
-
-                @if($orderDetails->product)
-                    <tr>
-                        <th>Product</th>
+                    @else
+                        <td>N/A</td>
+                    @endif
+                    @if($orderDetails->product)
                         <td>{{ $orderDetails->product->name }}</td>
-                    </tr>
-                    <tr>
-                        <th>Price</th>
                         <td>${{ number_format($orderDetails->product->price, 2) }}</td>
-                    </tr>
-                    <tr>
-                        <th>Quantity</th>
                         <td>{{ $orderDetails->quantity }}</td>
-                    </tr>
-                    <!-- Add more product details as needed -->
-                @endif
+                        <!-- Add more data cells as needed -->
+                    @else
+                        <td colspan="3">N/A</td>
+                    @endif
+                </tr>
             </table>
         @empty
             <p>No orders found.</p>
