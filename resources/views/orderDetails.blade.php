@@ -10,28 +10,29 @@
  <div class="container">
     <h1>Order Details</h1>
 
-    @if($orderDetails)
-        <p>Order ID: {{ $orderDetails->id }}</p>
-        <p>Order Date: {{ $orderDetails->created_at }}</p>
-        <!-- Add more details as needed -->
+    @forelse($orders as $orderDetails)
+        <div class="order">
+            <p>Order ID: {{ $orderDetails->id }}</p>
+            <p>Order Date: {{ $orderDetails->created_at }}</p>
+            <!-- Add more details as needed -->
 
-        <!-- Display user and product details -->
-        @if($orderDetails->user)
-            <p>Customer Name: {{ $orderDetails->user->name }}</p>
-        @endif
+            <!-- Display user and product details -->
+            @if($orderDetails->user)
+                <p>Customer Name: {{ $orderDetails->user->name }}</p>
+            @endif
 
-        @if($orderDetails->product)
-            <p>Product: {{ $orderDetails->product->name }}</p>
-            <p>Price: ${{ $orderDetails->product->price }}</p>
-            <p>Quantity: {{ $orderDetails->quantity }}</p>
-            <p>Total Price: ${{ $orderDetails->total_price }}</p>
-            <!-- Add more product details as needed -->
-        @endif
-
-    @else
-        <p>Order not found.</p>
-    @endif
+            @if($orderDetails->product)
+                <p>Product: {{ $orderDetails->product->name }}</p>
+                <p>Price: ${{ $orderDetails->product->price }}</p>
+                <p>Quantity: {{ $orderDetails->quantity }}</p>
+                <!-- Add more product details as needed -->
+            @endif
+        </div>
+    @empty
+        <p>No orders found.</p>
+    @endforelse
 </div>
+
 
 
     <!-- Add your JavaScript links or scripts here -->
