@@ -117,6 +117,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/Dashboard-adm', [AdminDashboardController::class, 'index'])
         ->name('dashboard.admin');
 
+ Route::get('/admin/products', [AdminController::class, 'adminShowAllProduct'])->name('admin.products');
+    Route::delete('admin/products/delete/{id}', [AdminController::class, 'adminDeleteProduct'])->name('admin.product.delete');
+    
     Route::get('/Dashboard-adm/store-list', [StoreController::class, 'storeList']) 
         ->name('store.list');
 
