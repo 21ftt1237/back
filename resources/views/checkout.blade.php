@@ -416,7 +416,7 @@ input[type='password']:focus {
                 @endphp
                 <li>
                     <div class="top">
-                    <img src="image/{{ $cartItem->product->image_link }}">
+                    <img src="{{ $cartItem->product->image_link }}">
                    
                         <div class="item-name">{{ $cartItem->product->name }}</div>
                         <div class="item-price">BND {{ $productPrice }}</div>
@@ -458,7 +458,7 @@ input[type='password']:focus {
                 @endphp
                 <li>
                     <div class="top">
-                    <img src="image/{{ $cartItem->product->image_link }}">
+                    <img src="{{ $cartItem->product->image_link }}">
                    
                         <div class="item-name">{{ $cartItem->product->name }}</div>
                         <div class="item-price">BND {{ $productPrice }}</div>
