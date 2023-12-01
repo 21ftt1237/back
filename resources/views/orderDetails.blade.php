@@ -32,9 +32,9 @@
     <div class="container">
         <h1>Order Details</h1>
 
-        @forelse($orders as $orderDetails)
-            @if($orderDetails->user)
-                <p><strong>Customer Name:</strong> {{ $orderDetails->user->name }}</p>
+        @if($orders->isNotEmpty())
+            @if($orders->first()->user)
+                <p><strong>Customer Name:</strong> {{ $orders->first()->user->name }}</p>
             @else
                 <p><strong>Customer Name:</strong> N/A</p>
             @endif
@@ -48,24 +48,27 @@
                     <th>Quantity</th>
                     <!-- Add more headers as needed -->
                 </tr>
-                <tr>
-                    <td>{{ $orderDetails->id }}</td>
-                    <td>{{ $orderDetails->created_at->format('Y-m-d H:i:s') }}</td>
-                    @if($orderDetails->product)
-                        <td>{{ $orderDetails->product->name }}</td>
-                        <td>${{ number_format($orderDetails->product->price, 2) }}</td>
-                        <td>{{ $orderDetails->quantity }}</td>
-                        <!-- Add more data cells as needed -->
-                    @else
-                        <td colspan="3">N/A</td>
-                    @endif
-                </tr>
+                @foreach($orders as $orderDetails)
+                    <tr>
+                        <td>{{ $orderDetails->id }}</td>
+                        <td>{{ $orderDetails->created_at->format('Y-m-d H:i:s') }}</td>
+                        @if($orderDetails->product)
+                            <td>{{ $orderDetails->product->name }}</td>
+                            <td>${{ number_format($orderDetails->product->price, 2) }}</td>
+                            <td>{{ $orderDetails->quantity }}</td>
+                            <!-- Add more data cells as needed -->
+                        @else
+                            <td colspan="3">N/A</td>
+                        @endif
+                    </tr>
+                @endforeach
             </table>
-        @empty
+        @else
             <p>No orders found.</p>
-        @endforelse
+        @endif
     </div>
 
     <!-- Add your JavaScript links or scripts here -->
 </body>
 </html>
+
