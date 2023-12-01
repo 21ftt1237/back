@@ -74,7 +74,7 @@
             @foreach($stores as $store)
                 <tr>
                    <td>{{ $store->id }}</td>
-                   <td><a href="{{ route('store.show', $store->id) }}">{{ $store->name }}</a></td>
+                   <td><a href="{{ route('dashboard.admin.stores', $store->id) }}">{{ $store->name }}</a></td>
 
                 </tr>
             @endforeach
