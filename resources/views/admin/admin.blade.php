@@ -26,8 +26,8 @@
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->price }}</td>
                                 <td>{{ $product->description }}</td>
-                                <td><a href="{{ route('admin.edit', $product->id)}}" class="btn btn-primary">Edit</a></td>
-                                <td><a href="{{ route('admin.create')}}" class="btn btn-info">Create</a></td>
+                                <td><a href="{{ route('comnet.edit', $product->id)}}" class="btn btn-primary">Edit</a></td>
+                                <td><a href="{{ route('comnet.create')}}" class="btn btn-info">Create</a></td>
                                 <td>
                                     <form action="{{ route('admin.product.delete', $product->id)}}" method="POST">
                                         @csrf
