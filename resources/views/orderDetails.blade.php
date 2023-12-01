@@ -39,7 +39,7 @@
                 <p><strong>Customer Name:</strong> N/A</p>
             @endif
 
-            <p><strong>Order List ID:</strong> {{ $orderDetails->id }}</p>
+           <p><strong>Order List ID:</strong> {{ $orderDetails->orderList->id }}</p>
 
             <table>
                 <tr>
