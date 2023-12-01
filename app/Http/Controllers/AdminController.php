@@ -7,6 +7,32 @@ use App\Models\User;
 
 class AdminController extends Controller
 {
+
+     public $admin;
+
+    public function __construct(IAdminRepository $admin)
+    {
+        $this->admin = $admin;
+    }
+
+
+    public function adminShowAllProduct() {
+        $products =  $this->admin->adminShowAllProduct();
+        return view('admin.admin')->with('products', $products);
+    }
+
+
+    public function adminDeleteProduct($id) {
+        $this->admin->adminDeleteProduct($id);
+        return redirect('admin/products');
+    }
+
+    public function edit($id)
+    {
+        $product = Product::find($id);
+
+        return view('admin.edit', compact('product'));
+    }
     public function index()
     {
         $admins = User::where('role_id', 1)->get(); 
