@@ -250,27 +250,20 @@ public function sendOrderEmail($userEmail, $orderDetails)
 
 public function showAdminOrderDetails($created_at)
 {
-    // Listen for database queries and log them
-    DB::listen(function ($query) {
-        \Log::info('Query: '.$query->sql.' | Bindings: '.json_encode($query->bindings));
-    });
-
-    // Fetch order details based on the created_at parameter
-    $orderDetails = Order::with('user', 'product')
+    // Fetch all orders with the provided creation timestamp
+    $orders = Order::with('user', 'product')
         ->where('created_at', $created_at)
-        ->first();
+        ->get();
 
-    if (!$orderDetails) {
-        // Handle order not found, e.g., redirect or show an error message
-        return redirect()->route('admin.orders.index')->with('error', 'Order not found.');
+    if ($orders->isEmpty()) {
+        // Handle no orders found, e.g., redirect or show an error message
+        return redirect()->route('AdminOrder')->with('error', 'No orders found.');
     }
 
-    // Pass order, user, and product details to the view
+    // Pass orders, user, product details to the view
     return view('orderDetails', [
-        'orderDetails' => $orderDetails,
+        'orders' => $orders,
     ]);
-\Log::info('User Details: '.json_encode($orderDetails->user));
-\Log::info('Product Details: '.json_encode($orderDetails->product));
 }
 
 
