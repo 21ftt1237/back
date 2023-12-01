@@ -451,7 +451,7 @@ header .shopping img{
             Host : "smtp.elasticemail.com",
             Username : "info@domain.com",
             Password : "8BDBCCE722F4D1FE27FE0A4E963416C82F49",
-            To : 'bruzonedept@gmail.com',
+            To : 'bruzonestore@gmail.com',
             From : document.getElementById("email").value,
             Subject : "New Contact Form Enquiry",
             Body : "<b>Subject: </b> " + document.getElementById("subject").value
