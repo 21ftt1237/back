@@ -326,7 +326,7 @@ ul li .active .uil{
         <tbody>
             @foreach ($orderDetails as $orderDetail)
                 <tr>
-                    <td><img src="/image/{{ $orderDetail->product->image_link }}" alt="{{ $orderDetail->product->name }}" class="prodimg"></td>
+                    <td><img src="{{ $orderDetail->product->image_link }}" alt="{{ $orderDetail->product->name }}" class="prodimg"></td>
                     <td>{{ $orderDetail->product->name }}</td>                    
                     <td>${{ $orderDetail->product->price }}</td>
                     <td>{{ $orderDetail->quantity }}</td>
