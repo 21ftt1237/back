@@ -319,7 +319,7 @@ header a ion-icon {
 <header>
 <div class="admin-landing-page">
     <div class="navbar">
-        <div class="logo" id="storeName" data-value="7"><a href="{{ url('admin/adminDashboard') }}">Bruzone</a></div>
+        <div class="logo" id="storeName" data-value="7"><a href="/">Bruzone</a></div>
         <!--<button class="view-button" onclick="togglePopup2()">ORDERS</button>-->
         <div class="view-button">
          <a href="{{ route('AdminOrder') }}" class="orderbtn">ORDERS</a>
